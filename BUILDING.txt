@@ -1,0 +1,42 @@
+=== Building Aurora ===
+
+=== Building on Windows ===
+
+Steps:
+ * runprebuild.bat
+
+=== If you have Visual Studio .NET ===
+
+ * Load Aurora.sln into Visual Studio .NET and build the solution.
+
+=== If you do not have Visual Studio .NET ===
+
+ * run compile.bat
+
+=== Both ===
+
+ * chdir bin 
+ * run Aurora.exe
+
+=== Building on Linux ===
+
+Prereqs:
+ * Mono >= 2.4.3
+ * XBuild
+ * On some Linux distributions you may need to install additional packages.  
+    See http://opensimulator.org/wiki/Dependencies for more information.
+
+From the distribution type:
+ * ./runprebuild.sh
+ * xbuild Aurora.sln
+ * cd bin 
+=== If your Mono version >= 2.8 ===
+ * run mono Aurora.exe --gc=sgen
+=== If your Mono version < 2.8 ===
+ * run mono Aurora.exe
+
+=== References ===
+ 
+Helpful resources:
+* http://opensimulator.org/wiki/Build_Instructions
+

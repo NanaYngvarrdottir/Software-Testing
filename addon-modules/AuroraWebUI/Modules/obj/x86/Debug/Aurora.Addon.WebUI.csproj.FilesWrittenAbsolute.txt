@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/Aurora.Addon.WebUI.dll.mdb
+/Software/Aurora-Sim/bin/Aurora.Addon.WebUI.dll
+/Software/Aurora-Sim/addon-modules/AuroraWebUI/Modules/obj/x86/Debug/Aurora.Addon.WebUI.dll
+/Software/Aurora-Sim/addon-modules/AuroraWebUI/Modules/obj/x86/Debug/Aurora.Addon.WebUI.dll.mdb

@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/Aurora.BotManager.dll.mdb
+/Software/Aurora-Sim/bin/Aurora.BotManager.dll
+/Software/Aurora-Sim/Aurora/BotManager/obj/x86/Debug/Aurora.BotManager.dll
+/Software/Aurora-Sim/Aurora/BotManager/obj/x86/Debug/Aurora.BotManager.dll.mdb

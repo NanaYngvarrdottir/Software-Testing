@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/OpenSim.Region.Framework.dll.mdb
+/Software/Aurora-Sim/bin/OpenSim.Region.Framework.dll
+/Software/Aurora-Sim/OpenSim/Region/Framework/obj/x86/Debug/OpenSim.Region.Framework.dll
+/Software/Aurora-Sim/OpenSim/Region/Framework/obj/x86/Debug/OpenSim.Region.Framework.dll.mdb

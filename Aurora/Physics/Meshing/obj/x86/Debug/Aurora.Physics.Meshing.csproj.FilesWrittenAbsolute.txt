@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/Physics/Aurora.Physics.Meshing.dll.mdb
+/Software/Aurora-Sim/bin/Physics/Aurora.Physics.Meshing.dll
+/Software/Aurora-Sim/Aurora/Physics/Meshing/obj/x86/Debug/Aurora.Physics.Meshing.dll
+/Software/Aurora-Sim/Aurora/Physics/Meshing/obj/x86/Debug/Aurora.Physics.Meshing.dll.mdb

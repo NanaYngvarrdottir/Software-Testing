@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/SmartThreadPool.dll.mdb
+/Software/Aurora-Sim/bin/SmartThreadPool.dll
+/Software/Aurora-Sim/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll
+/Software/Aurora-Sim/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll.mdb
