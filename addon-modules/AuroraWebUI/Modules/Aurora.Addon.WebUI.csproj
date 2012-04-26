@@ -143,11 +143,6 @@
 	  <PlatformTarget>x86</PlatformTarget>
 	</PropertyGroup>
 	<ItemGroup>
-	  <Reference Include="C5" >
-		  <Name>C5</Name>
-		<HintPath>../../../bin/C5.dll</HintPath>
-		<Private>False</Private>
-	  </Reference>
 	  <Reference Include="DotNetOpenId" >
 		  <Name>DotNetOpenId</Name>
 		<HintPath>../../../bin/DotNetOpenId.dll</HintPath>
