@@ -37,7 +37,7 @@ namespace Aurora.Modules.Weather
         private Dictionary<Scene, WeatherInRegion> Scenes = new Dictionary<Scene, WeatherInRegion>();
         private WeatherType CurrentWeather = WeatherType.Realistic;
         private bool Clouds = true;
-        private bool m_enabled = true;
+        private bool m_enabled = false;
         private bool m_paused = false;
         private IConfig m_config = null;
         #endregion

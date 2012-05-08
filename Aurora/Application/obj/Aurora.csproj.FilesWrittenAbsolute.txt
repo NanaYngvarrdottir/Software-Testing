@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/Aurora.exe.mdb
+/Software/Aurora-Sim/bin/Aurora.exe
+/Software/Aurora-Sim/Aurora/Application/obj/x86/Debug/Aurora.exe
+/Software/Aurora-Sim/Aurora/Application/obj/x86/Debug/Aurora.exe.mdb

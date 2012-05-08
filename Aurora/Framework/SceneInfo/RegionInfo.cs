@@ -124,7 +124,6 @@ namespace Aurora.Framework
             AllowScriptCrossing = true;
         }
 
-        private bool m_AllowPhysicalPrims = true;
         public bool AllowPhysicalPrims
         {
             get { return m_allowPhysicalPrims; }

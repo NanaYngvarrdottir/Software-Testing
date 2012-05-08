@@ -1,0 +1,5 @@
+/Software/Aurora-Sim/Aurora/DataManagerPlugins/MySQL/obj/x86/Debug/Aurora.DataManager.MySQL.Legacy.Resources.RegionStore.migrations
+/Software/Aurora-Sim/bin/Aurora.DataManager.MySQL.dll.mdb
+/Software/Aurora-Sim/bin/Aurora.DataManager.MySQL.dll
+/Software/Aurora-Sim/Aurora/DataManagerPlugins/MySQL/obj/x86/Debug/Aurora.DataManager.MySQL.dll
+/Software/Aurora-Sim/Aurora/DataManagerPlugins/MySQL/obj/x86/Debug/Aurora.DataManager.MySQL.dll.mdb

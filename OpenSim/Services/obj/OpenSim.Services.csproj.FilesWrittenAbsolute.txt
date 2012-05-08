@@ -1,0 +1,4 @@
+/Software/Aurora-Sim/bin/OpenSim.Services.dll.mdb
+/Software/Aurora-Sim/bin/OpenSim.Services.dll
+/Software/Aurora-Sim/OpenSim/Services/obj/x86/Debug/OpenSim.Services.dll
+/Software/Aurora-Sim/OpenSim/Services/obj/x86/Debug/OpenSim.Services.dll.mdb
