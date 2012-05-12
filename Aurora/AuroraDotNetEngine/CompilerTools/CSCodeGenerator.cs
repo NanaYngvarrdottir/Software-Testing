@@ -29,6 +29,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Tools;
+<<<<<<< HEAD
+=======
+using Aurora.ScriptEngineParser;
+>>>>>>> Aurora-Sim/master
 
 namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
 {
@@ -145,8 +149,12 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
         private readonly Dictionary<string, IScriptApi> m_apiFunctions = new Dictionary<string, IScriptApi>();
 
         private readonly Compiler m_compiler;
+<<<<<<< HEAD
         private readonly Random random = new Random();
 
+=======
+        
+>>>>>>> Aurora-Sim/master
         private bool FuncCntr;
         private bool IsParentEnumerable;
         private bool IsaGlobalVar;

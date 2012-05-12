@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
 * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
 * See CONTRIBUTORS.TXT for a full list of copyright holders.
 *
@@ -24,6 +25,33 @@
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+=======
+ * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * See CONTRIBUTORS.TXT for a full list of copyright holders.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Aurora-Sim Project nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE DEVELOPERS ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+>>>>>>> Aurora-Sim/master
 
 using System;
 using System.Collections.Generic;
@@ -506,7 +534,11 @@ namespace OpenSim.Region.Framework.Scenes
                 m_pos = actor.Position;
             else
             {
+<<<<<<< HEAD
                 //return m_pos;
+=======
+                //return m_pos; 
+>>>>>>> Aurora-Sim/master
                 // OpenSim Mantis #4063. Obtain the correct position of a seated avatar. In addition
                 // to providing the correct position while the avatar is seated, this value will also
                 // be used as the location to unsit to.
@@ -588,7 +620,11 @@ namespace OpenSim.Region.Framework.Scenes
 
         /// <summary>
         /// If this is true, agent doesn't have a representation in this scene.
+<<<<<<< HEAD
         /// this is an agent 'looking into' this scene from a nearby scene(region)
+=======
+        ///    this is an agent 'looking into' this scene from a nearby scene(region)
+>>>>>>> Aurora-Sim/master
         ///
         /// if False, this agent has a representation in this scene
         /// </summary>
@@ -597,8 +633,13 @@ namespace OpenSim.Region.Framework.Scenes
         public bool IsChildAgent
         {
             get { return m_isChildAgent; }
+<<<<<<< HEAD
             set
             {
+=======
+            set 
+            { 
+>>>>>>> Aurora-Sim/master
                 m_isChildAgent = value;
             }
         }
@@ -644,13 +685,21 @@ namespace OpenSim.Region.Framework.Scenes
 
         public float SpeedModifier
         {
+<<<<<<< HEAD
             get
+=======
+            get 
+>>>>>>> Aurora-Sim/master
             {
                 if(PhysicsActor != null)
                     return PhysicsActor.SpeedModifier;
                 return 1;
             }
+<<<<<<< HEAD
             set
+=======
+            set 
+>>>>>>> Aurora-Sim/master
             {
                 if(PhysicsActor != null)
                     PhysicsActor.SpeedModifier = value;
@@ -709,7 +758,11 @@ namespace OpenSim.Region.Framework.Scenes
             AbsolutePosition = posLastSignificantMove = m_CameraCenter = m_controllingClient.StartPos;
 
             // This won't send anything, as we are still a child here...
+<<<<<<< HEAD
             //Animator.TrySetMovementAnimation("STAND");
+=======
+            //Animator.TrySetMovementAnimation("STAND"); 
+>>>>>>> Aurora-Sim/master
 
             // we created a new ScenePresence (a new child agent) in a fresh region.
             // Request info about all the (root) agents in this region
@@ -824,8 +877,13 @@ namespace OpenSim.Region.Framework.Scenes
             m_savedVelocity = Vector3.Zero;
             SuccessfulTransit();
 
+<<<<<<< HEAD
             // Don't send an animation pack here, since on a region crossing this will sometimes cause a flying
             // avatar to return to the standing position in mid-air. On login it looks like this is being sent
+=======
+            // Don't send an animation pack here, since on a region crossing this will sometimes cause a flying 
+            // avatar to return to the standing position in mid-air.  On login it looks like this is being sent
+>>>>>>> Aurora-Sim/master
             // elsewhere anyway
             // Animator.SendAnimPack();
 
@@ -863,7 +921,11 @@ namespace OpenSim.Region.Framework.Scenes
         /// This turns a root agent into a child agent
         /// when an agent departs this region for a neighbor, this gets called.
         ///
+<<<<<<< HEAD
         /// It doesn't get called for a teleport. Reason being, an agent that
+=======
+        /// It doesn't get called for a teleport.  Reason being, an agent that
+>>>>>>> Aurora-Sim/master
         /// teleports out may not end up anywhere near this region
         /// </summary>
         public virtual void MakeChildAgent(GridRegion destination)
@@ -1048,7 +1110,11 @@ namespace OpenSim.Region.Framework.Scenes
         }
 
         /// <summary>
+<<<<<<< HEAD
         /// Callback for the Camera view block check. Gets called with the results of the camera view block test
+=======
+        /// Callback for the Camera view block check.  Gets called with the results of the camera view block test
+>>>>>>> Aurora-Sim/master
         /// hitYN is true when there's something in the way.
         /// </summary>
         /// <param name="hitYN"></param>
@@ -1092,7 +1158,11 @@ namespace OpenSim.Region.Framework.Scenes
 
             #region Sanity Checking
 
+<<<<<<< HEAD
             // This is irritating. Really.
+=======
+            // This is irritating.  Really.
+>>>>>>> Aurora-Sim/master
             if (!AbsolutePosition.IsFinite())
             {
                 OutOfBoundsCall(Vector3.Zero);
@@ -1117,7 +1187,11 @@ namespace OpenSim.Region.Framework.Scenes
                 Scene.AuroraEventManager.FireGenericEventHandler("SignficantCameraMovement", this);
             }
 
+<<<<<<< HEAD
             // Camera location in world. We'll need to raytrace
+=======
+            // Camera location in world.  We'll need to raytrace
+>>>>>>> Aurora-Sim/master
             // from this location from time to time.
             m_CameraCenter = agentData.CameraCenter;
 
@@ -1185,7 +1259,11 @@ namespace OpenSim.Region.Framework.Scenes
             
             bool update_movementflag = false;
             bool update_rotation = false;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
             if (AllowMovement && !SitGround && !Frozen)
             {
                 if (FallenStandUp)
@@ -1203,7 +1281,11 @@ namespace OpenSim.Region.Framework.Scenes
                 }
 
                 int i = 0;
+<<<<<<< HEAD
                 
+=======
+                
+>>>>>>> Aurora-Sim/master
                 bool DCFlagKeyPressed = false;
                 Vector3 agent_control_v3 = Vector3.Zero;
                 Quaternion q = bodyRotation;
@@ -1273,7 +1355,11 @@ namespace OpenSim.Region.Framework.Scenes
                                 {
                                     if (DCF == Dir_ControlFlags.DIR_CONTROL_FLAG_FORWARD_NUDGE || DCF == Dir_ControlFlags.DIR_CONTROL_FLAG_BACKWARD_NUDGE)
                                     {
+<<<<<<< HEAD
                                         // m_movementflag |= (byte)nudgehack;
+=======
+                                        //                                        m_movementflag |= (byte)nudgehack;
+>>>>>>> Aurora-Sim/master
                                         m_movementflag |= nudgehack;
                                     }
                                     m_movementflag += (uint)DCF;
@@ -1291,12 +1377,21 @@ namespace OpenSim.Region.Framework.Scenes
 
                                     update_movementflag = true;
                                     /*
+<<<<<<< HEAD
 if ((DCF == Dir_ControlFlags.DIR_CONTROL_FLAG_FORWARD_NUDGE || DCF == Dir_ControlFlags.DIR_CONTROL_FLAG_BACKWARD_NUDGE)
 && ((m_movementflag & (byte)nudgehack) == nudgehack))
 {
 MainConsole.Instance.Debug("Removed Hack flag");
 }
 */
+=======
+                                        if ((DCF == Dir_ControlFlags.DIR_CONTROL_FLAG_FORWARD_NUDGE || DCF == Dir_ControlFlags.DIR_CONTROL_FLAG_BACKWARD_NUDGE)
+                                        && ((m_movementflag & (byte)nudgehack) == nudgehack))
+                                        {
+                                            MainConsole.Instance.Debug("Removed Hack flag");
+                                        }
+                                    */
+>>>>>>> Aurora-Sim/master
                                 }
                                 else
                                 {
@@ -1332,12 +1427,20 @@ MainConsole.Instance.Debug("Removed Hack flag");
                             {
                                 // move avatar in 2D at one meter/second towards target, in avatar coordinate frame.
                                 // This movement vector gets added to the velocity through AddNewMovement().
+<<<<<<< HEAD
                                 // Theoretically we might need a more complex PID approach here if other
+=======
+                                // Theoretically we might need a more complex PID approach here if other 
+>>>>>>> Aurora-Sim/master
                                 // unknown forces are acting on the avatar and we need to adaptively respond
                                 // to such forces, but the following simple approach seems to works fine.
                             Vector3 LocalVectorToTarget3D=
                                                          (m_moveToPositionTarget - AbsolutePosition) // vector from cur. pos to target in global coords
+<<<<<<< HEAD
                                 // * Matrix4.CreateFromQuaternion(Quaternion.Inverse(bodyRotation)); // change to avatar coords
+=======
+                                //                                    * Matrix4.CreateFromQuaternion(Quaternion.Inverse(bodyRotation)); // change to avatar coords
+>>>>>>> Aurora-Sim/master
                                                         * Quaternion.Inverse(bodyRotation); // mult by matix is faster but with creation, use *quarternion
                                 // Ignore z component of vector
                                 Vector3 LocalVectorToTarget2D;
@@ -1349,6 +1452,7 @@ MainConsole.Instance.Debug("Removed Hack flag");
 
                                 // update avatar movement flags. the avatar coordinate system is as follows:
                                 //
+<<<<<<< HEAD
                                 // +X (forward)
                                 //
                                 // ^
@@ -1367,6 +1471,26 @@ MainConsole.Instance.Debug("Removed Hack flag");
                                 //
 
                                 // based on the above avatar coordinate system, classify the movement into
+=======
+                                //                        +X (forward)
+                                //
+                                //                        ^
+                                //                        |
+                                //                        |
+                                //                        |
+                                //                        |
+                                //     (left) +Y <--------o--------> -Y
+                                //                       avatar
+                                //                        |
+                                //                        |
+                                //                        |
+                                //                        |
+                                //                        v
+                                //                        -X
+                                //
+
+                                // based on the above avatar coordinate system, classify the movement into 
+>>>>>>> Aurora-Sim/master
                                 // one of left/right/back/forward.
                                 if (LocalVectorToTarget2D.Y > 0)//MoveLeft
                                 {
@@ -1420,7 +1544,11 @@ MainConsole.Instance.Debug("Removed Hack flag");
 
                     if (m_physicsActor.Flying && colliding && controlland)
                     {
+<<<<<<< HEAD
                         // nesting this check because LengthSquared() is expensive and we don't
+=======
+                        // nesting this check because LengthSquared() is expensive and we don't 
+>>>>>>> Aurora-Sim/master
                         // want to do it every step when flying.
                         // then call it in the if...
                         //The == Zero and Z > 0.1 are to stop people from flying and then falling down because the physics engine hasn't calculted the push yet
@@ -1436,9 +1564,15 @@ MainConsole.Instance.Debug("Removed Hack flag");
                 // which occurs later in the main scene loop
                 if (update_movementflag || (update_rotation && DCFlagKeyPressed))
                 {
+<<<<<<< HEAD
                     // MainConsole.Instance.DebugFormat("{0} {1}", update_movementflag, (update_rotation && DCFlagKeyPressed));
                     // MainConsole.Instance.DebugFormat(
                     // "In {0} adding velocity to {1} of {2}", m_scene.RegionInfo.RegionName, Name, agent_control_v3);
+=======
+                    //                    MainConsole.Instance.DebugFormat("{0} {1}", update_movementflag, (update_rotation && DCFlagKeyPressed));
+                    //                    MainConsole.Instance.DebugFormat(
+                    //                        "In {0} adding velocity to {1} of {2}", m_scene.RegionInfo.RegionName, Name, agent_control_v3);
+>>>>>>> Aurora-Sim/master
 
                     AddNewMovement(agent_control_v3, q);
                 }
@@ -1465,13 +1599,19 @@ MainConsole.Instance.Debug("Removed Hack flag");
             proxyObjectGroup.AttachToScene(m_scene);
 
             // Commented out this code since it could never have executed, but might still be informative.
+<<<<<<< HEAD
             // if (proxyObjectGroup != null)
             // {
+=======
+            //            if (proxyObjectGroup != null)
+            //            {
+>>>>>>> Aurora-Sim/master
             proxyObjectGroup.ScheduleGroupUpdate (PrimUpdateFlags.ForcedFullUpdate);
             remote_client.SendSitResponse(proxyObjectGroup.UUID, Vector3.Zero, Quaternion.Identity, true, Vector3.Zero, Vector3.Zero, false);
             IBackupModule backup = m_scene.RequestModuleInterface<IBackupModule>();
             if (backup != null)
                 backup.DeleteSceneObjects(new[] { proxyObjectGroup }, true, true);
+<<<<<<< HEAD
             // }
             // else
             // {
@@ -1479,6 +1619,15 @@ MainConsole.Instance.Debug("Removed Hack flag");
             // m_autoPilotTarget = Vector3.Zero;
             // ControllingClient.SendAlertMessage("Autopilot cancelled");
             // }
+=======
+            //            }
+            //            else
+            //            {
+            //                m_autopilotMoving = false;
+            //                m_autoPilotTarget = Vector3.Zero;
+            //                ControllingClient.SendAlertMessage("Autopilot cancelled");
+            //            }
+>>>>>>> Aurora-Sim/master
         }
 
         public void DoMoveToPosition(Object sender, string method, List<String> args)
@@ -1534,7 +1683,11 @@ MainConsole.Instance.Debug("Removed Hack flag");
         }
 
         /// <summary>
+<<<<<<< HEAD
         /// Perform the logic necessary to stand the avatar up. This method also executes
+=======
+        /// Perform the logic necessary to stand the avatar up.  This method also executes
+>>>>>>> Aurora-Sim/master
         /// the stand animation.
         /// </summary>
         public virtual void StandUp ()
@@ -1923,14 +2076,22 @@ MainConsole.Instance.Debug("Removed Hack flag");
         /// <summary>
         /// Rotate the avatar to the given rotation and apply a movement in the given relative vector
         /// </summary>
+<<<<<<< HEAD
         /// <param name="vec">The vector in which to move. This is relative to the rotation argument</param>
+=======
+        /// <param name="vec">The vector in which to move.  This is relative to the rotation argument</param>
+>>>>>>> Aurora-Sim/master
         /// <param name="rotation">The direction in which this avatar should now face.</param>
         public void AddNewMovement(Vector3 vec, Quaternion rotation)
         {
             if (IsChildAgent)
             {
                 // WHAT??? we can't make them a root agent though... what if they shouldn't be here?
+<<<<<<< HEAD
                 // Or even worse, what if they are spoofing the client???
+=======
+                //  Or even worse, what if they are spoofing the client???
+>>>>>>> Aurora-Sim/master
                 MainConsole.Instance.Info("[SCENEPRESENCE]: AddNewMovement() called on child agent for " + Name + "! Possible attempt to force a fake agent into a sim!");
                 return;
             }
@@ -1939,6 +2100,7 @@ MainConsole.Instance.Debug("Removed Hack flag");
             if (actor != null)
             {
                 /*Vector3 direc = (rotation == Quaternion.Identity ? vec : (vec * rotation));
+<<<<<<< HEAD
 Rotation = rotation;
 if (direc == Vector3.Zero)
 PhysicsActor.Velocity = Vector3.Zero;
@@ -1947,6 +2109,16 @@ else
 direc.Normalize();
 PhysicsActor.SetMovementForce(direc * 1.5f);
 }*/
+=======
+                Rotation = rotation;
+                if (direc == Vector3.Zero)
+                    PhysicsActor.Velocity = Vector3.Zero;
+                else
+                {
+                    direc.Normalize();
+                    PhysicsActor.SetMovementForce(direc * 1.5f);
+                }*/
+>>>>>>> Aurora-Sim/master
                 Vector3 direc = (rotation == Quaternion.Identity ? vec : (vec * rotation));
                 Rotation = rotation;
                 direc.Normalize();
@@ -2129,11 +2301,19 @@ PhysicsActor.SetMovementForce(direc * 1.5f);
                 return;
 
             // Minimum Draw distance is 64 meters, the Radius of the draw distance sphere is 32m
+<<<<<<< HEAD
             double tmpsq = m_sceneViewer.Prioritizer.ChildReprioritizationDistance;
             tmpsq *= tmpsq;
             float vel = Velocity.LengthSquared();
             if (Vector3.DistanceSquared(AbsolutePosition, m_lastChildAgentUpdatePosition) >= tmpsq ||
                 Vector3.DistanceSquared (CameraPosition, m_lastChildAgentUpdateCamPosition) >= tmpsq)
+=======
+            double  tmpsq = m_sceneViewer.Prioritizer.ChildReprioritizationDistance;
+            tmpsq *= tmpsq;
+            float vel = Velocity.LengthSquared();
+            if (Vector3.DistanceSquared(AbsolutePosition, m_lastChildAgentUpdatePosition) >= tmpsq ||
+                Vector3.DistanceSquared (CameraPosition, m_lastChildAgentUpdateCamPosition) >= tmpsq) 
+>>>>>>> Aurora-Sim/master
                  
             {
                 m_lastChildAgentUpdatePosition = AbsolutePosition;
@@ -2143,7 +2323,11 @@ PhysicsActor.SetMovementForce(direc * 1.5f);
             }
 
             // Disabled for now until we can make sure that we only send one of these per simulation loop,
+<<<<<<< HEAD
             // as with lots of clients, this will lag the client badly.
+=======
+            //   as with lots of clients, this will lag the client badly.
+>>>>>>> Aurora-Sim/master
             //
             // Moving collision sound ID inside this loop so that we don't trigger it too much
             if (CollisionSoundID != UUID.Zero && (CollisionSoundLastTriggered == 0 ||
@@ -2327,7 +2511,11 @@ PhysicsActor.SetMovementForce(direc * 1.5f);
                                 return true;
                             }
                             //else
+<<<<<<< HEAD
                             // MainConsole.Instance.Debug("[ScenePresence]: Could not find region for " + Name + " to cross into @ {" + TargetX / 256 + ", " + TargetY / 256 + "}");
+=======
+                            //    MainConsole.Instance.Debug("[ScenePresence]: Could not find region for " + Name + " to cross into @ {" + TargetX / 256 + ", " + TargetY / 256 + "}");
+>>>>>>> Aurora-Sim/master
                         }
                     }
                 }
@@ -2339,12 +2527,21 @@ PhysicsActor.SetMovementForce(direc * 1.5f);
                 // This constant has been inferred from experimentation
                 // I'm not sure what this value should be, so I tried a few values.
                 /*timeStep = 0.025f;
+<<<<<<< HEAD
 pos2 = AbsolutePosition;
 pos2.X = pos2.X + (vel.X * timeStep);
 pos2.Y = pos2.Y + (vel.Y * timeStep);
 pos2.Z = pos2.Z + (vel.Z * timeStep);
 //Velocity = (AbsolutePosition - pos2) * 2;
 AbsolutePosition = pos2;*/
+=======
+                pos2 = AbsolutePosition;
+                pos2.X = pos2.X + (vel.X * timeStep);
+                pos2.Y = pos2.Y + (vel.Y * timeStep);
+                pos2.Z = pos2.Z + (vel.Z * timeStep);
+                //Velocity = (AbsolutePosition - pos2) * 2;
+                AbsolutePosition = pos2;*/
+>>>>>>> Aurora-Sim/master
                 return true;
             }
             return false;
@@ -2405,9 +2602,15 @@ AbsolutePosition = pos2;*/
 
         public virtual void ChildAgentDataUpdate (AgentData cAgentData)
         {
+<<<<<<< HEAD
             //MainConsole.Instance.Debug(" >>> ChildAgentDataUpdate <<< " + Scene.RegionInfo.RegionName);
             //if (!IsChildAgent)
             // return;
+=======
+            //MainConsole.Instance.Debug("   >>> ChildAgentDataUpdate <<< " + Scene.RegionInfo.RegionName);
+            //if (!IsChildAgent)
+            //    return;
+>>>>>>> Aurora-Sim/master
 
             CopyFrom(cAgentData);
         }
@@ -2421,7 +2624,11 @@ AbsolutePosition = pos2;*/
             if (!IsChildAgent)
                 return;
 
+<<<<<<< HEAD
             //MainConsole.Instance.Debug(" >>> ChildAgentPositionUpdate <<< " + rRegionX + "-" + rRegionY);
+=======
+            //MainConsole.Instance.Debug("   >>> ChildAgentPositionUpdate <<< " + rRegionX + "-" + rRegionY);
+>>>>>>> Aurora-Sim/master
             int shiftx = rRegionX - tRegionX;
             int shifty = rRegionY - tRegionY;
 
@@ -2463,7 +2670,11 @@ AbsolutePosition = pos2;*/
 
             cAgent.Far = DrawDistance;
 
+<<<<<<< HEAD
             // Throttles
+=======
+            // Throttles 
+>>>>>>> Aurora-Sim/master
             float multiplier = 1;
             int innacurateNeighbors = m_scene.RequestModuleInterface<IGridRegisterModule> ().GetNeighbors (m_scene).Count;
             if (innacurateNeighbors != 0)
@@ -2484,8 +2695,13 @@ AbsolutePosition = pos2;*/
             //This is checked by the other sim, so we don't have to validate it at all
             //if (m_scene.Permissions.IsGod(new UUID(cAgent.AgentID)))
             cAgent.GodLevel = (byte)m_godLevel;
+<<<<<<< HEAD
             //else
             // cAgent.GodLevel = (byte) 0;
+=======
+            //else 
+            //    cAgent.GodLevel = (byte) 0;
+>>>>>>> Aurora-Sim/master
 
             cAgent.Speed = SpeedModifier;
             cAgent.DrawDistance = DrawDistance;
@@ -2722,7 +2938,11 @@ AbsolutePosition = pos2;*/
             SceneViewer.SendPresenceFullUpdate(this);
 
             if (ControllingClient != null)
+<<<<<<< HEAD
                 ControllingClient.SendAgentAlertMessage("Physics is having a problem with your avatar. You may not be able to move until you relog.", true);
+=======
+                ControllingClient.SendAgentAlertMessage("Physics is having a problem with your avatar.  You may not be able to move until you relog.", true);
+>>>>>>> Aurora-Sim/master
         }
 
         protected void PhysicsUpdatePosAndVelocity()

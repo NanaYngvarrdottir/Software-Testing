@@ -12359,9 +12359,15 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             List<TravelMode> travelMode = new List<TravelMode>();
             foreach(object pos in patrolPoints.Data)
             {
+<<<<<<< HEAD
                 LSL_Vector p = (LSL_Vector)pos;
                 if(p == null)
                     continue;
+=======
+                if (!(pos is LSL_Vector))
+                    continue;
+                LSL_Vector p = (LSL_Vector)pos;
+>>>>>>> Aurora-Sim/master
                 positions.Add(p.ToVector3());
                 travelMode.Add(TravelMode.Walk);
             }

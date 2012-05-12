@@ -477,7 +477,11 @@ namespace Aurora.DataManager.MySQL
 
         public override bool Insert(string table, object[] values, string updateKey, object updateValue)
         {
+<<<<<<< HEAD
             string query = String.Format("insert into {0} VALUES('", table);
+=======
+            string query = String.Format("insert into {0} VALUES(", table);
+>>>>>>> Aurora-Sim/master
             Dictionary<string, object> param = new Dictionary<string, object>();
             int i = 0;
             foreach (object o in values)
@@ -485,8 +489,14 @@ namespace Aurora.DataManager.MySQL
                 param["?" + Util.ConvertDecString(i)] = o;
                 query += "?" + Util.ConvertDecString(i++) + ",";
             }
+<<<<<<< HEAD
             query = query.Remove(query.Length - 1);
             query += String.Format(") ON DUPLICATE KEY UPDATE {0} = '{1}'", updateKey, updateValue);
+=======
+            param["?update"] = updateValue;
+            query = query.Remove(query.Length - 1);
+            query += String.Format(") ON DUPLICATE KEY UPDATE {0} = ?update", updateKey);
+>>>>>>> Aurora-Sim/master
             try
             {
                 ExecuteNonQuery(query, param);
@@ -1015,9 +1025,15 @@ namespace Aurora.DataManager.MySQL
                 while (rdr.Read())
                 {
                     var name = rdr["Field"];
+<<<<<<< HEAD
                     var pk = rdr["Key"];
                     var type = rdr["Type"];
                     var extra = rdr["Extra"];
+=======
+                    //var pk = rdr["Key"];
+                    var type = rdr["Type"];
+                    //var extra = rdr["Extra"];
+>>>>>>> Aurora-Sim/master
                     object defaultValue = rdr["Default"];
 
                     ColumnTypeDef typeDef = ConvertTypeToColumnType(type.ToString());

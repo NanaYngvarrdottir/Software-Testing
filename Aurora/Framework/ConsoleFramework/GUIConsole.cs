@@ -83,7 +83,11 @@ namespace Aurora.Framework
             // Set this culture for the thread 
             // to en-US to avoid number parsing issues
             Culture.SetCurrentCulture();
+<<<<<<< HEAD
             string line = ReadLine(m_defaultPrompt + "# ", true, true);
+=======
+            /*string line = */ReadLine(m_defaultPrompt + "# ", true, true);
+>>>>>>> Aurora-Sim/master
 
 //            result.AsyncWaitHandle.WaitOne(-1);
 

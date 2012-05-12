@@ -27,6 +27,10 @@
 
 using System.Collections.Generic;
 using Tools;
+<<<<<<< HEAD
+=======
+using Aurora.ScriptEngineParser;
+>>>>>>> Aurora-Sim/master
 
 namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
 {
@@ -35,8 +39,12 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
         private static Dictionary<string, string> m_datatypeLSL2OpenSim;
         private readonly SYMBOL m_astRoot;
         private readonly Dictionary<string, string> m_globalVariableValues = new Dictionary<string, string>();
+<<<<<<< HEAD
         private List<string> m_allVariableValues = new List<string>();
 
+=======
+        
+>>>>>>> Aurora-Sim/master
         /// <summary>
         ///   Pass the new CodeTranformer an abstract syntax tree.
         /// </summary>

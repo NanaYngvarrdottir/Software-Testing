@@ -239,7 +239,11 @@ namespace Aurora.Framework
                         // capture how much time was spent writing, this may seem silly
                         // but with the number concurrent requests, this often blocks
                         tickserialize = Util.EnvironmentTickCountSubtract(tickstart) - tickdata;
+<<<<<<< HEAD
                         string responseStr = responseStr = responseStream.GetStreamString();
+=======
+                        string responseStr = responseStream.GetStreamString();
+>>>>>>> Aurora-Sim/master
                         // MainConsole.Instance.DebugFormat("[WEB UTIL]: <{0}> response is <{1}>",reqnum,responseStr);
                         return responseStr;
                     }

@@ -510,7 +510,10 @@ namespace OpenSim.Region.Framework.Scenes
         {
             //Just return all the entities, its quicker to do the culling check rather than the position check
             ISceneEntity[] entities = m_presence.Scene.Entities.GetEntities();
+<<<<<<< HEAD
             LPriorityQueue entsqueue = new LPriorityQueue(new DoubleComparer());
+=======
+>>>>>>> Aurora-Sim/master
 
             // build a prioritized list of things we need to send
 
@@ -808,7 +811,10 @@ namespace OpenSim.Region.Framework.Scenes
                 {
                     m_SentInitialObjects = true;
                     ISceneEntity[] allEntities = m_presence.Scene.Entities.GetEntities();
+<<<<<<< HEAD
                     LPriorityQueue entsqueue = new LPriorityQueue(new DoubleComparer());
+=======
+>>>>>>> Aurora-Sim/master
                     HashSet<ISceneEntity> NewGrpsInView = new HashSet<ISceneEntity>();
                     // build a prioritized list of things we need to send
                     int time = Util.EnvironmentTickCount();
@@ -869,7 +875,10 @@ namespace OpenSim.Region.Framework.Scenes
         private void SendQueued(HashSet<ISceneEntity> entsqueue)
         {
             //NO LOCKING REQUIRED HERE, THE PRIORITYQUEUE IS LOCAL
+<<<<<<< HEAD
             int length = entsqueue.Count;
+=======
+>>>>>>> Aurora-Sim/master
             //Enqueue them all
             List<ISceneEntity> sortableList = new List<ISceneEntity>(entsqueue);
             sortableList.Sort(sortPriority);

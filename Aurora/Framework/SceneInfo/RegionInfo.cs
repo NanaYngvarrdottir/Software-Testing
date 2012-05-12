@@ -24,7 +24,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -32,7 +36,11 @@ using System.IO;
 using Nini.Config;
 using OpenMetaverse;
 using OpenMetaverse.StructuredData;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
 namespace Aurora.Framework
 {
     public enum StartupType
@@ -40,14 +48,24 @@ namespace Aurora.Framework
         Medium = 2,
         Normal = 3
     }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
     public class RegionInfo
     {
         public string RegionFile = String.Empty;
         public bool Disabled = false;
+<<<<<<< HEAD
 
         private RegionSettings m_regionSettings;
 
+=======
+
+        private RegionSettings m_regionSettings;
+
+>>>>>>> Aurora-Sim/master
         private int m_objectCapacity = 0;
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
@@ -62,32 +80,52 @@ namespace Aurora.Framework
         public UUID ScopeID = UUID.Zero;
         private UUID m_GridSecureSessionID = UUID.Zero;
         public int NumberStartup = 0;
+<<<<<<< HEAD
         public StartupType Startup = StartupType.Medium;
         public bool InfiniteRegion = true;
         public bool NewRegion = false;
 
+=======
+        public StartupType Startup = StartupType.Normal;
+        public bool InfiniteRegion = false;
+        public bool NewRegion = false;
+
+>>>>>>> Aurora-Sim/master
         /// <summary>
         /// The X length (in meters) that the region is
         /// The default is 256m
         /// </summary>
         public int RegionSizeX = 256;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         /// <summary>
         /// The Y length (in meters) that the region is
         /// The default is 256m
         /// </summary>
         public int RegionSizeY = 256;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         /// <summary>
         /// The Z height (in meters) that the region is (not supported currently)
         /// The default is 1024m
         /// </summary>
         public int RegionSizeZ = 4096;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         /// <summary>
         /// The region flags (as set on the Grid Server in the database), cached on RegisterRegion call
         /// </summary>
         public int RegionFlags = -1;
+<<<<<<< HEAD
 
         public EstateSettings EstateSettings { get; set; }
 
@@ -100,21 +138,42 @@ namespace Aurora.Framework
 
         public bool AllowScriptCrossing { get; set; }
 
+=======
+
+        public EstateSettings EstateSettings { get; set; }
+
+        public RegionSettings RegionSettings
+        {
+            get { return m_regionSettings ?? (m_regionSettings = new RegionSettings()); }
+
+            set { m_regionSettings = value; }
+        }
+
+        public bool AllowScriptCrossing { get; set; }
+
+>>>>>>> Aurora-Sim/master
         private List<int> m_UDPPorts = new List<int> ();
         public List<int> UDPPorts
         {
             get { return m_UDPPorts; }
             set { m_UDPPorts = value; }
         }
+<<<<<<< HEAD
 
         public bool TrustBinariesFromForeignSims { get; set; }
 
+=======
+
+        public bool TrustBinariesFromForeignSims { get; set; }
+
+>>>>>>> Aurora-Sim/master
         private bool m_seeIntoThisSimFromNeighbor = true;
         public bool SeeIntoThisSimFromNeighbor
         {
             get { return m_seeIntoThisSimFromNeighbor; }
             set { m_seeIntoThisSimFromNeighbor = value; }
         }
+<<<<<<< HEAD
 
         private bool m_allowPhysicalPrims = true;
 
@@ -124,71 +183,126 @@ namespace Aurora.Framework
             AllowScriptCrossing = true;
         }
 
+=======
+
+        private bool m_allowPhysicalPrims = true;
+
+        public RegionInfo()
+        {
+            TrustBinariesFromForeignSims = false;
+            AllowScriptCrossing = false;
+        }
+
+>>>>>>> Aurora-Sim/master
         public bool AllowPhysicalPrims
         {
             get { return m_allowPhysicalPrims; }
             set { m_allowPhysicalPrims = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public int ObjectCapacity
         {
             get { return m_objectCapacity; }
             set { m_objectCapacity = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public byte AccessLevel
         {
             get { return Util.ConvertMaturityToAccessLevel((uint)RegionSettings.Maturity); }
             set { RegionSettings.Maturity = (int)Util.ConvertAccessLevelToMaturity(value); }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public string RegionType
         {
             get { return m_regionType; }
             set { m_regionType = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public UUID GridSecureSessionID
         {
             get { return m_GridSecureSessionID; }
             set { m_GridSecureSessionID = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public string RegionName
         {
             get { return m_regionName; }
             set { m_regionName = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public IPEndPoint InternalEndPoint
         {
             get { return m_internalEndPoint; }
             set { m_internalEndPoint = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public int RegionLocX
         {
             get { return m_regionLocX; }
             set { m_regionLocX = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public int RegionLocY
         {
             get { return m_regionLocY; }
             set { m_regionLocY = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public int RegionLocZ
         {
             get { return m_regionLocZ; }
             set { m_regionLocZ = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public ulong RegionHandle
         {
             get { return Utils.UIntsToLong((uint)RegionLocX, (uint)RegionLocY); }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public void WriteNiniConfig(IConfigSource source)
         {
             try
@@ -202,6 +316,7 @@ namespace Aurora.Framework
                 // yet, so just let it gracefully fail and create itself later
                 return;
             }
+<<<<<<< HEAD
 
             CreateIConfig(source);
 
@@ -234,6 +349,40 @@ namespace Aurora.Framework
             if (RegionType != String.Empty)
                 config.Set("RegionType", RegionType);
 
+=======
+
+            CreateIConfig(source);
+
+            source.Save();
+        }
+
+        public void CreateIConfig(IConfigSource source)
+        {
+            IConfig config = source.Configs[RegionName];
+
+            if (config != null)
+                source.Configs.Remove(config);
+
+            config = source.AddConfig(RegionName);
+
+            config.Set("RegionUUID", RegionID.ToString());
+
+            string location = String.Format("{0},{1}", m_regionLocX / 256, m_regionLocY / 256);
+            config.Set("Location", location);
+
+            config.Set("InternalAddress", m_internalEndPoint.Address.ToString());
+            config.Set("InternalPort", m_internalEndPoint.Port);
+
+            if (m_objectCapacity != 0)
+                config.Set("MaxPrims", m_objectCapacity);
+
+            if (ScopeID != UUID.Zero)
+                config.Set("ScopeID", ScopeID.ToString());
+
+            if (RegionType != String.Empty)
+                config.Set("RegionType", RegionType);
+
+>>>>>>> Aurora-Sim/master
             config.Set("AllowPhysicalPrims", AllowPhysicalPrims);
             config.Set("AllowScriptCrossing", AllowScriptCrossing);
             config.Set("TrustBinariesFromForeignSims", TrustBinariesFromForeignSims);
@@ -241,12 +390,21 @@ namespace Aurora.Framework
             config.Set("RegionSizeX", RegionSizeX);
             config.Set ("RegionSizeY", RegionSizeY);
             config.Set ("RegionSizeZ", RegionSizeZ);
+<<<<<<< HEAD
 
             config.Set ("StartupType", Startup.ToString());
 
             config.Set("NeighborPassword", Password.ToString());
         }
 
+=======
+
+            config.Set ("StartupType", Startup.ToString());
+
+            config.Set("NeighborPassword", Password.ToString());
+        }
+
+>>>>>>> Aurora-Sim/master
         public void SaveRegionToFile(string description, string filename)
         {
             if (filename.ToLower().EndsWith(".ini"))
@@ -259,6 +417,7 @@ namespace Aurora.Framework
                 catch (Exception)
                 {
                 }
+<<<<<<< HEAD
 
                 WriteNiniConfig(source);
 
@@ -266,11 +425,24 @@ namespace Aurora.Framework
             }
         }
 
+=======
+
+                WriteNiniConfig(source);
+
+                source.Save(filename);
+            }
+        }
+
+>>>>>>> Aurora-Sim/master
         public OSDMap PackRegionInfoData()
         {
             return PackRegionInfoData(false);
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public OSDMap PackRegionInfoData(bool secure)
         {
             OSDMap args = new OSDMap();
@@ -310,7 +482,11 @@ namespace Aurora.Framework
             }
             return args;
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
         public void UnpackRegionInfoData(OSDMap args)
         {
             if (args.ContainsKey("region_id"))
@@ -346,19 +522,31 @@ namespace Aurora.Framework
                 m_regionType = args["region_type"].AsString();
             if (args.ContainsKey("password"))
                 Password = args["password"].AsUUID();
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
             if (args.ContainsKey("disabled"))
                 Disabled = args["disabled"].AsBoolean();
             if (args.ContainsKey("scope_id"))
                 ScopeID = args["scope_id"].AsUUID();
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
             if (args.ContainsKey("region_size_x"))
                 RegionSizeX = args["region_size_x"].AsInteger();
             if (args.ContainsKey("region_size_y"))
                 RegionSizeY = args["region_size_y"].AsInteger();
             if (args.ContainsKey("region_size_z"))
                 RegionSizeZ = args["region_size_z"].AsInteger();
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> Aurora-Sim/master
             if (args.ContainsKey("object_capacity"))
                 m_objectCapacity = args["object_capacity"].AsInteger();
             if (args.ContainsKey("region_type"))

@@ -202,6 +202,7 @@ namespace Aurora.Modules.Profiles
             IClientAPI remoteClient = (IClientAPI) sender;
             UUID requestedUUID = new UUID(args[0]);
 
+<<<<<<< HEAD
 #if (!ISWIN)
             Dictionary<UUID, string> classifieds = new Dictionary<UUID, string>();
             foreach (Classified classified in ProfileFrontend.GetClassifieds(requestedUUID))
@@ -209,6 +210,11 @@ namespace Aurora.Modules.Profiles
 #else
             Dictionary<UUID, string> classifieds = ProfileFrontend.GetClassifieds(requestedUUID).ToDictionary(classified => classified.ClassifiedUUID, classified => classified.Name);
 #endif
+=======
+            Dictionary<UUID, string> classifieds = new Dictionary<UUID, string>();
+            foreach (Classified classified in ProfileFrontend.GetClassifieds(requestedUUID))
+                classifieds.Add(classified.ClassifiedUUID, classified.Name);
+>>>>>>> Aurora-Sim/master
 
             remoteClient.SendAvatarClassifiedReply(requestedUUID, classifieds);
         }
