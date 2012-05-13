@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Addon.WorldView.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Addon.WorldView.dll
-/Software/Aurora-Sim/addon-modules/WorldView/Modules/obj/x86/Debug/Aurora.Addon.WorldView.dll
-/Software/Aurora-Sim/addon-modules/WorldView/Modules/obj/x86/Debug/Aurora.Addon.WorldView.dll.mdb

@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.DataManager.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.DataManager.dll
-/Software/Aurora-Sim/Aurora/DataManager/obj/x86/Debug/Aurora.DataManager.dll
-/Software/Aurora-Sim/Aurora/DataManager/obj/x86/Debug/Aurora.DataManager.dll.mdb

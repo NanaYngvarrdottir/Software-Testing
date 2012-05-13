@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.CoreApplicationPlugins.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.CoreApplicationPlugins.dll
-/Software/Aurora-Sim/Aurora/CoreApplicationPlugins/obj/x86/Debug/Aurora.CoreApplicationPlugins.dll
-/Software/Aurora-Sim/Aurora/CoreApplicationPlugins/obj/x86/Debug/Aurora.CoreApplicationPlugins.dll.mdb

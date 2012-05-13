@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Simulation.Base.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Simulation.Base.dll
-/Software/Aurora-Sim/Aurora/Simulation/Base/obj/x86/Debug/Aurora.Simulation.Base.dll
-/Software/Aurora-Sim/Aurora/Simulation/Base/obj/x86/Debug/Aurora.Simulation.Base.dll.mdb

@@ -1,5 +1,0 @@
-/Software/Aurora-Sim/bin/MetaBuilders.Irc.dll
-/Software/Aurora-Sim/bin/Aurora.Addon.IRCChat.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Addon.IRCChat.dll
-/Software/Aurora-Sim/addon-modules/IRCChat/Modules/obj/x86/Debug/Aurora.Addon.IRCChat.dll
-/Software/Aurora-Sim/addon-modules/IRCChat/Modules/obj/x86/Debug/Aurora.Addon.IRCChat.dll.mdb

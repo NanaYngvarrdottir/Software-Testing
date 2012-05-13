@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Services.DataService.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Services.DataService.dll
-/Software/Aurora-Sim/Aurora/Services/DataService/obj/x86/Debug/Aurora.Services.DataService.dll
-/Software/Aurora-Sim/Aurora/Services/DataService/obj/x86/Debug/Aurora.Services.DataService.dll.mdb

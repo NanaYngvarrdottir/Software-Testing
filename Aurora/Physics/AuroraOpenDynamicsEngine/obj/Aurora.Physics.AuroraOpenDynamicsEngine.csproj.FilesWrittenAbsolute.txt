@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Physics/Aurora.Physics.AuroraOpenDynamicsEngine.dll.mdb
-/Software/Aurora-Sim/bin/Physics/Aurora.Physics.AuroraOpenDynamicsEngine.dll
-/Software/Aurora-Sim/Aurora/Physics/AuroraOpenDynamicsEngine/obj/x86/Debug/Aurora.Physics.AuroraOpenDynamicsEngine.dll
-/Software/Aurora-Sim/Aurora/Physics/AuroraOpenDynamicsEngine/obj/x86/Debug/Aurora.Physics.AuroraOpenDynamicsEngine.dll.mdb

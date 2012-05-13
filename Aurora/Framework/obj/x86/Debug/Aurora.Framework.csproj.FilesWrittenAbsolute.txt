@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Framework.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Framework.dll
-/Software/Aurora-Sim/Aurora/Framework/obj/x86/Debug/Aurora.Framework.dll
-/Software/Aurora-Sim/Aurora/Framework/obj/x86/Debug/Aurora.Framework.dll.mdb
