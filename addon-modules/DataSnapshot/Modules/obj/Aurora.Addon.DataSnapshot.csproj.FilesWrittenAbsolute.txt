@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Addon.DataSnapshot.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Addon.DataSnapshot.dll
-/Software/Aurora-Sim/addon-modules/DataSnapshot/Modules/obj/x86/Debug/Aurora.Addon.DataSnapshot.dll
-/Software/Aurora-Sim/addon-modules/DataSnapshot/Modules/obj/x86/Debug/Aurora.Addon.DataSnapshot.dll.mdb

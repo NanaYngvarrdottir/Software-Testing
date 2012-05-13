@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Addon.RegApi.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Addon.RegApi.dll
-/Software/Aurora-Sim/addon-modules/RegApi/Modules/obj/x86/Debug/Aurora.Addon.RegApi.dll
-/Software/Aurora-Sim/addon-modules/RegApi/Modules/obj/x86/Debug/Aurora.Addon.RegApi.dll.mdb

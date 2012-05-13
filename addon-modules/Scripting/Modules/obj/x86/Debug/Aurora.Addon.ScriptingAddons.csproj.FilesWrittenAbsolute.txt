@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Addon.ScriptingAddons.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Addon.ScriptingAddons.dll
-/Software/Aurora-Sim/addon-modules/Scripting/Modules/obj/x86/Debug/Aurora.Addon.ScriptingAddons.dll
-/Software/Aurora-Sim/addon-modules/Scripting/Modules/obj/x86/Debug/Aurora.Addon.ScriptingAddons.dll.mdb

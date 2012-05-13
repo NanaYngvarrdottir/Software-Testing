@@ -1,5 +1,0 @@
-/Software/Aurora-Sim/Aurora/DataManagerPlugins/SQLite/obj/x86/Debug/Aurora.DataManager.SQLite.Legacy.Resources.RegionStore.migrations
-/Software/Aurora-Sim/bin/Aurora.DataManager.SQLite.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.DataManager.SQLite.dll
-/Software/Aurora-Sim/Aurora/DataManagerPlugins/SQLite/obj/x86/Debug/Aurora.DataManager.SQLite.dll
-/Software/Aurora-Sim/Aurora/DataManagerPlugins/SQLite/obj/x86/Debug/Aurora.DataManager.SQLite.dll.mdb
