@@ -1049,9 +1049,13 @@
       
       <Reference name="Nini" path="../../bin/"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <Reference name="ScriptEngineParser" path="../../bin/"/>
 >>>>>>> Aurora-Sim/master
+=======
+      <Reference name="ScriptEngineParser" path="../../bin/"/>
+>>>>>>> Auroar-Sim/master
       <Reference name="OpenMetaverse" path="../../bin/"/>
       <Reference name="OpenMetaverseTypes" path="../../bin/"/>
       <Reference name="OpenMetaverse.StructuredData" path="../../bin/"/>
