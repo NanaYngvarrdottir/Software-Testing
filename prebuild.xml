@@ -1048,6 +1048,17 @@
       <Reference name="OpenSim.Region.Framework" />
       
       <Reference name="Nini" path="../../bin/"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <Reference name="ScriptEngineParser" path="../../bin/"/>
+>>>>>>> Aurora-Sim/master
+=======
+      <Reference name="ScriptEngineParser" path="../../bin/"/>
+>>>>>>> Auroar-Sim/master
+>>>>>>> origin/Auroa-Sim
       <Reference name="OpenMetaverse" path="../../bin/"/>
       <Reference name="OpenMetaverseTypes" path="../../bin/"/>
       <Reference name="OpenMetaverse.StructuredData" path="../../bin/"/>

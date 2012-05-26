@@ -24,30 +24,54 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+<<<<<<< HEAD
 
 using System;
 using OpenMetaverse;
 using OpenMetaverse.StructuredData;
 
+=======
+
+using System;
+using OpenMetaverse;
+using OpenMetaverse.StructuredData;
+
+>>>>>>> origin/Auroa-Sim
 namespace Aurora.Framework
 {
     public class RegionSettings
     {
         #region Delegates
+<<<<<<< HEAD
 
         public delegate void SaveDelegate(RegionSettings rs);
 
         #endregion
 
+=======
+
+        public delegate void SaveDelegate(RegionSettings rs);
+
+        #endregion
+
+>>>>>>> origin/Auroa-Sim
         /// <value>
         ///   These appear to be terrain textures that are shipped with the client.
         /// </value>
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_1 = new UUID("b8d3965a-ad78-bf43-699b-bff8eca6c975");
+<<<<<<< HEAD
 
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_2 = new UUID("abb783e6-3e93-26c0-248a-247666855da3");
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_3 = new UUID("179cdabd-398a-9b6b-1391-4dc333ba321f");
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_4 = new UUID("beb169c7-11ea-fff2-efe5-0f24dc881df2");
         private int m_AgentLimit = 1000;
+=======
+
+        public static readonly UUID DEFAULT_TERRAIN_TEXTURE_2 = new UUID("abb783e6-3e93-26c0-248a-247666855da3");
+        public static readonly UUID DEFAULT_TERRAIN_TEXTURE_3 = new UUID("179cdabd-398a-9b6b-1391-4dc333ba321f");
+        public static readonly UUID DEFAULT_TERRAIN_TEXTURE_4 = new UUID("beb169c7-11ea-fff2-efe5-0f24dc881df2");
+        private int m_AgentLimit = 40;
+>>>>>>> origin/Auroa-Sim
         private bool m_AllowLandJoinDivide = true;
         private bool m_AllowLandResell = true;
         private UUID m_Covenant = UUID.Zero;
@@ -63,7 +87,11 @@ namespace Aurora.Framework
         private String m_LoadedCreationID = String.Empty;
         private double m_ObjectBonus = 1.0;
         private UUID m_PaintTerrainTexture = UUID.Zero;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         private UUID m_RegionUUID = UUID.Zero;
         private double m_TerrainLowerLimit = -100;
         private double m_TerrainRaiseLimit = 100;
@@ -73,17 +101,26 @@ namespace Aurora.Framework
         private UUID m_TerrainTexture4 = UUID.Zero;
         private bool m_UseEstateSun = true;
         private double m_WaterHeight = 20;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public bool UsePaintableTerrain
         {
             get { return false; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public UUID RegionUUID
         {
             get { return m_RegionUUID; }
             set { m_RegionUUID = value; }
         }
+<<<<<<< HEAD
 
         public bool BlockTerraform { get; set; }
 
@@ -93,31 +130,57 @@ namespace Aurora.Framework
 
         public bool RestrictPushing { get; set; }
 
+=======
+
+        public bool BlockTerraform { get; set; }
+
+        public bool BlockFly { get; set; }
+
+        public bool AllowDamage { get; set; }
+
+        public bool RestrictPushing { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         public bool AllowLandResell
         {
             get { return m_AllowLandResell; }
             set { m_AllowLandResell = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public bool AllowLandJoinDivide
         {
             get { return m_AllowLandJoinDivide; }
             set { m_AllowLandJoinDivide = value; }
         }
+<<<<<<< HEAD
 
         public bool BlockShowInSearch { get; set; }
 
+=======
+
+        public bool BlockShowInSearch { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         public int AgentLimit
         {
             get { return m_AgentLimit; }
             set { m_AgentLimit = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double ObjectBonus
         {
             get { return m_ObjectBonus; }
             set { m_ObjectBonus = value; }
         }
+<<<<<<< HEAD
 
         public int Maturity { get; set; }
 
@@ -129,6 +192,19 @@ namespace Aurora.Framework
 
         public int MinimumAge { get; set; }
 
+=======
+
+        public int Maturity { get; set; }
+
+        public bool DisableScripts { get; set; }
+
+        public bool DisableCollisions { get; set; }
+
+        public bool DisablePhysics { get; set; }
+
+        public int MinimumAge { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         public UUID PaintableTerrainTexture
         {
             get
@@ -141,7 +217,11 @@ namespace Aurora.Framework
                 m_PaintTerrainTexture = value == UUID.Zero ? UUID.Random() : value;
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public UUID TerrainTexture1
         {
             get { return m_TerrainTexture1; }
@@ -149,7 +229,11 @@ namespace Aurora.Framework
                 m_TerrainTexture1 = value == UUID.Zero ? DEFAULT_TERRAIN_TEXTURE_1 : value;
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public UUID TerrainTexture2
         {
             get { return m_TerrainTexture2; }
@@ -157,7 +241,11 @@ namespace Aurora.Framework
                 m_TerrainTexture2 = value == UUID.Zero ? DEFAULT_TERRAIN_TEXTURE_2 : value;
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public UUID TerrainTexture3
         {
             get { return m_TerrainTexture3; }
@@ -165,7 +253,11 @@ namespace Aurora.Framework
                 m_TerrainTexture3 = value == UUID.Zero ? DEFAULT_TERRAIN_TEXTURE_3 : value;
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public UUID TerrainTexture4
         {
             get { return m_TerrainTexture4; }
@@ -173,123 +265,211 @@ namespace Aurora.Framework
                 m_TerrainTexture4 = value == UUID.Zero ? DEFAULT_TERRAIN_TEXTURE_4 : value;
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation1NW
         {
             get { return m_Elevation1NW; }
             set { m_Elevation1NW = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation2NW
         {
             get { return m_Elevation2NW; }
             set { m_Elevation2NW = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation1NE
         {
             get { return m_Elevation1NE; }
             set { m_Elevation1NE = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation2NE
         {
             get { return m_Elevation2NE; }
             set { m_Elevation2NE = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation1SE
         {
             get { return m_Elevation1SE; }
             set { m_Elevation1SE = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation2SE
         {
             get { return m_Elevation2SE; }
             set { m_Elevation2SE = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation1SW
         {
             get { return m_Elevation1SW; }
             set { m_Elevation1SW = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double Elevation2SW
         {
             get { return m_Elevation2SW; }
             set { m_Elevation2SW = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double WaterHeight
         {
             get { return m_WaterHeight; }
             set { m_WaterHeight = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double TerrainRaiseLimit
         {
             get { return m_TerrainRaiseLimit; }
             set { m_TerrainRaiseLimit = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public double TerrainLowerLimit
         {
             get { return m_TerrainLowerLimit; }
             set { m_TerrainLowerLimit = value; }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public bool UseEstateSun
         {
             get { return m_UseEstateSun; }
             set { m_UseEstateSun = value; }
         }
+<<<<<<< HEAD
 
         public bool Sandbox { get; set; }
 
         public Vector3 SunVector { get; set; }
 
+=======
+
+        public bool Sandbox { get; set; }
+
+        public Vector3 SunVector { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         /// <summary>
         ///   Terrain (and probably) prims asset ID for the map
         /// </summary>
         public UUID TerrainImageID { get; set; }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         /// <summary>
         /// Displays which lands are for sale (and for auction)
         /// </summary>
         public UUID ParcelMapImageID { get; set; }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         /// <summary>
         ///   Terrain only asset ID for the map
         /// </summary>
         public UUID TerrainMapImageID { get; set; }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         /// <summary>
         ///   Time that the map tile was last created
         /// </summary>
         public DateTime TerrainMapLastRegenerated { get; set; }
+<<<<<<< HEAD
 
         public bool FixedSun { get; set; }
 
         public double SunPosition { get; set; }
 
+=======
+
+        public bool FixedSun { get; set; }
+
+        public double SunPosition { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         public UUID Covenant
         {
             get { return m_Covenant; }
             set { m_Covenant = value; }
         }
+<<<<<<< HEAD
 
         public int CovenantLastUpdated { get; set; }
 
+=======
+
+        public int CovenantLastUpdated { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         public OSDMap Generic
         {
             get { return m_Generic; }
             set { m_Generic = value; }
         }
+<<<<<<< HEAD
 
         public int LoadedCreationDateTime { get; set; }
 
+=======
+
+        public int LoadedCreationDateTime { get; set; }
+
+>>>>>>> origin/Auroa-Sim
         public String LoadedCreationDate
         {
             get
@@ -299,7 +479,11 @@ namespace Aurora.Framework
                 return stamp.ToLongDateString();
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public String LoadedCreationTime
         {
             get
@@ -309,43 +493,73 @@ namespace Aurora.Framework
                 return stamp.ToLongTimeString();
             }
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public String LoadedCreationID
         {
             get { return m_LoadedCreationID; }
             set { m_LoadedCreationID = value; }
         }
+<<<<<<< HEAD
 
         public event SaveDelegate OnSave;
 
+=======
+
+        public event SaveDelegate OnSave;
+
+>>>>>>> origin/Auroa-Sim
         public void Save()
         {
             if (OnSave != null)
                 OnSave(this);
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public void AddGeneric(string key, OSD value)
         {
             m_Generic[key] = value;
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public void RemoveGeneric(string key)
         {
             if (m_Generic.ContainsKey(key))
                 m_Generic.Remove(key);
         }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/Auroa-Sim
         public OSD GetGeneric(string key)
         {
             OSD value;
             m_Generic.TryGetValue(key, out value);
             return value;
         }
+<<<<<<< HEAD
 
         public OSDMap ToOSD()
         {
             OSDMap map = new OSDMap();
 
+=======
+
+        public OSDMap ToOSD()
+        {
+            OSDMap map = new OSDMap();
+
+>>>>>>> origin/Auroa-Sim
             map["AgentLimit"] = this.AgentLimit;
             map["AllowDamage"] = this.AllowDamage;
             map["AllowLandJoinDivide"] = this.AllowLandJoinDivide;
@@ -391,10 +605,17 @@ namespace Aurora.Framework
             map["PaintableTerrainTexture"] = this.PaintableTerrainTexture;
             map["UseEstateSun"] = this.UseEstateSun;
             map["WaterHeight"] = this.WaterHeight;
+<<<<<<< HEAD
 
             return map;
         }
 
+=======
+
+            return map;
+        }
+
+>>>>>>> origin/Auroa-Sim
         public void FromOSD(OSDMap map)
         {
             this.AgentLimit = map["AgentLimit"];

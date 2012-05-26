@@ -870,11 +870,15 @@ namespace Aurora.Framework
         public bool Processing = true;
 #if !NET_4_0
         private delegate void PromptEvent();
+<<<<<<< HEAD
 
         private IAsyncResult result;
         private PromptEvent action;
         private readonly Object m_consoleLock = new Object();
         private bool m_calledEndInvoke;
+=======
+        private readonly Object m_consoleLock = new Object();
+>>>>>>> origin/Auroa-Sim
         protected static bool m_reading;
         private Thread m_consoleReadingThread;
 #endif
@@ -926,8 +930,11 @@ namespace Aurora.Framework
                     {
                         //Eat the exception and go on
                         Output("[Console]: Failed to execute command: " + ex);
+<<<<<<< HEAD
                         action = null;
                         result = null;
+=======
+>>>>>>> origin/Auroa-Sim
                     }
 #else
                     Task prompt = TaskEx.Run(() => { Prompt(); });

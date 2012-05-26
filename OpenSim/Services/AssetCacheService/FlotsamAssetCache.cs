@@ -102,7 +102,11 @@ namespace OpenSim.Services
         private Dictionary<string, ManualResetEvent> m_CurrentlyWriting = new Dictionary<string, ManualResetEvent>();
         private int m_WaitOnInprogressTimeout = 3000;
 #else
+<<<<<<< HEAD
         private readonly List<string> m_CurrentlyWriting = new List<string>();
+=======
+        private HashSet<string> m_CurrentlyWriting = new HashSet<string>();
+>>>>>>> origin/Auroa-Sim
 #endif
 
         private ExpiringCache<string, AssetBase> m_MemoryCache;
@@ -291,10 +295,21 @@ namespace OpenSim.Services
 
                 try
                 {
+<<<<<<< HEAD
                     // If the file is already cached, don't cache it, just touch it so access time is updated
                     if (File.Exists(filename))
                     {
                         File.SetLastAccessTime(filename, DateTime.Now);
+=======
+                    // If the file is already cached just update access time
+                    if (File.Exists(filename))
+                    {
+                        lock (m_CurrentlyWriting)
+                        {
+                            if (!m_CurrentlyWriting.Contains(filename))
+                                File.SetLastAccessTime(filename, DateTime.Now);
+                        }
+>>>>>>> origin/Auroa-Sim
                     }
                     else
                     {

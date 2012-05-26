@@ -301,7 +301,10 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
             bool newLine = true;
             bool reading = true;
             string lastLine = "";
+<<<<<<< HEAD
             int startLinePos = 0;
+=======
+>>>>>>> origin/Auroa-Sim
             for (int i = 0; i < compileScript.Length; i++)
             {
                 if (compileScript[i] == '\n')
@@ -309,7 +312,10 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
                     if (lastLine != "")
                         ReadLine(lastLine);
                     reading = false;
+<<<<<<< HEAD
                     startLinePos = i;
+=======
+>>>>>>> origin/Auroa-Sim
                     lastLine = "";
                     newLine = true;
                 }

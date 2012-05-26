@@ -97,6 +97,10 @@
     EstateConnector = LocalConnector
     DirectoryServiceConnector = LocalConnector
     ParcelConnector = LocalConnector
+<<<<<<< HEAD
+=======
+	GridConnector = LocalConnector
+>>>>>>> origin/Auroa-Sim
     
     MuteListConnector = IWCConnector
     OfflineMessagesConnector = IWCConnector

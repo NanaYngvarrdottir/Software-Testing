@@ -47,9 +47,15 @@ namespace Aurora.Framework
 
         #endregion
 
+<<<<<<< HEAD
         public const string VERSION_NUMBER = "0.1.1.2";
         public const Flavour VERSION_FLAVOUR = Flavour.Dev;
         public const string VERSION_NAME = "Virtual Reality Server:";
+=======
+        public const string VERSION_NUMBER = "0.5.1";
+        public const Flavour VERSION_FLAVOUR = Flavour.Dev;
+        public const string VERSION_NAME = "Aurora";
+>>>>>>> origin/Auroa-Sim
 
         public const int VERSIONINFO_VERSION_LENGTH = 27;
 
@@ -119,4 +125,8 @@ namespace Aurora.Framework
             return versionString;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/Auroa-Sim
