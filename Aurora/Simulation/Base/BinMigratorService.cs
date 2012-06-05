@@ -24,15 +24,15 @@ namespace Aurora.Simulation.Base
 
         public int GetBinVersion()
         {
-            if (!File.Exists("Aurora.version"))
+            if (!File.Exists("VirtualReality.version"))
                 return 0;
-            string file = File.ReadAllText("Aurora.version");
+            string file = File.ReadAllText("VirtualReality.version");
             return int.Parse(file);
         }
 
         public void SetBinVersion(int version)
         {
-            File.WriteAllText("Aurora.version", version.ToString());
+            File.WriteAllText("VirtualReality.version", version.ToString());
         }
 
         public bool UpgradeToTarget(int currentVersion)

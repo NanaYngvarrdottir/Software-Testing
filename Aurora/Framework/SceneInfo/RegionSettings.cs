@@ -47,7 +47,7 @@ namespace Aurora.Framework
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_2 = new UUID("abb783e6-3e93-26c0-248a-247666855da3");
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_3 = new UUID("179cdabd-398a-9b6b-1391-4dc333ba321f");
         public static readonly UUID DEFAULT_TERRAIN_TEXTURE_4 = new UUID("beb169c7-11ea-fff2-efe5-0f24dc881df2");
-        private int m_AgentLimit = 40;
+        private int m_AgentLimit = 1000;
         private bool m_AllowLandJoinDivide = true;
         private bool m_AllowLandResell = true;
         private UUID m_Covenant = UUID.Zero;

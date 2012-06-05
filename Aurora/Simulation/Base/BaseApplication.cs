@@ -95,7 +95,7 @@ namespace Aurora.Simulation.Base
         /// <summary>
         ///   Directory to save crash reports to.  Relative to bin/
         /// </summary>
-        public static string m_crashDir = "crashes";
+        public static string m_crashDir = "/Crashes";
 
         private static bool _IsHandlingException; // Make sure we don't go recursive on ourself
 
