@@ -356,7 +356,7 @@ namespace Aurora.Services.DataService
             if (remoteValue != null || m_doRemoteOnly)
                 return remoteValue != null && (bool)remoteValue;
 
-            if ((CheckGroupPermissions(requestingAgentID, GroupID, (ulong)GroupPowers.RemoveMember)) && (requestingAgentID != AgentID))
+            if ((CheckGroupPermissions(requestingAgentID, GroupID, (ulong)GroupPowers.RemoveMember)) || (requestingAgentID == AgentID))
             {
                 QueryFilter filter = new QueryFilter();
                 filter.andFilters["AgentID"] = AgentID;
@@ -978,7 +978,7 @@ namespace Aurora.Services.DataService
             QueryTables tables = new QueryTables();
             tables.AddTable("osgroup", "osg");
             tables.AddTable("osgroupmembership", "osgm", JoinType.Inner, new[,] { { "osg.GroupID", "osgm.GroupID" } });
-            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.SelectedRoleID", "osr.RoleID" } });
+            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.SelectedRoleID", "osr.RoleID" }, { "osr.GroupID", "osg.GroupID" } });
 
             QueryFilter filter = new QueryFilter();
             filter.andFilters["osg.GroupID"] = GroupID;
@@ -1074,7 +1074,7 @@ namespace Aurora.Services.DataService
             QueryTables tables = new QueryTables();
             tables.AddTable("osgroup", "osg");
             tables.AddTable("osgroupmembership", "osgm", JoinType.Inner, new[,] { { "osg.GroupID", "osgm.GroupID" } });
-            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.SelectedRoleID", "osr.RoleID" } });
+            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.SelectedRoleID", "osr.RoleID" }, { "osr.GroupID", "osg.GroupID" } });
 
             QueryFilter filter = new QueryFilter();
             filter.andFilters["osgm.AgentID"] = AgentID;
@@ -1359,7 +1359,7 @@ namespace Aurora.Services.DataService
 
             QueryTables tables = new QueryTables();
             tables.AddTable("osgrouprolemembership", "osgm");
-            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.RoleID", "osr.RoleID" } });
+            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.RoleID", "osr.RoleID" }, { "osr.GroupID", "osgm.GroupID" } });
 
             QueryFilter filter = new QueryFilter();
             filter.andFilters["osgm.AgentID"] = AgentID;
@@ -1451,7 +1451,7 @@ namespace Aurora.Services.DataService
 
             QueryTables tables = new QueryTables();
             tables.AddTable("osgrouprolemembership", "osgrm");
-            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osr.RoleID", "osgrm.RoleID" } });
+            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osr.RoleID", "osgrm.RoleID" }, { "osr.RoleID", "osgrm.GroupID" } });
 
             QueryFilter filter = new QueryFilter();
             filter.andFilters["osgrm.GroupID"] = GroupID;
