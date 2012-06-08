@@ -838,24 +838,29 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
             if (IsJumping)
             {
 //                if ((IsColliding) && m_preJumpCounter > _parent_scene.m_preJumpTime || m_preJumpCounter > 150)
-                if ((IsColliding) && m_preJumpCounter > _parent_scene.m_preJumpTime || m_preJumpCounter > 150)
+                if (flying || ((IsColliding) && m_preJumpCounter > _parent_scene.m_preJumpTime || m_preJumpCounter > 150))
                 {
                     m_isJumping = false;
                     m_preJumpCounter = 0;
-                    _target_velocity.Z = 0;
+                    _target_velocity.X /= 2;
+                    _target_velocity.Y /= 2;
+                    _target_velocity.Z = -0.5f;
                 }
                 else
+                {
+                    _target_velocity.X = m_preJumpForce.X * _parent_scene.m_preJumpForceMultiplierX;
+                    _target_velocity.Y = m_preJumpForce.Y * _parent_scene.m_preJumpForceMultiplierY;
                     m_preJumpCounter++;
+                }
             }
-
             else if (m_ispreJumping)
             {
                 if (m_preJumpCounter == _parent_scene.m_preJumpTime)
                 {
                     m_ispreJumping = false;
-                    _target_velocity.X = m_preJumpForce.X*_parent_scene.m_preJumpForceMultiplierX;
-                    _target_velocity.Y = m_preJumpForce.Y*_parent_scene.m_preJumpForceMultiplierY;
-                    _target_velocity.Z = m_preJumpForce.Z*_parent_scene.m_preJumpForceMultiplierZ;
+                    _target_velocity.X = m_preJumpForce.X * _parent_scene.m_preJumpForceMultiplierX;
+                    _target_velocity.Y = m_preJumpForce.Y * _parent_scene.m_preJumpForceMultiplierY;
+                    _target_velocity.Z = m_preJumpForce.Z * (this.m_alwaysRun ? _parent_scene.m_preJumpForceMultiplierZ / 1.5f : _parent_scene.m_preJumpForceMultiplierZ);
 
                     m_preJumpCounter = 0;
                     m_isJumping = true;
@@ -1057,7 +1062,10 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
                 _parent_scene.CalculateGravity(m_mass, tempPos, false, 0.65f, ref gravForce);
                     //Allow point gravity and repulsors affect us a bit
 
-            vec += gravForce;
+            if (_target_velocity == Vector3.Zero && vec.X == 0 && vec.Y == 0 && (m_iscolliding || flying))
+                vec = Vector3.Zero;
+            else
+                vec += gravForce;
 
             #endregion
 

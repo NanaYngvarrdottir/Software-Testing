@@ -219,9 +219,12 @@ namespace Aurora.Modules.Archivers
                                 }
                                 else
                                 {
-                                    assetNonBinaryCollection.Add(asset.ID, asset);
-                                    // I need something I can safely loop through
-                                    assets2Save.Enqueue(asset.ID);
+                                    if (!assetNonBinaryCollection.ContainsKey(asset.ID))
+                                    {
+                                        assetNonBinaryCollection.Add(asset.ID, asset);
+                                        // I need something I can safely loop through
+                                        assets2Save.Enqueue(asset.ID);
+                                    }
                                 }
                             }
                         }
@@ -350,7 +353,7 @@ namespace Aurora.Modules.Archivers
                         groupsToBackup.Add(sceneObject);
                         sceneObject.ScheduleGroupUpdate(PrimUpdateFlags.ForcedFullUpdate);
                         sceneObjectsLoadedCount++;
-                        sceneObject.CreateScriptInstances(0, false, StateSource.RegionStart, UUID.Zero);
+                        sceneObject.CreateScriptInstances(0, false, StateSource.RegionStart, UUID.Zero, true);
                     }
                     sceneObjectsLoadedCount++;
                     if (sceneObjectsLoadedCount % 250 == 0)

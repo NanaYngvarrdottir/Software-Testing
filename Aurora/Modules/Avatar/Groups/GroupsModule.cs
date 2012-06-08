@@ -533,14 +533,66 @@ namespace Aurora.Modules.Groups
 
         public void EjectGroupMemberRequest(IClientAPI remoteClient, UUID groupID, UUID ejecteeID)
         {
+<<<<<<< HEAD
             if (m_debugEnabled) MainConsole.Instance.DebugFormat("[GROUPS]: {0} called", MethodBase.GetCurrentMethod().Name);
 
+=======
+            EjectGroupMember(remoteClient, GetRequestingAgentID(remoteClient), groupID, ejecteeID);
+        }
+
+        public void EjectGroupMember(IClientAPI remoteClient, UUID agentID, UUID groupID, UUID ejecteeID)
+        {
+            if (m_debugEnabled) MainConsole.Instance.DebugFormat("[GROUPS]: {0} called", MethodBase.GetCurrentMethod().Name);
+>>>>>>> VRGrid/master
             if (!m_groupData.RemoveAgentFromGroup(GetRequestingAgentID(remoteClient), ejecteeID, groupID))
                 return;
 
             m_cachedGroupMemberships.Remove(ejecteeID);
+<<<<<<< HEAD
             remoteClient.SendEjectGroupMemberReply(GetRequestingAgentID(remoteClient), groupID, true);
 
+=======
+            string agentName;
+            RegionInfo regionInfo;
+
+            // remoteClient provided or just agentID?
+            if (remoteClient != null)
+            {
+                agentName = remoteClient.Name;
+                regionInfo = remoteClient.Scene.RegionInfo;
+                remoteClient.SendEjectGroupMemberReply(agentID, groupID, true);
+            }
+            else
+            {
+                IClientAPI client = GetActiveClient(agentID);
+                if (client != null)
+                {
+                    agentName = client.Name;
+                    regionInfo = client.Scene.RegionInfo;
+                    client.SendEjectGroupMemberReply(agentID, groupID, true);
+                }
+
+                else
+                {
+
+                    regionInfo = m_sceneList[0].RegionInfo;
+                    UserAccount acc = m_sceneList[0].UserAccountService.GetUserAccount(regionInfo.ScopeID, agentID);
+
+                    if (acc != null)
+                    {
+
+                        agentName = acc.FirstName + " " + acc.LastName;
+                    }
+                    else
+                    {
+                        agentName = "Unknown member";
+                    }
+
+                }
+
+            }
+
+>>>>>>> VRGrid/master
             GroupRecord groupInfo = m_groupData.GetGroupRecord(GetRequestingAgentID(remoteClient), groupID, null);
 
             UserAccount account = m_sceneList[0].UserAccountService.GetUserAccount(
@@ -551,6 +603,7 @@ namespace Aurora.Modules.Groups
 
             // Send Message to Ejectee
             GridInstantMessage msg = new GridInstantMessage
+<<<<<<< HEAD
                                          {
                                              imSessionID = UUID.Zero,
                                              fromAgentID = GetRequestingAgentID(remoteClient),
@@ -569,6 +622,26 @@ namespace Aurora.Modules.Groups
                                              RegionID = remoteClient.Scene.RegionInfo.RegionID,
                                              binaryBucket = new byte[0]
                                          };
+=======
+            {
+                imSessionID = UUID.Zero,
+                fromAgentID = UUID.Zero,
+                toAgentID = ejecteeID,
+                timestamp = 0,
+                fromAgentName = "System",
+                message =
+                    string.Format("You have been ejected from '{1}' by {0}.",
+                                  agentName,
+                                  groupInfo.GroupName),
+                dialog = 210,
+                fromGroup = false,
+                offline = 0,
+                ParentEstateID = 0,
+                Position = Vector3.Zero,
+                RegionID = remoteClient.Scene.RegionInfo.RegionID,
+                binaryBucket = new byte[0]
+            };
+>>>>>>> VRGrid/master
 
             OutgoingInstantMessage(msg, ejecteeID);
 
@@ -576,7 +649,7 @@ namespace Aurora.Modules.Groups
             IClientAPI ejectee = GetActiveClient(ejecteeID);
             if (ejectee != null)
             {
-                msg.dialog = (byte) InstantMessageDialog.MessageFromAgent;
+                msg.dialog = (byte)InstantMessageDialog.MessageFromAgent;
                 OutgoingInstantMessage(msg, ejecteeID);
                 ejectee.SendAgentDropGroup(groupID);
             }
@@ -618,6 +691,7 @@ namespace Aurora.Modules.Groups
             {
                 // SL sends out notifcations to the group messaging session that the person has left
                 GridInstantMessage im = new GridInstantMessage
+<<<<<<< HEAD
                                             {
                                                 fromAgentID = groupID,
                                                 dialog = (byte) InstantMessageDialog.SessionSend,
@@ -631,6 +705,21 @@ namespace Aurora.Modules.Groups
                                                 timestamp = (uint) Util.UnixTimeSinceEpoch(),
                                                 toAgentID = UUID.Zero
                                             };
+=======
+                {
+                    fromAgentID = groupID,
+                    dialog = (byte)InstantMessageDialog.SessionSend,
+                    binaryBucket = new byte[0],
+                    fromAgentName = "System",
+                    fromGroup = true,
+                    imSessionID = groupID,
+                    message = account.Name + " has been ejected from the group by " + remoteClient.Name + ".",
+                    offline = 1,
+                    RegionID = remoteClient.Scene.RegionInfo.RegionID,
+                    timestamp = (uint)Util.UnixTimeSinceEpoch(),
+                    toAgentID = UUID.Zero
+                };
+>>>>>>> VRGrid/master
 
                 m_groupsMessagingModule.EnsureGroupChatIsStarted(groupID);
                 m_groupsMessagingModule.SendMessageToGroup(im, groupID);
@@ -639,8 +728,52 @@ namespace Aurora.Modules.Groups
 
         public void InviteGroupRequest(IClientAPI remoteClient, UUID groupID, UUID invitedAgentID, UUID roleID)
         {
+<<<<<<< HEAD
             if (m_debugEnabled) MainConsole.Instance.DebugFormat("[GROUPS]: {0} called", MethodBase.GetCurrentMethod().Name);
 
+=======
+
+            InviteGroup(remoteClient, GetRequestingAgentID(remoteClient), groupID, invitedAgentID, roleID);
+        }
+
+        public void InviteGroup(IClientAPI remoteClient, UUID agentID, UUID groupID, UUID invitedAgentID, UUID roleID)
+        {
+            if (m_debugEnabled) MainConsole.Instance.DebugFormat("[GROUPS]: {0} called", MethodBase.GetCurrentMethod().Name);
+
+            string agentName;
+            RegionInfo regionInfo;
+            // remoteClient provided or just agentID?
+            if (remoteClient != null)
+            {
+                agentName = remoteClient.Name;
+                regionInfo = remoteClient.Scene.RegionInfo;
+            }
+            else
+            {
+                IClientAPI client = GetActiveClient(agentID);
+                if (client != null)
+                {
+                    agentName = client.Name;
+                    regionInfo = client.Scene.RegionInfo;
+                }
+
+                else
+                {
+                    regionInfo = m_sceneList[0].RegionInfo;
+                    UserAccount account = m_sceneList[0].UserAccountService.GetUserAccount(regionInfo.ScopeID, agentID);
+                    if (account != null)
+                    {
+                        agentName = account.FirstName + " " + account.LastName;
+                    }
+
+                    else
+                    {
+                        agentName = "Unknown member";
+                    }
+                }
+            }
+
+>>>>>>> VRGrid/master
             UUID InviteID = UUID.Random();
 
             m_groupData.AddAgentToGroupInvite(GetRequestingAgentID(remoteClient), InviteID, groupID, roleID,
@@ -664,8 +797,6 @@ namespace Aurora.Modules.Groups
                                                      timestamp = 0,
                                                      fromAgentName = remoteClient.Name
                                                  };
-
-
                     // msg.fromAgentID = GetRequestingAgentID(remoteClient).Guid;
                     //msg.timestamp = (uint)Util.UnixTimeSinceEpoch();
                     GroupRecord groupInfo = GetGroupRecord(groupID);
@@ -676,7 +807,11 @@ namespace Aurora.Modules.Groups
                     }
                     msg.message = string.Format("{0} has invited you to join " + groupInfo.GroupName + MemberShipCost,
                                                 remoteClient.Name);
+<<<<<<< HEAD
                     msg.dialog = (byte) InstantMessageDialog.GroupInvitation;
+=======
+                    msg.dialog = (byte)InstantMessageDialog.GroupInvitation;
+>>>>>>> VRGrid/master
                     msg.fromGroup = true;
                     msg.offline = 0;
                     msg.ParentEstateID = 0;

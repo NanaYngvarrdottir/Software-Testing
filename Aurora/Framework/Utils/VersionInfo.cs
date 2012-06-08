@@ -47,7 +47,11 @@ namespace Aurora.Framework
 
         #endregion
 
+<<<<<<< HEAD
         public const string VERSION_NUMBER = "0.1.1.2";
+=======
+        public const string VERSION_NUMBER = "0.1.2";
+>>>>>>> VRGrid/master
         public const Flavour VERSION_FLAVOUR = Flavour.Dev;
         public const string VERSION_NAME = "Virtual Reality Server:";
 
@@ -102,7 +106,7 @@ namespace Aurora.Framework
                     string lastLine = lines[lines.Length - 1];
                     string[] splitLastLine = lastLine.Split(new string[2] {" ", "\t"},
                                                             StringSplitOptions.RemoveEmptyEntries);
-                    versionString = "Aurora-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
+                    versionString = "Virtual Reality Server-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
                                     " " + splitLastLine[5] /*Time zone info*/;
                     FileStream s = File.Open(gitCommitFileName, FileMode.Create);
                     byte[] data = Encoding.UTF8.GetBytes(versionString);

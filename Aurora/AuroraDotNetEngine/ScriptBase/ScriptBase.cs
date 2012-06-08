@@ -283,7 +283,25 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
             int i = tmp.LastIndexOf('+');
             string type = tmp.Substring(i + 1);
             return type;
+        } 
+
+        #region String Escaping for Save/Load States
+
+        public string EscapeString(string str)
+        {
+            // Must escape string for lists
+            // This escapes double quotes first, then backslashes
+            return str.Replace("\"", "\\\"").Replace("\\", "\\\\");
         }
+
+        public string UnEscapeString(string str)
+        {
+            // Must do the opposite of EscapeString
+            // This unescapes backslashes first, then quotes
+            return str.Replace("\\\\", "\\").Replace("\\\"", "\"");
+        }
+
+        #endregion
 
         public string ListToString(object o)
         {
@@ -298,11 +316,19 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
                     cur = "f" + ob;
                 else if (ob.GetType() == typeof (LSL_Types.Vector3))
                     cur = "v" + ob;
+<<<<<<< HEAD
                 else if (ob.GetType() == typeof (LSL_Types.Quaternion))
                     cur = "q" + ob;
                 else if (ob.GetType() == typeof (LSL_Types.LSLString))
                     cur = "\"" + ob + "\"";
                 else if (ob.GetType() == typeof (LSL_Types.key))
+=======
+                else if (ob.GetType() == typeof(LSL_Types.Quaternion))
+                    cur = "q" + ob;
+                else if (ob.GetType() == typeof(LSL_Types.LSLString))
+                    cur = "\"" + EscapeString(ob.ToString()) + "\"";
+                else if (ob.GetType() == typeof (LSL_Types.key))
+>>>>>>> VRGrid/master
                     cur = "k\"" + ob + "\"";
                 else if (o.GetType() == typeof (LSL_Types.list))
                     cur = "{" + ListToString(ob) + "}";
@@ -343,11 +369,19 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
                             cur = "f" + o;
                         else if (o.GetType() == typeof (LSL_Types.Vector3))
                             cur = "v" + o;
+<<<<<<< HEAD
                         else if (o.GetType() == typeof (LSL_Types.Quaternion))
                             cur = "q" + o;
                         else if (o.GetType() == typeof (LSL_Types.LSLString))
                             cur = "\"" + o + "\"";
                         else if (o.GetType() == typeof (LSL_Types.key))
+=======
+                        else if (o.GetType() == typeof(LSL_Types.Quaternion))
+                            cur = "q" + o;
+                        else if (o.GetType() == typeof(LSL_Types.LSLString))
+                            cur = "\"" + EscapeString(o.ToString()) + "\"";
+                        else if (o.GetType() == typeof (LSL_Types.key))
+>>>>>>> VRGrid/master
                             cur = "k\"" + o + "\"";
                         else if (o.GetType() == typeof (LSL_Types.list))
                             cur = "{" + ListToString(o) + "}";
@@ -390,7 +424,8 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
             string param = "";
             int totlen = inval.Length;
             int len;
-
+            DateTime time_limit = DateTime.Now.AddSeconds(5.0);
+ 
             while (true)
             {
                 try
@@ -442,11 +477,21 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
                                 break;
                             case '"':
                                 end = inval.IndexOf('"', start);
+                                while (inval[end - 1] == '\\')
+                                {
+                                    int slashes = 2;
+                                    while(end - slashes > 0 && inval[end - slashes] == '\\')
+                                        slashes++;
+                                    if ((slashes - 1) % 2 == 0)
+                                        end = inval.IndexOf('"', end + 1);
+                                    else
+                                        break;
+                                }
                                 if (end > 0)
                                     len = end - start;
                                 else
                                     len = totlen - start;
-                                param = inval.Substring(start, len);
+                                param = UnEscapeString(inval.Substring(start, len));
                                 v.Add(new LSL_Types.LSLString(param));
                                 end++;
                                 break;
@@ -474,8 +519,10 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
                     if (start == -1 || start >= totlen || (inval[start] == '}'))
                         break;
                     else
-                        while (inval[start] == ',' || inval[start] == ' ')
-                            start++;
+                        while ((inval[start] == ',' || inval[start] == ' ') && DateTime.Now.CompareTo(time_limit) < 0)
+                             start++;
+                    if (DateTime.Now.CompareTo(time_limit) > 0)
+                        break;
                 }
                 catch
                 {

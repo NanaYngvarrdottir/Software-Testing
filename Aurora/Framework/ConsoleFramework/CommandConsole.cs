@@ -729,12 +729,16 @@ namespace Aurora.Framework
         private string InternalPrompt(string prompt, string defaultresponse, List<string> options)
         {
             m_reading = Thread.CurrentThread != m_consoleReadingThread;
-            string ret = ReadLine(String.Format("{0}{2} [{1}]: ",
-                prompt,
-                defaultresponse,
-                options.Count == 0 ? "" : ", Options are [" + string.Join(", ", options.ToArray()) + "]"
-            ), false, true);
-            m_reading = false;
+            string ret;
+            lock (m_readingLock)
+            {
+                ret = ReadLine(String.Format("{0}{2} [{1}]: ",
+                    prompt,
+                    defaultresponse,
+                    options.Count == 0 ? "" : ", Options are [" + string.Join(", ", options.ToArray()) + "]"
+                ), false, true);
+            }
+            m_reading = Thread.CurrentThread != m_consoleReadingThread ? false : m_reading;
             if (ret == String.Empty)
             {
                 ret = defaultresponse;
@@ -877,12 +881,14 @@ namespace Aurora.Framework
         private bool m_calledEndInvoke;
         protected static bool m_reading;
         private Thread m_consoleReadingThread;
+        protected readonly Object m_readingLock = new Object();
 #endif
         private Thread StartReadingThread()
         {
             Thread t = new Thread(delegate()
             {
-                Prompt();
+                lock(m_readingLock)
+                    Prompt();
             });
             t.Start();
             return t;
@@ -909,7 +915,7 @@ namespace Aurora.Framework
                         if (m_reading)
                         {
                             if (m_consoleReadingThread.ThreadState == ThreadState.Running)
-                                m_consoleReadingThread.Suspend();
+                                m_consoleReadingThread.Abort();
                             continue;
                         }
                         else if (m_consoleReadingThread.ThreadState == ThreadState.Stopped)

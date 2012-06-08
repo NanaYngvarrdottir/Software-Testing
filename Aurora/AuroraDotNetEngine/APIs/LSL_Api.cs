@@ -3545,7 +3545,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
                     }
                     World.SceneGraph.AddPrimToScene(group);
 
-                    group.CreateScriptInstances(param, true, StateSource.ScriptedRez, RezzedFrom);
+                    group.CreateScriptInstances(param, true, StateSource.ScriptedRez, RezzedFrom, false);
 
                     if (!World.Permissions.BypassPermissions())
                     {
@@ -4204,7 +4204,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
                         group.ClearPartAttachmentData();
 
                     // Fire on_rez
-                    group.CreateScriptInstances(0, true, StateSource.ScriptedRez, UUID.Zero);
+                    group.CreateScriptInstances(0, true, StateSource.ScriptedRez, UUID.Zero, false);
                     group.ScheduleGroupUpdate(PrimUpdateFlags.ForcedFullUpdate);
                 }
             }
@@ -6398,6 +6398,100 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             return "en-us";
         }
 
+<<<<<<< HEAD
+=======
+        /// <summary>
+        /// http://wiki.secondlife.com/wiki/LlGetAgentList
+        /// The list of options is currently not used in SL
+        /// scope is one of:-
+        /// AGENT_LIST_REGION - all in the region
+        /// AGENT_LIST_PARCEL - all in the same parcel as the scripted object
+        /// AGENT_LIST_PARCEL_OWNER - all in any parcel owned by the owner of the
+        /// current parcel.
+        /// </summary>
+        public LSL_List llGetAgentList(LSL_Integer scope, LSL_List options)
+        {
+            if (!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID))
+                return new LSL_List();
+
+            // the constants are 1, 2 and 4 so bits are being set, but you
+            // get an error "INVALID_SCOPE" if it is anything but 1, 2 and 4
+            bool regionWide = scope == ScriptBaseClass.AGENT_LIST_REGION;
+            bool parcelOwned = scope == ScriptBaseClass.AGENT_LIST_PARCEL_OWNER;
+            bool parcel = scope == ScriptBaseClass.AGENT_LIST_PARCEL;
+            LSL_List result = new LSL_List();
+
+            if (!regionWide && !parcelOwned && !parcel)
+            {
+                result.Add("INVALID_SCOPE");
+                return result;
+            }
+
+            Vector3 pos;
+            UUID id = UUID.Zero;
+
+            if (parcel || parcelOwned)
+            {
+                pos = m_host.GetWorldPosition();
+                IParcelManagementModule parcelManagement = World.RequestModuleInterface<IParcelManagementModule>();
+                ILandObject land = parcelManagement.GetLandObject(pos.X, pos.Y);
+                if (land == null)
+                {
+                    id = UUID.Zero;
+                }
+                else
+                {
+                    if (parcelOwned)
+                    {
+                        id = land.LandData.OwnerID;
+                    }
+                    else
+                    {
+                        id = land.LandData.GlobalID;
+                    }
+                }
+
+            }
+
+            List<UUID> presenceIds = new List<UUID>();
+            World.ForEachScenePresence(delegate(IScenePresence ssp)
+            {
+                // Gods are not listed in SL
+
+                if (!ssp.IsDeleted && ssp.GodLevel == 0.0 && !ssp.IsChildAgent)
+                {
+                    if (!regionWide)
+                    {
+                        pos = ssp.AbsolutePosition;
+                        IParcelManagementModule parcelManagement = World.RequestModuleInterface<IParcelManagementModule>();
+                        ILandObject land = parcelManagement.GetLandObject(pos.X, pos.Y);
+                        if (land != null)
+                        {
+                            if (parcelOwned && land.LandData.OwnerID == id ||
+                               parcel && land.LandData.GlobalID == id)
+                            {
+                                result.Add(ssp.UUID.ToString());
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        result.Add(ssp.UUID.ToString());
+                    }
+                }
+
+                // Maximum of 100 results
+                if (result.Length > 99)
+                {
+                    return;
+                }
+            }
+        );
+            return result;
+        }
+
+>>>>>>> VRGrid/master
         public DateTime llAdjustSoundVolume(double volume)
         {
             if(!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID)) return DateTime.Now;
@@ -9975,6 +10069,99 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             if (name == "sim_version")
                 return World.RequestModuleInterface<ISimulationBase>().Version;
             return "";
+        }
+
+        public void llTeleportAgent(LSL_Key avatar, LSL_String landmark, LSL_Vector position, LSL_Vector look_at)
+        {
+            if (!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID)) return;
+
+            UUID invItemID = InventorySelf();
+
+            if (invItemID == UUID.Zero)
+                return;
+
+            lock (m_host.TaskInventory)
+            {
+                if (m_host.TaskInventory[invItemID].PermsGranter == UUID.Zero)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+
+                if ((m_host.TaskInventory[invItemID].PermsMask & ScriptBaseClass.PERMISSION_TELEPORT) == 0)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+            }
+
+            TaskInventoryItem item = null;
+            lock (m_host.TaskInventory)
+            {
+                foreach (KeyValuePair<UUID, TaskInventoryItem> inv in m_host.TaskInventory)
+                {
+                    if (inv.Value.Name == landmark)
+                        item = inv.Value;
+                }
+            }
+            if (item == null && landmark != "")
+                return;
+
+            IScenePresence presence = World.GetScenePresence(m_host.OwnerID);
+            if (presence != null)
+            {
+                IEntityTransferModule module = World.RequestModuleInterface<IEntityTransferModule>();
+                if (module != null)
+                {
+                    if (landmark == "")
+                        module.Teleport(presence, World.RegionInfo.RegionHandle,
+                            position.ToVector3(), look_at.ToVector3(), (uint)TeleportFlags.ViaLocation);
+                    else
+                    {
+                        AssetLandmark lm = new AssetLandmark(
+                            World.AssetService.Get(item.AssetID.ToString()));
+                        module.Teleport(presence, lm.RegionHandle, lm.Position,
+                            look_at.ToVector3(), (uint)TeleportFlags.ViaLocation);
+                    }
+                }
+            }
+        }
+
+        public void llTeleportAgentGlobalCoords(LSL_Key agent, LSL_Vector global_coordinates,
+            LSL_Vector region_coordinates, LSL_Vector look_at)
+        {
+            if (!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID)) return;
+
+            UUID invItemID = InventorySelf();
+
+            if (invItemID == UUID.Zero)
+                return;
+
+            lock (m_host.TaskInventory)
+            {
+                if (m_host.TaskInventory[invItemID].PermsGranter == UUID.Zero)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+
+                if ((m_host.TaskInventory[invItemID].PermsMask & ScriptBaseClass.PERMISSION_TELEPORT) == 0)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+            }
+
+            IScenePresence presence = World.GetScenePresence(m_host.OwnerID);
+            if (presence != null)
+            {
+                IEntityTransferModule module = World.RequestModuleInterface<IEntityTransferModule>();
+                if (module != null)
+                {
+                    module.Teleport(presence, Utils.UIntsToLong((uint)global_coordinates.x, (uint)global_coordinates.y),
+                        region_coordinates.ToVector3(), look_at.ToVector3(), (uint)TeleportFlags.ViaLocation);
+                }
+            }
         }
 
         public LSL_Key llRequestSimulatorData(string simulator, int data)
