@@ -248,24 +248,17 @@ namespace OpenSim.Services.InventoryService
 
             if (!Array.Exists(sysFolders, delegate(InventoryFolderBase f)
             {
-                if (f.Type == (short)AssetType.Mesh) return true;
+                if (f.Type == (short)AssetType.Inbox) return true;
                 return false;
             }))
-                CreateFolder(principalID, rootFolder.ID, (int)AssetType.Mesh, "Mesh");
+                CreateFolder(principalID, rootFolder.ID, (int) AssetType.Inbox, "Received Items");
 
             if (!Array.Exists(sysFolders, delegate(InventoryFolderBase f)
             {
-                if (f.Type == 50/*(short)AssetType.Inbox*/) return true;
+                if (f.Type == (short)AssetType.Outbox) return true;
                 return false;
             }))
-                CreateFolder(principalID, rootFolder.ID, 50/*(int)AssetType.Inbox*/, "Inbox");
-
-            if (!Array.Exists(sysFolders, delegate(InventoryFolderBase f)
-            {
-                if (f.Type == 51/*(short)AssetType.Outbox*/) return true;
-                return false;
-            }))
-                CreateFolder(principalID, rootFolder.ID, 51/*(int)AssetType.Outbox*/, "Outbox");
+                CreateFolder(principalID, rootFolder.ID, (int)AssetType.Outbox, "Merchant Outbox");
 
             if (createDefaultItems && m_LibraryService != null)
             {

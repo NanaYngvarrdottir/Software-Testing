@@ -347,6 +347,7 @@ namespace Aurora.Framework.Servers.HttpServer
             int tickstart = Environment.TickCount;
             string RawUrl = request.RawUrl;
             string HTTPMethod = request.HttpMethod;
+            long contentLength = request.ContentLength64;
 
             try
             {
@@ -536,6 +537,11 @@ namespace Aurora.Framework.Servers.HttpServer
                     case "application/xml":
                     case "application/json":
                     default:
+                        if (request.ContentType == "application/x-gzip")
+                        {
+                            System.IO.Stream inputStream = new System.IO.Compression.GZipStream(request.InputStream, System.IO.Compression.CompressionMode.Decompress);
+                            request.InputStream = inputStream;
+                        }
                         //MainConsole.Instance.Info("[Debug BASE HTTP SERVER]: in default handler");
                         // Point of note..  the DoWeHaveA methods check for an EXACT path
                         //                        if (request.RawUrl.Contains("/CAPS/EQG"))
@@ -601,7 +607,7 @@ namespace Aurora.Framework.Servers.HttpServer
                 if (tickdiff > 500)
                 {
                     response.ReuseContext = false; //If it took a long time, don't use it again
-                    MainConsole.Instance.InfoFormat("[BASE HTTP SERVER]: slow request <{0}> for {1},{3} took {2} ms", reqnum, RawUrl, tickdiff, HTTPMethod);
+                    MainConsole.Instance.InfoFormat("[BASE HTTP SERVER]: slow request <{0}> for {1},{3} took {2} ms for a request sized {4}", reqnum, RawUrl, tickdiff, HTTPMethod, ((float)contentLength) / 1024 / 1024);
                 }
             }
         }

@@ -84,7 +84,6 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
         protected IUrlModule m_UrlModule = null;
         internal ScriptProtectionModule ScriptProtection;
         protected IWorldComm m_comms = null;
-        private IScene m_scene;
 
         // MUST be a ref type
         public class UserInfoCacheEntry
@@ -3555,7 +3554,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
                     }
                     World.SceneGraph.AddPrimToScene(group);
 
-                    group.CreateScriptInstances(param, true, StateSource.ScriptedRez, RezzedFrom);
+                    group.CreateScriptInstances(param, true, StateSource.ScriptedRez, RezzedFrom, false);
 
                     if (!World.Permissions.BypassPermissions())
                     {
@@ -4227,7 +4226,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
                         group.ClearPartAttachmentData();
 
                     // Fire on_rez
-                    group.CreateScriptInstances(0, true, StateSource.ScriptedRez, UUID.Zero);
+                    group.CreateScriptInstances(0, true, StateSource.ScriptedRez, UUID.Zero, false);
                     group.ScheduleGroupUpdate(PrimUpdateFlags.ForcedFullUpdate);
                 }
             }
@@ -6455,7 +6454,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             if (parcel || parcelOwned)
             {
                 pos = m_host.GetWorldPosition();
-                IParcelManagementModule parcelManagement = m_scene.RequestModuleInterface<IParcelManagementModule>();
+                IParcelManagementModule parcelManagement = World.RequestModuleInterface<IParcelManagementModule>();
                 ILandObject land = parcelManagement.GetLandObject(pos.X, pos.Y);
                 if (land == null)
                 {
@@ -6485,7 +6484,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
                     if (!regionWide)
                     {
                         pos = ssp.AbsolutePosition;
-                        IParcelManagementModule parcelManagement = m_scene.RequestModuleInterface<IParcelManagementModule>();
+                        IParcelManagementModule parcelManagement = World.RequestModuleInterface<IParcelManagementModule>();
                         ILandObject land = parcelManagement.GetLandObject(pos.X, pos.Y);
                         if (land != null)
                         {
@@ -10090,6 +10089,99 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             if (name == "sim_version")
                 return World.RequestModuleInterface<ISimulationBase>().Version;
             return "";
+        }
+
+        public void llTeleportAgent(LSL_Key avatar, LSL_String landmark, LSL_Vector position, LSL_Vector look_at)
+        {
+            if (!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID)) return;
+
+            UUID invItemID = InventorySelf();
+
+            if (invItemID == UUID.Zero)
+                return;
+
+            lock (m_host.TaskInventory)
+            {
+                if (m_host.TaskInventory[invItemID].PermsGranter == UUID.Zero)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+
+                if ((m_host.TaskInventory[invItemID].PermsMask & ScriptBaseClass.PERMISSION_TELEPORT) == 0)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+            }
+
+            TaskInventoryItem item = null;
+            lock (m_host.TaskInventory)
+            {
+                foreach (KeyValuePair<UUID, TaskInventoryItem> inv in m_host.TaskInventory)
+                {
+                    if (inv.Value.Name == landmark)
+                        item = inv.Value;
+                }
+            }
+            if (item == null && landmark != "")
+                return;
+
+            IScenePresence presence = World.GetScenePresence(m_host.OwnerID);
+            if (presence != null)
+            {
+                IEntityTransferModule module = World.RequestModuleInterface<IEntityTransferModule>();
+                if (module != null)
+                {
+                    if (landmark == "")
+                        module.Teleport(presence, World.RegionInfo.RegionHandle,
+                            position.ToVector3(), look_at.ToVector3(), (uint)TeleportFlags.ViaLocation);
+                    else
+                    {
+                        AssetLandmark lm = new AssetLandmark(
+                            World.AssetService.Get(item.AssetID.ToString()));
+                        module.Teleport(presence, lm.RegionHandle, lm.Position,
+                            look_at.ToVector3(), (uint)TeleportFlags.ViaLocation);
+                    }
+                }
+            }
+        }
+
+        public void llTeleportAgentGlobalCoords(LSL_Key agent, LSL_Vector global_coordinates,
+            LSL_Vector region_coordinates, LSL_Vector look_at)
+        {
+            if (!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID)) return;
+
+            UUID invItemID = InventorySelf();
+
+            if (invItemID == UUID.Zero)
+                return;
+
+            lock (m_host.TaskInventory)
+            {
+                if (m_host.TaskInventory[invItemID].PermsGranter == UUID.Zero)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+
+                if ((m_host.TaskInventory[invItemID].PermsMask & ScriptBaseClass.PERMISSION_TELEPORT) == 0)
+                {
+                    ShoutError("No permissions to teleport the agent");
+                    return;
+                }
+            }
+
+            IScenePresence presence = World.GetScenePresence(m_host.OwnerID);
+            if (presence != null)
+            {
+                IEntityTransferModule module = World.RequestModuleInterface<IEntityTransferModule>();
+                if (module != null)
+                {
+                    module.Teleport(presence, Utils.UIntsToLong((uint)global_coordinates.x, (uint)global_coordinates.y),
+                        region_coordinates.ToVector3(), look_at.ToVector3(), (uint)TeleportFlags.ViaLocation);
+                }
+            }
         }
 
         public LSL_Key llRequestSimulatorData(string simulator, int data)

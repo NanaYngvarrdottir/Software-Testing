@@ -48,9 +48,11 @@
     PreJumpTime = 15
     
     ;; The amount to multiply the jump by (can have a decimal point)
-    PreJumpMultiplierX = 6
-    PreJumpMultiplierY = 6
-    PreJumpMultiplierZ = 5.5
+	;; Second Life feeling
+    PreJumpMultiplierX = 5
+    PreJumpMultiplierY = 5
+    PreJumpMultiplierZ = 3.0
+
 
     ;; ##
     ;; ## Gravity Settings
@@ -59,7 +61,7 @@
     ;; Normal Gravity.  Feel like falling up?  change world_gravity to 9.8 instead of -9.8.  m/s
     world_gravityx = 0
     world_gravityy = 0
-    world_gravityz = -9.8
+    world_gravityz = -6.6
 
     ;; ##
     ;; ## Point Gravity Settings
@@ -88,15 +90,15 @@
     aviesCanEscapeGravity = true
     
     ;; How many times faster the avatar will fly than a walking avatar
-    AvFlySpeed = 5.0
+    AvFlySpeed = 7.0
 	
 	;; Walk speed.  Smaller is faster.
     ;; speed of movement with Always Run off
-    WalkSpeed = 2.5
+    WalkSpeed = 1.5
     
 	;; Run speed.  Smaller is faster.
     ;; Speed of movement with Always Run on
-    RunSpeed = 1.5
+    RunSpeed = 1.15
 
     ;; ##
     ;; ## Under-water physics Settings
