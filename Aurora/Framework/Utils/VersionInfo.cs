@@ -47,7 +47,7 @@ namespace Aurora.Framework
 
         #endregion
 
-        public const string VERSION_NUMBER = "0.1.2";
+        public const string VERSION_NUMBER = "0.1.1.2";
         public const Flavour VERSION_FLAVOUR = Flavour.Dev;
         public const string VERSION_NAME = "Virtual Reality Server:";
 
