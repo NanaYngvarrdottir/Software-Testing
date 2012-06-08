@@ -105,8 +105,10 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs.Interfaces
         void osSetRegionSunSettings(bool useEstateSun, bool sunFixed, double sunHour);
         void osSetEstateSunSettings(bool sunFixed, double sunHour);
         double osGetCurrentSunHour();
-        double osSunGetParam(string param);
-        void osSunSetParam(string param, double value);
+        double osGetSunParam(string param); //patched from OpenSim
+        double osSunGetParam(string param); // Deprecated
+        void osSetSunParam(string param, double value); //patched from OpenSim
+        void osSunSetParam(string param, double value); // Deprecated
 
         // Wind Module Functions
         string osWindActiveModelPluginName();
@@ -120,7 +122,8 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs.Interfaces
 
         string osGetScriptEngineName();
         string osGetSimulatorVersion();
-        Hashtable osParseJSON(string JSON);
+        Object osParseJSONNew(string JSON); //patched from OpenSim
+        Hashtable osParseJSON(string JSON); 
 
         void osMessageObject(key objectUUID, string message);
 
@@ -137,6 +140,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs.Interfaces
         string osGetGridNick();
         string osGetGridName();
         string osGetGridLoginURI();
+        string osGetThreatLevel(string key);
 
         LSL_String osFormatString(string str, LSL_List strings);
         LSL_List osMatchString(string src, string pattern, int start);
@@ -147,7 +151,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs.Interfaces
         string osLoadedCreationID();
 
         LSL_List osGetLinkPrimitiveParams(int linknumber, LSL_List rules);
-
+        
         key osGetMapTexture();
         key osGetRegionMapTexture(string regionName);
         LSL_List osGetRegionStats();
@@ -159,8 +163,12 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs.Interfaces
         void osSetPrimitiveParams(LSL_Key prim, LSL_List rules);
         void osSetProjectionParams(bool projection, LSL_Key texture, double fov, double focus, double amb);
         void osSetProjectionParams(LSL_Key prim, bool projection, LSL_Key texture, double fov, double focus, double amb);
-
+        string osGetGridGatekeeperURI(); //maybe HG only
         LSL_List osGetAvatarList();
+
+        // Grid Info Functions
+        string osGetGridHomeURI(); //maybe HG only
+        string osGetGridCustom(string key); //maybe HG only
 
         void osReturnObject(LSL_Key userID);
         void osReturnObjects(LSL_Float Parameter);

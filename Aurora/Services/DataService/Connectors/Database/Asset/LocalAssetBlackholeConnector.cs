@@ -62,8 +62,8 @@ namespace Aurora.Services.DataService.Connectors.Database.Asset
         private int convertCountDupe;
         private int convertCountParentFix;
         private int displayCount;
-        private string m_CacheDirectory = "./BlackHoleAssets";
-        private string m_CacheDirectoryBackup = "./BlackHoleBackup";
+        private string m_CacheDirectory = "/BlackHoleAssets";
+        private string m_CacheDirectoryBackup = "/BlackHoleBackup";
         private bool m_Enabled;
         private IGenericData m_Gd;
         private bool m_pointInventory2ParentAssets = true;
@@ -106,7 +106,7 @@ namespace Aurora.Services.DataService.Connectors.Database.Asset
 
             m_CacheDirectory = source.Configs["BlackHole"].GetString("CacheDirector", m_CacheDirectory);
             m_CacheDirectoryBackup = source.Configs["BlackHole"].GetString("BackupCacheDirector", m_CacheDirectoryBackup);
-            NumberOfDaysForOldAssets = source.Configs["BlackHole"].GetInt("AssetsAreOldAfterHowManyDays", 30) * -1;
+            NumberOfDaysForOldAssets = source.Configs["BlackHole"].GetInt("AssetsAreOldAfterHowManyDays", 365) * -1;
             m_Enabled = true;
 
             m_pointInventory2ParentAssets = source.Configs["BlackHole"].GetBoolean("PointInventoryToParentAssets", true);

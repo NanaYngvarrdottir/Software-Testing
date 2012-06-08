@@ -923,9 +923,6 @@ namespace OpenSim.Region.Framework.Scenes
         {
             if (m_culler == null)
                 return;
-            //Don't reset the prim... the client is just in a child region now, we don't want to resent them all the prims
-            //Reset the culler so that it doesn't cache too much
-            m_culler.Reset();
             //Gotta remove this so that if the client comes back, we don't have any issues with sending them another update
             lock (m_lastPresencesInViewLock)
                 lastPresencesDInView.Remove(m_presence.UUID);
@@ -947,6 +944,13 @@ namespace OpenSim.Region.Framework.Scenes
                 m_objectUpdatesToSend.Clear();
             lock (m_presenceUpdatesToSendLock)
                 m_presenceUpdatesToSend.Clear();
+            lock(m_presenceAnimationsToSendLock)
+                m_presenceAnimationsToSend.Clear();
+            lock (m_lastPresencesInViewLock)
+                lastPresencesDInView.Clear();
+            lock(m_objectPropertiesToSendLock)
+                m_objectPropertiesToSend.Clear();
+            lastGrpsInView.Clear();
             m_presence.OnSignificantClientMovement -= SignificantClientMovement;
             m_presence.Scene.EventManager.OnMakeChildAgent -= EventManager_OnMakeChildAgent;
             m_scene.EventManager.OnClosingClient -= EventManager_OnClosingClient;

@@ -359,7 +359,7 @@ namespace Aurora.Services.DataService
             if (remoteValue != null || m_doRemoteOnly)
                 return remoteValue == null ? false : (bool)remoteValue;
 
-            if ((CheckGroupPermissions(requestingAgentID, GroupID, (ulong)GroupPowers.RemoveMember)) && (requestingAgentID != AgentID))
+            if ((CheckGroupPermissions(requestingAgentID, GroupID, (ulong)GroupPowers.RemoveMember)) || (requestingAgentID == AgentID))
             {
                 QueryFilter filter = new QueryFilter();
                 filter.andFilters["AgentID"] = AgentID;
@@ -983,9 +983,16 @@ namespace Aurora.Services.DataService
             if (GroupID == UUID.Zero)
                 GroupID = GetAgentActiveGroup(requestingAgentID, AgentID);
 
+<<<<<<< HEAD
             GroupRecord record = GetGroupRecord(requestingAgentID, GroupID, null);
             if (record == null)
                 return null;
+=======
+            QueryTables tables = new QueryTables();
+            tables.AddTable("osgroup", "osg");
+            tables.AddTable("osgroupmembership", "osgm", JoinType.Inner, new[,] { { "osg.GroupID", "osgm.GroupID" } });
+            tables.AddTable("osrole", "osr", JoinType.Inner, new[,] { { "osgm.SelectedRoleID", "osr.RoleID" }, { "osr.GroupID", "osg.GroupID" } });
+>>>>>>> Aurora/master
 
             QueryFilter filter = new QueryFilter();
             filter.andFilters["GroupID"] = GroupID;

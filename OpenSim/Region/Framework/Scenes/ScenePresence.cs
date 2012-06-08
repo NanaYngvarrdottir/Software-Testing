@@ -2586,7 +2586,7 @@ AbsolutePosition = pos2;*/
                                 if(sceneObject.RootChild.IsSelected)
                                     sceneObject.RootChild.CreateSelected = true;
                                 sceneObject.ScheduleGroupUpdate(PrimUpdateFlags.ForcedFullUpdate);
-                                sceneObject.CreateScriptInstances(0, false, StateSource.PrimCrossing, UUID.Zero);
+                                sceneObject.CreateScriptInstances(0, false, StateSource.PrimCrossing, UUID.Zero, false);
 
                                 sceneObject.RootChild.PhysActor.ForceSetVelocity(cAgent.Velocity);
                                 sceneObject.RootChild.PhysActor.Velocity = (cAgent.Velocity);

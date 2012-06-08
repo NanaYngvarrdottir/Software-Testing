@@ -347,6 +347,7 @@ namespace Aurora.Framework.Servers.HttpServer
             int tickstart = Environment.TickCount;
             string RawUrl = request.RawUrl;
             string HTTPMethod = request.HttpMethod;
+            long contentLength = request.ContentLength64;
 
             try
             {
@@ -451,6 +452,8 @@ namespace Aurora.Framework.Servers.HttpServer
                     //
                     if (buffer == null)
                         return;
+                    if (buffer.Length == 0)//Just send the end of connection 0
+                        buffer = new byte[1] { 0 };
 
                     if (!response.SendChunked)
                         response.ContentLength64 = buffer.LongLength;
@@ -477,7 +480,6 @@ namespace Aurora.Framework.Servers.HttpServer
                     {
                         MainConsole.Instance.Warn("[BASE HTTP SERVER]: XmlRpcRequest issue: " + e);
                     }
-                    response = null;
                     //This makes timeouts VERY bad if enabled
                     /*try
                     {
@@ -488,7 +490,8 @@ namespace Aurora.Framework.Servers.HttpServer
                     catch(Exception ex)
                     {
                         MainConsole.Instance.ErrorFormat("[BASE HTTP SERVER]: ISSUE WITH CLEANUP {0}", ex.ToString());
-                    }*/
+                    }
+                    response = null;*/
                     return;
                 }
 
@@ -534,6 +537,11 @@ namespace Aurora.Framework.Servers.HttpServer
                     case "application/xml":
                     case "application/json":
                     default:
+                        if (request.ContentType == "application/x-gzip")
+                        {
+                            System.IO.Stream inputStream = new System.IO.Compression.GZipStream(request.InputStream, System.IO.Compression.CompressionMode.Decompress);
+                            request.InputStream = inputStream;
+                        }
                         //MainConsole.Instance.Info("[Debug BASE HTTP SERVER]: in default handler");
                         // Point of note..  the DoWeHaveA methods check for an EXACT path
                         //                        if (request.RawUrl.Contains("/CAPS/EQG"))
@@ -568,6 +576,7 @@ namespace Aurora.Framework.Servers.HttpServer
             }
             catch (SocketException e)
             {
+                response.ReuseContext = false; //If it errored, be safe and don't use it again
                 // At least on linux, it appears that if the client makes a request without requiring the response,
                 // an unconnected socket exception is thrown when we close the response output stream.  There's no
                 // obvious way to tell if the client didn't require the response, so instead we'll catch and ignore
@@ -579,10 +588,12 @@ namespace Aurora.Framework.Servers.HttpServer
             }
             catch (IOException)
             {
+                response.ReuseContext = false; //If it errored, be safe and don't use it again
                 MainConsole.Instance.ErrorFormat("[BASE HTTP SERVER]: HandleRequest() threw ");
             }
             catch (Exception e)
             {
+                response.ReuseContext = false; //If it errored, be safe and don't use it again
                 MainConsole.Instance.ErrorFormat("[BASE HTTP SERVER]: HandleRequest() threw {0}", e);
                 SendHTML500(response);
             }
@@ -594,7 +605,10 @@ namespace Aurora.Framework.Servers.HttpServer
                 // Every month or so this will wrap and give bad numbers, not really a problem
                 // since its just for reporting, 500ms limit can be adjusted
                 if (tickdiff > 500)
-                    MainConsole.Instance.InfoFormat("[BASE HTTP SERVER]: slow request <{0}> for {1},{3} took {2} ms", reqnum, RawUrl, tickdiff, HTTPMethod);
+                {
+                    response.ReuseContext = false; //If it took a long time, don't use it again
+                    MainConsole.Instance.InfoFormat("[BASE HTTP SERVER]: slow request <{0}> for {1},{3} took {2} ms for a request sized {4}", reqnum, RawUrl, tickdiff, HTTPMethod, ((float)contentLength) / 1024 / 1024);
+                }
             }
         }
 

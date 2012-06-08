@@ -37,7 +37,7 @@ namespace Aurora.DataManager
 {
     public abstract class DataManagerBase : IDataConnector
     {
-        private const string VERSION_TABLE_NAME = "aurora_migrator_version";
+        private const string VERSION_TABLE_NAME = "virtual_reality_migrator_version";
         private const string COLUMN_NAME = "name";
         private const string COLUMN_VERSION = "version";
 
@@ -412,7 +412,7 @@ namespace Aurora.DataManager
                     }
                     else
                     {
-                        throw new Exception("You've discovered some type that's not reconized by Aurora, please place the correct conversion in ConvertTypeToColumnType. Type: " + tStr);
+                        throw new Exception("You've discovered some type that's not reconized by Virtual Reality, please place the correct conversion in ConvertTypeToColumnType. Type: " + tStr);
                     }
             }
 

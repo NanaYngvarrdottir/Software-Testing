@@ -66,7 +66,7 @@ namespace OpenSim.Services.Connectors.Simulation
         {
             if (m_localBackend != null)
             {
-                SceneManager man = registry.RequestModuleInterface<SceneManager>();
+                ISceneManager man = registry.RequestModuleInterface<ISceneManager>();
                 if (man != null)
                 {
                     man.OnAddedScene += Init;
@@ -132,7 +132,7 @@ namespace OpenSim.Services.Connectors.Simulation
                 if (result["Success"].AsBoolean())
                 {
                     //Not right... don't return true except for opensim combatibility :/
-                    if (reason == "")
+                    if (reason == "" || reason == "authorized")
                         return true;
                     //We were able to contact the region
                     try

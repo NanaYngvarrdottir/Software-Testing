@@ -459,6 +459,11 @@ textures 1
 
                 m_updateTimer.Start();
             }
+<<<<<<< HEAD
+=======
+            IAvatarAppearanceModule appearance = sp.RequestModuleInterface<IAvatarAppearanceModule>();
+            _saveQueue.Add(agentid, appearance.Appearance);
+>>>>>>> Aurora/master
         }
 
         public void QueueInitialAppearanceSend(UUID agentid)
