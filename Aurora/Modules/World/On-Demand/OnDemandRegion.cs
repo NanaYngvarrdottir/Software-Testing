@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -71,7 +71,7 @@ namespace Aurora.Modules.OnDemand
 
         public void AddRegion(IScene scene)
         {
-            if (scene.RegionInfo.Startup != StartupType.Normal)
+            if (scene.RegionInfo.Startup != StartupType.Soft)
             {
                 m_scene = scene;
                 //Disable the heartbeat for this region
@@ -120,10 +120,10 @@ namespace Aurora.Modules.OnDemand
                     OSDMap responseMap = (OSDMap) obj[0];
                     //Tell the caller that we will have to wait a bit possibly
                     responseMap["WaitTime"] = m_waitTime;
-                    if (m_scene.RegionInfo.Startup == StartupType.Medium)
+                    if (m_scene.RegionInfo.Startup == StartupType.Soft)
                     {
-                        m_scene.AuroraEventManager.FireGenericEventHandler("MediumStartup", m_scene);
-                        MediumStartup();
+                        m_scene.AuroraEventManager.FireGenericEventHandler("SoftStartup", m_scene);
+                        SoftStartup();
                     }
                 }
             }
@@ -142,10 +142,10 @@ namespace Aurora.Modules.OnDemand
                     return; //It'll be readding an agent, don't kill the sim immediately
                 }
                 //If all clients are out of the region, we can close it again
-                if (m_scene.RegionInfo.Startup == StartupType.Medium)
+                if (m_scene.RegionInfo.Startup == StartupType.Soft)
                 {
-                    m_scene.AuroraEventManager.FireGenericEventHandler("MediumShutdown", m_scene);
-                    MediumShutdown();
+                    m_scene.AuroraEventManager.FireGenericEventHandler("SoftShutdown", m_scene);
+                    SoftShutdown();
                 }
                 m_isRunning = false;
             }
@@ -155,7 +155,7 @@ namespace Aurora.Modules.OnDemand
 
         #region Private Shutdown Methods
 
-        private void MediumShutdown()
+        private void SoftShutdown()
         {
             //Only shut down one at a time
             if (m_isShuttingDown)
@@ -183,7 +183,7 @@ namespace Aurora.Modules.OnDemand
         ///   we don't have anything else to load, 
         ///   so we just need to get the heartbeats back on track
         /// </summary>
-        private void MediumStartup()
+        private void SoftStartup()
         {
             //Only start up one at a time
             if (m_isStartingUp)
