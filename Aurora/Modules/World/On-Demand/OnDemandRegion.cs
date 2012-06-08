@@ -71,7 +71,7 @@ namespace Aurora.Modules.OnDemand
 
         public void AddRegion(IScene scene)
         {
-            if (scene.RegionInfo.Startup != StartupType.Soft)
+            if (scene.RegionInfo.Startup != StartupType.Medium)
             {
                 m_scene = scene;
                 //Disable the heartbeat for this region
@@ -120,10 +120,10 @@ namespace Aurora.Modules.OnDemand
                     OSDMap responseMap = (OSDMap) obj[0];
                     //Tell the caller that we will have to wait a bit possibly
                     responseMap["WaitTime"] = m_waitTime;
-                    if (m_scene.RegionInfo.Startup == StartupType.Soft)
+                    if (m_scene.RegionInfo.Startup == StartupType.Medium)
                     {
-                        m_scene.AuroraEventManager.FireGenericEventHandler("SoftStartup", m_scene);
-                        SoftStartup();
+                        m_scene.AuroraEventManager.FireGenericEventHandler("MediumStartup", m_scene);
+                        MediumStartup();
                     }
                 }
             }
@@ -142,10 +142,10 @@ namespace Aurora.Modules.OnDemand
                     return; //It'll be readding an agent, don't kill the sim immediately
                 }
                 //If all clients are out of the region, we can close it again
-                if (m_scene.RegionInfo.Startup == StartupType.Soft)
+                if (m_scene.RegionInfo.Startup == StartupType.Medium)
                 {
-                    m_scene.AuroraEventManager.FireGenericEventHandler("SoftShutdown", m_scene);
-                    SoftShutdown();
+                    m_scene.AuroraEventManager.FireGenericEventHandler("MediumShutdown", m_scene);
+                    MediumShutdown();
                 }
                 m_isRunning = false;
             }
@@ -155,7 +155,7 @@ namespace Aurora.Modules.OnDemand
 
         #region Private Shutdown Methods
 
-        private void SoftShutdown()
+        private void MediumShutdown()
         {
             //Only shut down one at a time
             if (m_isShuttingDown)
@@ -183,7 +183,7 @@ namespace Aurora.Modules.OnDemand
         ///   we don't have anything else to load, 
         ///   so we just need to get the heartbeats back on track
         /// </summary>
-        private void SoftStartup()
+        private void MediumStartup()
         {
             //Only start up one at a time
             if (m_isStartingUp)
