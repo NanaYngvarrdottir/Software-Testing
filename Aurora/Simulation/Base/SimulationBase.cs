@@ -189,10 +189,10 @@ namespace Aurora.Simulation.Base
         public virtual void Startup()
         {
             MainConsole.Instance.Warn("====================================================================");
-            MainConsole.Instance.Warn(string.Format("====================== STARTING Virtual Reality ({0}) ======================", 
+            MainConsole.Instance.Warn(string.Format("====================== STARTING VIRTUAL REALITY ({0}) ======================", 
                 (IntPtr.Size == 4 ? "x86" : "x64")));
             MainConsole.Instance.Warn("====================================================================");
-            MainConsole.Instance.Warn("[VirtualRealityStartup]: Version: " + Version + "\n");
+            MainConsole.Instance.Warn("[Virtual Reality Startup]: Version: " + Version + "\n");
 
             SetUpHTTPServer();
 
