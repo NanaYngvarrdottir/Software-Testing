@@ -2816,7 +2816,7 @@ AbsolutePosition = pos2;*/
                                 //if (lowest.SurfaceNormal != Vector3.Zero)//Generates a 0,0,0,0, which is bad for the client
                                 if (!CollisionPlane.ApproxEquals (newPlane, 0.5f))
                                 {
-                                    if (PhysicsActor != null && PhysicsActor.IsColliding && PhysicsActor.Velocity != Vector3.Zero)
+                                    if (PhysicsActor != null && PhysicsActor.IsColliding)
                                     {
                                         CollisionPlane = newPlane;
                                     }

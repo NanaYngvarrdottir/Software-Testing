@@ -293,6 +293,8 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
             }
         }
 
+        public bool IsTruelyColliding { get; set; }
+
         /// <summary>
         ///   This 'puts' an avatar somewhere in the physics space.
         ///   Not really a good choice unless you 'know' it's a good
@@ -639,6 +641,7 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
         #region Move
 
         private int m_lastForceApplied = 0;
+        private Vector3 m_forceAppliedBeforeFalling = Vector3.Zero;
 
         /// <summary>
         ///   Called from Simulate
@@ -888,6 +891,7 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
                 (this.m_iscolliding || this.flying || (this._zeroFlag && _wasZeroFlagFlying == flying)))
                 //This is so that if we get moved by something else, it will update us in the client
             {
+                m_forceAppliedBeforeFalling = Vector3.Zero;
                 m_isJumping = false;
                 //  keep track of where we stopped.  No more slippin' & slidin'
                 if (!_zeroFlag)
@@ -925,6 +929,7 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
                 {
                     if (!flying) //If there is a ground collision, it sets flying to false, so check against real flying
                     {
+                        m_forceAppliedBeforeFalling = Vector3.Zero;
                         // We're standing or walking on something
                         if (_target_velocity.X != 0.0f)
                             vec.X += (_target_velocity.X * movementmult - vel.X) * PID_D * 2;
@@ -958,10 +963,24 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
                     }
                     else
                     {
-                        // we're not colliding and we're not flying so that means we're falling!
-                        // m_iscolliding includes collisions with the ground.
-                        vec.X += (_target_velocity.X - vel.X) * PID_D * 0.85f;
-                        vec.Y += (_target_velocity.Y - vel.Y) * PID_D * 0.85f;
+                        if (IsTruelyColliding)
+                        {
+                            m_forceAppliedBeforeFalling = Vector3.Zero;
+                            // We're standing or walking on something
+                            if (_target_velocity.X != 0.0f)
+                                vec.X += (_target_velocity.X * movementmult - vel.X) * PID_D * 2;
+                            if (_target_velocity.Y != 0.0f)
+                                vec.Y += (_target_velocity.Y * movementmult - vel.Y) * PID_D * 2;
+                            if (_target_velocity.Z != 0.0f)
+                                vec.Z += (_target_velocity.Z * movementmult - vel.Z) * PID_D;
+                        }
+                        else
+                        {
+                            // we're not colliding and we're not flying so that means we're falling!
+                            // m_iscolliding includes collisions with the ground.
+                            vec.X += (_target_velocity.X + m_forceAppliedBeforeFalling.X * movementmult * 2 - vel.X) * PID_D * 0.85f;
+                            vec.Y += (_target_velocity.Y + m_forceAppliedBeforeFalling.Y * movementmult * 2 - vel.Y) * PID_D * 0.85f;
+                        }
                     }
                 }
 
@@ -1002,7 +1021,8 @@ namespace Aurora.Physics.AuroraOpenDynamicsEngine
                     vec.Z = (_target_velocity.Z*movementmult - vel.Z)*PID_D*0.5f;
                     if (_parent_scene.AllowAvGravity && tempPos.Z > _parent_scene.AvGravityHeight)
                         //Add extra gravity
-                        vec.Z += ((10*_parent_scene.gravityz)*Mass);
+                        vec.Z += ((10 * _parent_scene.gravityz) * Mass);
+                    m_forceAppliedBeforeFalling = _target_velocity;
                 }
             }
 

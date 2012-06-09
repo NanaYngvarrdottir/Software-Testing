@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Virtual Relaity Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -102,7 +102,7 @@ namespace Aurora.Framework
                     string lastLine = lines[lines.Length - 1];
                     string[] splitLastLine = lastLine.Split(new string[2] {" ", "\t"},
                                                             StringSplitOptions.RemoveEmptyEntries);
-                    versionString = "Virtual Reality Server-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
+                    versionString = "Virtual Reality Server:-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
                                     " " + splitLastLine[5] /*Time zone info*/;
                     FileStream s = File.Open(gitCommitFileName, FileMode.Create);
                     byte[] data = Encoding.UTF8.GetBytes(versionString);

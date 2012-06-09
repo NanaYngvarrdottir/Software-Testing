@@ -1242,7 +1242,7 @@ namespace OpenSim.Services.LLLoginService
                         {
                             InventoryItemBase linkedItem3 = (InventoryItemBase)linkedItem2.Clone();
                             linkedItem3.AssetID = linkedItem2.ID;
-                            linkedItem3.AssetType = 24;
+                            linkedItem3.AssetType = (int)AssetType.Link;
                             linkedItem3.ID = UUID.Random();
                             linkedItem3.CurrentPermissions = linkedItem2.NextPermissions;
                             linkedItem3.EveryOnePermissions = linkedItem2.NextPermissions;
@@ -1271,7 +1271,7 @@ namespace OpenSim.Services.LLLoginService
                         {
                             InventoryItemBase linkedItem3 = (InventoryItemBase)linkedItem2.Clone();
                             linkedItem3.AssetID = linkedItem2.ID;
-                            linkedItem3.AssetType = 24;
+                            linkedItem3.AssetType = (int)AssetType.Link;
                             linkedItem3.ID = UUID.Random();
                             linkedItem3.CurrentPermissions = linkedItem2.NextPermissions;
                             linkedItem3.EveryOnePermissions = linkedItem2.NextPermissions;
