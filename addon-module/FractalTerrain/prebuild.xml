@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<Project frameworkVersion="v3_5" name="Aurora.Addon.FractalTerrain" path="addon-modules/FractalTerrain/Modules/" type="Library">
+	<Configuration name="Debug" platform="x86">
+		<Options>
+			<OutputPath>../../../bin/</OutputPath>
+		</Options>
+	</Configuration>
+	<Configuration name="Release" platform="x86">
+		<Options>
+			<OutputPath>../../../bin/</OutputPath>
+		</Options>
+	</Configuration>
+	<Configuration name="Debug" platform="x64">
+		<Options>
+			<OutputPath>../../../bin/</OutputPath>
+		</Options>
+	</Configuration>
+	<Configuration name="Release" platform="x64">
+		<Options>
+			<OutputPath>../../../bin/</OutputPath>
+		</Options>
+	</Configuration>
+	<Configuration name="Debug" platform="AnyCPU">
+		<Options>
+			<OutputPath>../../../bin/</OutputPath>
+		</Options>
+	</Configuration>
+	<Configuration name="Release" platform="AnyCPU">
+		<Options>
+			<OutputPath>../../../bin/</OutputPath>
+		</Options>
+	</Configuration>
+
+	<ReferencePath>../../../bin/</ReferencePath>
+	<Reference name="System"/>
+	<Reference name="System.Xml"/>
+	<Reference name="System.Drawing"/>
+	<Reference name="System.Web"/>
+
+	<Reference name="Aurora.DataManager"/>
+	<Reference name="Aurora.Framework"/>
+	<Reference name="Aurora.Simulation.Base"/>
+	<Reference name="OpenSim.Region.Framework"/>
+	<Reference name="LandscapeGenCore.dll"/>
+
+	<Reference name="log4net" path="../../../bin/"/>
+	<Reference name="Nini" path="../../../bin/"/>
+	<Reference name="OpenMetaverse" path="../../../bin/"/>
+	<Reference name="OpenMetaverse.StructuredData" path="../../../bin/"/>
+	<Reference name="OpenMetaverseTypes" path="../../../bin/"/>
+	<Reference name="XMLRPC" path="../../../bin/"/>
+
+	<Files>
+		<Match pattern="*.cs" recurse="true"/>
+		<Match pattern="*.dll" recurse="false" buildAction="None" copyToOutput="Always"/>
+	</Files>
+</Project>
