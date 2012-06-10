@@ -40,15 +40,25 @@ namespace Aurora.Framework
         Medium = 2,
         Normal = 3
     }
+<<<<<<< HEAD
+
+    public class RegionInfo
+=======
 
     public class RegionInfo : IDataTransferable
+>>>>>>> VRGrid/master
     {
         public string RegionFile = String.Empty;
         public bool Disabled = false;
 
         private RegionSettings m_regionSettings;
+<<<<<<< HEAD
+
+        private int m_objectCapacity = 0;
+=======
 
         private int m_objectCapacity = 80000;
+>>>>>>> VRGrid/master
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
         protected string m_serverURI;
@@ -97,9 +107,13 @@ namespace Aurora.Framework
 
             set { m_regionSettings = value; }
         }
+<<<<<<< HEAD
+
+=======
 
         public bool HasBeenDeleted { get; set; }
 
+>>>>>>> VRGrid/master
         public bool AllowScriptCrossing { get; set; }
 
         private List<int> m_UDPPorts = new List<int> ();

@@ -26,19 +26,14 @@
  */
 
 using System;
-using System.IO;
 using System.Collections.Generic;
-
-using log4net.Core;
-
-using Nini.Ini;
-using Nini.Config;
-
-using OpenMetaverse;
-using OpenSim.Services.Interfaces;
-
 using Aurora.Framework;
 using Aurora.Simulation.Base;
+using Nini.Config;
+using Nini.Ini;
+using OpenMetaverse;
+using OpenSim.Services.Interfaces;
+using log4net.Core;
 
 namespace OpenSim.Services.InventoryService
 {
@@ -117,22 +112,12 @@ namespace OpenSim.Services.InventoryService
         public void LoadLibraries(IRegistryCore registry)
         {
             if (!m_enabled)
-            {
                 return;
-            }
-            else if (!File.Exists("DefaultInventory/Inventory.ini") && !File.Exists("DefaultInventory/Inventory.ini.example"))
-            {
-                MainConsole.Instance.Error("Could not find DefaultInventory/Inventory.ini or DefaultInventory/Inventory.ini.example");
-                return;
-            }
             List<IDefaultLibraryLoader> Loaders = AuroraModuleLoader.PickupModules<IDefaultLibraryLoader>();
             try
             {
-                if (!File.Exists("DefaultInventory/Inventory.ini"))
-                {
-                    File.Copy("DefaultInventory/Inventory.ini.example", "DefaultInventory/Inventory.ini");
-                }
-                IniConfigSource iniSource = new IniConfigSource("DefaultInventory/Inventory.ini", IniFileType.AuroraStyle);
+                IniConfigSource iniSource = new IniConfigSource("DefaultInventory/Inventory.ini",
+                                                                IniFileType.AuroraStyle);
                 if (iniSource != null)
                 {
                     foreach (IDefaultLibraryLoader loader in Loaders)

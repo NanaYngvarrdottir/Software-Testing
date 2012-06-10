@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.Meshing.dll.mdb
+/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.Meshing.dll
+/home/virtualreality/Software/Aurora/Aurora/Physics/Meshing/obj/x86/Debug/Aurora.Physics.Meshing.dll
+/home/virtualreality/Software/Aurora/Aurora/Physics/Meshing/obj/x86/Debug/Aurora.Physics.Meshing.dll.mdb

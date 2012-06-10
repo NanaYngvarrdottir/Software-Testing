@@ -162,7 +162,6 @@ namespace OpenSim.Services.Interfaces
 
         /// <summary>
         ///   Makes a root agent into a child agent in the given region
-        ///   DOES mark the agent as leaving (removes attachments among other things)
         /// </summary>
         /// <param name = "AgentID"></param>
         /// <param name = "Region"></param>

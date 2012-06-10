@@ -102,7 +102,7 @@ namespace OpenSim.Services
         private Dictionary<string, ManualResetEvent> m_CurrentlyWriting = new Dictionary<string, ManualResetEvent>();
         private int m_WaitOnInprogressTimeout = 3000;
 #else
-        private HashSet<string> m_CurrentlyWriting = new HashSet<string>();
+        private readonly List<string> m_CurrentlyWriting = new List<string>();
 #endif
 
         private ExpiringCache<string, AssetBase> m_MemoryCache;
@@ -291,14 +291,10 @@ namespace OpenSim.Services
 
                 try
                 {
-                    // If the file is already cached just update access time
+                    // If the file is already cached, don't cache it, just touch it so access time is updated
                     if (File.Exists(filename))
                     {
-                        lock (m_CurrentlyWriting)
-                        {
-                            if (!m_CurrentlyWriting.Contains(filename))
-                                File.SetLastAccessTime(filename, DateTime.Now);
-                        }
+                        File.SetLastAccessTime(filename, DateTime.Now);
                     }
                     else
                     {

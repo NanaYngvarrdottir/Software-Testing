@@ -82,25 +82,28 @@ namespace Aurora.Services.DataService
             //Try from the user profile first before getting from the DB
             if (UserProfilesCache.TryGetValue(agentID, out UserProfile))
                 return UserProfile;
-            QueryFilter filter = new QueryFilter();
-            filter.andFilters["ID"] = agentID;
-            filter.andFilters["`Key`"] = "LLProfile";
-            List<string> query = null;
-            //Grab it from the almost generic interface
-            query = GD.Query(new[] { "Value" }, "userdata", filter, null, null, null);
+            else
+            {
+                QueryFilter filter = new QueryFilter();
+                filter.andFilters["ID"] = agentID;
+                filter.andFilters["`Key`"] = "LLProfile";
+                List<string> query = null;
+                //Grab it from the almost generic interface
+                query = GD.Query(new string[] { "Value" }, "userdata", filter, null, null, null);
 
-            if (query == null || query.Count == 0)
-                return null;
-            //Pull out the OSDmap
-            OSDMap profile = (OSDMap) OSDParser.DeserializeLLSDXml(query[0]);
+                if (query == null || query.Count == 0)
+                    return null;
+                //Pull out the OSDmap
+                OSDMap profile = (OSDMap) OSDParser.DeserializeLLSDXml(query[0]);
 
-            UserProfile = new IUserProfileInfo();
-            UserProfile.FromOSD(profile);
+                UserProfile = new IUserProfileInfo();
+                UserProfile.FromOSD(profile);
 
-            //Add to the cache
-            UserProfilesCache[agentID] = UserProfile;
+                //Add to the cache
+                UserProfilesCache[agentID] = UserProfile;
 
-            return UserProfile;
+                return UserProfile;
+            }
         }
 
         /// <summary>
@@ -113,7 +116,7 @@ namespace Aurora.Services.DataService
         {
             object remoteValue = DoRemote(Profile);
             if (remoteValue != null || m_doRemoteOnly)
-                return remoteValue != null && (bool)remoteValue;
+                return remoteValue == null ? false : (bool)remoteValue;
 
             IUserProfileInfo previousProfile = GetUserProfile(Profile.PrincipalID);
             //Make sure the previous one exists
@@ -164,7 +167,7 @@ namespace Aurora.Services.DataService
         {
             object remoteValue = DoRemote(classified);
             if (remoteValue != null || m_doRemoteOnly)
-                return remoteValue != null && (bool)remoteValue;
+                return remoteValue == null ? false : (bool)remoteValue;
 
             if (GetUserProfile(classified.CreatorUUID) == null)
                 return false;
@@ -194,10 +197,10 @@ namespace Aurora.Services.DataService
             QueryFilter filter = new QueryFilter();
             filter.andFilters["OwnerUUID"] = ownerID;
 
-            List<string> query = GD.Query(new[] { "*" }, "userclassifieds", filter, null, null, null);
+            List<string> query = GD.Query(new string[1] { "*" }, "userclassifieds", filter, null, null, null);
 
             List<Classified> classifieds = new List<Classified>();
-            for (int i = 0; i < query.Count; i += 7)
+            for (int i = 0; i < query.Count; i += 6)
             {
                 Classified classified = new Classified();
                 classified.FromOSD((OSDMap) OSDParser.DeserializeJson(query[i + 5]));
@@ -216,7 +219,7 @@ namespace Aurora.Services.DataService
             QueryFilter filter = new QueryFilter();
             filter.andFilters["ClassifiedUUID"] = queryClassifiedID;
 
-            List<string> query = GD.Query(new[] { "*" }, "userclassifieds", filter, null, null, null);
+            List<string> query = GD.Query(new string[1] { "*" }, "userclassifieds", filter, null, null, null);
 
             if (query.Count < 6)
             {
@@ -244,7 +247,7 @@ namespace Aurora.Services.DataService
         {
             object remoteValue = DoRemote(pick);
             if (remoteValue != null || m_doRemoteOnly)
-                return remoteValue != null && (bool)remoteValue;
+                return remoteValue == null ? false : (bool)remoteValue;
 
             if (GetUserProfile(pick.CreatorUUID) == null)
                 return false;
@@ -274,7 +277,7 @@ namespace Aurora.Services.DataService
             QueryFilter filter = new QueryFilter();
             filter.andFilters["PickUUID"] = queryPickID;
 
-            List<string> query = GD.Query(new[] { "*" }, "userpicks", filter, null, null, null);
+            List<string> query = GD.Query(new string[1] { "*" }, "userpicks", filter, null, null, null);
 
             if (query.Count < 5)
                 return null;
@@ -293,7 +296,7 @@ namespace Aurora.Services.DataService
             QueryFilter filter = new QueryFilter();
             filter.andFilters["OwnerUUID"] = ownerID;
 
-            List<string> query = GD.Query(new[] { "*" }, "userpicks", filter, null, null, null);
+            List<string> query = GD.Query(new string[1] { "*" }, "userpicks", filter, null, null, null);
 
             List<ProfilePickInfo> picks = new List<ProfilePickInfo>();
             for (int i = 0; i < query.Count; i += 5)

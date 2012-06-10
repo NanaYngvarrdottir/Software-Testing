@@ -145,20 +145,10 @@ namespace Aurora.DataManager.MySQL
 
         public override List<string> QueryFullData(string whereClause, string table, string wantedValue)
         {
-            string query = String.Format("select {0} from {1} {2}", wantedValue, table, whereClause);
-            return QueryFullData2(query);
-        }
-
-        public override List<string> QueryFullData(string whereClause, QueryTables tables, string wantedValue)
-        {
-            string query = string.Format("SELECT {0} FROM {1} {2}", wantedValue, tables.ToSQL(), whereClause);
-            return QueryFullData2(query);
-        }
-
-        private List<string> QueryFullData2(string query)
-        {
             IDataReader reader = null;
             List<string> retVal = new List<string>();
+            string query = String.Format("select {0} from {1} {2}",
+                                         wantedValue, table, whereClause);
             try
             {
                 using (reader = Query(query, new Dictionary<string, object>()))
@@ -197,36 +187,14 @@ namespace Aurora.DataManager.MySQL
 
         public override IDataReader QueryData(string whereClause, string table, string wantedValue)
         {
-            string query = String.Format("select {0} from {1} {2}", wantedValue, table, whereClause);
-            return QueryData2(query);
-        }
-
-        public override IDataReader QueryData(string whereClause, QueryTables tables, string wantedValue)
-        {
-            string query = string.Format("SELECT {0} FROM {1} {2}", wantedValue, tables.ToSQL(), whereClause);
-            return QueryData2(query);
-        }
-
-        private IDataReader QueryData2(string query)
-        {
+            string query = String.Format("select {0} from {1} {2}",
+                                         wantedValue, table, whereClause);
             return Query(query, new Dictionary<string, object>());
         }
 
         public override List<string> Query(string[] wantedValue, string table, QueryFilter queryFilter, Dictionary<string, bool> sort, uint? start, uint? count)
         {
-            string query = string.Format("SELECT {0} FROM {1}", string.Join(", ", wantedValue), table);
-            return Query2(query, queryFilter, sort, start, count);
-        }
-
-        public override List<string> Query(string[] wantedValue, QueryTables tables, QueryFilter queryFilter, Dictionary<string, bool> sort, uint? start, uint? count)
-        {
-            string query = string.Format("SELECT {0} FROM {1}", string.Join(", ", wantedValue), tables.ToSQL());
-            return Query2(query, queryFilter, sort, start, count);
-        }
-
-        private List<string> Query2(string sqll, QueryFilter queryFilter, Dictionary<string, bool> sort, uint? start, uint? count)
-        {
-            string query = sqll;
+            string query = string.Format("SELECT {0} FROM {1}", string.Join(", ", wantedValue), table); ;
             Dictionary<string, object> ps = new Dictionary<string,object>();
             List<string> retVal = new List<string>();
             List<string> parts = new List<string>();
@@ -299,21 +267,11 @@ namespace Aurora.DataManager.MySQL
 
         public override Dictionary<string, List<string>> QueryNames(string[] keyRow, object[] keyValue, string table, string wantedValue)
         {
-            string query = String.Format("select {0} from {1} where ", wantedValue, table);
-            return QueryNames2(keyRow, keyValue, query);
-        }
-
-        public override Dictionary<string, List<string>> QueryNames(string[] keyRow, object[] keyValue, QueryTables tables, string wantedValue)
-        {
-            string query = string.Format("SELECT {0} FROM {1} where ", wantedValue, tables.ToSQL());
-            return QueryNames2(keyRow, keyValue, query);
-        }
-
-        private Dictionary<string, List<string>> QueryNames2(string[] keyRow, object[] keyValue, string query)
-        {
             IDataReader reader = null;
             Dictionary<string, List<string>> retVal = new Dictionary<string, List<string>>();
             Dictionary<string, object> ps = new Dictionary<string, object>();
+            string query = String.Format("select {0} from {1} where ",
+                                         wantedValue, table);
             int i = 0;
             foreach (object value in keyValue)
             {
@@ -519,7 +477,7 @@ namespace Aurora.DataManager.MySQL
 
         public override bool Insert(string table, object[] values, string updateKey, object updateValue)
         {
-            string query = String.Format("insert into {0} VALUES(", table);
+            string query = String.Format("insert into {0} VALUES('", table);
             Dictionary<string, object> param = new Dictionary<string, object>();
             int i = 0;
             foreach (object o in values)
@@ -527,9 +485,8 @@ namespace Aurora.DataManager.MySQL
                 param["?" + Util.ConvertDecString(i)] = o;
                 query += "?" + Util.ConvertDecString(i++) + ",";
             }
-            param["?update"] = updateValue;
             query = query.Remove(query.Length - 1);
-            query += String.Format(") ON DUPLICATE KEY UPDATE {0} = ?update", updateKey);
+            query += String.Format(") ON DUPLICATE KEY UPDATE {0} = '{1}'", updateKey, updateValue);
             try
             {
                 ExecuteNonQuery(query, param);
@@ -1058,9 +1015,9 @@ namespace Aurora.DataManager.MySQL
                 while (rdr.Read())
                 {
                     var name = rdr["Field"];
-                    //var pk = rdr["Key"];
+                    var pk = rdr["Key"];
                     var type = rdr["Type"];
-                    //var extra = rdr["Extra"];
+                    var extra = rdr["Extra"];
                     object defaultValue = rdr["Default"];
 
                     ColumnTypeDef typeDef = ConvertTypeToColumnType(type.ToString());

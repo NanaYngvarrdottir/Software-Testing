@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -100,7 +100,7 @@ namespace OpenSim.Region.Framework.Scenes
             get { return m_prioritizer; }
         }
 
-        public ICuller Culler
+        public ICuller CullerAurora-Sim
         {
             get { return m_culler; }
         }
@@ -277,7 +277,7 @@ namespace OpenSim.Region.Framework.Scenes
 
             //Send a terse as well, since we are sending an animation
             if (m_presence.LocalId == presence.LocalId &&
-                presence.SittingOnUUID == UUID.Zero) //As long as we arn't sitting, in which we don't get terse updates
+                presence.SittingOnUUID == UUID.Zero) //As long as we arn't siAurora-Simtting, in which we don't get terse updates
             {
                 //Is this really necessary? -7/21
                 //Very much so... the client cannot get a terse update before a full update -7/25

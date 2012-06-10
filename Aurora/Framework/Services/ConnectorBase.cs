@@ -63,9 +63,12 @@ namespace Aurora.Framework
         protected bool m_doRemoteCalls = false;
         protected string m_name;
         protected bool m_doRemoteOnly = false;
+<<<<<<< HEAD
+=======
         protected int m_OSDRequestTimeout = 10000;
         protected int m_OSDRequestTryCount = 7;
         protected string m_password = "";
+>>>>>>> VRGrid/master
 
         public string PluginName
         {
@@ -89,6 +92,12 @@ namespace Aurora.Framework
             Enabled = true;
             m_registry = registry;
             m_name = name;
+<<<<<<< HEAD
+            IConfigSource source = registry.RequestModuleInterface<ISimulationBase>().ConfigSource;
+            IConfig config;
+            if ((config = source.Configs["AuroraConnectors"]) != null)
+                m_doRemoteCalls = config.GetBoolean("DoRemoteCalls", false);
+=======
             ISimulationBase simBase = registry == null ? null : registry.RequestModuleInterface<ISimulationBase>();
             if (simBase != null)
             {
@@ -102,6 +111,7 @@ namespace Aurora.Framework
                     m_OSDRequestTryCount = config.GetInt("OSDRequestTryCount", m_OSDRequestTryCount);
                 }
             }
+>>>>>>> VRGrid/master
             if (m_doRemoteCalls)
                 m_doRemoteOnly = true;//Lock out local + remote for now
             ConnectorRegistry.RegisterConnector(this);
@@ -171,10 +181,8 @@ namespace Aurora.Framework
             List<string> m_ServerURIs =
                 urlOverrides ? new List<string>() { url } : m_configService.FindValueOf(userID.ToString(), url, false);
             OSDMap response = null;
-            int loops2Do = (m_ServerURIs.Count < m_OSDRequestTryCount) ? m_ServerURIs.Count : m_OSDRequestTryCount;
-            for (int index = 0; index < loops2Do; index++)
+            foreach (string uri in m_ServerURIs)
             {
-                string uri = m_ServerURIs[index];
                 if (GetOSDMap(uri, map, out response))
                     break;
             }
@@ -199,13 +207,14 @@ namespace Aurora.Framework
             }
             if (response["Value"] == "null")
                 return null;
-            var instance = inst as IDataTransferable;
-            if (instance != null)
+            if (inst is IDataTransferable)
             {
+                IDataTransferable instance = (IDataTransferable)inst;
                 instance.FromOSD((OSDMap)response["Value"]);
                 return instance;
             }
-            return Util.OSDToObject(response["Value"], method.ReturnType);
+            else
+                return Util.OSDToObject(response["Value"], method.ReturnType);
         }
 
         private void GetReflection(int upStack, StackTrace stackTrace, out MethodInfo method, out CanBeReflected reflection)
@@ -219,7 +228,7 @@ namespace Aurora.Framework
         public bool GetOSDMap(string url, OSDMap map, out OSDMap response)
         {
             response = null;
-            string resp = ServiceOSDRequest(url, map, "POST", m_OSDRequestTimeout);
+            string resp = ServiceOSDRequest(url, map, "POST", 10000);
             
             if (resp == "" || resp.StartsWith("<"))
                 return false;
@@ -315,8 +324,17 @@ namespace Aurora.Framework
                     errorMessage = we.Message;
                     if (we.Status == WebExceptionStatus.ProtocolError)
                     {
+<<<<<<< HEAD
+                        // capture how much time was spent writing, this may seem silly
+                        // but with the number concurrent requests, this often blocks
+                        tickserialize = Util.EnvironmentTickCountSubtract(tickstart) - tickdata;
+                        string responseStr = responseStr = responseStream.GetStreamString();
+                        // MainConsole.Instance.DebugFormat("[WEB UTIL]: <{0}> response is <{1}>",reqnum,responseStr);
+                        return responseStr;
+=======
                         HttpWebResponse webResponse = (HttpWebResponse)we.Response;
                         errorMessage = String.Format("[{0}] {1}", webResponse.StatusCode, webResponse.StatusDescription);
+>>>>>>> VRGrid/master
                     }
                 }
                 catch (Exception ex)

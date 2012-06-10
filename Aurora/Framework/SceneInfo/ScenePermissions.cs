@@ -707,7 +707,7 @@ namespace Aurora.Framework
                 }
                 return true;
 #else
-                return list.Cast<CanGodTpHandler>().All(h => h(user, target) != false);
+                return list.Cast<IsGodHandler>().All(h => h(user, m_scene) != false);
 #endif
             }
             return true;

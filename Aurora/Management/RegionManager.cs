@@ -131,9 +131,13 @@ namespace Aurora.Management
             estateRegionSelection.Items.Clear();
             foreach(RegionInfo r in infos)
             {
+<<<<<<< HEAD:Aurora/CoreApplicationPlugins/RegionLoaderPlugins/RegionManager.cs
+                RegionListBox.Items.Add(!r.Disabled ? "Online - " + r.RegionName : r.RegionName);
+=======
                 bool online = _regionManager.GetWhetherRegionIsOnline(r.RegionID);
                 RegionListBox.Items.Add(online ? "Online - " + r.RegionName : r.RegionName);
                 estateRegionSelection.Items.Add(r.RegionName);
+>>>>>>> VRGrid/master:Aurora/Management/RegionManager.cs
             }
         }
 
@@ -296,6 +300,8 @@ namespace Aurora.Management
             });
         }
 
+<<<<<<< HEAD:Aurora/CoreApplicationPlugins/RegionLoaderPlugins/RegionManager.cs
+=======
         private void RefreshCurrentRegionsThreaded()
         {
             _timerEvents.Add (delegate
@@ -304,6 +310,7 @@ namespace Aurora.Management
             });
         }
 
+>>>>>>> VRGrid/master:Aurora/Management/RegionManager.cs
         private void SetStoppingStatus ()
         {
             _timerEvents.Add (delegate
@@ -566,10 +573,7 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
             {
                 _regionManager.StartRegion(region);
                 if (CurrentRegionID == region.RegionID)
-                {
-                    SetOnlineStatus();
-                    RefreshCurrentRegionsThreaded();
-                }
+                    SetOnlineStatus ();
             });
         }
 
@@ -577,12 +581,21 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
         {
             SetStoppingStatus();
             Util.FireAndForget (delegate
+<<<<<<< HEAD:Aurora/CoreApplicationPlugins/RegionLoaderPlugins/RegionManager.cs
+                                    {
+                m_sceneManager.AllRegions--;
+                m_sceneManager.TryGetScene (CurrentRegionID, out scene);
+                if (scene != null)
+                {
+                    m_sceneManager.CloseRegion(scene, ShutdownType.Immediate, 0);
+                }
+                if (scene == null || CurrentRegionID == scene.RegionInfo.RegionID || CurrentRegionID ==  UUID.Zero)
+=======
             {
                 if (_regionManager.StopRegion(CurrentRegionID))
                 {
+>>>>>>> VRGrid/master:Aurora/Management/RegionManager.cs
                     SetOfflineStatus();
-                    RefreshCurrentRegionsThreaded();
-                }
             });
         }
 

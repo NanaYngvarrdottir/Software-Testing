@@ -1,0 +1,5 @@
+/home/virtualreality/Software/Aurora/Aurora/DataManagerPlugins/SQLite/obj/x86/Debug/Aurora.DataManager.SQLite.Legacy.Resources.RegionStore.migrations
+/home/virtualreality/Software/Aurora/bin/Aurora.DataManager.SQLite.dll.mdb
+/home/virtualreality/Software/Aurora/bin/Aurora.DataManager.SQLite.dll
+/home/virtualreality/Software/Aurora/Aurora/DataManagerPlugins/SQLite/obj/x86/Debug/Aurora.DataManager.SQLite.dll
+/home/virtualreality/Software/Aurora/Aurora/DataManagerPlugins/SQLite/obj/x86/Debug/Aurora.DataManager.SQLite.dll.mdb

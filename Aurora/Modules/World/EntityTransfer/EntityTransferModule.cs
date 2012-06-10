@@ -320,7 +320,7 @@ namespace Aurora.Modules.EntityTransfer
                 }
             }
 
-            MakeChildAgent(sp, finalDestination, false);
+            MakeChildAgent(sp, finalDestination);
         }
 
         private AgentCircuitData BuildCircuitDataForPresence(IScenePresence sp, Vector3 position)
@@ -343,13 +343,11 @@ namespace Aurora.Modules.EntityTransfer
             return agentCircuit;
         }
 
-        public void MakeChildAgent (IScenePresence sp, GridRegion finalDestination, bool markAgentAsLeaving)
+        public void MakeChildAgent (IScenePresence sp, GridRegion finalDestination)
         {
             if(sp == null)
                 return;
 
-            if(markAgentAsLeaving)
-                sp.SetAgentLeaving(null);
             sp.Scene.AuroraEventManager.FireGenericEventHandler("SendingAttachments", new object[] { finalDestination, sp });
 
             //Kill the groups here, otherwise they will become ghost attachments 
@@ -1082,21 +1080,16 @@ namespace Aurora.Modules.EntityTransfer
 
         private void CacheUserInfo(IScene scene, OSDMap map)
         {
-			if(map.ContainsKey("CachedUserInfo"))
-			{
-				//OpenSim does not contain this, only check if it is there
-				// We do this caching so that we don't pull down all of this info as the user is trying to login, which causes major lag, and slows down the sim for people already in the sim
-	            CachedUserInfo cache = new CachedUserInfo();
-	            cache.FromOSD((OSDMap)map["CachedUserInfo"]);
-	            IAgentConnector conn = Aurora.DataManager.DataManager.RequestPlugin<IAgentConnector>();
-	            if (conn != null)
-	                conn.CacheAgent(cache.AgentInfo);
-	            scene.UserAccountService.CacheAccount(cache.UserAccount);
-	
-	            IGroupsModule groupsMod = scene.RequestModuleInterface<IGroupsModule>();
-	            if (groupsMod != null)
-	                groupsMod.UpdateCachedData(cache.UserAccount.PrincipalID, cache);
-			}
+            CachedUserInfo cache = new CachedUserInfo();
+            cache.FromOSD((OSDMap)map["CachedUserInfo"]);
+            IAgentConnector conn = Aurora.DataManager.DataManager.RequestPlugin<IAgentConnector>();
+            if (conn != null)
+                conn.CacheAgent(cache.AgentInfo);
+            scene.UserAccountService.CacheAccount(cache.UserAccount);
+
+            IGroupsModule groupsMod = scene.RequestModuleInterface<IGroupsModule>();
+            if (groupsMod != null)
+                groupsMod.UpdateCachedData(cache.UserAccount.PrincipalID, cache);
         }
 
         private readonly Dictionary<IScene, int> m_lastUsedPort = new Dictionary<IScene, int> ();
@@ -1160,8 +1153,8 @@ namespace Aurora.Modules.EntityTransfer
         /// <returns>true if we handled it.</returns>
         public virtual bool IncomingChildAgentDataUpdate (IScene scene, AgentData cAgentData)
         {
-            MainConsole.Instance.DebugFormat(
-                "[SCENE]: Incoming child agent update for {0} in {1}", cAgentData.AgentID, scene.RegionInfo.RegionName);
+            //MainConsole.Instance.DebugFormat(
+            //    "[SCENE]: Incoming child agent update for {0} in {1}", cAgentData.AgentID, RegionInfo.RegionName);
 
             //No null updates!
             if (cAgentData == null)
@@ -1229,8 +1222,8 @@ namespace Aurora.Modules.EntityTransfer
                 sp.CopyTo (data);
                 agent = data;
                 circuitData = BuildCircuitDataForPresence(sp, sp.AbsolutePosition);
-                //if (agentIsLeaving)
-                //    sp.SetAgentLeaving(null);//We arn't sure where they are going
+                if (agentIsLeaving)
+                    sp.SetAgentLeaving(null);//We arn't sure where they are going
                 return true;
             }
 

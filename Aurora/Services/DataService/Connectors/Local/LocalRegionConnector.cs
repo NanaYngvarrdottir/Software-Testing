@@ -67,7 +67,6 @@ namespace Aurora.Services.DataService
         ///   Adds a new telehub in the region. Replaces an old one automatically.
         /// </summary>
         /// <param name = "telehub"></param>
-        /// <param name="regionhandle"> </param>
         [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public void AddTelehub(Telehub telehub, ulong regionhandle)
         {
@@ -119,7 +118,6 @@ namespace Aurora.Services.DataService
         ///   Removes the telehub if it exists.
         /// </summary>
         /// <param name = "regionID"></param>
-        /// <param name="regionHandle"> </param>
         [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public void RemoveTelehub(UUID regionID, ulong regionHandle)
         {
@@ -141,7 +139,7 @@ namespace Aurora.Services.DataService
         ///   Attempts to find a telehub in the region; if one is not found, returns false.
         /// </summary>
         /// <param name = "regionID">Region ID</param>
-        /// <param name="regionHandle"> </param>
+        /// <param name = "position">The position of the telehub</param>
         /// <returns></returns>
         [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public Telehub FindTelehub(UUID regionID, ulong regionHandle)
@@ -152,7 +150,7 @@ namespace Aurora.Services.DataService
 
             QueryFilter filter = new QueryFilter();
             filter.andFilters["RegionID"] = regionID;
-            List<string> telehubposition = GD.Query(new[]{
+            List<string> telehubposition = GD.Query(new string[11]{
                 "RegionLocX",
                 "RegionLocY",
                 "TelehubLocX",
