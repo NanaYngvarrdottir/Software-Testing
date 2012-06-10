@@ -6765,7 +6765,7 @@ namespace OpenSim.Region.ClientStack.LindenUDP
                                                   };
                         items[i] = cache;
                     }
-                    handlerSetAppearance(this, te, visualparams, items);
+                    handlerSetAppearance(this, te, visualparams, items, appear.AgentData.SerialNum);
                 }
                 catch (Exception e)
                 {

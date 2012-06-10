@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -217,7 +217,7 @@ namespace OpenSim.Region.Framework.Scenes
             lock (m_lastPresencesInViewLock)
             {
                 if (!lastPresencesDInView.ContainsKey(presence.UUID))
-                    lastPresencesDInView.Add(presence.UUID, presence);
+                    AddPresenceToCurrentlyInView(presence);
                 else if (!forced) //Only send one full update please!
                     return;
             }
@@ -400,7 +400,7 @@ namespace OpenSim.Region.Framework.Scenes
                 m_presence.ControllingClient.SendAvatarDataImmediate(presence);
             lock (m_lastPresencesInViewLock)
                 if (!lastPresencesDInView.ContainsKey(presence.UUID))
-                    lastPresencesDInView.Add(presence.UUID, presence);
+                    AddPresenceToCurrentlyInView(presence);
         }
 
         protected void SendFullUpdateForPresence(IScenePresence presence)
@@ -415,32 +415,17 @@ namespace OpenSim.Region.Framework.Scenes
                                            presence.RequestModuleInterface<IAvatarAppearanceModule>();
                                        if (module != null)
                                            module.SendAppearanceToAgent(m_presence);
-                                       //We need to send all attachments of this avatar as well
-                                       IAttachmentsModule attmodule =
-                                           m_presence.Scene.RequestModuleInterface<IAttachmentsModule>();
-                                       if (attmodule != null)
-                                       {
-                                           ISceneEntity[] entities = attmodule.GetAttachmentsForAvatar(m_presence.UUID);
-                                           foreach (ISceneEntity entity in entities)
-                                           {
-                                               QueuePartForUpdate(entity.RootChild, PrimUpdateFlags.ForcedFullUpdate);
-#if (!ISWIN)
-                                               foreach (ISceneChildEntity child in entity.ChildrenEntities())
-                                               {
-                                                   if (!child.IsRoot)
-                                                   {
-                                                       QueuePartForUpdate(child, PrimUpdateFlags.ForcedFullUpdate);
-                                                   }
-                                               }
-#else
-                                               foreach (ISceneChildEntity child in entity.ChildrenEntities().Where(child => !child.IsRoot))
-                                               {
-                                                   QueuePartForUpdate(child, PrimUpdateFlags.ForcedFullUpdate);
-                                               }
-#endif
-                                           }
-                                       }
                                    });
+        }
+
+        private void AddPresenceToCurrentlyInView(IScenePresence presence)
+        {
+            lastPresencesDInView.Add(presence.UUID, presence);
+            //We need to send all attachments of this avatar as well
+            IAttachmentsModule attmodule =
+                presence.Scene.RequestModuleInterface<IAttachmentsModule>();
+            if (attmodule != null)
+                attmodule.SendAttachmentsToPresence(m_presence, presence);
         }
 
         #endregion
@@ -510,14 +495,16 @@ namespace OpenSim.Region.Framework.Scenes
         {
             //Just return all the entities, its quicker to do the culling check rather than the position check
             ISceneEntity[] entities = m_presence.Scene.Entities.GetEntities();
-            LPriorityQueue entsqueue = new LPriorityQueue(new DoubleComparer());
 
             // build a prioritized list of things we need to send
 
             HashSet<ISceneEntity> NewGrpsInView = new HashSet<ISceneEntity>();
 
             int time = Util.EnvironmentTickCount();
-            foreach (ISceneEntity e in from e in entities where e != null where !e.IsDeleted where !lastGrpsInView.Contains(e) where m_culler != null where m_culler.ShowEntityToClient(m_presence, e, m_scene, time) select e)
+            foreach (ISceneEntity e in from e in entities where e != null 
+                                       where !e.IsAttachment where !e.IsDeleted
+                                       where !lastGrpsInView.Contains(e) where m_culler != null
+                                       where m_culler.ShowEntityToClient(m_presence, e, m_scene, time) select e)
             {
                 NewGrpsInView.Add(e);
             }
@@ -544,10 +531,9 @@ namespace OpenSim.Region.Framework.Scenes
                     if (!m_culler.ShowEntityToClient(m_presence, presence, m_scene, time))
                         continue; // if 2 far ignore
 
-                    lock (m_lastPresencesInViewLock)
-                        lastPresencesDInView.Add(presence.UUID, presence);
-
                     SendFullUpdateForPresence(presence);
+                    lock (m_lastPresencesInViewLock)
+                        AddPresenceToCurrentlyInView(presence);
                 }
             }
 #else
@@ -808,7 +794,6 @@ namespace OpenSim.Region.Framework.Scenes
                 {
                     m_SentInitialObjects = true;
                     ISceneEntity[] allEntities = m_presence.Scene.Entities.GetEntities();
-                    LPriorityQueue entsqueue = new LPriorityQueue(new DoubleComparer());
                     HashSet<ISceneEntity> NewGrpsInView = new HashSet<ISceneEntity>();
                     // build a prioritized list of things we need to send
                     int time = Util.EnvironmentTickCount();
@@ -869,7 +854,6 @@ namespace OpenSim.Region.Framework.Scenes
         private void SendQueued(HashSet<ISceneEntity> entsqueue)
         {
             //NO LOCKING REQUIRED HERE, THE PRIORITYQUEUE IS LOCAL
-            int length = entsqueue.Count;
             //Enqueue them all
             List<ISceneEntity> sortableList = new List<ISceneEntity>(entsqueue);
             sortableList.Sort(sortPriority);

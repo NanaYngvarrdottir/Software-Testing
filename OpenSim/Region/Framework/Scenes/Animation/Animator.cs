@@ -54,6 +54,7 @@ namespace OpenSim.Region.Framework.Scenes.Animation
 
         private int m_timesBeforeSlowFlyIsOff;
         protected bool m_useSplatAnimation = true;
+        private bool wasLastFlying = false;
 
         public bool NeedsAnimationResent { get; set; }
 
@@ -381,6 +382,7 @@ namespace OpenSim.Region.Framework.Scenes.Animation
                 }
                 else if (move.Z < 0f)
                 {
+                    wasLastFlying = true;
                     //This is for the slow fly timer
                     m_timesBeforeSlowFlyIsOff = 0;
                     if (m_scenePresence.Scene.PhysicsScene.UseUnderWaterPhysics &&
@@ -457,7 +459,7 @@ namespace OpenSim.Region.Framework.Scenes.Animation
 
                     return "SOFT_LAND";
                 }
-                else if (fallElapsed < 1.1)
+                else if (fallElapsed < 1.1 || (Math.Abs(actor.Velocity.X) > 1 && Math.Abs(actor.Velocity.Y) > 1 && actor.Velocity.Z < 3))
                 {
                     m_animTickFall = Util.EnvironmentTickCount();
 
@@ -492,6 +494,7 @@ namespace OpenSim.Region.Framework.Scenes.Animation
                 if (actor != null && (move.X != 0f || move.Y != 0f ||
                                       actor.Velocity.X != 0 && actor.Velocity.Y != 0))
                 {
+                    wasLastFlying = false;
                     if(actor.IsColliding)
                         m_animTickWalk = Util.EnvironmentTickCount();
                     // Walking / crouchwalking / running
@@ -505,7 +508,7 @@ namespace OpenSim.Region.Framework.Scenes.Animation
                 else
                 {
                     // Not walking
-                    if (move.Z < 0f)
+                    if (move.Z < 0f && !wasLastFlying)
                         return "CROUCH";
                     else
                         return "STAND";
