@@ -249,7 +249,7 @@ namespace Aurora.Modules.SimConsole
             if (firstLogin)
             {
                 SendConsoleEventEQM(sp.UUID,
-                                    "Welcome to the Virtual Reality Region Administration Console, type /help for more information about virtual reality's admistrative console commands");
+                                    "Welcome to the Virtual Reality Region Administration Console, type /help for more information about Virtual Reality's Admistrative console commands");
             }
             else if (message.StartsWith("/logout"))
             {
