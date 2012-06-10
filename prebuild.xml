@@ -2422,6 +2422,10 @@
       </Files>
     </Project>
 
+    <?include file="Extensions/*/prebuild*.xml" ?>
+    
+    <?include file="ExpansionPacks/*/prebuild*.xml" ?>
+    
     <?include file="addon-modules/*/prebuild*.xml" ?>
 
   </Solution>
