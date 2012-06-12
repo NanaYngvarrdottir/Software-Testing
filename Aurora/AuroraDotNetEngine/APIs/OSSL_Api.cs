@@ -499,8 +499,6 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             return UUID.Zero.ToString();
         }
 
-<<<<<<< HEAD
-=======
         private enum InfoType
         {
             Nick,
@@ -627,7 +625,6 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             ((LSL_Api)m_LSL_Api).DetachFromAvatar();
         }
 
->>>>>>> VRGrid/master
         public string osSetDynamicTextureDataBlendFace(string dynamicID, string contentType, string data,
                                                        string extraParams,
                                                        bool blend, int disp, int timer, int alpha, int face)

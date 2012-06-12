@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -61,7 +61,7 @@ namespace Aurora.Modules.Scripting
 
         private bool m_Enabled;
         private string m_HostName = string.Empty;
-        private string m_InterObjectHostname = "lsl.opensim.local";
+        private string m_InterObjectHostname = "lsl.virtualrealitygrid.org";
         private const int m_MaxQueueSize = 50; // maximum size of an object mail queue
         private bool m_localOnly = true;
 

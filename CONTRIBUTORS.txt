@@ -1,4 +1,30 @@
---------------- Aurora contributors (Thanks for all the patches :)) --------------------------
+--------------- Virtual Reality contributors (Thank you for your effort and all the patches :)) --------------------------
+
+Add your name in here if you have committed to Virtual Reality
+
+= Current Virtual Reality Developers (in very rough order of appearance) =
+These folks represent the current core team for Virtual Reality, and are the
+people that make the day to day of Virtual Reality happen.
+
+Virtual Reality
+SonicBoom Drillon
+SonicBoomDrillon Offcourse
+Karen Galaxy
+Amy Rembranch
+Foxy Firecaster
+Andsim Hammerer
+Split Prim
+Andrew Hellershanks
+World Of Serenity
+Urban Nation
+
+
+--------------- Aurora contributors (Thank you for your effort and all the patches :)) --------------------------
+
+Add your name in here if you have committed to Aurora-Sim
+
+These folks represent the current core team for Aurora-Sim, and are the
+people that make the day to day of Aurora-Sim happen.
 
 Revolution Smythe
 Mahakala Dharmapala
@@ -16,8 +42,7 @@ JAllard
 
 ------------------ OpenSim ------------------
 
-The following people have contributed to OpenSim (Thank you 
-for your effort!)
+The following people have contributed to OpenSim (Thank you for your effort!)
 
 Add your name in here if you have committed to OpenSim
 

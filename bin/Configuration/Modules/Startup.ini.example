@@ -9,11 +9,11 @@
     MaxLowValue = -1000
 
     ;; Should map tiles be created in their own thread which can speed up startup?
-    ;; Default: false
+    ;; Default: true
     UseAsyncMapTileCreation = true
 
     ;; What should all new objects be named?
-    ;; Default: "Primitive"
+    ;; Default: "Cube"
     DefaultObjectName = "Virtual Cube"
 
     ;; How many objects should be allowed in all regions? (Will be overridden by settings per region)
@@ -22,7 +22,7 @@
 [Update]
 
     ;; Should we check for updates?
-    ;; Default: true
+    ;; Default: false
     Enabled = false
 
 	;; Which module to use ?
@@ -34,18 +34,18 @@
     NotifyOnNewRelease = true
 
     ;; Version that blocks updates until the update has past this.
-    LatestRelease = 0.5.1
+    LatestRelease = 0.1.1.2
 
-    ;; URL to ask whether there is an update. Comment to use the default Aurora URL. Not currently used GitHubUpdater
+    ;; URL to ask whether there is an update. Comment to use the default Virtual Reality URL. Not currently used GitHubUpdater
     ;URLToCheckForUpdates =
 
 [ErrorReporting]
 
-    ;; Should error reports automatically be forwarded on to the Aurora developing team?
+    ;; Should error reports automatically be forwarded on to the Virtual Reality Developing team?
     ;; Default: true
     SendErrorReports = true
 
-    ;; What URL should the report be sent to? (Defaults to Aurora automatically, there should be no reason to set this).
+    ;; What URL should the report be sent to? (Defaults to Virtual Reality automatically, there should be no reason to set this).
     ; ErrorReportingURL =
 
 [Persistance]

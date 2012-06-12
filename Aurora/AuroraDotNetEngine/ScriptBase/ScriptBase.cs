@@ -316,19 +316,16 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
                     cur = "f" + ob;
                 else if (ob.GetType() == typeof (LSL_Types.Vector3))
                     cur = "v" + ob;
-<<<<<<< HEAD
                 else if (ob.GetType() == typeof (LSL_Types.Quaternion))
                     cur = "q" + ob;
                 else if (ob.GetType() == typeof (LSL_Types.LSLString))
                     cur = "\"" + ob + "\"";
                 else if (ob.GetType() == typeof (LSL_Types.key))
-=======
                 else if (ob.GetType() == typeof(LSL_Types.Quaternion))
                     cur = "q" + ob;
                 else if (ob.GetType() == typeof(LSL_Types.LSLString))
                     cur = "\"" + EscapeString(ob.ToString()) + "\"";
                 else if (ob.GetType() == typeof (LSL_Types.key))
->>>>>>> VRGrid/master
                     cur = "k\"" + ob + "\"";
                 else if (o.GetType() == typeof (LSL_Types.list))
                     cur = "{" + ListToString(ob) + "}";
@@ -369,19 +366,16 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
                             cur = "f" + o;
                         else if (o.GetType() == typeof (LSL_Types.Vector3))
                             cur = "v" + o;
-<<<<<<< HEAD
                         else if (o.GetType() == typeof (LSL_Types.Quaternion))
                             cur = "q" + o;
                         else if (o.GetType() == typeof (LSL_Types.LSLString))
                             cur = "\"" + o + "\"";
                         else if (o.GetType() == typeof (LSL_Types.key))
-=======
                         else if (o.GetType() == typeof(LSL_Types.Quaternion))
                             cur = "q" + o;
                         else if (o.GetType() == typeof(LSL_Types.LSLString))
                             cur = "\"" + EscapeString(o.ToString()) + "\"";
                         else if (o.GetType() == typeof (LSL_Types.key))
->>>>>>> VRGrid/master
                             cur = "k\"" + o + "\"";
                         else if (o.GetType() == typeof (LSL_Types.list))
                             cur = "{" + ListToString(o) + "}";

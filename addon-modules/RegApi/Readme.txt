@@ -1,4 +1,4 @@
-This is the Aurora RegApi module. It implements (part) of the Registration Api.
+This is the Virtual Reality RegApi module. It implements (part) of the Registration Api.
 More Info:
 http://wiki.secondlife.com/wiki/Registration_API
 http://wiki.secondlife.com/wiki/Registration_API_Reference

@@ -782,7 +782,7 @@ namespace Aurora.Simulation.Base
 
             MainConsole.Instance = new LocalConsole();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\n*************Running VirtualReality.Configurator*************");
+                Console.WriteLine("\n\n*************Running VirtualReality Configurator*************");
                 
                     string dbSource = "localhost";
                     string dbPasswd = "virtualreality";
@@ -796,7 +796,7 @@ namespace Aurora.Simulation.Base
                     string regionFlag = "VirtualReality";
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("====================================================================\n");
-                    Console.WriteLine("========================= VIRTUALR REALITY CONFIGURATOR ======================\n");
+                    Console.WriteLine("========================= VIRTUAL REALITY CONFIGURATOR ======================\n");
                     Console.WriteLine("====================================================================\n");
                     Console.ResetColor();
 

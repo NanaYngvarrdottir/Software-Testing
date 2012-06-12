@@ -43,7 +43,7 @@ namespace Aurora.Modules.VisitorLogger
         #region Declares
 
         protected bool m_enabled;
-        protected string m_fileName = "/Visitors/Vistors.log";
+        protected string m_fileName = "/Visitors/Vistors.log/";
         protected Dictionary<UUID, DateTime> m_timesOfUsers = new Dictionary<UUID, DateTime>();
 
         #endregion

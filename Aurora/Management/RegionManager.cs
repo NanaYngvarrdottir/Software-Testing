@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -131,13 +131,10 @@ namespace Aurora.Management
             estateRegionSelection.Items.Clear();
             foreach(RegionInfo r in infos)
             {
-<<<<<<< HEAD:Aurora/CoreApplicationPlugins/RegionLoaderPlugins/RegionManager.cs
                 RegionListBox.Items.Add(!r.Disabled ? "Online - " + r.RegionName : r.RegionName);
-=======
                 bool online = _regionManager.GetWhetherRegionIsOnline(r.RegionID);
                 RegionListBox.Items.Add(online ? "Online - " + r.RegionName : r.RegionName);
                 estateRegionSelection.Items.Add(r.RegionName);
->>>>>>> VRGrid/master:Aurora/Management/RegionManager.cs
             }
         }
 
@@ -238,7 +235,7 @@ namespace Aurora.Management
                 RegionSizeY.Text = "";
                 StartupNumberBox.Text = "0";
                 startupType.SelectedIndex = 0;
-                einfiniteRegion.Checked = false;
+                einfiniteRegion.Checked = true;
                 return;
             }
             button20.Enabled = true;
@@ -300,8 +297,6 @@ namespace Aurora.Management
             });
         }
 
-<<<<<<< HEAD:Aurora/CoreApplicationPlugins/RegionLoaderPlugins/RegionManager.cs
-=======
         private void RefreshCurrentRegionsThreaded()
         {
             _timerEvents.Add (delegate
@@ -310,7 +305,6 @@ namespace Aurora.Management
             });
         }
 
->>>>>>> VRGrid/master:Aurora/Management/RegionManager.cs
         private void SetStoppingStatus ()
         {
             _timerEvents.Add (delegate
@@ -581,7 +575,6 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
         {
             SetStoppingStatus();
             Util.FireAndForget (delegate
-<<<<<<< HEAD:Aurora/CoreApplicationPlugins/RegionLoaderPlugins/RegionManager.cs
                                     {
                 m_sceneManager.AllRegions--;
                 m_sceneManager.TryGetScene (CurrentRegionID, out scene);
@@ -590,11 +583,9 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
                     m_sceneManager.CloseRegion(scene, ShutdownType.Immediate, 0);
                 }
                 if (scene == null || CurrentRegionID == scene.RegionInfo.RegionID || CurrentRegionID ==  UUID.Zero)
-=======
             {
                 if (_regionManager.StopRegion(CurrentRegionID))
                 {
->>>>>>> VRGrid/master:Aurora/Management/RegionManager.cs
                     SetOfflineStatus();
             });
         }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -135,7 +135,7 @@ namespace Aurora.Modules.Estate
             if (alert != null)
                 SP.ControllingClient.Kick(alert);
             else
-                SP.ControllingClient.Kick("\nThe Aurora manager banned and kicked you out.\n");
+                SP.ControllingClient.Kick("\nThe Virtual Reality Manager banned and kicked you out.\n");
 
             // kick client...
             IEntityTransferModule transferModule = SP.Scene.RequestModuleInterface<IEntityTransferModule>();

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -868,7 +868,7 @@ More configuration options and info can be found in the Configuration/Data/FileB
             MainConsole.Instance.Error("---------------------");
             MainConsole.Instance.Error("Your sim has been updated to use the FileBased Simulation Service.");
             MainConsole.Instance.Error(
-                "Your sim is now saved in a .abackup file in the bin/ directory with the same name as your region.");
+                "Your sim is now saved in a .abackup file in the /Backups/ directory with the same name as your region.");
             MainConsole.Instance.Error("More configuration options and info can be found in the Configuration/Data/FileBased.ini file.");
             MainConsole.Instance.Error("---------------------");
             MainConsole.Instance.Error("---------------------");

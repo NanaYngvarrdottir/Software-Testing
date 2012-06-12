@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -44,7 +44,7 @@ namespace Aurora.Modules.CrossRegionBanSystem
     public class CrossRegionBanSystem : ISharedRegionModule
     {
         private readonly List<IScene> m_scenes = new List<IScene>();
-        public string OurGetPassword = "";
+        public string OurGetPassword = "VirtualRealityCrossRegionBanSystem87252069";
         private IConfigSource m_config;
 
         #region ISharedRegionModule Members

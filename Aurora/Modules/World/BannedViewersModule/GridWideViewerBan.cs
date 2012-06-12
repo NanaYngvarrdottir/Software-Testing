@@ -80,9 +80,9 @@ namespace Aurora.Modules.Ban
             IConfig config = source.Configs["GrieferProtection"];
             if (config != null)
             {
-                string bannedViewers = config.GetString ("ViewersToBan", "");
+                string bannedViewers = config.GetString ("ViewersToBan", "Firestorm,Astra,Singularity,Phoenix");
                 m_bannedViewers = Util.ConvertToList(bannedViewers);
-                string allowedViewers = config.GetString ("ViewersToAllow", "Angstrom, Firestorm");
+                string allowedViewers = config.GetString ("ViewersToAllow", "Angstrom");
                 m_allowedViewers = Util.ConvertToList(allowedViewers);
                 m_viewerTagURL = config.GetString("ViewerXMLURL", m_viewerTagURL);
                 m_viewerTagFile = config.GetString("ViewerXMLFile", m_viewerTagFile);
