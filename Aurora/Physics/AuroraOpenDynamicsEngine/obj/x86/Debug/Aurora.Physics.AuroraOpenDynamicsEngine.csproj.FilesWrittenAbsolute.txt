@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.AuroraOpenDynamicsEngine.dll.mdb
+/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.AuroraOpenDynamicsEngine.dll
+/home/virtualreality/Software/Aurora/Aurora/Physics/AuroraOpenDynamicsEngine/obj/x86/Debug/Aurora.Physics.AuroraOpenDynamicsEngine.dll
+/home/virtualreality/Software/Aurora/Aurora/Physics/AuroraOpenDynamicsEngine/obj/x86/Debug/Aurora.Physics.AuroraOpenDynamicsEngine.dll.mdb

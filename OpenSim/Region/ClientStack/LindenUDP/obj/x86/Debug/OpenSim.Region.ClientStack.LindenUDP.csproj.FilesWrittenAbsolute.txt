@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora/bin/OpenSim.Region.ClientStack.LindenUDP.dll.mdb
+/home/virtualreality/Software/Aurora/bin/OpenSim.Region.ClientStack.LindenUDP.dll
+/home/virtualreality/Software/Aurora/OpenSim/Region/ClientStack/LindenUDP/obj/x86/Debug/OpenSim.Region.ClientStack.LindenUDP.dll
+/home/virtualreality/Software/Aurora/OpenSim/Region/ClientStack/LindenUDP/obj/x86/Debug/OpenSim.Region.ClientStack.LindenUDP.dll.mdb

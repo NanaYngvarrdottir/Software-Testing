@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora/bin/Aurora.Management.exe.mdb
+/home/virtualreality/Software/Aurora/bin/Aurora.Management.exe
+/home/virtualreality/Software/Aurora/Aurora/Management/obj/x86/Debug/Aurora.Management.exe
+/home/virtualreality/Software/Aurora/Aurora/Management/obj/x86/Debug/Aurora.Management.exe.mdb

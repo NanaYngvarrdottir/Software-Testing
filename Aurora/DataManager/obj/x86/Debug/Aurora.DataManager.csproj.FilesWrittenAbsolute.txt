@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora/bin/Aurora.DataManager.dll.mdb
+/home/virtualreality/Software/Aurora/bin/Aurora.DataManager.dll
+/home/virtualreality/Software/Aurora/Aurora/DataManager/obj/x86/Debug/Aurora.DataManager.dll
+/home/virtualreality/Software/Aurora/Aurora/DataManager/obj/x86/Debug/Aurora.DataManager.dll.mdb

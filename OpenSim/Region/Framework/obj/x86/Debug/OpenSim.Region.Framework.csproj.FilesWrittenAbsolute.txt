@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora/bin/OpenSim.Region.Framework.dll.mdb
+/home/virtualreality/Software/Aurora/bin/OpenSim.Region.Framework.dll
+/home/virtualreality/Software/Aurora/OpenSim/Region/Framework/obj/x86/Debug/OpenSim.Region.Framework.dll
+/home/virtualreality/Software/Aurora/OpenSim/Region/Framework/obj/x86/Debug/OpenSim.Region.Framework.dll.mdb

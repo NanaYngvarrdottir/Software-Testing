@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/,  http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -63,12 +63,9 @@ namespace Aurora.Framework
         protected bool m_doRemoteCalls = false;
         protected string m_name;
         protected bool m_doRemoteOnly = false;
-<<<<<<< HEAD
-=======
         protected int m_OSDRequestTimeout = 10000;
         protected int m_OSDRequestTryCount = 7;
         protected string m_password = "";
->>>>>>> Aurora/master
 
         public string PluginName
         {
@@ -92,12 +89,10 @@ namespace Aurora.Framework
             Enabled = true;
             m_registry = registry;
             m_name = name;
-<<<<<<< HEAD
             IConfigSource source = registry.RequestModuleInterface<ISimulationBase>().ConfigSource;
             IConfig config;
             if ((config = source.Configs["AuroraConnectors"]) != null)
                 m_doRemoteCalls = config.GetBoolean("DoRemoteCalls", false);
-=======
             ISimulationBase simBase = registry == null ? null : registry.RequestModuleInterface<ISimulationBase>();
             if (simBase != null)
             {
@@ -111,7 +106,6 @@ namespace Aurora.Framework
                     m_OSDRequestTryCount = config.GetInt("OSDRequestTryCount", m_OSDRequestTryCount);
                 }
             }
->>>>>>> Aurora/master
             if (m_doRemoteCalls)
                 m_doRemoteOnly = true;//Lock out local + remote for now
             ConnectorRegistry.RegisterConnector(this);
@@ -324,17 +318,14 @@ namespace Aurora.Framework
                     errorMessage = we.Message;
                     if (we.Status == WebExceptionStatus.ProtocolError)
                     {
-<<<<<<< HEAD
                         // capture how much time was spent writing, this may seem silly
                         // but with the number concurrent requests, this often blocks
                         tickserialize = Util.EnvironmentTickCountSubtract(tickstart) - tickdata;
                         string responseStr = responseStr = responseStream.GetStreamString();
                         // MainConsole.Instance.DebugFormat("[WEB UTIL]: <{0}> response is <{1}>",reqnum,responseStr);
                         return responseStr;
-=======
                         HttpWebResponse webResponse = (HttpWebResponse)we.Response;
                         errorMessage = String.Format("[{0}] {1}", webResponse.StatusCode, webResponse.StatusDescription);
->>>>>>> Aurora/master
                     }
                 }
                 catch (Exception ex)

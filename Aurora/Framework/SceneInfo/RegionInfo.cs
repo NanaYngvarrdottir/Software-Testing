@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/. http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -37,6 +37,7 @@ namespace Aurora.Framework
 {
     public enum StartupType
     {
+        Soft =1
         Medium = 2,
         Normal = 3
     }
@@ -46,7 +47,7 @@ namespace Aurora.Framework
 =======
 
     public class RegionInfo : IDataTransferable
->>>>>>> Aurora/master
+>>>>>>> VRGrid/master
     {
         public string RegionFile = String.Empty;
         public bool Disabled = false;
@@ -58,7 +59,7 @@ namespace Aurora.Framework
 =======
 
         private int m_objectCapacity = 80000;
->>>>>>> Aurora/master
+>>>>>>> VRGrid/master
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
         protected string m_serverURI;
@@ -80,13 +81,13 @@ namespace Aurora.Framework
         /// The X length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeX = 256;
+        public int RegionSizeX = 512;
 
         /// <summary>
         /// The Y length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeY = 256;
+        public int RegionSizeY = 512;
 
         /// <summary>
         /// The Z height (in meters) that the region is (not supported currently)
@@ -113,7 +114,7 @@ namespace Aurora.Framework
 
         public bool HasBeenDeleted { get; set; }
 
->>>>>>> Aurora/master
+>>>>>>> VRGrid/master
         public bool AllowScriptCrossing { get; set; }
 
         private List<int> m_UDPPorts = new List<int> ();

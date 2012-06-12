@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -6398,8 +6398,6 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             return "en-us";
         }
 
-<<<<<<< HEAD
-=======
         /// <summary>
         /// http://wiki.secondlife.com/wiki/LlGetAgentList
         /// The list of options is currently not used in SL
@@ -6491,7 +6489,6 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.APIs
             return result;
         }
 
->>>>>>> Aurora/master
         public DateTime llAdjustSoundVolume(double volume)
         {
             if(!ScriptProtection.CheckThreatLevel(ThreatLevel.None, "LSL", m_host, "LSL", m_itemID)) return DateTime.Now;
