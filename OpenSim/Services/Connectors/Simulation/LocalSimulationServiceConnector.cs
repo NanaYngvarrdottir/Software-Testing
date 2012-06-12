@@ -222,7 +222,6 @@ namespace OpenSim.Services.Connectors.Simulation
         {
             foreach (IScene s in m_sceneList)
             {
-<<<<<<< HEAD
                 if (s.RegionInfo.RegionID == destination.RegionID)
                 {
                     //MainConsole.Instance.Debug("[LOCAL COMMS]: Found region to send ChildAgentUpdate");
@@ -233,14 +232,12 @@ namespace OpenSim.Services.Connectors.Simulation
                         return true;
                     }
                 }
-=======
                 if (s.RegionInfo.RegionID != destination.RegionID) continue;
                 //MainConsole.Instance.Debug("[LOCAL COMMS]: Found region to send ChildAgentUpdate");
                 IEntityTransferModule transferModule = s.RequestModuleInterface<IEntityTransferModule>();
                 if (transferModule == null) continue;
                 transferModule.MakeChildAgent(s.GetScenePresence(AgentID), new GridRegion(s.RegionInfo), true);
                 return true;
->>>>>>> VRGrid/master
             }
             return false;
         }
