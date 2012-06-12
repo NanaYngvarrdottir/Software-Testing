@@ -5,14 +5,14 @@
 [Startup]
     ;; Set this to true if you want to log crashes to disk
     ;; this can be useful when submitting bug reports.
-    save_crashes = false
+    save_crashes = true
 
     ;; Directory to save crashes to if above is enabled
     ;; (default is /bin/crashes/*.txt or C:\bin\crashes\*.txt)
-    crash_dir = ./crashes
+    crash_dir = /Crashes/
 
     ;; Place to create a PID file
-    ;PIDFile = /tmp/my.pid
+    PIDFile = /PID/my.pid
 
     ;; Directory to load module .ini files from
     IniDirectory = "Configuration/Modules"
@@ -35,10 +35,10 @@
     ;; that you can trigger in modules by restarting a region, set this to
     ;; true to make the entire instance restart instead of restarting the region.
     ;; Restarting the region in this way is the same as reopening Aurora.
-    InworldRestartShutsDown = true
+    InworldRestartShutsDown = false
 
     ;; Should we restart Aurora if the sim crashes?
-    AutoRestartOnCrash = false
+    AutoRestartOnCrash = true
 
     ;; Should Aurora wait until all modules have finished starting up before allowing logins and use of the console?
     ;; Default is true
@@ -79,9 +79,9 @@
     Console = LocalConsole
 
     ;; These are the settings for the remote console, unneeded if not using the remote console
-    ;RemoteConsoleUser =
-    ;RemoteConsolePass =
-    ;remote_console_port = 0
+    RemoteConsoleUser = VirtualRelaityRegionSimulator
+    RemoteConsolePass = VirtualRealityRegionSimulator
+    remote_console_port = 0
 
 [RegionStartup]
     ;; This sets the default for which region loader will create new regions
@@ -89,13 +89,13 @@
     ;; RegionLoaderDataBaseSystem - database loader
     ;; RegionLoaderFileSystem - .ini file loader
     ;; RegionLoaderWebServer - the web loader (loads .ini files via a url)
-    ;; Default is RegionLoaderDataBaseSystem
-    Default = RegionLoaderDataBaseSystem
+    ;; Default is RegionLoaderFileSystem
+    Default = RegionLoaderFileSystem
 
     ;; If you want to enable only certain loaders, you can disable them there
-    RegionLoaderDataBaseSystem_Enabled = true
-    RegionLoaderFileSystem_Enabled = false
-    RegionLoaderWebServer_Enabled = true
+    RegionLoaderDataBaseSystem_Enabled = false
+    RegionLoaderFileSystem_Enabled = true
+    RegionLoaderWebServer_Enabled = false
 
     ;; What directory region .ini files loaded from
     RegionsDirectory = Regions

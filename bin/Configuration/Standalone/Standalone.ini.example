@@ -8,11 +8,11 @@
     InventoryAccessModule = BasicInventoryAccessModule
 
 [Configuration]
-    UseRegistrationService = false
+    UseRegistrationService = true
 
 [AuroraConnectors]
     AbuseReportsConnector = LocalConnector
-    AssetConnector = LocalConnector
+    AssetConnector = LocalConnectorBlackHole
     AvatarArchiverConnector = LocalConnector
     ScriptDataConnector = LocalConnector
     RegionInfoConnector = LocalConnector

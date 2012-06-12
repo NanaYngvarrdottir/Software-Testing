@@ -1,7 +1,7 @@
 @ECHO OFF
 
 echo ====================================
-echo ==== AURORA ========================
+echo ==== VIRTUAL REALITY ========================
 echo ====================================
 echo.
 
@@ -14,15 +14,15 @@ set auto_restart=y
 rem ## Pause on crash/exit (y,n)
 set auto_pause=y
 
-echo Welcome to the Aurora launcher.
+echo Welcome to the Virtual Reality Launcher.
 if %auto_restart%==y echo I am configured to automatically restart on exit.
 if %auto_pause%==y echo I am configured to automatically pause on exit.
 echo You can edit this batch file to change your default choices.
 echo.
 echo You have the following choices:
-echo	- aurora: Launches Aurora
-echo	- server: Launches Aurora Grid services
-echo	- config: Launches the configurator to configure Aurora
+echo	- aurora: Launches Virtual Reality
+echo	- server: Launches Virtual Reality Grid services
+echo	- config: Launches the Virtual Relaity Configurator to configure Virtual Reality
 echo	- quit: Quits
 echo.
 

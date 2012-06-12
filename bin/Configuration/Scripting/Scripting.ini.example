@@ -8,13 +8,13 @@
 
 [VectorRender]
     ;; the font to use for rendering text (default: Arial)
-    ;; font_name = Arial
+   font_name = Arial
 
 [LSLRemoting]
 
     ;; What is reported as the X-Secondlife-Shard for llHTTPRequest.
-    ;; Defaults to the Aurora
-    shard = Aurora
+    ;; Defaults to the VirtualReality
+    shard = VirtualReality
 
     ;; What is reported as the User-Agent when using llHTTPRequest
     ;; Defaults to not sent if not set here. See the notes section in the wiki at http://wiki.secondlife.com/wiki/LlHTTPRequest for comments on adding
@@ -31,8 +31,8 @@
     ;; This will contain the fully qualified URI an external site needs
     ;; to use to send XMLRPC requests to that script
 
-    ;XmlRpcRouterModule = XmlRpcRouterModule
-    ;XmlRpcPort = 20800
+    XmlRpcRouterModule = XmlRpcRouterModule
+    XmlRpcPort = 20800
 
 [HTTPScriptModule]
 
@@ -48,8 +48,8 @@
     ;; Reference: http://forums.osgrid.org/viewtopic.php?f=5&t=2863&start=0
     ;;
     ;; Enable this module to get notified once all items and scripts in the region have been completely loaded and compiled
-    ;; default is false
-    enabled = false
+    ;; default is true
+    enabled = true
 
     ;; Channel on which to signal region readiness through a message
     ;; formatted as follows: {server_startup|oar_file_load},{0|1},n,[oar error]

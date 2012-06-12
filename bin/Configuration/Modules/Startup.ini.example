@@ -10,17 +10,14 @@
 
     ;; Should map tiles be created in their own thread which can speed up startup?
     ;; Default: false
-    UseAsyncMapTileCreation = false
+    UseAsyncMapTileCreation = true
 
     ;; What should all new objects be named?
     ;; Default: "Primitive"
-    DefaultObjectName = "Object"
+    DefaultObjectName = "Virtual Cube"
 
     ;; How many objects should be allowed in all regions? (Will be overridden by settings per region)
     ObjectCapacity = 80000
-	
-	;; Adding this password allows people to remotely manage regions and the console, must not be blank
-	RemoteAccessPassword = ""
 
 [Update]
 
@@ -97,7 +94,7 @@
     ;; The 'standard' 1 thread per Scene world
     SceneLoader = true
 	;; The new experimental Async-Sim work which uses async physics
-	AsyncSceneLoader = false
+	AsyncSceneLoader = true
 
 [ApplicationPlugins]
     LoadRegionsPlugin = LoadRegionsPlugin

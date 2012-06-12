@@ -10,17 +10,17 @@
     InventoryAccessModule = BasicInventoryAccessModule
 
 [MapCaps]
-    AllowCapsMessage = false;
+    AllowCapsMessage = true;
 	
 [AgentProcessing]
-    UseCallbacks = false;
+    UseCallbacks = true;
 	
 [Configuration]
-    UseRegistrationService = false
+    UseRegistrationService = true
 
 [AuroraConnectors]
     AbuseReportsConnector = LocalConnector
-    AssetConnector = LocalConnector
+    AssetConnector = LocalConnectorBlackHole
     AvatarArchiverConnector = LocalConnector
     ScriptDataConnector = LocalConnector
     RegionInfoConnector = LocalConnector
@@ -51,7 +51,7 @@
 
 [Handlers]
 
-    SecureSimulation = false
+    SecureSimulation = true
     RobustCompatibility = true;
 
     AssetHandler = RobustAssetServicesConnector

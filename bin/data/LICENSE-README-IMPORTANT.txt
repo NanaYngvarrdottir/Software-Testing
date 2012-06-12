@@ -1,4 +1,4 @@
-Not all of the files in this directory are licensed under the BSD license. Some of these files come with the Second Life viewer and are considered licensed under a Creative Commons License.
+Not all of the files in this directory are licensed under the BSD license. Some of these files come with the Virtual Reality Viewer and are considered licensed under a Creative Commons License.
 
 These files are:
 
