@@ -163,7 +163,7 @@ namespace Aurora.Simulation.Base
 
             BinMigratorService service = new BinMigratorService();
             service.MigrateBin();
-            Configure();
+            Configure(args);
             // Configure nIni aliases and localles
             Culture.SetCurrentCulture();
             configSource.Alias.AddAlias("On", true);
@@ -217,7 +217,7 @@ namespace Aurora.Simulation.Base
 
             }
 
-        public static void Configure()
+        public static void Configure(string[] args)
         {
             bool Aurora_log = (File.Exists(Path.Combine(Util.configDir(), "VirtualReality.log")));
             bool Aurora_Server_log = (File.Exists(Path.Combine(Util.configDir(), "VirtualRealityServer.log")));
@@ -225,7 +225,7 @@ namespace Aurora.Simulation.Base
             Process sProcessName = Process.GetCurrentProcess();
             string sCompare = sProcessName.ToString();
 
-            if (((Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.exe" ||
+            if ((args.Contains("-skipconfig") || ((Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.exe" ||
                 Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.vshost.exe")
                 && ((Aurora_log) && (new FileInfo("VirtualReality.log").Length > 0)))
                 || ((Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.Server.exe" ||
@@ -377,7 +377,7 @@ namespace Aurora.Simulation.Base
                 ipAddress = Framework.Utilities.GetExternalIp();
             }
             Console.ResetColor();
-            Console.Write("The name you will use for your Welcome Island: ");
+            Console.Write("The name you will use for your Orientation Island: ");
             Console.ForegroundColor = ConsoleColor.Green;
 
             regionFlag = Console.ReadLine();
@@ -730,7 +730,7 @@ namespace Aurora.Simulation.Base
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("http://" + ipAddress + ":8003/");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\nNow AuroraServer.exe will start \nthen, please, start Aurora.exe.\nUse this name for your Welcome Island: ");
+                Console.WriteLine("\nNow AuroraServer.exe will start \nthen, please, start Aurora.exe.\nUse this name for your Orientation Island: ");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(regionFlag);
                 Console.ForegroundColor = ConsoleColor.White;
@@ -754,7 +754,7 @@ namespace Aurora.Simulation.Base
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("http://" + ipAddress + ":9000/");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\nNow Aurora.exe will start.\nPlease : use this name for your Welcome Island: ");
+                Console.WriteLine("\nNow Aurora.exe will start.\nPlease : use this name for your Orientation Island: ");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(regionFlag);
                 Console.ForegroundColor = ConsoleColor.White;
@@ -913,7 +913,7 @@ namespace Aurora.Simulation.Base
                         ipAddress = Framework.Utilities.GetExternalIp();
                     }
                     Console.ResetColor();
-                    Console.Write("The name you will use for your Welcome Island: ");
+                    Console.Write("The name you will use for your Orientation Island: ");
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     regionFlag = Console.ReadLine();

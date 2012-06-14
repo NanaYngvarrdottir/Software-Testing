@@ -82,7 +82,7 @@
     ;; Default is true
     SendTerrainByViewDistance = true
     
-    ;; Enable the generation of 3D water
+    ;; Enable the generation of 3D water (THIS WILL CAUSE YOUR CLIENT TO CRASH UNLESS IT SUPPORTS IT)
     ;; Default is false
     Use3DWater = false
     

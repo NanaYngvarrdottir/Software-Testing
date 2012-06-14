@@ -15,7 +15,7 @@
     RegionInfoConnector = LocalConnector
     ParcelConnector = LocalConnector
     WebStatsDataConnector = LocalConnector
-    AssetConnector = LocalConnector
+    AssetConnector = LocalConnectorBlackHole
     GroupsConnector = LocalConnector
     AgentConnector = LocalConnector
     RegionConnector = LocalConnector
@@ -36,6 +36,7 @@
     AbuseReportHandler = AbuseReportsService
     AgentInfoHandler = AgentInfoService
     AssetHandler = AssetService
+	AssetHandlerUseCache = true
     AsyncMessageRequesterServiceHandler = AsyncMessageRequesterService
     AsyncMessagePostServiceHandler = RemoteAsyncMessagePostService
     AuthenticationHandler = PasswordAuthenticationService
@@ -55,4 +56,4 @@
     SimulationInHandlerPort = 0
     ;; If you are in a secure closed grid, you can enable this safely, otherwise, enable at your own risk!
     ;; Disables objects being moved into our regions from regions outside of this instance (works for the ones in our instance)
-    AllowIncomingForeignObjects = false
+    AllowIncomingForeignObjects = true

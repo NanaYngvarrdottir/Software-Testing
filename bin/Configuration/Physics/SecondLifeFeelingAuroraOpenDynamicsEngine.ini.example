@@ -90,7 +90,7 @@
     aviesCanEscapeGravity = true
     
     ;; How many times faster the avatar will fly than a walking avatar
-    AvFlySpeed = 7.0
+    AvFlySpeed = 6.0
 	
 	;; Walk speed.  Smaller is faster.
     ;; speed of movement with Always Run off
@@ -105,7 +105,7 @@
     ;; ##
     
     ;; Makes avatars float and look as if they are swimming on the water.
-    useUnderWaterPhysics = false
+    useUnderWaterPhysics = true
 
     ;; ##
     ;; ## Max Flight Height for avatars (ported from Rex, thanks!)
@@ -113,7 +113,7 @@
     ;; ##
     
     ;; Is this enabled?
-    Use_Flight_Ceiling_Height_Max = false;
+    Use_Flight_Ceiling_Height_Max = true;
 
     ;; Max height in meters
     Flight_Ceiling_Height_Max = 4096;
@@ -217,4 +217,4 @@
     ;; physical collision mesh proxies are normally created for complex prim shapes, and collisions for simple boxes and
     ;; spheres are computed algorithmically. If you would rather have mesh proxies for simple prims, you can set this to
     ;; true. Note that this will increase memory usage and region startup time. Default is false.
-    force_simple_prim_meshing = false
+    force_simple_prim_meshing = true
