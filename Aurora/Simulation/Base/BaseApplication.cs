@@ -89,7 +89,7 @@ namespace Aurora.Simulation.Base
         /// <summary>
         ///   Where to post errors
         /// </summary>
-        public static string m_urlToPostErrors = "http://aurora-sim.org/CrashReports/crashreports.php";
+        public static string m_urlToPostErrors = "http://virtualrealitygrid.org/CrashReports/crashreports.php";
 
         /// <summary>
         ///   Loader of configuration files
@@ -238,7 +238,7 @@ namespace Aurora.Simulation.Base
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\n*************Required Configuration files not found.*************");
+                Console.WriteLine("\n\n*************Required Virtual Reality Configuration files not found.*************");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\n\n   This is your first time running Virtual Reality, if not and you already configured your *ini.example files, please ignore this warning and press enter; Otherwise type yes and Virtual Reality will guide you trough configuration files.\n\nRemember, these file names are Case Sensitive in Linux and Proper Cased.\n1. ./Aurora.ini\nand\n2. ./Configuration/Standalone/StandaloneCommon.ini \nor\n3. ./Configuration/Grid/GridCommon.ini\n\nAlso, you will want to examine these files in great detail because only the basic system will load by default. Aurora can do a LOT more if you spend a little time going through these files.\n\n");
                 Console.ForegroundColor = ConsoleColor.Green;

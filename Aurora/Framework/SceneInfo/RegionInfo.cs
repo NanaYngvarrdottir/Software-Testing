@@ -62,7 +62,7 @@ namespace Aurora.Framework
         public UUID ScopeID = UUID.Zero;
         private UUID m_GridSecureSessionID = UUID.Zero;
         public int NumberStartup = 0;
-        public StartupType Startup = StartupType.Normal;
+        public StartupType Startup = StartupType.Medium;
         public bool InfiniteRegion = true;
         public bool NewRegion = false;
 
@@ -70,13 +70,13 @@ namespace Aurora.Framework
         /// The X length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeX = 256;
+        public int RegionSizeX = 512;
 
         /// <summary>
         /// The Y length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeY = 256;
+        public int RegionSizeY = 512;
 
         /// <summary>
         /// The Z height (in meters) that the region is (not supported currently)
@@ -221,7 +221,7 @@ namespace Aurora.Framework
 
             config.Set("RegionUUID", RegionID.ToString());
 
-            string location = String.Format("{0},{1}", m_regionLocX / 256, m_regionLocY / 256);
+            string location = String.Format("{0},{1}", m_regionLocX / 512, m_regionLocY / 512);
             config.Set("Location", location);
 
             config.Set("InternalAddress", m_internalEndPoint.Address.ToString());
