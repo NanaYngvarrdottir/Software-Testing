@@ -48,7 +48,7 @@ namespace Aurora.Framework
 
         private RegionSettings m_regionSettings;
 
-        private int m_objectCapacity = 80000;
+        private int m_objectCapacity = 0;
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
         protected string m_serverURI;
@@ -62,21 +62,21 @@ namespace Aurora.Framework
         public UUID ScopeID = UUID.Zero;
         private UUID m_GridSecureSessionID = UUID.Zero;
         public int NumberStartup = 0;
-        public StartupType Startup = StartupType.Medium;
-        public bool InfiniteRegion = true;
+        public StartupType Startup = StartupType.Normal;
+        public bool InfiniteRegion = false;
         public bool NewRegion = false;
 
         /// <summary>
         /// The X length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeX = 512;
+        public int RegionSizeX = 256;
 
         /// <summary>
         /// The Y length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeY = 512;
+        public int RegionSizeY = 256;
 
         /// <summary>
         /// The Z height (in meters) that the region is (not supported currently)
@@ -122,8 +122,8 @@ namespace Aurora.Framework
 
         public RegionInfo()
         {
-            TrustBinariesFromForeignSims = true;
-            AllowScriptCrossing = true;
+            TrustBinariesFromForeignSims = false;
+            AllowScriptCrossing = false;
         }
 
         public bool AllowPhysicalPrims
@@ -200,7 +200,7 @@ namespace Aurora.Framework
             }
             catch (FileNotFoundException)
             {
-                //If this happens, it is the first time a user has opened Virtual Reality and the RegionFile doesn't exist 
+                //If this happens, it is the first time a user has opened Aurora and the RegionFile doesn't exist
                 // yet, so just let it gracefully fail and create itself later
                 return;
             }
@@ -221,7 +221,7 @@ namespace Aurora.Framework
 
             config.Set("RegionUUID", RegionID.ToString());
 
-            string location = String.Format("{0},{1}", m_regionLocX / 512, m_regionLocY / 512);
+            string location = String.Format("{0},{1}", m_regionLocX / 256, m_regionLocY / 256);
             config.Set("Location", location);
 
             config.Set("InternalAddress", m_internalEndPoint.Address.ToString());
