@@ -72,7 +72,7 @@ using System.Text;
 namespace Aurora.Simulation.Base
 {
     /// <summary>
-    /// Starting class for the Aurora Server
+    ///   Starting class for the Virtual Reality Server
     /// </summary>
     public class BaseApplication
     {
