@@ -38,6 +38,7 @@ using Aurora.Framework.Capabilities;
 using Aurora.Framework.Servers.HttpServer;
 using OpenSim.Region.Framework.Interfaces;
 using OpenSim.Services.Interfaces;
+using Nini.Config;
 
 namespace Aurora.Modules.Inventory
 {
@@ -45,7 +46,7 @@ namespace Aurora.Modules.Inventory
     {
         #region Declares
 
-        protected string m_DefaultLSLScript = "default\n{\n    state_entry()\n    {\n        llSay(0, \"Script running.\");\n    }\n    touch_start(integer number)\n    {\n        llSay(0,\"Touched.\");\n    }\n}\n";
+        protected string m_DefaultLSLScript = "default\n{\n state_entry()\n {\n llSay(0, \"Script running.\");\n }\n touch_start(integer number)\n {\n llSay(0,\"Touched.\");\n }\n}\n";
 
         /// <summary>
         /// The default LSL script that will be added when a client creates
@@ -59,11 +60,13 @@ namespace Aurora.Modules.Inventory
 
         protected IScene m_scene;
 
+        protected ListCombiningTimedSaving<InventoryItemBase> _moveInventoryItemQueue = new ListCombiningTimedSaving<InventoryItemBase>();
+
         #endregion
 
         #region INonSharedRegionModule members
 
-        public void Initialise(Nini.Config.IConfigSource source)
+        public void Initialise(IConfigSource source)
         {
         }
 
@@ -76,6 +79,8 @@ namespace Aurora.Modules.Inventory
             scene.EventManager.OnRegisterCaps += EventManagerOnRegisterCaps;
             scene.EventManager.OnNewClient += EventManager_OnNewClient;
             scene.EventManager.OnClosingClient += EventManager_OnClosingClient;
+
+            _moveInventoryItemQueue.Start(2, _saveMovedItems);
         }
 
         public void RegionLoaded (IScene scene)
@@ -121,9 +126,11 @@ namespace Aurora.Modules.Inventory
             client.OnCreateNewInventoryFolder += HandleCreateInventoryFolder;
             client.OnUpdateInventoryFolder += HandleUpdateInventoryFolder;
             client.OnMoveInventoryFolder += HandleMoveInventoryFolder; // 2; //!!
+#if UDP_INVENTORY
             client.OnFetchInventoryDescendents += HandleFetchInventoryDescendents;
-            client.OnPurgeInventoryDescendents += HandlePurgeInventoryDescendents; // 2; //!!
             client.OnFetchInventory += HandleFetchInventory;
+#endif
+            client.OnPurgeInventoryDescendents += HandlePurgeInventoryDescendents; // 2; //!!
             client.OnUpdateInventoryItem += UpdateInventoryItemAsset;
             client.OnChangeInventoryItemFlags += ChangeInventoryItemFlags;
             client.OnCopyInventoryItem += CopyInventoryItem;
@@ -147,10 +154,12 @@ namespace Aurora.Modules.Inventory
             client.OnCreateNewInventoryItem -= CreateNewInventoryItem;
             client.OnCreateNewInventoryFolder -= HandleCreateInventoryFolder;
             client.OnUpdateInventoryFolder -= HandleUpdateInventoryFolder;
-            client.OnMoveInventoryFolder -= HandleMoveInventoryFolder; // 2; //!!
+            client.OnMoveInventoryFolder -= HandleMoveInventoryFolder;
+#if UDP_INVENTORY
             client.OnFetchInventoryDescendents -= HandleFetchInventoryDescendents;
-            client.OnPurgeInventoryDescendents -= HandlePurgeInventoryDescendents; // 2; //!!
             client.OnFetchInventory -= HandleFetchInventory;
+#endif
+            client.OnPurgeInventoryDescendents -= HandlePurgeInventoryDescendents;
             client.OnUpdateInventoryItem -= UpdateInventoryItemAsset;
             client.OnCopyInventoryItem -= CopyInventoryItem;
             client.OnMoveInventoryItem -= MoveInventoryItem;
@@ -164,6 +173,8 @@ namespace Aurora.Modules.Inventory
             client.OnDeRezObject -= DeRezObjects;
         }
 
+#if UDP_INVENTORY
+        
         /// <summary>
         /// Handle a fetch inventory request from the client
         /// </summary>
@@ -220,6 +231,8 @@ namespace Aurora.Modules.Inventory
             d.EndInvoke(iar);
         }
 
+#endif
+
         /// <summary>
         /// Handle an inventory folder creation request from the client.
         /// </summary>
@@ -245,7 +258,7 @@ namespace Aurora.Modules.Inventory
         /// </summary>
         ///
         /// FIXME: We call add new inventory folder because in the data layer, we happen to use an SQL REPLACE
-        /// so this will work to rename an existing folder.  Needless to say, to rely on this is very confusing,
+        /// so this will work to rename an existing folder. Needless to say, to rely on this is very confusing,
         /// and needs to be changed.
         ///
         /// <param name="remoteClient"></param>
@@ -256,8 +269,8 @@ namespace Aurora.Modules.Inventory
         protected void HandleUpdateInventoryFolder(IClientAPI remoteClient, UUID folderID, ushort type, string name,
                                                 UUID parentID)
         {
-            //            MainConsole.Instance.DebugFormat(
-            //                "[AGENT INVENTORY]: Updating inventory folder {0} {1} for {2} {3}", folderID, name, remoteClient.Name, remoteClient.AgentId);
+            // MainConsole.Instance.DebugFormat(
+            // "[AGENT INVENTORY]: Updating inventory folder {0} {1} for {2} {3}", folderID, name, remoteClient.Name, remoteClient.AgentId);
 
             InventoryFolderBase folder = new InventoryFolderBase(folderID, remoteClient.AgentId);
             folder = m_scene.InventoryService.GetFolder(folder);
@@ -459,7 +472,7 @@ namespace Aurora.Modules.Inventory
         }
 
         /// <summary>
-        /// Removes an inventory folder.  This packet is sent when the user
+        /// Removes an inventory folder. This packet is sent when the user
         /// right-clicks a folder that's already in trash and chooses "purge"
         /// </summary>
         /// <param name="remoteClient"></param>
@@ -531,7 +544,7 @@ namespace Aurora.Modules.Inventory
         }
 
         /// <summary>
-        /// Create a new inventory item.  Called when the client creates a new item directly within their
+        /// Create a new inventory item. Called when the client creates a new item directly within their
         /// inventory (e.g. by selecting a context inventory menu option).
         /// </summary>
         /// <param name="remoteClient"></param>
@@ -587,6 +600,10 @@ namespace Aurora.Modules.Inventory
                     {
                         data = Encoding.ASCII.GetBytes(" ");
                     }
+                    if (invType == (sbyte)InventoryType.Gesture)
+                    {
+                        data = /*Default empty gesture*/ new byte[13] { 50, 10, 50, 53, 53, 10, 48, 10, 10, 10, 48, 10, 0 };
+                    }
 
                     AssetBase asset = new AssetBase(UUID.Random(), name, (AssetType)assetType,
                                                     remoteClient.AgentId) {Data = data, Description = description};
@@ -626,7 +643,7 @@ namespace Aurora.Modules.Inventory
             //We have one!
             UserAccount account = m_scene.UserAccountService.GetUserAccount (m_scene.RegionInfo.ScopeID, presence.UUID);
             if (account == null)
-                name = "HG " + name;//We don't have an account for them, add the HG ref 
+                name = "HG " + name;//We don't have an account for them, add the HG ref
             name += " @ " + gatekeeperURL;
             string gatekeeperdata = string.Format ("gatekeeper {0}\n", gatekeeperURL);
             Vector3 pos = presence.AbsolutePosition;
@@ -696,10 +713,16 @@ namespace Aurora.Modules.Inventory
         protected void MoveInventoryItem(IClientAPI remoteClient, List<InventoryItemBase> items)
         {
             //MainConsole.Instance.DebugFormat(
-            //    "[AGENT INVENTORY]: Moving {0} items for user {1}", items.Count, remoteClient.AgentId);
+            // "[AGENT INVENTORY]: Moving {0} items for user {1}", items.Count, remoteClient.AgentId);
 
-            if (!m_scene.InventoryService.MoveItems(remoteClient.AgentId, items))
-                MainConsole.Instance.Warn("[AGENT INVENTORY]: Failed to move items for user " + remoteClient.AgentId);
+
+            _moveInventoryItemQueue.Add(remoteClient.AgentId, items);
+        }
+
+        private void _saveMovedItems(UUID agentID, List<InventoryItemBase> itemsToMove)
+        {
+            if (!m_scene.InventoryService.MoveItems(agentID, itemsToMove))
+                MainConsole.Instance.Warn("[AGENT INVENTORY]: Failed to move items for user " + agentID);
         }
 
         /// <summary>
@@ -773,7 +796,7 @@ namespace Aurora.Modules.Inventory
         /// a transaction
         /// </summary>
         /// <param name="remoteClient"></param>
-        /// <param name="transactionID">The transaction ID.  If this is UUID.Zero we will
+        /// <param name="transactionID">The transaction ID. If this is UUID.Zero we will
         /// assume that we are not in a transaction</param>
         /// <param name="itemID">The ID of the updated item</param>
         /// <param name="itemUpd"></param>
@@ -1005,7 +1028,7 @@ namespace Aurora.Modules.Inventory
             containingFolder = m_scene.InventoryService.GetFolder(containingFolder);
 
             //MainConsole.Instance.DebugFormat("[AGENT INVENTORY]: Sending inventory folder contents ({0} nodes) for \"{1}\" to {2} {3}",
-            //    contents.Folders.Count + contents.Items.Count, containingFolder.Name, client.FirstName, client.LastName);
+            // contents.Folders.Count + contents.Items.Count, containingFolder.Name, client.FirstName, client.LastName);
 
             if (containingFolder != null)
                 client.SendInventoryFolderDetails(client.AgentId, folder.ID, contents.Items, contents.Folders, containingFolder.Version, fetchFolders, fetchItems);
@@ -1148,7 +1171,7 @@ namespace Aurora.Modules.Inventory
             UUID itemID = itemBase.ID;
             UUID copyID = UUID.Random();
 
-            if (itemID != UUID.Zero)  // transferred from an avatar inventory to the prim's inventory
+            if (itemID != UUID.Zero) // transferred from an avatar inventory to the prim's inventory
             {
                 InventoryItemBase item = new InventoryItemBase(itemID, remoteClient.AgentId);
                 item = m_scene.InventoryService.GetItem(item);
@@ -1164,9 +1187,9 @@ namespace Aurora.Modules.Inventory
                         part.ParentEntity.AddInventoryItem (remoteClient, localID, item, copyID);
                         part.Inventory.CreateScriptInstance(copyID, 0, false, 0);
 
-                        //                        MainConsole.Instance.InfoFormat("[PRIMINVENTORY]: " +
-                        //                                         "Rezzed script {0} into prim local ID {1} for user {2}",
-                        //                                         item.inventoryName, localID, remoteClient.Name);
+                        // MainConsole.Instance.InfoFormat("[PRIMINVENTORY]: " +
+                        // "Rezzed script {0} into prim local ID {1} for user {2}",
+                        // item.inventoryName, localID, remoteClient.Name);
                         part.GetProperties(remoteClient);
                     }
                     else
@@ -1185,7 +1208,7 @@ namespace Aurora.Modules.Inventory
                         itemID, remoteClient.Name);
                 }
             }
-            else  // script has been rezzed directly into a prim's inventory
+            else // script has been rezzed directly into a prim's inventory
             {
                 ISceneChildEntity part = m_scene.GetSceneObjectPart (itemBase.Folder);
                 if (part == null)
@@ -1362,7 +1385,7 @@ namespace Aurora.Modules.Inventory
         /// Add an inventory item to an avatar's inventory.
         /// </summary>
         /// <param name="remoteClient">The remote client controlling the avatar</param>
-        /// <param name="item">The item.  This structure contains all the item metadata, including the folder
+        /// <param name="item">The item. This structure contains all the item metadata, including the folder
         /// in which the item is to be placed.</param>
         public void AddInventoryItem(IClientAPI remoteClient, InventoryItemBase item)
         {
@@ -1377,7 +1400,7 @@ namespace Aurora.Modules.Inventory
         /// <param name="senderId">ID of the sender of the item</param>
         /// <param name="itemId"></param>
         /// <param name="recipientFolderId">
-        /// The id of the folder in which the copy item should go.  If UUID.Zero then the item is placed in the most
+        /// The id of the folder in which the copy item should go. If UUID.Zero then the item is placed in the most
         /// appropriate default folder.
         /// </param>
         /// <returns>
@@ -1396,10 +1419,10 @@ namespace Aurora.Modules.Inventory
         /// <param name="senderId">ID of the sender of the item</param>
         /// <param name="itemId"></param>
         /// <param name="recipientFolderId">
-        /// The id of the folder in which the copy item should go.  If UUID.Zero then the item is placed in the most
+        /// The id of the folder in which the copy item should go. If UUID.Zero then the item is placed in the most
         /// appropriate default folder.
         /// </param>
-        /// <param name="doOwnerCheck"></param>
+        /// <param name="doOwnerCheck">This is for when the item is being given away publically, such as when it is posted on a group notice</param>
         /// <returns>
         /// The inventory item copy given, null if the give was unsuccessful
         /// </returns>
@@ -1591,14 +1614,14 @@ namespace Aurora.Modules.Inventory
         }
 
         /// <summary>
-        /// Give an entire inventory folder from one user to another.  The entire contents (including all descendent
+        /// Give an entire inventory folder from one user to another. The entire contents (including all descendent
         /// folders) is given.
         /// </summary>
         /// <param name="recipientId"></param>
         /// <param name="senderId">ID of the sender of the item</param>
         /// <param name="folderId"></param>
         /// <param name="recipientParentFolderId">
-        /// The id of the receipient folder in which the send folder should be placed.  If UUID.Zero then the
+        /// The id of the receipient folder in which the send folder should be placed. If UUID.Zero then the
         /// recipient folder is the root folder
         /// </param>
         /// <returns>
@@ -1706,7 +1729,7 @@ namespace Aurora.Modules.Inventory
                         "Script in object {0} : {1}, attempted to load script {2} : {3} into object {4} : {5} with invalid pin {6}",
                         srcPart.Name, srcId, srcTaskItem.Name, srcTaskItem.ItemID, destPart.Name, destId, pin);
                 // the LSL Wiki says we are supposed to shout on the DEBUG_CHANNEL -
-                //   "Object: Task Object trying to illegally load script onto task Other_Object!"
+                // "Object: Task Object trying to illegally load script onto task Other_Object!"
                 // How do we shout from in here?
                 return;
             }
@@ -1899,8 +1922,8 @@ namespace Aurora.Modules.Inventory
         /// </summary>
         /// <param name="avatarId"></param>
         /// <param name="folderId">
-        /// The user inventory folder to move (or copy) the item to.  If null, then the most
-        /// suitable system folder is used (e.g. the Objects folder for objects).  If there is no suitable folder, then
+        /// The user inventory folder to move (or copy) the item to. If null, then the most
+        /// suitable system folder is used (e.g. the Objects folder for objects). If there is no suitable folder, then
         /// the item is placed in the user's root inventory folder
         /// </param>
         /// <param name="part"></param>
@@ -2019,7 +2042,7 @@ namespace Aurora.Modules.Inventory
         }
 
         /// <summary>
-        /// Called by the script task update handler.  Provides a URL to which the client can upload a new asset.
+        /// Called by the script task update handler. Provides a URL to which the client can upload a new asset.
         /// </summary>
         /// <param name="AgentID"></param>
         /// <param name="request"></param>
@@ -2072,7 +2095,7 @@ namespace Aurora.Modules.Inventory
         }
 
         /// <summary>
-        /// Called by the notecard update handler.  Provides a URL to which the client can upload a new asset.
+        /// Called by the notecard update handler. Provides a URL to which the client can upload a new asset.
         /// </summary>
         /// <param name="AgentID"></param>
         /// <param name="request"></param>
@@ -2194,9 +2217,9 @@ namespace Aurora.Modules.Inventory
             {
                 try
                 {
-                    //                    MainConsole.Instance.InfoFormat("[CAPS]: " +
-                    //                                     "TaskInventoryScriptUpdater received data: {0}, path: {1}, param: {2}",
-                    //                                     data, path, param));
+                    // MainConsole.Instance.InfoFormat("[CAPS]: " +
+                    // "TaskInventoryScriptUpdater received data: {0}, path: {1}, param: {2}",
+                    // data, path, param));
 
                     IClientAPI client;
                     m_scene.ClientManager.TryGetValue(AgentID, out client);
@@ -2217,7 +2240,7 @@ namespace Aurora.Modules.Inventory
 
                     httpListener.RemoveStreamHandler("POST", uploaderPath);
 
-                    //                    MainConsole.Instance.InfoFormat("[CAPS]: TaskInventoryScriptUpdater.uploaderCaps res: {0}", res);
+                    // MainConsole.Instance.InfoFormat("[CAPS]: TaskInventoryScriptUpdater.uploaderCaps res: {0}", res);
 
                     return res;
                 }

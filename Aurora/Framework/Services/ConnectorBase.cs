@@ -89,10 +89,6 @@ namespace Aurora.Framework
             Enabled = true;
             m_registry = registry;
             m_name = name;
-            IConfigSource source = registry.RequestModuleInterface<ISimulationBase>().ConfigSource;
-            IConfig config;
-            if ((config = source.Configs["AuroraConnectors"]) != null)
-                m_doRemoteCalls = config.GetBoolean("DoRemoteCalls", false);
             ISimulationBase simBase = registry == null ? null : registry.RequestModuleInterface<ISimulationBase>();
             if (simBase != null)
             {
@@ -175,8 +171,10 @@ namespace Aurora.Framework
             List<string> m_ServerURIs =
                 urlOverrides ? new List<string>() { url } : m_configService.FindValueOf(userID.ToString(), url, false);
             OSDMap response = null;
-            foreach (string uri in m_ServerURIs)
+            int loops2Do = (m_ServerURIs.Count < m_OSDRequestTryCount) ? m_ServerURIs.Count : m_OSDRequestTryCount;
+            for (int index = 0; index < loops2Do; index++)
             {
+                string uri = m_ServerURIs[index];
                 if (GetOSDMap(uri, map, out response))
                     break;
             }
@@ -201,14 +199,13 @@ namespace Aurora.Framework
             }
             if (response["Value"] == "null")
                 return null;
-            if (inst is IDataTransferable)
+            var instance = inst as IDataTransferable;
+            if (instance != null)
             {
-                IDataTransferable instance = (IDataTransferable)inst;
                 instance.FromOSD((OSDMap)response["Value"]);
                 return instance;
             }
-            else
-                return Util.OSDToObject(response["Value"], method.ReturnType);
+            return Util.OSDToObject(response["Value"], method.ReturnType);
         }
 
         private void GetReflection(int upStack, StackTrace stackTrace, out MethodInfo method, out CanBeReflected reflection)
@@ -222,7 +219,7 @@ namespace Aurora.Framework
         public bool GetOSDMap(string url, OSDMap map, out OSDMap response)
         {
             response = null;
-            string resp = ServiceOSDRequest(url, map, "POST", 10000);
+            string resp = ServiceOSDRequest(url, map, "POST", m_OSDRequestTimeout);
             
             if (resp == "" || resp.StartsWith("<"))
                 return false;
@@ -318,12 +315,6 @@ namespace Aurora.Framework
                     errorMessage = we.Message;
                     if (we.Status == WebExceptionStatus.ProtocolError)
                     {
-                        // capture how much time was spent writing, this may seem silly
-                        // but with the number concurrent requests, this often blocks
-                        tickserialize = Util.EnvironmentTickCountSubtract(tickstart) - tickdata;
-                        string responseStr = responseStr = responseStream.GetStreamString();
-                        // MainConsole.Instance.DebugFormat("[WEB UTIL]: <{0}> response is <{1}>",reqnum,responseStr);
-                        return responseStr;
                         HttpWebResponse webResponse = (HttpWebResponse)we.Response;
                         errorMessage = String.Format("[{0}] {1}", webResponse.StatusCode, webResponse.StatusDescription);
                     }
@@ -369,12 +360,16 @@ namespace Aurora.Framework
         protected string m_SessionID;
         protected IRegistryCore m_registry;
         protected static Dictionary<string, List<MethodImplementation>> m_methods = null;
+        protected IGridRegistrationService m_urlModule;
+        protected ICapsService m_capsService;
 
         public ServerHandler(string url, string SessionID, IRegistryCore registry) :
             base("POST", url)
         {
             m_SessionID = SessionID;
             m_registry = registry;
+            m_capsService = m_registry.RequestModuleInterface<ICapsService>();
+            m_urlModule = m_registry.RequestModuleInterface<IGridRegistrationService>();
             if (m_methods == null)
             {
                 m_methods = new Dictionary<string, List<MethodImplementation>>();
@@ -427,8 +422,6 @@ namespace Aurora.Framework
         {
             if (args.ContainsKey("Method"))
             {
-                IGridRegistrationService urlModule =
-                    m_registry.RequestModuleInterface<IGridRegistrationService>();
                 string method = args["Method"].AsString();
 
                 MethodImplementation methodInfo;
@@ -439,11 +432,18 @@ namespace Aurora.Framework
                         if (methodInfo.Attribute.ThreatLevel != ThreatLevel.None)
                             return new byte[0];
                     }
-                    else if (!urlModule.CheckThreatLevel(m_SessionID, method, methodInfo.Attribute.ThreatLevel))
+                    else if (!m_urlModule.CheckThreatLevel(m_SessionID, method, methodInfo.Attribute.ThreatLevel))
                         return new byte[0];
                     if (methodInfo.Attribute.UsePassword)
                     {
                         if (!methodInfo.Reference.CheckPassword(args["Password"].AsString()))
+                            return new byte[0];
+                    }
+                    if (methodInfo.Attribute.OnlyCallableIfUserInRegion)
+                    {
+                        UUID userID = args["UserID"].AsUUID();
+                        IClientCapsService clientCaps = m_capsService.GetClientCapsService(userID);
+                        if (userID == UUID.Zero || clientCaps == null || clientCaps.GetRootCapsService().RegionHandle != ulong.Parse(m_SessionID))
                             return new byte[0];
                     }
 

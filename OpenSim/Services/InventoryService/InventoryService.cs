@@ -95,7 +95,7 @@ namespace OpenSim.Services.InventoryService
 
         #region IInventoryService Members
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual bool CreateUserRootFolder(UUID principalID)
         {
             object remoteValue = DoRemote(principalID);
@@ -131,7 +131,7 @@ namespace OpenSim.Services.InventoryService
             return result;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual bool CreateUserInventory(UUID principalID, bool createDefaultItems)
         {
             object remoteValue = DoRemote(principalID, createDefaultItems);
@@ -428,7 +428,7 @@ namespace OpenSim.Services.InventoryService
             return result;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual List<InventoryFolderBase> GetInventorySkeleton(UUID principalID)
         {
             object remoteValue = DoRemote(principalID);
@@ -445,7 +445,7 @@ namespace OpenSim.Services.InventoryService
             return allFolders;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual List<InventoryFolderBase> GetRootFolders(UUID principalID)
         {
             object remoteValue = DoRemote(principalID);
@@ -457,7 +457,7 @@ namespace OpenSim.Services.InventoryService
                 new[] { principalID.ToString(), UUID.Zero.ToString() });
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Medium)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Medium)]
         public virtual InventoryFolderBase GetRootFolder(UUID principalID)
         {
             object remoteValue = DoRemote(principalID);
@@ -487,7 +487,7 @@ namespace OpenSim.Services.InventoryService
             return root;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual InventoryFolderBase GetFolderForType(UUID principalID, InventoryType invType, AssetType type)
         {
             object remoteValue = DoRemote(principalID, invType, type);
@@ -504,21 +504,21 @@ namespace OpenSim.Services.InventoryService
 
             if (folders.Count == 0)
             {
-                //                MainConsole.Instance.WarnFormat("[XINVENTORY SERVICE]: Found no folder for type {0} for user {1}", type, principalID);
+                // MainConsole.Instance.WarnFormat("[XINVENTORY SERVICE]: Found no folder for type {0} for user {1}", type, principalID);
                 return null;
             }
 
-            //            MainConsole.Instance.DebugFormat(
-            //                "[XINVENTORY SERVICE]: Found folder {0} {1} for type {2} for user {3}", 
-            //                folders[0].folderName, folders[0].folderID, type, principalID);
+            // MainConsole.Instance.DebugFormat(
+            // "[XINVENTORY SERVICE]: Found folder {0} {1} for type {2} for user {3}",
+            // folders[0].folderName, folders[0].folderID, type, principalID);
 
             return folders[0];
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
-        public virtual InventoryCollection GetFolderContent(UUID principalID, UUID folderID)
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High, OnlyCallableIfUserInRegion = true)]
+        public virtual InventoryCollection GetFolderContent(UUID UserID, UUID folderID)
         {
-            object remoteValue = DoRemote(principalID, folderID);
+            object remoteValue = DoRemote(UserID, folderID);
             if (remoteValue != null || m_doRemoteOnly)
                 return (InventoryCollection)remoteValue;
 
@@ -529,7 +529,7 @@ namespace OpenSim.Services.InventoryService
             MainConsole.Instance.DebugFormat("[XINVENTORY SERVICE]: Fetch contents for folder {0}", folderID.ToString());
             InventoryCollection inventory = new InventoryCollection
             {
-                UserID = principalID,
+                UserID = UserID,
                 Folders = m_Database.GetFolders(
                     new[] { "parentFolderID" },
                     new[] { folderID.ToString() }),
@@ -543,7 +543,7 @@ namespace OpenSim.Services.InventoryService
             return inventory;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual List<InventoryItemBase> GetFolderItems(UUID principalID, UUID folderID)
         {
             object remoteValue = DoRemote(principalID, folderID);
@@ -559,7 +559,7 @@ namespace OpenSim.Services.InventoryService
                 new[] { folderID.ToString() });
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual OSDArray GetLLSDFolderItems(UUID principalID, UUID folderID)
         {
             object remoteValue = DoRemote(principalID, folderID);
@@ -573,7 +573,7 @@ namespace OpenSim.Services.InventoryService
                 new[] { folderID.ToString(), principalID.ToString() });
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual List<InventoryFolderBase> GetFolderFolders(UUID principalID, UUID folderID)
         {
             object remoteValue = DoRemote(principalID, folderID);
@@ -589,7 +589,7 @@ namespace OpenSim.Services.InventoryService
             return invItems;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool AddFolder(InventoryFolderBase folder)
         {
             object remoteValue = DoRemote(folder);
@@ -603,7 +603,7 @@ namespace OpenSim.Services.InventoryService
             return m_Database.StoreFolder(folder);
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool UpdateFolder(InventoryFolderBase folder)
         {
             object remoteValue = DoRemote(folder);
@@ -636,7 +636,7 @@ namespace OpenSim.Services.InventoryService
             return m_Database.StoreFolder(folder);
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool MoveFolder(InventoryFolderBase folder)
         {
             object remoteValue = DoRemote(folder);
@@ -657,7 +657,7 @@ namespace OpenSim.Services.InventoryService
 
         // We don't check the principal's ID here
         //
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High)]
         public virtual bool DeleteFolders(UUID principalID, List<UUID> folderIDs)
         {
             object remoteValue = DoRemote(principalID, folderIDs);
@@ -691,7 +691,7 @@ namespace OpenSim.Services.InventoryService
             return true;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High)]
         public virtual bool PurgeFolder(InventoryFolderBase folder)
         {
             object remoteValue = DoRemote(folder);
@@ -719,7 +719,7 @@ namespace OpenSim.Services.InventoryService
             return true;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual bool ForcePurgeFolder(InventoryFolderBase folder)
         {
             object remoteValue = DoRemote(folder);
@@ -742,7 +742,7 @@ namespace OpenSim.Services.InventoryService
             return true;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool AddItem(InventoryItemBase item)
         {
             object remoteValue = DoRemote(item);
@@ -752,7 +752,7 @@ namespace OpenSim.Services.InventoryService
             return AddItem(item, true);
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual bool AddItem(InventoryItemBase item, bool doParentFolderCheck)
         {
             object remoteValue = DoRemote(item);
@@ -770,7 +770,7 @@ namespace OpenSim.Services.InventoryService
             return m_Database.StoreItem(item);
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool UpdateItem(InventoryItemBase item)
         {
             object remoteValue = DoRemote(item);
@@ -784,7 +784,7 @@ namespace OpenSim.Services.InventoryService
             return m_Database.StoreItem(item);
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool UpdateAssetIDForItem(UUID itemID, UUID assetID)
         {
             object remoteValue = DoRemote(itemID, assetID);
@@ -794,7 +794,7 @@ namespace OpenSim.Services.InventoryService
             return m_Database.UpdateAssetIDForItem(itemID, assetID);
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual bool MoveItems(UUID principalID, List<InventoryItemBase> items)
         {
             object remoteValue = DoRemote(principalID, items);
@@ -812,7 +812,7 @@ namespace OpenSim.Services.InventoryService
             return true;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.High)]
         public virtual bool DeleteItems(UUID principalID, List<UUID> itemIDs)
         {
             object remoteValue = DoRemote(principalID, itemIDs);
@@ -844,7 +844,7 @@ namespace OpenSim.Services.InventoryService
             return true;
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual InventoryItemBase GetItem(InventoryItemBase item)
         {
             object remoteValue = DoRemote(item);
@@ -898,7 +898,7 @@ namespace OpenSim.Services.InventoryService
             return items[0];
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual OSDArray GetItem(UUID itemID)
         {
             object remoteValue = DoRemote(itemID);
@@ -910,7 +910,7 @@ namespace OpenSim.Services.InventoryService
                 new string[1] { itemID.ToString() });
         }
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual InventoryFolderBase GetFolder(InventoryFolderBase folder)
         {
             object remoteValue = DoRemote(folder);
@@ -927,8 +927,13 @@ namespace OpenSim.Services.InventoryService
             return folders[0];
         }
 
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Low)]
         public virtual InventoryFolderBase GetFolderByOwnerAndName(UUID FolderOwner, string FolderName)
         {
+            object remoteValue = DoRemote(FolderOwner, FolderName);
+            if (remoteValue != null || m_doRemoteOnly)
+                return (InventoryFolderBase)remoteValue;
+
             List<InventoryFolderBase> folders = m_Database.GetFolders(
                 new[] { "folderName", "agentID" },
                 new[] { FolderName, FolderOwner.ToString() });
@@ -941,7 +946,7 @@ namespace OpenSim.Services.InventoryService
 
 
 
-        [CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
+[CanBeReflected(ThreatLevel = OpenSim.Services.Interfaces.ThreatLevel.Full)]
         public virtual List<InventoryItemBase> GetActiveGestures(UUID principalID)
         {
             object remoteValue = DoRemote(principalID);
@@ -1162,7 +1167,7 @@ namespace OpenSim.Services.InventoryService
 
         protected virtual InventoryFolderBase[] GetSystemFolders(UUID principalID)
         {
-            //            MainConsole.Instance.DebugFormat("[XINVENTORY SERVICE]: Getting system folders for {0}", principalID);
+            // MainConsole.Instance.DebugFormat("[XINVENTORY SERVICE]: Getting system folders for {0}", principalID);
 
             InventoryFolderBase[] allFolders = m_Database.GetFolders(
                 new[] { "agentID" },
@@ -1177,8 +1182,8 @@ namespace OpenSim.Services.InventoryService
                     return false;
                 });
 
-            //            MainConsole.Instance.DebugFormat(
-            //                "[XINVENTORY SERVICE]: Found {0} system folders for {1}", sysFolders.Length, principalID);
+            // MainConsole.Instance.DebugFormat(
+            // "[XINVENTORY SERVICE]: Found {0} system folders for {1}", sysFolders.Length, principalID);
 
             return sysFolders;
         }
