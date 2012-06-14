@@ -72,32 +72,32 @@ using System.Text;
 namespace Aurora.Simulation.Base
 {
     /// <summary>
-    ///   Starting class for the Aurora Server
+    /// Starting class for the Aurora Server
     /// </summary>
     public class BaseApplication
     {
         /// <summary>
-        ///   Save Crashes in the bin/crashes folder.  Configurable with m_crashDir
+        /// Save Crashes in the /Crashes folder. Configurable with m_crashDir
         /// </summary>
         public static bool m_saveCrashDumps;
 
         /// <summary>
-        ///   Should we send an error report?
+        /// Should we send an error report?
         /// </summary>
         public static bool m_sendErrorReport;
 
         /// <summary>
-        ///   Where to post errors
+        /// Where to post errors
         /// </summary>
         public static string m_urlToPostErrors = "http://virtualrealitygrid.org/CrashReports/crashreports.php";
 
         /// <summary>
-        ///   Loader of configuration files
+        /// Loader of configuration files
         /// </summary>
         private static readonly ConfigurationLoader m_configLoader = new ConfigurationLoader();
 
         /// <summary>
-        ///   Directory to save crash reports to.  Relative to bin/
+        /// Directory to save crash reports to. Relative to /Crashes
         /// </summary>
         public static string m_crashDir = "/Crashes";
 
@@ -120,7 +120,7 @@ namespace Aurora.Simulation.Base
             {
                 XmlConfigurator.Configure(new FileInfo(logConfigFile));
                 //MainConsole.Instance.InfoFormat("[OPENSIM MAIN]: configured log4net using \"{0}\" as configuration file",
-                //                 logConfigFile);
+                // logConfigFile);
             }
             else
             {
@@ -555,9 +555,9 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Region_Welcome_Island ="))
+                            if (str2.Contains("Region_Orientation_Island ="))
                             {
-                                str2 = str2.Replace("Region_Welcome_Island =", "Region_" + regionFlag.Replace(' ', '_') + " =");
+                                str2 = str2.Replace("Region_Orientation_Island =", "Region_" + regionFlag.Replace(' ', '_') + " =");
                             }
                             if (str2.Contains("127.0.0.1"))
                             {
@@ -1091,9 +1091,9 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Region_Welcome_Island ="))
+                                    if (str2.Contains("Region_Orientation_Island ="))
                                     {
-                                        str2 = str2.Replace("Region_Welcome_Island =", "Region_" + regionFlag.Replace(' ', '_') + " =");
+                                        str2 = str2.Replace("Region_Orientation_Island =", "Region_" + regionFlag.Replace(' ', '_') + " =");
                                     }
                                     if (str2.Contains("127.0.0.1"))
                                     {
@@ -1349,7 +1349,7 @@ namespace Aurora.Simulation.Base
         }
 
         /// <summary>
-        ///   Load the configuration for the Application
+        /// Load the configuration for the Application
         /// </summary>
         /// <param name = "configSource"></param>
         /// <param name = "defaultIniFile"></param>
@@ -1362,7 +1362,7 @@ namespace Aurora.Simulation.Base
         }
 
         /// <summary>
-        ///   Global exception handler -- all unhandlet exceptions end up here :)
+        /// Global exception handler -- all unhandlet exceptions end up here :)
         /// </summary>
         /// <param name = "sender"></param>
         /// <param name = "e"></param>
@@ -1401,7 +1401,7 @@ namespace Aurora.Simulation.Base
         }
 
         /// <summary>
-        ///   Deal with sending the error to the error reporting service and saving the dump to the harddrive if needed
+        /// Deal with sending the error to the error reporting service and saving the dump to the harddrive if needed
         /// </summary>
         /// <param name = "msg"></param>
         /// <param name = "ex"></param>
@@ -1457,7 +1457,7 @@ namespace Aurora.Simulation.Base
 
     public static class MiniDump
     {
-        // Taken almost verbatim from http://blog.kalmbach-software.de/2008/12/13/writing-minidumps-in-c/ 
+        // Taken almost verbatim from http://blog.kalmbach-software.de/2008/12/13/writing-minidumps-in-c/
 
         #region ExceptionInfo enum
 
@@ -1471,10 +1471,10 @@ namespace Aurora.Simulation.Base
 
         #region Option enum
 
-        [Flags]
+[Flags]
         public enum Option : uint
         {
-            // From dbghelp.h: 
+            // From dbghelp.h:
             Normal = 0x00000000,
             WithDataSegs = 0x00000001,
             WithFullMemory = 0x00000002,
@@ -1499,38 +1499,38 @@ namespace Aurora.Simulation.Base
 
         #endregion
 
-        //typedef struct _MINIDUMP_EXCEPTION_INFORMATION { 
-        //    DWORD ThreadId; 
-        //    PEXCEPTION_POINTERS ExceptionPointers; 
-        //    BOOL ClientPointers; 
-        //} MINIDUMP_EXCEPTION_INFORMATION, *PMINIDUMP_EXCEPTION_INFORMATION; 
+        //typedef struct _MINIDUMP_EXCEPTION_INFORMATION {
+        // DWORD ThreadId;
+        // PEXCEPTION_POINTERS ExceptionPointers;
+        // BOOL ClientPointers;
+        //} MINIDUMP_EXCEPTION_INFORMATION, *PMINIDUMP_EXCEPTION_INFORMATION;
 
-        //BOOL 
-        //WINAPI 
-        //MiniDumpWriteDump( 
-        //    __in HANDLE hProcess, 
-        //    __in DWORD ProcessId, 
-        //    __in HANDLE hFile, 
-        //    __in MINIDUMP_TYPE DumpType, 
-        //    __in_opt PMINIDUMP_EXCEPTION_INFORMATION ExceptionParam, 
-        //    __in_opt PMINIDUMP_USER_STREAM_INFORMATION UserStreamParam, 
-        //    __in_opt PMINIDUMP_CALLBACK_INFORMATION CallbackParam 
-        //    ); 
+        //BOOL
+        //WINAPI
+        //MiniDumpWriteDump(
+        // __in HANDLE hProcess,
+        // __in DWORD ProcessId,
+        // __in HANDLE hFile,
+        // __in MINIDUMP_TYPE DumpType,
+        // __in_opt PMINIDUMP_EXCEPTION_INFORMATION ExceptionParam,
+        // __in_opt PMINIDUMP_USER_STREAM_INFORMATION UserStreamParam,
+        // __in_opt PMINIDUMP_CALLBACK_INFORMATION CallbackParam
+        // );
 
-        // Overload requiring MiniDumpExceptionInformation 
-        [DllImport("dbghelp.dll", EntryPoint = "MiniDumpWriteDump", CallingConvention = CallingConvention.StdCall,
-            CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
+        // Overload requiring MiniDumpExceptionInformation
+[DllImport("dbghelp.dll", EntryPoint = "MiniDumpWriteDump", CallingConvention = CallingConvention.StdCall,
+CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
         private static extern bool MiniDumpWriteDump(IntPtr hProcess, uint processId, SafeHandle hFile, uint dumpType,
                                                      ref MiniDumpExceptionInformation expParam, IntPtr userStreamParam,
                                                      IntPtr callbackParam);
 
-        // Overload supporting MiniDumpExceptionInformation == NULL 
-        [DllImport("dbghelp.dll", EntryPoint = "MiniDumpWriteDump", CallingConvention = CallingConvention.StdCall,
-            CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
+        // Overload supporting MiniDumpExceptionInformation == NULL
+[DllImport("dbghelp.dll", EntryPoint = "MiniDumpWriteDump", CallingConvention = CallingConvention.StdCall,
+CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
         private static extern bool MiniDumpWriteDump(IntPtr hProcess, uint processId, SafeHandle hFile, uint dumpType,
                                                      IntPtr expParam, IntPtr userStreamParam, IntPtr callbackParam);
 
-        [DllImport("kernel32.dll", EntryPoint = "GetCurrentThreadId", ExactSpelling = true)]
+[DllImport("kernel32.dll", EntryPoint = "GetCurrentThreadId", ExactSpelling = true)]
         private static extern uint GetCurrentThreadId();
 
         public static bool Write(SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo)
@@ -1567,12 +1567,12 @@ namespace Aurora.Simulation.Base
 
         #region Nested type: MiniDumpExceptionInformation
 
-        [StructLayout(LayoutKind.Sequential, Pack = 4)] // Pack=4 is important! So it works also for x64! 
+[StructLayout(LayoutKind.Sequential, Pack = 4)] // Pack=4 is important! So it works also for x64!
         public struct MiniDumpExceptionInformation
         {
             public uint ThreadId;
             public IntPtr ExceptionPointers;
-            [MarshalAs(UnmanagedType.Bool)] public bool ClientPointers;
+[MarshalAs(UnmanagedType.Bool)] public bool ClientPointers;
         }
 
         #endregion
