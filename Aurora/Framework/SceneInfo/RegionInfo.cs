@@ -48,7 +48,7 @@ namespace Aurora.Framework
 
         private RegionSettings m_regionSettings;
 
-        private int m_objectCapacity = 0;
+        private int m_objectCapacity = 80000;
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
         protected string m_serverURI;
@@ -62,8 +62,8 @@ namespace Aurora.Framework
         public UUID ScopeID = UUID.Zero;
         private UUID m_GridSecureSessionID = UUID.Zero;
         public int NumberStartup = 0;
-        public StartupType Startup = StartupType.Normal;
-        public bool InfiniteRegion = false;
+        public StartupType Startup = StartupType.Medium;
+        public bool InfiniteRegion = true;
         public bool NewRegion = false;
 
         /// <summary>
@@ -122,8 +122,8 @@ namespace Aurora.Framework
 
         public RegionInfo()
         {
-            TrustBinariesFromForeignSims = false;
-            AllowScriptCrossing = false;
+            TrustBinariesFromForeignSims = true;
+            AllowScriptCrossing = true;
         }
 
         public bool AllowPhysicalPrims
@@ -200,7 +200,7 @@ namespace Aurora.Framework
             }
             catch (FileNotFoundException)
             {
-                //If this happens, it is the first time a user has opened Aurora and the RegionFile doesn't exist
+                //If this happens, it is the first time a user has opened Virtual Reality and the RegionFile doesn't exist 
                 // yet, so just let it gracefully fail and create itself later
                 return;
             }
