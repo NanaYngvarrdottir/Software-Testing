@@ -62,7 +62,7 @@ namespace Aurora.Framework
         public UUID ScopeID = UUID.Zero;
         private UUID m_GridSecureSessionID = UUID.Zero;
         public int NumberStartup = 0;
-        public StartupType Startup = StartupType.Medium;
+        public StartupType Startup = StartupType.Normal;
         public bool InfiniteRegion = true;
         public bool NewRegion = false;
 
