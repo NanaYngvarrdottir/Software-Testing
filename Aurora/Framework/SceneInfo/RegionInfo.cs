@@ -200,7 +200,7 @@ namespace Aurora.Framework
             }
             catch (FileNotFoundException)
             {
-                //If this happens, it is the first time a user has opened Aurora and the RegionFile doesn't exist 
+                //If this happens, it is the first time a user has opened Virtual Reality and the RegionFile doesn't exist 
                 // yet, so just let it gracefully fail and create itself later
                 return;
             }
@@ -221,7 +221,7 @@ namespace Aurora.Framework
 
             config.Set("RegionUUID", RegionID.ToString());
 
-            string location = String.Format("{0},{1}", m_regionLocX / 256, m_regionLocY / 256);
+            string location = String.Format("{0},{1}", m_regionLocX / 512, m_regionLocY / 512);
             config.Set("Location", location);
 
             config.Set("InternalAddress", m_internalEndPoint.Address.ToString());
