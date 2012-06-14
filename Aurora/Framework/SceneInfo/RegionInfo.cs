@@ -37,19 +37,17 @@ namespace Aurora.Framework
 {
     public enum StartupType
     {
-        Soft =1
         Medium = 2,
         Normal = 3
     }
-
-    public class RegionInfo
 
     public class RegionInfo : IDataTransferable
     {
         public string RegionFile = String.Empty;
         public bool Disabled = false;
+
         private RegionSettings m_regionSettings;
-        private int m_objectCapacity = 0;
+
         private int m_objectCapacity = 80000;
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
