@@ -131,7 +131,6 @@ namespace Aurora.Management
             estateRegionSelection.Items.Clear();
             foreach(RegionInfo r in infos)
             {
-                RegionListBox.Items.Add(!r.Disabled ? "Online - " + r.RegionName : r.RegionName);
                 bool online = _regionManager.GetWhetherRegionIsOnline(r.RegionID);
                 RegionListBox.Items.Add(online ? "Online - " + r.RegionName : r.RegionName);
                 estateRegionSelection.Items.Add(r.RegionName);
@@ -567,7 +566,10 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
             {
                 _regionManager.StartRegion(region);
                 if (CurrentRegionID == region.RegionID)
-                    SetOnlineStatus ();
+                {
+                    SetOnlineStatus();
+                    RefreshCurrentRegionsThreaded();
+                }
             });
         }
 
@@ -575,18 +577,12 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
         {
             SetStoppingStatus();
             Util.FireAndForget (delegate
-                                    {
-                m_sceneManager.AllRegions--;
-                m_sceneManager.TryGetScene (CurrentRegionID, out scene);
-                if (scene != null)
-                {
-                    m_sceneManager.CloseRegion(scene, ShutdownType.Immediate, 0);
-                }
-                if (scene == null || CurrentRegionID == scene.RegionInfo.RegionID || CurrentRegionID ==  UUID.Zero)
             {
                 if (_regionManager.StopRegion(CurrentRegionID))
                 {
                     SetOfflineStatus();
+                    RefreshCurrentRegionsThreaded();
+                }
             });
         }
 
