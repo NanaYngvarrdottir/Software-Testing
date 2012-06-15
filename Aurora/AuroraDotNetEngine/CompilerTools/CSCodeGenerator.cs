@@ -122,18 +122,18 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
         private readonly List<string> AfterFuncCalls = new List<string>();
         private readonly HashSet<string> DTFunctions = new HashSet<string>();
         private readonly List<string> FuncCalls = new List<string>();
-        // public Dictionary<string, string> IenFunctions = new Dictionary<string, string>();
+        //        public Dictionary<string, string> IenFunctions = new Dictionary<string, string>();
         private readonly Dictionary<string, GlobalVar> GlobalVariables = new Dictionary<string, GlobalVar>();
 
         /// <summary>
-        /// This saves the variables in methods so that we can make sure multiple variables do not have the same name, and if they do, rename/assign them to the correct variable name
+        ///   This saves the variables in methods so that we can make sure multiple variables do not have the same name, and if they do, rename/assign them to the correct variable name
         /// </summary>
         private readonly Dictionary<string, GlobalVar> MethodVariables = new Dictionary<string, GlobalVar>();
 
         private readonly List<string> MethodsToAdd = new List<string>();
 
         /// <summary>
-        /// This contains a list of variables that we need to rename because of some constraint
+        ///   This contains a list of variables that we need to rename because of some constraint
         /// </summary>
         private readonly Dictionary<string, VarRename> VariablesToRename = new Dictionary<string, VarRename>();
 
@@ -141,7 +141,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
             new Dictionary<string, List<ArgumentDeclarationList>>();
 
         /// <summary>
-        /// Param 1 - the API function name, Param 2 - the API name
+        ///   Param 1 - the API function name, Param 2 - the API name
         /// </summary>
         private readonly Dictionary<string, IScriptApi> m_apiFunctions = new Dictionary<string, IScriptApi>();
 
@@ -165,7 +165,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
 
 
         /// <summary>
-        /// Creates an 'empty' CSCodeGenerator instance.
+        ///   Creates an 'empty' CSCodeGenerator instance.
         /// </summary>
         public CSCodeGenerator(Compiler compiler)
         {
@@ -219,23 +219,24 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
             DTFunctions.Add("osTeleportOwner");
 
 
-            /* suspended: some API functions are not compatible with IEnum
-// Api functions that can return a delay, a value or breakable in timeslices
-// must be IEnumerator in stub, interface and implementation files
-IenFunctions.Add("llRequestAgentData", "LSL_Types.LSLString");
-IenFunctions.Add("llRequestInventoryData", "LSL_Types.LSLString");
-IenFunctions.Add("llSendRemoteData", "LSL_Types.LSLString");
-IenFunctions.Add("llXorBase64Strings", "LSL_Types.LSLString");
-IenFunctions.Add("llRequestSimulatorData", "LSL_Types.LSLString");
-IenFunctions.Add("llParcelMediaQuery", "LSL_Types.list");
-IenFunctions.Add("llGetPrimMediaParams", "LSL_Types.list");
-IenFunctions.Add("llSetPrimMediaParams", "LSL_Types.LSLInteger");
-IenFunctions.Add("llClearPrimMedia", "LSL_Types.LSLInteger");
-IenFunctions.Add("llModPow", "LSL_Types.LSLInteger");
-IenFunctions.Add("llGetNumberOfNotecardLines", "LSL_Types.LSLString");
-IenFunctions.Add("llGetParcelPrimOwners", "LSL_Types.list");
-IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
-*/
+            /* suspended:  some API functions are not compatible with IEnum
+                        // Api functions that can return a delay, a value or breakable in timeslices
+                        // must be IEnumerator in stub, interface and implementation files           
+ 
+                        IenFunctions.Add("llRequestAgentData", "LSL_Types.LSLString");
+                        IenFunctions.Add("llRequestInventoryData", "LSL_Types.LSLString");
+                        IenFunctions.Add("llSendRemoteData", "LSL_Types.LSLString");
+                        IenFunctions.Add("llXorBase64Strings", "LSL_Types.LSLString");
+                        IenFunctions.Add("llRequestSimulatorData", "LSL_Types.LSLString");
+                        IenFunctions.Add("llParcelMediaQuery", "LSL_Types.list");
+                        IenFunctions.Add("llGetPrimMediaParams", "LSL_Types.list");
+                        IenFunctions.Add("llSetPrimMediaParams", "LSL_Types.LSLInteger");
+                        IenFunctions.Add("llClearPrimMedia", "LSL_Types.LSLInteger");
+                        IenFunctions.Add("llModPow", "LSL_Types.LSLInteger");
+                        IenFunctions.Add("llGetNumberOfNotecardLines", "LSL_Types.LSLString");
+                        IenFunctions.Add("llGetParcelPrimOwners", "LSL_Types.list");
+                        IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
+            */
 
 
             // the rest will be directly called
@@ -249,7 +250,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Get the mapping between LSL and C# line/column number.
+        ///   Get the mapping between LSL and C# line/column number.
         /// </summary>
         /// <returns>Dictionary\<KeyValuePair\<int, int\>, KeyValuePair\<int, int\>\>.</returns>
         public Dictionary<KeyValuePair<int, int>, KeyValuePair<int, int>> PositionMap
@@ -258,7 +259,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Get the mapping between LSL and C# line/column number.
+        ///   Get the mapping between LSL and C# line/column number.
         /// </summary>
         /// <returns>SYMBOL pointing to root of the abstract syntax tree.</returns>
         public SYMBOL ASTRoot
@@ -276,7 +277,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         #endregion
 
         /// <summary>
-        /// Resets various counters and metadata.
+        ///   Resets various counters and metadata.
         /// </summary>
         private void ResetCounters()
         {
@@ -344,7 +345,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generate the code from the AST we have.
+        ///   Generate the code from the AST we have.
         /// </summary>
         /// <param name = "script">The LSL source as a string.</param>
         /// <returns>String containing the generated C# code.</returns>
@@ -356,10 +357,10 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
             LSL2CSCodeTransformer codeTransformer;
             try
             {
-                // lock (p)
+                //               lock (p)
                 {
                     codeTransformer = new LSL2CSCodeTransformer(p.Parse(script));
-                    // p.m_lexer.Reset();
+                    //                    p.m_lexer.Reset();
                 }
             }
             catch (CSToolsException e)
@@ -387,7 +388,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
                                         e.slInfo.charPosition - 1, emessage);
 
                 m_compiler.AddError(message);
-                // p.m_lexer.Reset();
+                //                p.m_lexer.Reset();
                 ResetCounters();
                 return "Error parsing the script. " + message;
             }
@@ -406,7 +407,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
 
             returnstring += GenerateFireEventMethod();
 
-            // Removes all carriage return characters which may be generated in Windows platform.
+            // Removes all carriage return characters which may be generated in Windows platform. 
             //Is there a cleaner way of doing this?
             returnstring = returnstring.Replace("\r", "");
 
@@ -580,8 +581,8 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Checks the C# script for the correct casts in events
-        /// This stops errors from misformed events ex. 'touch(vector3 position)' instead of 'touch(int touch)'
+        ///   Checks the C# script for the correct casts in events
+        ///   This stops errors from misformed events ex. 'touch(vector3 position)' instead of 'touch(int touch)'
         /// </summary>
         /// <param name = "script"></param>
         private void CheckEventCasts(string script)
@@ -1448,8 +1449,8 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Recursively called to generate each type of node. Will generate this
-        /// node, then all it's children.
+        ///   Recursively called to generate each type of node. Will generate this
+        ///   node, then all it's children.
         /// </summary>
         /// <param name = "s">The current node to generate code for.</param>
         /// <returns>String containing C# code for SYMBOL s.</returns>
@@ -1588,7 +1589,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for a GlobalFunctionDefinition node.
+        ///   Generates the code for a GlobalFunctionDefinition node.
         /// </summary>
         /// <param name = "gf">The GlobalFunctionDefinition node.</param>
         /// <returns>String containing C# code for GlobalFunctionDefinition gf.</returns>
@@ -1647,7 +1648,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for a GlobalVariableDeclaration node.
+        ///   Generates the code for a GlobalVariableDeclaration node.
         /// </summary>
         /// <param name = "gv">The GlobalVariableDeclaration node.</param>
         /// <returns>String containing C# code for GlobalVariableDeclaration gv.</returns>
@@ -1785,7 +1786,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for a State node.
+        ///   Generates the code for a State node.
         /// </summary>
         /// <param name = "s">The State node.</param>
         /// <returns>String containing C# code for State s.</returns>
@@ -1801,7 +1802,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for a StateEvent node.
+        ///   Generates the code for a StateEvent node.
         /// </summary>
         /// <param name = "se">The StateEvent node.</param>
         /// <param name = "parentStateName">The name of the parent state.</param>
@@ -1846,13 +1847,13 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
 
 
             if (retstr[retstr.Length - 2] == '}')
-                retstr.Insert(retstr.Length - 2, GenerateLine(" yield break;"));
+                retstr.Insert(retstr.Length - 2, GenerateLine("    yield break;"));
 
             return retstr.ToString();
         }
 
         /// <summary>
-        /// Generates the code for an ArgumentDeclarationList node.
+        ///   Generates the code for an ArgumentDeclarationList node.
         /// </summary>
         /// <param name = "adl">The ArgumentDeclarationList node.</param>
         /// <returns>String containing C# code for ArgumentDeclarationList adl.</returns>
@@ -1865,7 +1866,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
             foreach (Declaration d in adl.kids)
             {
                 retstr += GenerateDeclaration(d);
-                // retstr += Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
+                //                retstr += Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
                 if (0 < comma--)
                     retstr += Generate(", ");
             }
@@ -1874,7 +1875,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for an ArgumentList node.
+        ///   Generates the code for an ArgumentList node.
         /// </summary>
         /// <param name = "al">The ArgumentList node.</param>
         /// <returns>String containing C# code for ArgumentList al.</returns>
@@ -1895,7 +1896,7 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for a CompoundStatement node.
+        ///   Generates the code for a CompoundStatement node.
         /// </summary>
         /// <param name = "cs">The CompoundStatement node.</param>
         /// <returns>String containing C# code for CompoundStatement cs.</returns>
@@ -1905,8 +1906,8 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
 
             // opening brace
             retstr += GenerateIndentedLine("{");
-            // if (IsParentEnumerable)
-            // retstr += GenerateLine("if (CheckSlice()) yield return null;");
+            //            if (IsParentEnumerable)
+            //                retstr += GenerateLine("if (CheckSlice()) yield return null;");
             m_braceCount++;
 
             foreach (SYMBOL kid in cs.kids)
@@ -1925,13 +1926,13 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
         }
 
         /// <summary>
-        /// Generates the code for a Declaration node.
+        ///   Generates the code for a Declaration node.
         /// </summary>
         /// <param name = "d">The Declaration node.</param>
         /// <returns>String containing C# code for Declaration d.</returns>
         private string GenerateDeclaration(Declaration d)
         {
-            // return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
+            //        return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
 
             GlobalVar var;
             if (IsaGlobalVar)
@@ -1942,35 +1943,35 @@ IenFunctions.Add("llGetNotecardLine", "LSL_Types.LSLString");
 
             //Commented out because we can't handle the same var name in different if/else statements
             /*if (MethodVariables.TryGetValue(d.Id, out var))
-{
-if (var.Type != d.Datatype)
-{
-Console.WriteLine("[CSCodeGenerator]: found var needing renamed!");
-string NewVariableName = RandomString(10, true);
-VarRename r = new VarRename();
-r.OldVarName = d.Id;
-r.HasBeenAssigned = false;
-r.NewVarName = NewVariableName;
-VariablesToRename.Add(d.Id, r);
-d.Id = NewVariableName;
-MethodVariables.Add(d.Id, new GlobalVar() { Type = d.Datatype, Value = "" });
-return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
-}
-else
-return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
-}
-else
-{
-MethodVariables[d.Id] = new GlobalVar() { Type = d.Datatype, Value = "" };
-return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
-}
-* */
+            {
+            if (var.Type != d.Datatype)
+                {
+                Console.WriteLine("[CSCodeGenerator]: found var needing renamed!");
+                string NewVariableName = RandomString(10, true);
+                VarRename r = new VarRename();
+                r.OldVarName = d.Id;
+                r.HasBeenAssigned = false;
+                r.NewVarName = NewVariableName;
+                VariablesToRename.Add(d.Id, r);
+                d.Id = NewVariableName;
+                MethodVariables.Add(d.Id, new GlobalVar() { Type = d.Datatype, Value = "" });
+                return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
+                }
+            else
+                return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
+            }
+        else
+            {
+            MethodVariables[d.Id] = new GlobalVar() { Type = d.Datatype, Value = "" };
+            return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
+            }  
+         * */
 
             return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         }
 
         /// <summary>
-        /// Generates the code for a Statement node.
+        ///   Generates the code for a Statement node.
         /// </summary>
         /// <param name = "s">The Statement node.</param>
         /// <returns>String containing C# code for Statement s.</returns>
@@ -1994,7 +1995,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
                 {
                     foreach (SYMBOL kid in s.kids)
                     {
-                        // if (kid is Assignment && m_SLCompatabilityMode)
+                        //                        if (kid is Assignment && m_SLCompatabilityMode)
                         if (kid is Assignment)
                         {
                             Assignment a = kid as Assignment;
@@ -2026,7 +2027,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
                                         retstr += Generate(String.Format(" {0} ", be.ExpressionSymbol), be);
                                         foreach (SYMBOL kidb in be.kids)
                                         {
-                                            // if (kidb is FunctionCallExpression)
+                                            //                                            if (kidb is FunctionCallExpression)
                                             {
                                                 retstr += GenerateNode(kidb);
                                             }
@@ -2074,7 +2075,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         }
 
         /// <summary>
-        /// Generates the code for an Assignment node.
+        ///   Generates the code for an Assignment node.
         /// </summary>
         /// <param name = "a">The Assignment node.</param>
         /// <returns>String containing C# code for Assignment a.</returns>
@@ -2099,7 +2100,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
                 retstr += GenerateNode(kid);
             //fCalls += ";";//Add a ; at the end.
             //lock (AfterFuncCalls)
-            // AfterFuncCalls.Add (fCalls);
+            //    AfterFuncCalls.Add (fCalls);
 
             return DumpFunc(marc) + retstr + DumpAfterFunc(marc);
         }
@@ -2107,7 +2108,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         // This code checks for LSL of the following forms, and generates a
         // warning if it finds them.
         //
-        // list l = [ "foo" ];
+        // list l = [ "foo" ]; 
         // l = (l=[]) + l + ["bar"];
         // (produces l=["foo","bar"] in SL but l=["bar"] in OS)
         //
@@ -2166,7 +2167,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         }
 
         /// <summary>
-        /// Generates the code for a ReturnStatement node.
+        ///   Generates the code for a ReturnStatement node.
         /// </summary>
         /// <param name = "rs">The ReturnStatement node.</param>
         /// <returns>String containing C# code for ReturnStatement rs.</returns>
@@ -2204,7 +2205,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         }
 
         /// <summary>
-        /// Generates the code for a JumpLabel node.
+        ///   Generates the code for a JumpLabel node.
         /// </summary>
         /// <param name = "jl">The JumpLabel node.</param>
         /// <returns>String containing C# code for JumpLabel jl.</returns>
@@ -2214,7 +2215,7 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         }
 
         /// <summary>
-        /// Generates the code for a JumpStatement node.
+        ///   Generates the code for a JumpStatement node.
         /// </summary>
         /// <param name = "js">The JumpStatement node.</param>
         /// <returns>String containing C# code for JumpStatement js.</returns>
@@ -2224,51 +2225,51 @@ return Generate(String.Format("{0} {1}", d.Datatype, CheckName(d.Id)), d);
         }
 
         /// <summary>
-        /// Generates the code for an IfStatement node.
+        ///   Generates the code for an IfStatement node.
         /// </summary>
         /// <param name = "ifs">The IfStatement node.</param>
         /// <returns>String containing C# code for IfStatement ifs.</returns>
         private string GenerateIfStatement(IfStatement ifs)
         {
             /*
-* Test script that was used to make sure that if statements do not fail
-integer a = 0;
+             * Test script that was used to make sure that if statements do not fail
+              integer a = 0;
 integer test()
 {
-a++;
-return a;
+    a++;
+    return a;
 }
 default
 {
-state_entry()
-{
-if(test() == 0) //1 gets returned here
-{
-llSay(0, "Script running. 0");
-}
-else if(test() == 1) //2 gets returned here
-{
-llSay(0, "Script running. 2");
-}
-else
-{
-// 3 gets returned here
-if(test() == 4)
-{
-llSay(0, "Script running. 4");
-}
-else if(test() == 4)
-{
-// It should hit this path
-llSay(0, "Script running. 2 4");
-}
-else
-{
-// 5 would be returned here
-llSay(0, "Script running. else " + test());
-}
-}
-}
+    state_entry()
+    {
+        if(test() == 0) //1 gets returned here
+        {
+            llSay(0, "Script running. 0");
+        }
+        else if(test() == 1) //2 gets returned here
+        {
+            llSay(0, "Script running. 2");
+        }
+        else
+        {
+            // 3 gets returned here
+            if(test() == 4)
+            {
+                llSay(0, "Script running. 4");
+            }
+            else if(test() == 4)
+            {
+                // It should hit this path
+                llSay(0, "Script running. 2 4");
+            }
+            else
+            {
+              // 5 would be returned here
+                llSay(0, "Script running. else " + test());
+            }
+        }
+    }
 }*/
             string retstr = "";
             string tmpstr = "";
@@ -2318,7 +2319,7 @@ llSay(0, "Script running. else " + test());
         }
 
         /// <summary>
-        /// Generates the code for a StateChange node.
+        ///   Generates the code for a StateChange node.
         /// </summary>
         /// <param name = "sc">The StateChange node.</param>
         /// <returns>String containing C# code for StateChange sc.</returns>
@@ -2339,7 +2340,7 @@ llSay(0, "Script running. else " + test());
         }
 
         /// <summary>
-        /// Generates the code for a WhileStatement node.
+        ///   Generates the code for a WhileStatement node.
         /// </summary>
         /// <param name = "ws">The WhileStatement node.</param>
         /// <returns>String containing C# code for WhileStatement ws.</returns>
@@ -2379,7 +2380,7 @@ llSay(0, "Script running. else " + test());
         }
 
         /// <summary>
-        /// Generates the code for a DoWhileStatement node.
+        ///   Generates the code for a DoWhileStatement node.
         /// </summary>
         /// <param name = "dws">The DoWhileStatement node.</param>
         /// <returns>String containing C# code for DoWhileStatement dws.</returns>
@@ -2423,7 +2424,7 @@ llSay(0, "Script running. else " + test());
         }
 
         /// <summary>
-        /// Generates the code for a ForLoop node.
+        ///   Generates the code for a ForLoop node.
         /// </summary>
         /// <param name = "fl">The ForLoop node.</param>
         /// <returns>String containing C# code for ForLoop fl.</returns>
@@ -2439,7 +2440,7 @@ llSay(0, "Script running. else " + test());
             // It's possible that we don't have an assignment, in which case
             // the child will be null and we only print the semicolon.
             // for (x = 0; x < 10; x++)
-            // ^^^^^
+            //      ^^^^^
             ForLoopStatement s = (ForLoopStatement)fl.kids.Pop();
             if (null != s)
             {
@@ -2447,11 +2448,11 @@ llSay(0, "Script running. else " + test());
             }
             tmpstr += Generate("; ");
             // for (x = 0; x < 10; x++)
-            // ^^^^^^
+            //             ^^^^^^
             tmpstr += GenerateNode((SYMBOL)fl.kids.Pop());
             tmpstr += Generate("; ");
             // for (x = 0; x < 10; x++)
-            // ^^^
+            //                     ^^^
             tmpstr += GenerateForLoopStatement((ForLoopStatement)fl.kids.Pop());
             tmpstr += GenerateLine(")");
 
@@ -2477,7 +2478,7 @@ llSay(0, "Script running. else " + test());
         }
 
         /// <summary>
-        /// Generates the code for a ForLoopStatement node.
+        ///   Generates the code for a ForLoopStatement node.
         /// </summary>
         /// <param name = "fls">The ForLoopStatement node.</param>
         /// <returns>String containing C# code for ForLoopStatement fls.</returns>
@@ -2489,7 +2490,7 @@ llSay(0, "Script running. else " + test());
 
             // It's possible that all we have is an empty Ident, for example:
             //
-            // for (x; x < 10; x++) { ... }
+            //     for (x; x < 10; x++) { ... }
             //
             // Which is illegal in C# (MONO). We'll skip it.
             if (fls.kids.Top is IdentExpression && 1 == fls.kids.Count)
@@ -2501,7 +2502,7 @@ llSay(0, "Script running. else " + test());
 
                 // Statements surrounded by parentheses in for loops
                 //
-                // e.g. for ((i = 0), (j = 7); (i < 10); (++i))
+                // e.g.  for ((i = 0), (j = 7); (i < 10); (++i))
                 //
                 // are legal in LSL but not in C# so we need to discard the parentheses
                 //
@@ -2510,7 +2511,7 @@ llSay(0, "Script running. else " + test());
                 // for ((i = 0, j = 7); (i < 10); (++i))
                 //
                 // As of Friday 20th November 2009, the Linden Lab simulators appear simply never to compile or run this
-                // script but with no debug or warnings at all! Therefore, we won't deal with this yet (which looks
+                // script but with no debug or warnings at all!  Therefore, we won't deal with this yet (which looks
                 // like it would be considerably more complicated to handle).
                 while (s is ParenthesisExpression)
                     s = (SYMBOL)s.kids.Pop();
@@ -2524,7 +2525,7 @@ llSay(0, "Script running. else " + test());
         }
 
         /// <summary>
-        /// Generates the code for a BinaryExpression node.
+        ///   Generates the code for a BinaryExpression node.
         /// </summary>
         /// <param name = "be">The BinaryExpression node.</param>
         /// <returns>String containing C# code for BinaryExpression be.</returns>
@@ -2560,10 +2561,10 @@ llSay(0, "Script running. else " + test());
             else
             {
                 /*ObjectList kids = new ObjectList ();
-for (int i = be.kids.Count-1; i >= 0; i--)
-{
-kids.Add(be.kids[i]);
-}*/
+                for (int i = be.kids.Count-1; i >= 0; i--)
+                {
+                    kids.Add(be.kids[i]);
+                }*/
                 bool weSetTheAdditionExpression = false;
                 if (be.ExpressionSymbol == "+" && !isAdditionExpression)
                 {
@@ -2586,7 +2587,7 @@ kids.Add(be.kids[i]);
         }
 
         /// <summary>
-        /// Generates the code for a UnaryExpression node.
+        ///   Generates the code for a UnaryExpression node.
         /// </summary>
         /// <param name = "ue">The UnaryExpression node.</param>
         /// <returns>String containing C# code for UnaryExpression ue.</returns>
@@ -2609,7 +2610,7 @@ kids.Add(be.kids[i]);
         }
 
         /// <summary>
-        /// Generates the code for a ParenthesisExpression node.
+        ///   Generates the code for a ParenthesisExpression node.
         /// </summary>
         /// <param name = "pe">The ParenthesisExpression node.</param>
         /// <returns>String containing C# code for ParenthesisExpression pe.</returns>
@@ -2626,7 +2627,7 @@ kids.Add(be.kids[i]);
         }
 
         /// <summary>
-        /// Generates the code for a IncrementDecrementExpression node.
+        ///   Generates the code for a IncrementDecrementExpression node.
         /// </summary>
         /// <param name = "ide">The IncrementDecrementExpression node.</param>
         /// <returns>String containing C# code for IncrementDecrementExpression ide.</returns>
@@ -2656,7 +2657,7 @@ kids.Add(be.kids[i]);
         }
 
         /// <summary>
-        /// Generates the code for a TypecastExpression node.
+        ///   Generates the code for a TypecastExpression node.
         /// </summary>
         /// <param name = "te">The TypecastExpression node.</param>
         /// <returns>String containing C# code for TypecastExpression te.</returns>
@@ -2673,7 +2674,7 @@ kids.Add(be.kids[i]);
         }
 
         /// <summary>
-        /// Generates the code for a FunctionCall node.
+        ///   Generates the code for a FunctionCall node.
         /// </summary>
         /// <param name = "fc">The FunctionCall node.</param>
         /// <returns>String containing C# code for FunctionCall fc.</returns>
@@ -2691,7 +2692,7 @@ kids.Add(be.kids[i]);
 
             foreach (SYMBOL kid in fc.kids)
             {
-                // if (kid is ArgumentList && m_SLCompatabilityMode)
+                //                if (kid is ArgumentList && m_SLCompatabilityMode)
                 if (kid is ArgumentList)
                 {
                     ArgumentList al = kid as ArgumentList;
@@ -2766,9 +2767,9 @@ kids.Add(be.kids[i]);
             if (LocalMethods.TryGetValue(fc.Id, out rettype))
                 isEnumerable = true;
             /* suspended.. API fails with IEnums
-else if (IenFunctions.TryGetValue(fc.Id, out rettype))
-isEnumerable = true;
-*/
+                        else if (IenFunctions.TryGetValue(fc.Id, out rettype))
+                            isEnumerable = true;
+            */
             else if (DTFunctions.Contains(fc.Id))
             {
                 DTFunction = true;
@@ -2825,12 +2826,12 @@ isEnumerable = true;
 
                     newMethod += (Generate(" try {"));
                     newMethod += (Generate(Mname + ".MoveNext();"));
-                    newMethod += (Generate(" if(" + Mname + ".Current != null)"));
-                    newMethod += (Generate(" return (" + rettype + ")" + Mname + ".Current;"));
-                    newMethod += (Generate(" }")); //End of try
+                    newMethod += (Generate("  if(" + Mname + ".Current != null)"));
+                    newMethod += (Generate("   return (" + rettype + ")" + Mname + ".Current;"));
+                    newMethod += (Generate("  }")); //End of try
                     newMethod += (Generate(" catch(Exception ex) "));
-                    newMethod += (Generate(" {"));
-                    newMethod += (Generate(" }")); //End of catch
+                    newMethod += (Generate("  {"));
+                    newMethod += (Generate("  }")); //End of catch
                     newMethod += (Generate("ahwowuerogng = true;"));
                     newMethod += (Generate("return default(" + rettype + ");")); //End while
                     newMethod += "}";
@@ -2850,25 +2851,25 @@ isEnumerable = true;
                     string Exname = Aurora.Framework.StringUtils.RandomString(10, true);
                     List<string> fCalls = new List<string>
                                               {
-                                                  Generate("string " + Exname + " = \"\";"),
+                                                  Generate("string " + Exname + " =  \"\";"),
                                                   Generate("System.Collections.IEnumerator " + Mname + " = "),
                                                   Generate(String.Format("{0}(", CheckName(fc.Id)), fc),
                                                   tempString,
                                                   Generate(");"),
                                                   Generate("while (true) {"),
                                                   Generate(" try {"),
-                                                  Generate(" if(!" + Mname + ".MoveNext())"),
-                                                  Generate(" break;"),
-                                                  Generate(" }"),
+                                                  Generate("  if(!" + Mname + ".MoveNext())"),
+                                                  Generate("   break;"),
+                                                  Generate("  }"),
                                                   Generate(" catch(Exception ex) "),
-                                                  Generate(" {"),
-                                                  Generate(" " + Exname + " = ex.Message;"),
-                                                  Generate(" }"),
+                                                  Generate("  {"),
+                                                  Generate("  " + Exname + " = ex.Message;"),
+                                                  Generate("  }"),
                                                   Generate(" if(" + Exname + " != \"\")"),
-                                                  Generate(" yield return " + Exname + ";"),
+                                                  Generate("   yield return " + Exname + ";"),
                                                   Generate(" else if(" + Mname + ".Current == null || " + Mname +
                                                            ".Current is DateTime)"),
-                                                  Generate(" yield return " + Mname + ".Current;"),
+                                                  Generate("   yield return " + Mname + ".Current;"),
                                                   Generate(" else break;"),
                                                   Generate(" }")
                                               };
@@ -2896,7 +2897,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Generates the code for a Constant node.
+        ///   Generates the code for a Constant node.
         /// </summary>
         /// <param name = "c">The Constant node.</param>
         /// <returns>String containing C# code for Constant c.</returns>
@@ -2928,7 +2929,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Generates the code for a VectorConstant node.
+        ///   Generates the code for a VectorConstant node.
         /// </summary>
         /// <param name = "vc">The VectorConstant node.</param>
         /// <returns>String containing C# code for VectorConstant vc.</returns>
@@ -2948,7 +2949,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Generates the code for a RotationConstant node.
+        ///   Generates the code for a RotationConstant node.
         /// </summary>
         /// <param name = "rc">The RotationConstant node.</param>
         /// <returns>String containing C# code for RotationConstant rc.</returns>
@@ -2970,7 +2971,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Generates the code for a ListConstant node.
+        ///   Generates the code for a ListConstant node.
         /// </summary>
         /// <param name = "lc">The ListConstant node.</param>
         /// <returns>String containing C# code for ListConstant lc.</returns>
@@ -2989,7 +2990,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints a newline.
+        ///   Prints a newline.
         /// </summary>
         /// <returns>A newline.</returns>
         private string GenerateLine()
@@ -2998,7 +2999,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text, followed by a newline.
+        ///   Prints text, followed by a newline.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <returns>String s followed by newline.</returns>
@@ -3008,11 +3009,11 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text, followed by a newline.
+        ///   Prints text, followed by a newline.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <param name = "sym">Symbol being generated to extract original line
-        /// number and column from.</param>
+        ///   number and column from.</param>
         /// <returns>String s followed by newline.</returns>
         private string GenerateLine(string s, SYMBOL sym)
         {
@@ -3025,7 +3026,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text.
+        ///   Prints text.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <returns>String s.</returns>
@@ -3035,11 +3036,11 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text.
+        ///   Prints text.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <param name = "sym">Symbol being generated to extract original line
-        /// number and column from.</param>
+        ///   number and column from.</param>
         /// <returns>String s.</returns>
         private string Generate(string s, SYMBOL sym)
         {
@@ -3053,7 +3054,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text correctly indented, followed by a newline.
+        ///   Prints text correctly indented, followed by a newline.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <returns>Properly indented string s followed by newline.</returns>
@@ -3063,11 +3064,11 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text correctly indented, followed by a newline.
+        ///   Prints text correctly indented, followed by a newline.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <param name = "sym">Symbol being generated to extract original line
-        /// number and column from.</param>
+        ///   number and column from.</param>
         /// <returns>Properly indented string s followed by newline.</returns>
         private string GenerateIndentedLine(string s, SYMBOL sym)
         {
@@ -3080,11 +3081,11 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints text correctly indented.
+        ///   Prints text correctly indented.
         /// </summary>
         /// <param name = "s">String of text to print.</param>
         /// <param name = "sym">Symbol being generated to extract original line
-        /// number and column from.</param>
+        ///   number and column from.</param>
         /// <returns>Properly indented string s.</returns>
         private string GenerateIndented(string s, SYMBOL sym)
         {
@@ -3100,7 +3101,7 @@ isEnumerable = true;
         }
 
         /// <summary>
-        /// Prints correct indentation.
+        ///   Prints correct indentation.
         /// </summary>
         /// <returns>Indentation based on brace count.</returns>
         private string Indent()
@@ -3118,17 +3119,17 @@ isEnumerable = true;
         }
 
         ///<summary>
-        /// Returns the passed name with an underscore prepended if that name is a reserved word in C#
-        /// and not resevered in LSL otherwise it just returns the passed name.
+        ///  Returns the passed name with an underscore prepended if that name is a reserved word in C#
+        ///  and not resevered in LSL otherwise it just returns the passed name.
         ///
-        /// This makes no attempt to cache the results to minimise future lookups. For a non trivial
-        /// scripts the number of unique identifiers could easily grow to the size of the reserved word
-        /// list so maintaining a list or dictionary and doing the lookup there firstwould probably not
-        /// give any real speed advantage.
+        ///  This makes no attempt to cache the results to minimise future lookups. For a non trivial
+        ///  scripts the number of unique identifiers could easily grow to the size of the reserved word
+        ///  list so maintaining a list or dictionary and doing the lookup there firstwould probably not
+        ///  give any real speed advantage.
         ///
-        /// I believe there is a class Microsoft.CSharp.CSharpCodeProvider that has a function
-        /// CreateValidIdentifier(str) that will return either the value of str if it is not a C#
-        /// key word or "_"+str if it is. But availability under Mono?
+        ///  I believe there is a class Microsoft.CSharp.CSharpCodeProvider that has a function
+        ///  CreateValidIdentifier(str) that will return either the value of str if it is not a C#
+        ///  key word or "_"+str if it is. But availability under Mono?
         ///</summary>
         private string CheckName(string s)
         {
@@ -3137,18 +3138,18 @@ isEnumerable = true;
             else
             {
                 /*VarRename var;
-if(VariablesToRename.TryGetValue(s, out var))
-{
-Console.WriteLine("[CSCodeGenerator]: found var needing renamed!");
-if (var.HasBeenAssigned)
-s = var.NewVarName;
-else
-{
-s = var.OldVarName;
-var.HasBeenAssigned = true;
-VariablesToRename[s] = var;
-}
-}*/
+                if(VariablesToRename.TryGetValue(s, out var))
+                {
+                    Console.WriteLine("[CSCodeGenerator]: found var needing renamed!");
+                    if (var.HasBeenAssigned)
+                        s = var.NewVarName;
+                    else
+                    {
+                        s = var.OldVarName;
+                        var.HasBeenAssigned = true;
+                        VariablesToRename[s] = var;
+                    }
+                }*/
                 return s;
             }
         }
