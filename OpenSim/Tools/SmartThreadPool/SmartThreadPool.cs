@@ -8,7 +8,7 @@
 //        - Work items return result.
 //        - Support waiting synchronization for multiple work items.
 //        - Work items can be cancelled.
-//        - Passage of the caller thread’s context to the thread in the pool.
+//        - Passage of the caller threadï¿½s context to the thread in the pool.
 //        - Minimal usage of WIN32 handles.
 //        - Minor bug fixes.
 // 26 Dec 2004 - Changes:

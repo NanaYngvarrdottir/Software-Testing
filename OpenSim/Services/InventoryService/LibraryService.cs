@@ -26,14 +26,19 @@
  */
 
 using System;
+using System.IO;
 using System.Collections.Generic;
-using Aurora.Framework;
-using Aurora.Simulation.Base;
-using Nini.Config;
+
+using log4net.Core;
+
 using Nini.Ini;
+using Nini.Config;
+
 using OpenMetaverse;
 using OpenSim.Services.Interfaces;
-using log4net.Core;
+
+using Aurora.Framework;
+using Aurora.Simulation.Base;
 
 namespace OpenSim.Services.InventoryService
 {
@@ -47,10 +52,10 @@ namespace OpenSim.Services.InventoryService
 
         public UUID LibraryRootFolderID { get { return new UUID("00000112-000f-0000-0000-000100bba000"); } }
 
-        private string libOwnerName = "Library Owner";
+        private string libOwnerName = "Linda Kellie";
         private bool m_enabled;
         private IRegistryCore m_registry;
-        private string pLibName = "Aurora Library";
+        private string pLibName = "Welcome Package";
 
         #region ILibraryService Members
 
@@ -75,7 +80,7 @@ namespace OpenSim.Services.InventoryService
 
         public void Initialize(IConfigSource config, IRegistryCore registry)
         {
-            string pLibOwnerName = "Library Owner";
+            string pLibOwnerName = "Linda Kellie";
 
             IConfig libConfig = config.Configs["LibraryService"];
             if (libConfig != null)
@@ -96,9 +101,9 @@ namespace OpenSim.Services.InventoryService
             if (m_enabled)
             {
                 if (MainConsole.Instance != null)
-                    MainConsole.Instance.Commands.AddCommand("clear default inventory", "clear default inventory",
-                                                             "Clears the Default Inventory stored for this grid",
-                                                             ClearDefaultInventory);
+                    MainConsole.Instance.Commands.AddCommand("clear welcome package", "clear welcome package",
+                                                             "Clears the Welcome Package stored for this grid",
+                                                             ClearWelcomePackage);
             }
         }
 
@@ -112,12 +117,22 @@ namespace OpenSim.Services.InventoryService
         public void LoadLibraries(IRegistryCore registry)
         {
             if (!m_enabled)
+            {
                 return;
+            }
+            else if (!File.Exists("WelcomePackage/WelcomePackage.ini") && !File.Exists("WelcomePackage/WelcomePackage.ini.example"))
+            {
+                MainConsole.Instance.Error("Could not find WelcomePackage/WelcomePackage.ini or WelcomePackage/WelcomePackage.ini.example");
+                return;
+            }
             List<IDefaultLibraryLoader> Loaders = AuroraModuleLoader.PickupModules<IDefaultLibraryLoader>();
             try
             {
-                IniConfigSource iniSource = new IniConfigSource("DefaultInventory/Inventory.ini",
-                                                                IniFileType.AuroraStyle);
+                if (!File.Exists("WelcomePackage/WelcomePackage.ini"))
+                {
+                    File.Copy("WelcomePackage/WelcomePackage.ini.example", "WelcomePackage/WelcomePackage.ini");
+                }
+                IniConfigSource iniSource = new IniConfigSource("WelcomePackage/WelcomePackage.ini", IniFileType.AuroraStyle);
                 if (iniSource != null)
                 {
                     foreach (IDefaultLibraryLoader loader in Loaders)
@@ -131,15 +146,15 @@ namespace OpenSim.Services.InventoryService
             }
         }
 
-        private void ClearDefaultInventory(string[] cmd)
+        private void ClearWelcomePackage(string[] cmd)
         {
-            string sure = MainConsole.Instance.Prompt("Are you sure you want to delete the default inventory?", "yes");
+            string sure = MainConsole.Instance.Prompt("Are you sure you want to delete the Welcome Package Inventory?", "yes");
             if (!sure.Equals("yes", StringComparison.CurrentCultureIgnoreCase))
                 return;
             ClearDefaultInventory();
         }
 
-        public void ClearDefaultInventory()
+        public void ClearWelcomePackage()
         {
             IInventoryService InventoryService = m_registry.RequestModuleInterface<IInventoryService>();
             //Delete the root folders
@@ -156,7 +171,7 @@ namespace OpenSim.Services.InventoryService
                 MainConsole.Instance.Info("Removing folder " + rFolder.Name);
                 InventoryService.ForcePurgeFolder(rFolder);
             }
-            MainConsole.Instance.Info("Finished removing default inventory");
+            MainConsole.Instance.Info("Finished removing WelcomePackage Inventory");
         }
     }
 }
