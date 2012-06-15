@@ -72,12 +72,12 @@ using System.Text;
 namespace Aurora.Simulation.Base
 {
     /// <summary>
-    ///   Starting class for the Aurora Server
+    ///   Starting class for the Virtual Reality Server
     /// </summary>
     public class BaseApplication
     {
         /// <summary>
-        ///   Save Crashes in the bin/crashes folder.  Configurable with m_crashDir
+        ///   Save Crashes in the /Crashes folder.  Configurable with m_crashDir
         /// </summary>
         public static bool m_saveCrashDumps;
 
@@ -89,7 +89,7 @@ namespace Aurora.Simulation.Base
         /// <summary>
         ///   Where to post errors
         /// </summary>
-        public static string m_urlToPostErrors = "http://aurora-sim.org/CrashReports/crashreports.php";
+        public static string m_urlToPostErrors = "http://virtualrealitygrid.org/CrashReports/crashreports.php";
 
         /// <summary>
         ///   Loader of configuration files
@@ -97,9 +97,9 @@ namespace Aurora.Simulation.Base
         private static readonly ConfigurationLoader m_configLoader = new ConfigurationLoader();
 
         /// <summary>
-        ///   Directory to save crash reports to.  Relative to bin/
+        ///   Directory to save crash reports to.  Relative to /Crashes
         /// </summary>
-        public static string m_crashDir = "crashes";
+        public static string m_crashDir = "/Crashes";
 
         private static bool _IsHandlingException; // Make sure we don't go recursive on ourself
 
@@ -219,18 +219,18 @@ namespace Aurora.Simulation.Base
 
         public static void Configure(string[] args)
         {
-            bool Aurora_log = (File.Exists(Path.Combine(Util.configDir(), "Aurora.log")));
-            bool Aurora_Server_log = (File.Exists(Path.Combine(Util.configDir(), "AuroraServer.log")));
+            bool Aurora_log = (File.Exists(Path.Combine(Util.configDir(), "VirtualReality.log")));
+            bool Aurora_Server_log = (File.Exists(Path.Combine(Util.configDir(), "VirtualRealityServer.log")));
             
             Process sProcessName = Process.GetCurrentProcess();
             string sCompare = sProcessName.ToString();
 
             if ((args.Contains("-skipconfig") || ((Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.exe" ||
                 Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.vshost.exe")
-                && ((Aurora_log) && (new FileInfo("Aurora.log").Length > 0)))
+                && ((Aurora_log) && (new FileInfo("VirtualReality.log").Length > 0)))
                 || ((Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.Server.exe" ||
                 Process.GetCurrentProcess().MainModule.ModuleName == "Aurora.Server.vshost.exe")
-                && ((Aurora_Server_log) && (new FileInfo("AuroraServer.log").Length > 0)))))
+                && ((Aurora_Server_log) && (new FileInfo("VirtualRealityServer.log").Length > 0)))))
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("Required Configuration Files Found\n");
@@ -238,29 +238,29 @@ namespace Aurora.Simulation.Base
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\n*************Required Configuration files not found.*************");
+                Console.WriteLine("\n\n*************Required Virtual RealityConfiguration files not found.*************");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\n\n   This is your first time running Aurora, if not and you already configured your *ini.example files, please ignore this warning and press enter; Otherwise type yes and Aurora will guide you trough configuration files.\n\nRemember, these file names are Case Sensitive in Linux and Proper Cased.\n1. ./Aurora.ini\nand\n2. ./Configuration/Standalone/StandaloneCommon.ini \nor\n3. ./Configuration/Grid/GridCommon.ini\n\nAlso, you will want to examine these files in great detail because only the basic system will load by default. Aurora can do a LOT more if you spend a little time going through these files.\n\n");
+                Console.WriteLine("\n\n   This is your first time running Virtual Reality, if not and you already configured your *ini.example files, please ignore this warning and press enter; Otherwise type yes and Virtual Reality will guide you through configuration files.\n\nRemember, these file names are Case Sensitive in Linux and Proper Cased.\n1. ./Aurora.ini\nand\n2. ./Configuration/Standalone/StandaloneCommon.ini \nor\n3. ./Configuration/Grid/GridCommon.ini\n\nAlso, you will want to examine these files in great detail because only the basic system will load by default. Virtual Reality can do a LOT more if you spend a little time going through these files.\n\n");
                 Console.ForegroundColor = ConsoleColor.Green;
                 string resp = "no";
-                Console.WriteLine("Do you want to configure Aurora now? [no] : ");
+                Console.WriteLine("Do you want to configure Virtual Reality now? [no] : ");
                 resp = Console.ReadLine();
 
                 if (resp == "yes")
                 {
                     string dbSource = "localhost";
-                    string dbPasswd = "aurora";
-                    string dbSchema = "aurora";
-                    string dbUser = "aurora";
+                    string dbPasswd = "virtualreality";
+                    string dbSchema = "virtualreality";
+                    string dbUser = "virtualreality";
                     string ipAddress = Framework.Utilities.GetExternalIp();
                     string platform = "1";
                     string mode = "1";
                     string dbregion = "1";
-                    string worldName = "Aurora-Sim";
-                    string regionFlag = "Aurora";
+                    string worldName = "Virtual Reality Simulator";
+                    string regionFlag = "VirtualReality";
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("====================================================================\n");
-            Console.WriteLine("========================= AURORA CONFIGURATOR ======================\n");
+            Console.WriteLine("========================= VIRTUAL REALITY CONFIGURATOR ======================\n");
             Console.WriteLine("====================================================================\n");
             Console.ResetColor();
 
@@ -290,15 +290,15 @@ namespace Aurora.Simulation.Base
             }
             if (dbregion != null) dbregion = dbregion.Trim();
             Console.ResetColor();
-            Console.Write("Name of your Aurora-Sim: ");
+            Console.Write("Name of your Virtual Reality Similator: ");
             Console.ForegroundColor = ConsoleColor.Green;
 
             worldName = Console.ReadLine();
-            if (worldName != null) worldName = worldName == string.Empty ? "My Aurora" : worldName.Trim();
+            if (worldName != null) worldName = worldName == string.Empty ? "My Virtual Reality Simulator" : worldName.Trim();
             Console.ResetColor();
             if (dbregion != null && dbregion.Equals("1"))
             {
-                Console.Write("MySql database name for your region: [aurora]");
+                Console.Write("MySql database name for your region: [virtualreality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str2 = Console.ReadLine();
@@ -317,7 +317,7 @@ namespace Aurora.Simulation.Base
                     dbSource = str3;
                 }
                 Console.ResetColor();
-                Console.Write("MySql database user account: [aurora]");
+                Console.Write("MySql database user account: [virtualreality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str4 = Console.ReadLine();
@@ -334,7 +334,7 @@ namespace Aurora.Simulation.Base
             if (mode != null && mode.Equals("2"))
             {
                 Console.ResetColor();
-                Console.Write("MySql database name for Aurora.Server: [aurora]");
+                Console.Write("MySql database name for Aurora.Server: [virtualreality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str5 = Console.ReadLine();
@@ -353,7 +353,7 @@ namespace Aurora.Simulation.Base
                     dbSource = str6;
                 }
                 Console.ResetColor();
-                Console.Write("MySql database user account: [aurora]");
+                Console.Write("MySql database user account: [virtualreality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str7 = Console.ReadLine();
@@ -377,13 +377,13 @@ namespace Aurora.Simulation.Base
                 ipAddress = Framework.Utilities.GetExternalIp();
             }
             Console.ResetColor();
-            Console.Write("The name you will use for your Welcome Land: ");
+            Console.Write("The name you will use for your Orientation Island: ");
             Console.ForegroundColor = ConsoleColor.Green;
 
             regionFlag = Console.ReadLine();
             if (regionFlag == string.Empty)
             {
-                regionFlag = "Aurora";
+                regionFlag = "VirtualReality";
             }
             Console.ResetColor();
             Console.Write("This installation is going to run on");
@@ -422,21 +422,21 @@ namespace Aurora.Simulation.Base
                             {
                                 str2 = str2.Replace("NoGUI = false", "NoGUI = true");
                             }
-                            if (str2.Contains("Default = RegionLoaderDataBaseSystem") && platform.Equals("2"))
+                            if (str2.Contains("Default = RegionLoaderFileSystem") && platform.Equals("2"))
                             {
-                                str2 = str2.Replace("Default = RegionLoaderDataBaseSystem", "Default = RegionLoaderFileSystem");
+                                str2 = str2.Replace("Default = RegionLoaderFileSystem", "Default = RegionLoaderFileSystem");
                             }
-                            if (str2.Contains("RegionLoaderDataBaseSystem_Enabled = true") && platform.Equals("2"))
+                            if (str2.Contains("RegionLoaderDataBaseSystem_Enabled = false") && platform.Equals("2"))
                             {
-                                str2 = str2.Replace("RegionLoaderDataBaseSystem_Enabled = true", "RegionLoaderDataBaseSystem_Enabled = false");
+                                str2 = str2.Replace("RegionLoaderDataBaseSystem_Enabled = false", "RegionLoaderDataBaseSystem_Enabled = false");
                             }
-                            if (str2.Contains("RegionLoaderFileSystem_Enabled = false") && platform.Equals("2"))
+                            if (str2.Contains("RegionLoaderFileSystem_Enabled = true") && platform.Equals("2"))
                             {
-                                str2 = str2.Replace("RegionLoaderFileSystem_Enabled = false", "RegionLoaderFileSystem_Enabled = true");
+                                str2 = str2.Replace("RegionLoaderFileSystem_Enabled = true", "RegionLoaderFileSystem_Enabled = true");
                             }
-                            if (str2.Contains("RegionLoaderWebServer_Enabled = true") && platform.Equals("2"))
+                            if (str2.Contains("RegionLoaderWebServer_Enabled = false") && platform.Equals("2"))
                             {
-                                str2 = str2.Replace("RegionLoaderWebServer_Enabled = true", "RegionLoaderWebServer_Enabled = false");
+                                str2 = str2.Replace("RegionLoaderWebServer_Enabled = false", "RegionLoaderWebServer_Enabled = false");
                             }
                             writer.WriteLine(str2);
                         }
@@ -523,7 +523,7 @@ namespace Aurora.Simulation.Base
                 }
             
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Your AuroraServer Data.ini has been successfully configured");
+            Console.WriteLine("Your Virtual Reality Server Data.ini has been successfully configured");
     
             using (TextReader reader = new StreamReader("Configuration/Main.ini.example"))
                 {
@@ -555,29 +555,29 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Region_Aurora ="))
+                            if (str2.Contains("Region_Orientation_Island ="))
                             {
-                                str2 = str2.Replace("Region_Aurora =", "Region_" + regionFlag.Replace(' ', '_') + " =");
+                                str2 = str2.Replace("Region_Orientation_Island =", "Region_" + regionFlag.Replace(' ', '_') + " =");
                             }
                             if (str2.Contains("127.0.0.1"))
                             {
                                 str2 = str2.Replace("127.0.0.1", ipAddress);
                             }
-                            if (str2.Contains("My Aurora Simulator"))
+                            if (str2.Contains("My Virtual Reality Simulator"))
                             {
-                                str2 = str2.Replace("My Aurora Simulator", worldName);
+                                str2 = str2.Replace("My Virtual Reality Simulator", worldName);
                             }
-                            if (str2.Contains("AuroraSim"))
+                            if (str2.Contains("VirtualReality"))
                             {
-                                str2 = str2.Replace("AuroraSim", worldName);
+                                str2 = str2.Replace("VirtualReality", worldName);
                             }
-                            if (str2.Contains("Welcome to Aurora Simulator"))
+                            if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
                             {
-                                str2 = str2.Replace("Welcome to Aurora Simulator", "Welcome to " + worldName);
+                                str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev", "Welcome to " + worldName);
                             }
-                            if (str2.Contains("AllowAnonymousLogin = false"))
+                            if (str2.Contains("AllowAnonymousLogin = true"))
                             {
-                                str2 = str2.Replace("AllowAnonymousLogin = false", "AllowAnonymousLogin = true");
+                                str2 = str2.Replace("AllowAnonymousLogin = true", "AllowAnonymousLogin = true");
                             }
                             if (str2.Contains("DefaultHomeRegion = "))
                             {
@@ -618,9 +618,9 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Database=opensim;User ID=opensim;Password=***;"))
+                            if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
                             {
-                                str2 = str2.Replace("Database=opensim;User ID=opensim;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                             }
                             if (str2.Contains("Data Source=localhost"))
                             {
@@ -642,9 +642,9 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Database=opensim;User ID=opensim;Password=***;"))
+                            if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
                             {
-                                str2 = str2.Replace("Database=opensim;User ID=opensim;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                             }
                             if (str2.Contains("Data Source=localhost"))
                             {
@@ -657,7 +657,7 @@ namespace Aurora.Simulation.Base
                 }
             
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Your AuroraServer MySQL.ini has been successfully configured");
+            Console.WriteLine("Your Virtual RealityServer MySQL.ini has been successfully configured");
         
                 using (TextReader reader = new StreamReader("AuroraServerConfiguration/Login.ini.example"))
                 {
@@ -666,13 +666,13 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Welcome to Aurora Simulator"))
+                            if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
                             {
-                                str2 = str2.Replace("Welcome to Aurora Simulator", "Welcome to " + worldName);
+                                str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev'/=.", "Welcome to " + worldName);
                             }
-                            if (str2.Contains("AllowAnonymousLogin = false"))
+                            if (str2.Contains("AllowAnonymousLogin = true"))
                             {
-                                str2 = str2.Replace("AllowAnonymousLogin = false", "AllowAnonymousLogin = true");
+                                str2 = str2.Replace("AllowAnonymousLogin = true", "AllowAnonymousLogin = true");
                             }
                             if (str2.Contains("DefaultHomeRegion = "))
                             {
@@ -697,13 +697,13 @@ namespace Aurora.Simulation.Base
                             {
                                 str2 = str2.Replace("127.0.0.1", ipAddress);
                             }
-                            if (str2.Contains("the lost continent of hippo"))
+                            if (str2.Contains("Virtual Reality Simulator"))
                             {
-                                str2 = str2.Replace("the lost continent of hippo", worldName);
+                                str2 = str2.Replace("Virtual Reality Simulator", worldName);
                             }
-                            if (str2.Contains("hippogrid"))
+                            if (str2.Contains("VRS"))
                             {
-                                str2 = str2.Replace("hippogrid", worldName);
+                                str2 = str2.Replace("VRS", worldName);
                             }
                             writer.WriteLine(str2);
                         }
@@ -730,7 +730,7 @@ namespace Aurora.Simulation.Base
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("http://" + ipAddress + ":8003/");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\nNow AuroraServer.exe will start \nthen, please, start Aurora.exe.\nUse this name for your Welcome Land: ");
+                Console.WriteLine("\nNow AuroraServer.exe will start \nthen, please, start Aurora.exe.\nUse this name for your Orientation Island: ");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(regionFlag);
                 Console.ForegroundColor = ConsoleColor.White;
@@ -754,7 +754,7 @@ namespace Aurora.Simulation.Base
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("http://" + ipAddress + ":9000/");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\nNow Aurora.exe will start.\nPlease : use this name for your Welcome Land: ");
+                Console.WriteLine("\nNow Aurora.exe will start.\nPlease : use this name for your Orientation Island: ");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(regionFlag);
                 Console.ForegroundColor = ConsoleColor.White;
@@ -782,21 +782,21 @@ namespace Aurora.Simulation.Base
 
             MainConsole.Instance = new LocalConsole();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\n*************Running Aurora.Configurator*************");
+                Console.WriteLine("\n\n*************Running Virtual Reality Configurator*************");
                 
                     string dbSource = "localhost";
-                    string dbPasswd = "aurora";
-                    string dbSchema = "aurora";
-                    string dbUser = "aurora";
+                    string dbPasswd = "virtualreality";
+                    string dbSchema = "virtualreality";
+                    string dbUser = "virtualreality";
                     string ipAddress = Framework.Utilities.GetExternalIp();
                     string platform = "1";
                     string mode = "1";
                     string dbregion = "1";
-                    string worldName = "Aurora-Sim";
-                    string regionFlag = "Aurora";
+                    string worldName = "Virtual Reality Simulator";
+                    string regionFlag = "VirtualReality";
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("====================================================================\n");
-                    Console.WriteLine("========================= AURORA CONFIGURATOR ======================\n");
+                    Console.WriteLine("========================= VIRTUAL REALITY CONFIGURATOR ======================\n");
                     Console.WriteLine("====================================================================\n");
                     Console.ResetColor();
 
@@ -826,15 +826,15 @@ namespace Aurora.Simulation.Base
                     }
                     if (dbregion != null) dbregion = dbregion.Trim();
                     Console.ResetColor();
-                    Console.Write("Name of your Aurora-Sim: ");
+                    Console.Write("Name of your Virtual Reality Simulator: ");
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     worldName = Console.ReadLine();
-                    if (worldName != null) worldName = worldName == string.Empty ? "My Aurora" : worldName.Trim();
+                    if (worldName != null) worldName = worldName == string.Empty ? "My Virtual Reality Simulator" : worldName.Trim();
                     Console.ResetColor();
                     if (dbregion != null && dbregion.Equals("1"))
                     {
-                        Console.Write("MySql database name for your region: [aurora]");
+                        Console.Write("MySql database name for your region: [virtualreality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str2 = Console.ReadLine();
@@ -853,7 +853,7 @@ namespace Aurora.Simulation.Base
                             dbSource = str3;
                         }
                         Console.ResetColor();
-                        Console.Write("MySql database user account: [aurora]");
+                        Console.Write("MySql database user account: [virtualreality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str4 = Console.ReadLine();
@@ -870,7 +870,7 @@ namespace Aurora.Simulation.Base
                     if (mode != null && mode.Equals("2"))
                     {
                         Console.ResetColor();
-                        Console.Write("MySql database name for Aurora.Server: [aurora]");
+                        Console.Write("MySql database name for Aurora.Server: [virtualreality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str5 = Console.ReadLine();
@@ -889,7 +889,7 @@ namespace Aurora.Simulation.Base
                             dbSource = str6;
                         }
                         Console.ResetColor();
-                        Console.Write("MySql database user account: [aurora]");
+                        Console.Write("MySql database user account: [virtualreality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str7 = Console.ReadLine();
@@ -913,13 +913,13 @@ namespace Aurora.Simulation.Base
                         ipAddress = Framework.Utilities.GetExternalIp();
                     }
                     Console.ResetColor();
-                    Console.Write("The name you will use for your Welcome Land: ");
+                    Console.Write("The name you will use for your Orientation Island: ");
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     regionFlag = Console.ReadLine();
                     if (regionFlag == string.Empty)
                     {
-                        regionFlag = "Aurora";
+                        regionFlag = "VirtualReality";
                     }
                     Console.ResetColor();
                     Console.Write("This installation is going to run on");
@@ -958,21 +958,21 @@ namespace Aurora.Simulation.Base
                                     {
                                         str2 = str2.Replace("NoGUI = false", "NoGUI = true");
                                     }
-                                    if (str2.Contains("Default = RegionLoaderDataBaseSystem") && platform.Equals("2"))
+                                    if (str2.Contains("Default = RegionLoaderFileSystem") && platform.Equals("2"))
                                     {
-                                        str2 = str2.Replace("Default = RegionLoaderDataBaseSystem", "Default = RegionLoaderFileSystem");
+                                        str2 = str2.Replace("Default = RegionLoaderFileSystem", "Default = RegionLoaderFileSystem");
                                     }
-                                    if (str2.Contains("RegionLoaderDataBaseSystem_Enabled = true") && platform.Equals("2"))
+                                    if (str2.Contains("RegionLoaderDataBaseSystem_Enabled = false") && platform.Equals("2"))
                                     {
-                                        str2 = str2.Replace("RegionLoaderDataBaseSystem_Enabled = true", "RegionLoaderDataBaseSystem_Enabled = false");
+                                        str2 = str2.Replace("RegionLoaderDataBaseSystem_Enabled = false", "RegionLoaderDataBaseSystem_Enabled = false");
                                     }
-                                    if (str2.Contains("RegionLoaderFileSystem_Enabled = false") && platform.Equals("2"))
+                                    if (str2.Contains("RegionLoaderFileSystem_Enabled = true") && platform.Equals("2"))
                                     {
-                                        str2 = str2.Replace("RegionLoaderFileSystem_Enabled = false", "RegionLoaderFileSystem_Enabled = true");
+                                        str2 = str2.Replace("RegionLoaderFileSystem_Enabled = true", "RegionLoaderFileSystem_Enabled = true");
                                     }
-                                    if (str2.Contains("RegionLoaderWebServer_Enabled = true") && platform.Equals("2"))
+                                    if (str2.Contains("RegionLoaderWebServer_Enabled = false") && platform.Equals("2"))
                                     {
-                                        str2 = str2.Replace("RegionLoaderWebServer_Enabled = true", "RegionLoaderWebServer_Enabled = false");
+                                        str2 = str2.Replace("RegionLoaderWebServer_Enabled = false", "RegionLoaderWebServer_Enabled = false");
                                     }
                                     writer.WriteLine(str2);
                                 }
@@ -1059,7 +1059,7 @@ namespace Aurora.Simulation.Base
                         }
 
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Your AuroraServer Data.ini has been successfully configured");
+                        Console.WriteLine("Your Virtual Reality Server Data.ini has been successfully configured");
 
                         using (TextReader reader = new StreamReader("Configuration/Main.ini.example"))
                         {
@@ -1093,27 +1093,27 @@ namespace Aurora.Simulation.Base
                                 {
                                     if (str2.Contains("Region_Aurora ="))
                                     {
-                                        str2 = str2.Replace("Region_Aurora =", "Region_" + regionFlag.Replace(' ', '_') + " =");
+                                        str2 = str2.Replace("Region_Orientation_Island =", "Region_" + regionFlag.Replace(' ', '_') + " =");
                                     }
                                     if (str2.Contains("127.0.0.1"))
                                     {
                                         str2 = str2.Replace("127.0.0.1", ipAddress);
                                     }
-                                    if (str2.Contains("My Aurora Simulator"))
+                                    if (str2.Contains("My Virtual Reality Simulator"))
                                     {
-                                        str2 = str2.Replace("My Aurora Simulator", worldName);
+                                        str2 = str2.Replace("My Virtual Reality Simulator", worldName);
                                     }
-                                    if (str2.Contains("AuroraSim"))
+                                    if (str2.Contains("VirtualReality"))
                                     {
-                                        str2 = str2.Replace("AuroraSim", worldName);
+                                        str2 = str2.Replace("VirtualReality", worldName);
                                     }
-                                    if (str2.Contains("Welcome to Aurora Simulator"))
+                                    if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
                                     {
-                                        str2 = str2.Replace("Welcome to Aurora Simulator", "Welcome to " + worldName);
+                                        str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev", "Welcome to " + worldName);
                                     }
-                                    if (str2.Contains("AllowAnonymousLogin = false"))
+                                    if (str2.Contains("AllowAnonymousLogin = true"))
                                     {
-                                        str2 = str2.Replace("AllowAnonymousLogin = false", "AllowAnonymousLogin = true");
+                                        str2 = str2.Replace("AllowAnonymousLogin = true", "AllowAnonymousLogin = true");
                                     }
                                     if (str2.Contains("DefaultHomeRegion = "))
                                     {
@@ -1154,9 +1154,9 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Database=opensim;User ID=opensim;Password=***;"))
+                                    if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
                                     {
-                                        str2 = str2.Replace("Database=opensim;User ID=opensim;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                        str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                                     }
                                     if (str2.Contains("Data Source=localhost"))
                                     {
@@ -1178,9 +1178,9 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Database=opensim;User ID=opensim;Password=***;"))
+                                    if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
                                     {
-                                        str2 = str2.Replace("Database=opensim;User ID=opensim;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                        str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                                     }
                                     if (str2.Contains("Data Source=localhost"))
                                     {
@@ -1193,7 +1193,7 @@ namespace Aurora.Simulation.Base
                         }
 
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Your AuroraServer MySQL.ini has been successfully configured");
+                        Console.WriteLine("Your Virtual Reality Server MySQL.ini has been successfully configured");
 
                         using (TextReader reader = new StreamReader("AuroraServerConfiguration/Login.ini.example"))
                         {
@@ -1202,13 +1202,13 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Welcome to Aurora Simulator"))
+                                    if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
                                     {
-                                        str2 = str2.Replace("Welcome to Aurora Simulator", "Welcome to " + worldName);
+                                        str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev", "Welcome to " + worldName);
                                     }
-                                    if (str2.Contains("AllowAnonymousLogin = false"))
+                                    if (str2.Contains("AllowAnonymousLogin = true"))
                                     {
-                                        str2 = str2.Replace("AllowAnonymousLogin = false", "AllowAnonymousLogin = true");
+                                        str2 = str2.Replace("AllowAnonymousLogin = true", "AllowAnonymousLogin = true");
                                     }
                                     if (str2.Contains("DefaultHomeRegion = "))
                                     {
@@ -1233,13 +1233,13 @@ namespace Aurora.Simulation.Base
                                     {
                                         str2 = str2.Replace("127.0.0.1", ipAddress);
                                     }
-                                    if (str2.Contains("the lost continent of hippo"))
+                                    if (str2.Contains("Virtual Reality Simulator"))
                                     {
-                                        str2 = str2.Replace("the lost continent of hippo", worldName);
+                                        str2 = str2.Replace("Virtual Reality Simulator", worldName);
                                     }
-                                    if (str2.Contains("hippogrid"))
+                                    if (str2.Contains("VRS"))
                                     {
-                                        str2 = str2.Replace("hippogrid", worldName);
+                                        str2 = str2.Replace("VRS", worldName);
                                     }
                                     writer.WriteLine(str2);
                                 }
