@@ -100,7 +100,7 @@ namespace OpenSim.Region.Framework.Scenes
             get { return m_prioritizer; }
         }
 
-        public ICuller CullerAurora-Sim
+        public ICuller Culler
         {
             get { return m_culler; }
         }
@@ -277,7 +277,7 @@ namespace OpenSim.Region.Framework.Scenes
 
             //Send a terse as well, since we are sending an animation
             if (m_presence.LocalId == presence.LocalId &&
-                presence.SittingOnUUID == UUID.Zero) //As long as we arn't siAurora-Simtting, in which we don't get terse updates
+                presence.SittingOnUUID == UUID.Zero) //As long as we arn't sitting, in which we don't get terse updates
             {
                 //Is this really necessary? -7/21
                 //Very much so... the client cannot get a terse update before a full update -7/25
