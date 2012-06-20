@@ -61,7 +61,7 @@ namespace Aurora.Modules.DefaultInventoryIARLoader
             {
                 if (libConfig.GetBoolean("WipeLibrariesOnNextLoad", false))
                 {
-                    service.ClearDefaultInventory();//Nuke it
+                    service.ClearWelcomePackage();//Nuke it
                     libConfig.Set("WipeLibrariesOnNextLoad", false);
                     source.Save();
                 }
