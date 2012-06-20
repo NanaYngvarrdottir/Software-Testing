@@ -59,7 +59,7 @@ namespace Aurora.Modules.Startup.FileBasedSimulationData
         protected string m_loadAppendedFileName = "";
         protected string m_loadDirectory = "";
         protected bool m_loaded;
-        protected string m_oldSaveDirectory = "Backups";
+        protected string m_oldSaveDirectory = "/Backups/";
         protected bool m_oldSaveHasBeenSaved;
         protected byte[] m_oldstylerevertTerrain;
         protected byte[] m_oldstyleterrain;

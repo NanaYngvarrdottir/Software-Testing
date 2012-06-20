@@ -183,24 +183,10 @@ namespace Aurora.Framework
                 }
             }
 
-            public string[] ExecuteCommand(string[] command)
+            public string[] ExecuteCommand(string[] commandPath)
             {
-                if (command.Length != 0)
+                if (commandPath.Length != 0)
                 {
-                    string innerPath = string.Join(" ", command);
-                    if (!_ConsoleIsCaseSensitive)
-                    {
-                        innerPath = innerPath.ToLower();
-                    }
-                    if (ourPath != "")
-                    {
-                        innerPath = innerPath.Replace(ourPath, "");
-                    }
-                    if (innerPath.StartsWith(" "))
-                    {
-                        innerPath = innerPath.Remove(0, 1);
-                    }
-                    string[] commandPath = innerPath.Split(new string[1] {" "}, StringSplitOptions.RemoveEmptyEntries);
                     List<string> commandPathList = new List<string>(commandPath);
                     List<string> commandOptions = new List<string>();
                     int i;
@@ -223,10 +209,10 @@ namespace Aurora.Framework
                     List<string> cmdList;
                     if (commandPath.Length == 1 || !m_allowSubSets)
                     {
-                        for (i = 1; i <= command.Length; i++)
+                        for (i = 1; i <= commandPath.Length; i++)
                         {
                             string[] comm = new string[i];
-                            Array.Copy(command, comm, i);
+                            Array.Copy(commandPath, comm, i);
                             string com = string.Join(" ", comm);
                             //Only one command after our path, its ours
                             if (commands.ContainsKey(com))
@@ -237,7 +223,7 @@ namespace Aurora.Framework
                                 {
                                     if (fn != null)
                                     {
-                                        cmdList = new List<string>(command);
+                                        cmdList = new List<string>(commandPath);
                                         cmdList.AddRange(commandOptions);
                                         fn(cmdList.ToArray());
                                     }
@@ -245,7 +231,7 @@ namespace Aurora.Framework
 #else
                                 foreach (CommandDelegate fn in commands[com].fn.Where(fn => fn != null))
                                 {
-                                    cmdList = new List<string>(command);
+                                    cmdList = new List<string>(commandPath);
                                     cmdList.AddRange(commandOptions);
                                     fn(cmdList.ToArray());
                                 }
@@ -264,15 +250,14 @@ namespace Aurora.Framework
                             }
                             else
                             {
-#if (!ISWIN)
                                 foreach (KeyValuePair<string, CommandInfo> cmd in commands)
                                 {
                                     string[] cmdSplit = cmd.Key.Split(' ');
-                                    if (cmdSplit.Length == command.Length)
+                                    if (cmdSplit.Length == commandPath.Length)
                                     {
                                         bool any = false;
-                                        for (int k = 0; k < command.Length; k++)
-                                            if (!cmdSplit[k].StartsWith(command[k]))
+                                        for (int k = 0; k < commandPath.Length; k++)
+                                            if (!cmdSplit[k].StartsWith(commandPath[k]))
                                             {
                                                 any = true;
                                                 break;
@@ -284,25 +269,13 @@ namespace Aurora.Framework
                                             {
                                                 if (fn != null)
                                                 {
-                                                    fn(command);
+                                                    fn(commandPath);
                                                 }
                                             }
                                             return new string[0];
                                         }
                                     }
                                 }
-#else
-                                foreach (KeyValuePair<string, CommandInfo> cmd in from cmd in commands let cmdSplit = cmd.Key.Split(' ') where cmdSplit.Length == command.Length let same = !command.Where((t, k) => !cmdSplit[k].StartsWith(t)).Any() where same select cmd)
-                                {
-                                    foreach (CommandDelegate fn in cmd.Value.fn.Where(fn => fn != null))
-                                    {
-                                        cmdList = new List<string>(command);
-                                        cmdList.AddRange(commandOptions);
-                                        fn(cmdList.ToArray());
-                                    }
-                                    return new string[0];
-                                }
-#endif
                             }
                         }
                     }
@@ -353,7 +326,7 @@ namespace Aurora.Framework
                                 {
                                     if (fn != null)
                                     {
-                                        cmdList = new List<string>(command);
+                                        cmdList = new List<string>(commandPath);
                                         cmdList.AddRange(commandOptions);
                                         fn(cmdList.ToArray());
                                     }
@@ -361,7 +334,7 @@ namespace Aurora.Framework
 #else
                                 foreach (CommandDelegate fn in commands[cmdToExecute].fn.Where(fn => fn != null))
                                 {
-                                    cmdList = new List<string>(command);
+                                    cmdList = new List<string>(commandPath);
                                     cmdList.AddRange(commandOptions);
                                     fn(cmdList.ToArray());
                                 }
@@ -527,14 +500,21 @@ namespace Aurora.Framework
             List<string> result = new List<string>();
 
             int index;
-
+            int startingIndex = -1;
             string[] unquoted = text.Split(new[] {'"'});
 
             for (index = 0; index < unquoted.Length; index++)
             {
-                if (index%2 == 0)
+                if (unquoted[index].StartsWith("/") || startingIndex >= 0)
                 {
-                    string[] words = unquoted[index].Split(new[] {' '});
+                    startingIndex = index;
+                    if (unquoted[index] != "")
+                        result.Add(unquoted[index]);
+                }
+                else
+                {
+                    startingIndex = 0;
+                    string[] words = unquoted[index].Split(new[] { ' ' });
 #if (!ISWIN)
                     foreach (string w in words)
                     {
@@ -544,12 +524,8 @@ namespace Aurora.Framework
                         }
                     }
 #else
-                    result.AddRange(words.Where(w => w != String.Empty));
+                        result.AddRange(words.Where(w => w != String.Empty));
 #endif
-                }
-                else
-                {
-                    result.Add(unquoted[index]);
                 }
             }
 
@@ -874,11 +850,7 @@ namespace Aurora.Framework
         public bool Processing = true;
 #if !NET_4_0
         private delegate void PromptEvent();
-
-        private IAsyncResult result;
-        private PromptEvent action;
         private readonly Object m_consoleLock = new Object();
-        private bool m_calledEndInvoke;
         protected static bool m_reading;
         private Thread m_consoleReadingThread;
         protected readonly Object m_readingLock = new Object();
@@ -932,8 +904,6 @@ namespace Aurora.Framework
                     {
                         //Eat the exception and go on
                         Output("[Console]: Failed to execute command: " + ex);
-                        action = null;
-                        result = null;
                     }
 #else
                     Task prompt = TaskEx.Run(() => { Prompt(); });

@@ -37,7 +37,7 @@ namespace OpenSim.Services.Interfaces
         UUID LibraryOwner { get; }
 
         /// <summary>
-        /// The root folderID of the default library
+        /// The root folderID of the Welcome Package
         /// </summary>
         UUID LibraryRootFolderID { get; }
 
@@ -52,8 +52,8 @@ namespace OpenSim.Services.Interfaces
         string LibraryName { get; }
 
         /// <summary>
-        /// Clears out all current folders and items from the default inventory
+        /// Clears out all current folders and items from the WelcomePackage
         /// </summary>
-        void ClearDefaultInventory();
+        void ClearWelcomePackage();
     }
 }

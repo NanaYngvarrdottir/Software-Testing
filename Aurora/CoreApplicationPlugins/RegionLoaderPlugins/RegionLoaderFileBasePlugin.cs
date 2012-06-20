@@ -59,7 +59,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
         {
             m_configSource = configSource;
             m_openSim = openSim;
-            IConfig config = configSource.Configs["RegionStartup"];
+            IConfig config = configSource.Configs["Virtual Reality Region Startup"];
             if (config != null)
             {
                 m_enabled = config.GetBoolean(GetType().Name + "_Enabled", m_enabled);
@@ -188,17 +188,17 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
             if (name == String.Empty || source.Configs.Count == 0)
             {
                 MainConsole.Instance.Info ("=====================================\n");
-                MainConsole.Instance.Info ("We are now going to ask a couple of questions about your region.\n");
-                MainConsole.Instance.Info ("You can press 'enter' without typing anything to use the default\n");
-                MainConsole.Instance.Info ("the default is displayed between [ ] brackets.\n");
+                MainConsole.Instance.Info ("Virtual Reality is now going to ask you a couple of questions about your region.\n");
+                MainConsole.Instance.Info ("You can press 'enter' without typing anything to use the Virtual Reality defaults\n");
+                MainConsole.Instance.Info ("Virtual Reality defaults are displayed between [ ] brackets.\n");
                 MainConsole.Instance.Info ("=====================================\n");
             }
 
             bool NeedsUpdate = false;
             if (name == String.Empty)
-                name = MainConsole.Instance.Prompt("New region name", name);
+                name = MainConsole.Instance.Prompt("Virtual Reality would like to know by what name will this region be known?", name);
             if (name == String.Empty)
-                throw new Exception("Cannot interactively create region with no name");
+                throw new Exception("Virtual Reality cannot interactively create a region with no name");
 
             if (source.Configs.Count == 0)
             {
@@ -238,7 +238,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
             if (location == String.Empty)
             {
                 NeedsUpdate = true;
-                location = MainConsole.Instance.Prompt("Region Location for region " + name, "1000,1000");
+                location = MainConsole.Instance.Prompt("Virtual Reality would like to know what cordinates should this region use? " + name, "1000,1000");
                 config.Set("Location", location);
             }
 
@@ -253,7 +253,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                 NeedsUpdate = true;
                 while (true)
                 {
-                    if (int.TryParse(MainConsole.Instance.Prompt("Region X Size for region " + name, "256"), out regionSizeX))
+                    if (int.TryParse(MainConsole.Instance.Prompt("Virtual Reality would like to know the width or how wide the region will be? In multitudes of 16." + name, "512"), out regionSizeX))
                         break;
                 }
                 config.Set("RegionSizeX", regionSizeX);
@@ -266,7 +266,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                 NeedsUpdate = true;
                 while(true)
                 {
-                    if(int.TryParse(MainConsole.Instance.Prompt("Region Y Size for region " + name, "256"), out regionSizeY))
+                    if(int.TryParse(MainConsole.Instance.Prompt("Region Y Size for region " + name, "512"), out regionSizeY))
                         break;
                 }
                 config.Set("RegionSizeY", regionSizeY);
@@ -406,7 +406,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                 oldName = regionInfo.RegionName;
             try
             {
-                IConfig config = m_configSource.Configs["RegionStartup"];
+                IConfig config = m_configSource.Configs["Virtual Reality Region Startup"];
                 if (config != null)
                 {
                     regionConfigPath = config.GetString("RegionsDirectory", regionConfigPath).Trim();
@@ -454,7 +454,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                 if (regionInfo.RegionFile.ToLower().EndsWith(".xml"))
                 {
                     File.Delete(regionInfo.RegionFile);
-                    MainConsole.Instance.InfoFormat("[OPENSIM]: deleting region file \"{0}\"", regionInfo.RegionFile);
+                    MainConsole.Instance.InfoFormat("[VIRTUAL REALITY]: deleting region file \"{0}\"", regionInfo.RegionFile);
                 }
                 if (regionInfo.RegionFile.ToLower().EndsWith(".ini"))
                 {
@@ -485,7 +485,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
         public void DeleteAllRegionFiles ()
         {
             string regionConfigPath = Path.Combine (Util.configDir (), "Regions");
-            IConfig config = m_configSource.Configs["RegionStartup"];
+            IConfig config = m_configSource.Configs["Virtual Reality Region Startup"];
             if (config != null)
                 regionConfigPath = config.GetString ("RegionsDirectory", regionConfigPath).Trim ();
             if (!Directory.Exists (regionConfigPath))

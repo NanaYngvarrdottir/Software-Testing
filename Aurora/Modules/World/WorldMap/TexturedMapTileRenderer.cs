@@ -269,14 +269,14 @@ namespace Aurora.Modules.WorldMap
 
         private void ReadCacheMap()
         {
-            if (!Directory.Exists("assetcache"))
-                Directory.CreateDirectory("assetcache");
-            if (!Directory.Exists(Path.Combine("assetcache", "mapTileTextureCache")))
-                Directory.CreateDirectory(Path.Combine("assetcache", "mapTileTextureCache"));
+            if (!Directory.Exists("/AssetCache"))
+                Directory.CreateDirectory("/AssetCache");
+            if (!Directory.Exists(Path.Combine("/AssetCache", "mapTileTextureCache")))
+                Directory.CreateDirectory(Path.Combine("/AssetCache", "mapTileTextureCache"));
 
             FileStream stream =
                 new FileStream(
-                    Path.Combine(Path.Combine("assetcache", "mapTileTextureCache"),
+                    Path.Combine(Path.Combine("/AssetCache", "mapTileTextureCache"),
                                  m_scene.RegionInfo.RegionName + ".tc"), FileMode.OpenOrCreate);
             StreamReader m_streamReader = new StreamReader(stream);
             string file = m_streamReader.ReadToEnd();
@@ -290,7 +290,7 @@ namespace Aurora.Modules.WorldMap
                     //Something went wrong, delete the file
                     try
                     {
-                        File.Delete(Path.Combine(Path.Combine("assetcache", "mapTileTextureCache"),
+                        File.Delete(Path.Combine(Path.Combine("/AssetCache", "mapTileTextureCache"),
                                                  m_scene.RegionInfo.RegionName + ".tc"));
                     }
                     catch
@@ -323,7 +323,7 @@ namespace Aurora.Modules.WorldMap
             OSDMap map = SerializeCache();
             FileStream stream =
                 new FileStream(
-                    Path.Combine(Path.Combine("assetcache", "mapTileTextureCache"),
+                    Path.Combine(Path.Combine("/AssetCache", "mapTileTextureCache"),
                                  m_scene.RegionInfo.RegionName + ".tc"), FileMode.Create);
             StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(OSDParser.SerializeJsonString(map));

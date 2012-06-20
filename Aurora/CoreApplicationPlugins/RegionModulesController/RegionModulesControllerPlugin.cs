@@ -112,11 +112,11 @@ namespace OpenSim.CoreApplicationPlugins
                         }
 
                         deferredSharedModules[replaceableInterface] = module;
-                        //MainConsole.Instance.DebugFormat("[REGIONMODULE]: Deferred load of {0}", module.Name);
+                        //MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will defer the load of {0}", module.Name);
                         continue;
                     }
 
-                    //MainConsole.Instance.DebugFormat("[REGIONMODULE]: Adding scene {0} to shared module {1}",
+                    //MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will add scene {0} to shared module {1}",
                     //                  scene.RegionInfo.RegionName, module.Name);
                     try
                     {
@@ -124,7 +124,7 @@ namespace OpenSim.CoreApplicationPlugins
                     }
                     catch (Exception ex)
                     {
-                        MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                        MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                     }
                     AddRegionModule(scene, module.Name, module);
 
@@ -149,13 +149,13 @@ namespace OpenSim.CoreApplicationPlugins
 
                     if (mii.Invoke(scene, new object[0]) != null)
                     {
-                        MainConsole.Instance.DebugFormat("[REGIONMODULE]: Not loading {0} because another module has registered {1}",
+                        MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality is will not load {0} because another module has registered {1}",
                                           module.Name, replaceableInterface);
                         continue;
                     }
 
                     deferredNonSharedModules[replaceableInterface] = module;
-                    MainConsole.Instance.DebugFormat("[REGIONMODULE]: Deferred load of {0}", module.Name);
+                    MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will defer the load of {0}", module.Name);
                     continue;
                 }
 
@@ -164,7 +164,7 @@ namespace OpenSim.CoreApplicationPlugins
                     continue;
                 }
 
-                //MainConsole.Instance.DebugFormat("[REGIONMODULE]: Adding scene {0} to non-shared module {1}",
+                //MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGIONMODULE]: Virtual Reality will add scene {0} to non-shared module {1}",
                 //                  scene.RegionInfo.RegionName, module.Name);
 
                 // Initialise the module
@@ -186,7 +186,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
                 AddRegionModule(scene, module.Name, module);
             }
@@ -202,12 +202,12 @@ namespace OpenSim.CoreApplicationPlugins
 
                 if (mii.Invoke(scene, new object[0]) != null)
                 {
-                    MainConsole.Instance.DebugFormat("[REGIONMODULE]: Not loading {0} because another module has registered {1}",
+                    MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will not be loading {0} because another module has registered {1}",
                                       module.Name, replaceableInterface);
                     continue;
                 }
 
-                MainConsole.Instance.DebugFormat("[REGIONMODULE]: Adding scene {0} to shared module {1} (deferred)",
+                MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will add scene {0} to shared module {1} (deferred)",
                                   scene.RegionInfo.RegionName, module.Name);
 
                 // Not replaced, load the module
@@ -217,7 +217,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
                 AddRegionModule(scene, module.Name, module);
 
@@ -239,13 +239,13 @@ namespace OpenSim.CoreApplicationPlugins
 
                     if (mii.Invoke(scene, new object[0]) != null)
                     {
-                        MainConsole.Instance.DebugFormat("[REGIONMODULE]: Not loading {0} because another module has registered {1}",
+                        MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will not be loading {0} because another module has registered {1}",
                                           module.Name, replaceableInterface);
                         continue;
                     }
                 }
 
-                MainConsole.Instance.DebugFormat("[REGIONMODULE]: Adding scene {0} to non-shared module {1} (deferred)",
+                MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality will  add scene {0} to non-shared module {1} (deferred)",
                                   scene.RegionInfo.RegionName, module.Name);
 
                 try
@@ -254,7 +254,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
 
                 IRegionModuleBaseModules.Add(module);
@@ -271,7 +271,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
                 AddRegionModule(scene, module.Name, module);
             }
@@ -294,7 +294,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
             }
 
@@ -306,7 +306,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
             }
         }
@@ -315,7 +315,7 @@ namespace OpenSim.CoreApplicationPlugins
         {
             foreach (IRegionModuleBase module in RegionModules[scene].Values)
             {
-                MainConsole.Instance.DebugFormat("[REGIONMODULE]: Removing scene {0} from module {1}",
+                MainConsole.Instance.DebugFormat("[VIRTUAL REALITY REGION MODULE]: Virtual Reality is removing scene {0} from module {1}",
                                   scene.RegionInfo.RegionName, module.Name);
                 module.RemoveRegion(scene);
                 if (module is INonSharedRegionModule)
@@ -370,7 +370,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch(Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
             }
         }
@@ -386,7 +386,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
             }
         }
@@ -405,7 +405,7 @@ namespace OpenSim.CoreApplicationPlugins
             if (handlerConfig.GetString("RegionModulesControllerPlugin", "") != Name)
                 return;
 
-            //MainConsole.Instance.DebugFormat("[REGIONMODULES]: PostInitializing...");
+            //MainConsole.Instance.DebugFormat("[VIRTUAL REALTIY REGION MODULES]: Virtual Reality PostInitializing...");
 
             // Immediately run PostInitialise on shared modules
             foreach (ISharedRegionModule module in m_sharedInstances)
@@ -416,7 +416,7 @@ namespace OpenSim.CoreApplicationPlugins
                 }
                 catch (Exception ex)
                 {
-                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Failed to load module {0}: {1}", module.Name, ex.ToString());
+                    MainConsole.Instance.ErrorFormat("[RegionModulesControllerPlugin]: Virtual Reality Failed to load module {0}: {1}", module.Name, ex.ToString());
                 }
             }
         }

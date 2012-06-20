@@ -1,4 +1,4 @@
-﻿namespace OpenSim.Services.Interfaces
+﻿﻿namespace OpenSim.Services.Interfaces
 {
     public interface IHeloServiceConnector
     {

@@ -37,7 +37,7 @@ namespace Aurora.DataManager
 {
     public abstract class DataManagerBase : IDataConnector
     {
-        private const string VERSION_TABLE_NAME = "virtual_reality_migrator_version";
+        private const string VERSION_TABLE_NAME = "Virtual_Reality_Migrator_Version";
         private const string COLUMN_NAME = "name";
         private const string COLUMN_VERSION = "version";
 
@@ -301,6 +301,14 @@ namespace Aurora.DataManager
 
         public abstract Dictionary<string, List<string>> QueryNames(string[] keyRow, object[] keyValue, string table, string wantedValue);
 
+        public abstract List<string> Query(string[] wantedValue, QueryTables tables, QueryFilter queryFilter, Dictionary<string, bool> sort, uint? start, uint? count);
+
+        public abstract Dictionary<string, List<string>> QueryNames(string[] keyRow, object[] keyValue, QueryTables tables, string wantedValue);
+
+        public abstract IDataReader QueryData(string whereClause, QueryTables tables, string wantedValue);
+
+        public abstract List<string> QueryFullData(string whereClause, QueryTables tables, string wantedValue);
+
         #endregion
 
         #region INSERT
@@ -412,7 +420,7 @@ namespace Aurora.DataManager
                     }
                     else
                     {
-                        throw new Exception("You've discovered some type that's not reconized by Virtual Reality, please place the correct conversion in ConvertTypeToColumnType. Type: " + tStr);
+                        throw new Exception("Virtual Reality discovered some type that's not reconized, please place the correct conversion in ConvertTypeToColumnType. Type: " + tStr);
                     }
             }
 
@@ -424,5 +432,6 @@ namespace Aurora.DataManager
 
         protected abstract List<ColumnDefinition> ExtractColumnsFromTable(string tableName);
         protected abstract Dictionary<string, IndexDefinition> ExtractIndicesFromTable(string tableName);
+
     }
 }

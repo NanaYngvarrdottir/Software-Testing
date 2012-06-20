@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -408,5 +408,10 @@ namespace Aurora.Framework
         /// Whether the agent has fully been moved into the region as a root agent (is cleared if they leave or become a child agent)
         /// </summary>
         bool SuccessfullyMadeRootAgent { get; }
+
+        /// <summary>
+        /// Are attachments loaded for this user yet?
+        /// </summary>
+        bool AttachmentsLoaded { get; set; }
     }
 }

@@ -346,7 +346,7 @@ namespace Aurora.Modules.Land
                                                          toAgentID = ret.Key,
                                                          imSessionID = transaction,
                                                          timestamp = (uint) Util.UnixTimeSinceEpoch(),
-                                                         fromAgentName = "Server",
+                                                         fromAgentName = "Virtual Reality  Server",
                                                          dialog = 19,
                                                          fromGroup = false,
                                                          offline = 1,

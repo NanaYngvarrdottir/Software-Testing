@@ -66,7 +66,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                 if (!m_enabled)
                     return;
                 if (MainConsole.Instance != null)
-                    MainConsole.Instance.Commands.AddCommand("open region manager", "open region manager", "Opens the region manager", OpenRegionManager);
+                    MainConsole.Instance.Commands.AddCommand("virtual reality region administration", "virtual reality region administration", "Opens the Virtual Reality Region Administration", OpenRegionManager);
                 m_default = config.GetString("Default") == GetType().Name;
 
                 //Add the console command if it is the default
@@ -192,7 +192,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                     try
                     {
                         MessageBox.Show ("All region .ini and .xml files have been successfully converted to the new region loader style.");
-                        MessageBox.Show ("To change your region settings, type 'open region manager' on the console, and a GUI will pop up for you to use.");
+                        MessageBox.Show ("To change your region settings, type 'virtual reality region administration' on the console, and a GUI will pop up for you to use.");
                         DialogResult t = Utilities.InputBox ("Remove .ini files", "Do you want to remove your old .ini files?");
                         if (t == DialogResult.OK)
                             system.DeleteAllRegionFiles ();
@@ -201,7 +201,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                     {
                         //For people who only have consoles, no winforms
                         MainConsole.Instance.Output ("All region .ini and .xml files have been successfully converted to the new region loader style.");
-                        MainConsole.Instance.Output ("To change your region settings, well, you don't have Mono-Winforms installed. Get that, stick with just modifying the .ini files, or get something to modify the region database that isn't a GUI.");
+                        MainConsole.Instance.Output ("To change your region settings, well, you don't have Mono-Winforms installed. To Get that unix/mono open terminal and type sudo apt-get install libmono-winforms2.0-cil, or stick with just modifying the .ini files, or get something to modify the region database that isn't a GUI.");
                     }
                 }
             }

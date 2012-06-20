@@ -75,7 +75,7 @@ namespace Aurora.Modules.WorldMap
         private System.Timers.Timer UpdateOnlineStatus;
         private bool m_generateMapTiles = true;
         private UUID staticMapTileUUID = UUID.Zero;
-        private bool m_asyncMapTileCreation = false;
+        private bool m_asyncMapTileCreation = true;
 
         #region IMapImageGenerator Members
 
@@ -102,7 +102,7 @@ namespace Aurora.Modules.WorldMap
             {
                 tileRenderer = "WarpTileRenderer";
                 terrainRenderer = new WarpTileRenderer();
-                drawPrimVolume = false;
+                drawPrimVolume = true;
             }
             MainConsole.Instance.Debug("[MAPTILE]: Generating Maptile using " + tileRenderer);
 

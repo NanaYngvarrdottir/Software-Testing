@@ -74,13 +74,13 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
 
         public RegionInfo[] LoadRegions()
         {
-            IConfig RegionStartupConfig = m_configSource.Configs["RegionStartup"];
+            IConfig RegionStartupConfig = m_configSource.Configs["Virtual Reality Region Startup"];
             if (RegionStartupConfig != null)
             {
                 string url = RegionStartupConfig.GetString("WebServerURL", String.Empty).Trim();
                 if (url == String.Empty)
                 {
-                    //MainConsole.Instance.Error("[WEBLOADER]: Unable to load webserver URL - URL was empty.");
+                    //MainConsole.Instance.Error("[VIRTUAL REALITY WEB LOADER]: Unable to load webserver URL - URL was empty.");
                     return null;
                 }
                 HttpWebRequest webRequest = (HttpWebRequest) WebRequest.Create(url);
@@ -89,10 +89,10 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                 MainConsole.Instance.Debug("[WEBLOADER]: Sending Download Request...");
                 HttpWebResponse webResponse = (HttpWebResponse) webRequest.GetResponse();
 
-                MainConsole.Instance.Info("[WEBLOADER]: Downloading Region Information From Remote Server...");
+                MainConsole.Instance.Info("[VIRTUAL REALITY WEB LOADER]: Virtual Reality Will Begin Downloading Region Information From Remote Server...");
                 StreamReader reader = new StreamReader(webResponse.GetResponseStream());
 
-                MainConsole.Instance.Debug("[WEBLOADER]: Done downloading region information from server.");
+                MainConsole.Instance.Debug("[VIRTUAL REALITY WEB LOADER]: Virtual Reality has completed downloading region information from server.");
 
                 List<RegionInfo> regionInfos = new List<RegionInfo>();
 

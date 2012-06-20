@@ -80,7 +80,7 @@ namespace Aurora.Modules.Ban
             IConfig config = source.Configs["GrieferProtection"];
             if (config != null)
             {
-                string bannedViewers = config.GetString ("ViewersToBan", "Firestorm,Astra,Singularity,Phoenix");
+                string bannedViewers = config.GetString ("ViewersToBan", "Firestorm,Astra,Singularity,Phoenix,Imprudence");
                 m_bannedViewers = Util.ConvertToList(bannedViewers);
                 string allowedViewers = config.GetString ("ViewersToAllow", "Angstrom");
                 m_allowedViewers = Util.ConvertToList(allowedViewers);

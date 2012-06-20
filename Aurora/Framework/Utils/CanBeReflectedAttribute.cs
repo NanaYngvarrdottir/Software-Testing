@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ namespace Aurora.Framework
         /// Used for helper methods, in which the method to call is not this method, but the next up the stack
         /// </summary>
         public bool NotReflectableLookUpAnotherTrace = false;
-        
+
         /// <summary>
         /// The method can only be called if a parameter UserID is passed and that the user is in the requesting region
         /// </summary>

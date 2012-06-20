@@ -29,7 +29,7 @@ namespace Aurora.Framework
 {
     public class Constants
     {
-        public const int RegionSize = 256;
+        public const int RegionSize = 512;
         public const byte TerrainPatchSize = 16;
         public const float TerrainCompression = 100.0f;
         public const int MinRegionSize = 16;

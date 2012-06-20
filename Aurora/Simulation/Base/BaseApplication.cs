@@ -249,9 +249,9 @@ namespace Aurora.Simulation.Base
                 if (resp == "yes")
                 {
                     string dbSource = "localhost";
-                    string dbPasswd = "virtualreality";
-                    string dbSchema = "virtualreality";
-                    string dbUser = "virtualreality";
+                    string dbPasswd = "VirtualReality";
+                    string dbSchema = "VirtualReality";
+                    string dbUser = "VirtualReality";
                     string ipAddress = Framework.Utilities.GetExternalIp();
                     string platform = "1";
                     string mode = "1";
@@ -298,7 +298,7 @@ namespace Aurora.Simulation.Base
             Console.ResetColor();
             if (dbregion != null && dbregion.Equals("1"))
             {
-                Console.Write("MySql database name for your region: [virtualreality]");
+                Console.Write("MySql database name for your region: [VirtualReality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str2 = Console.ReadLine();
@@ -317,7 +317,7 @@ namespace Aurora.Simulation.Base
                     dbSource = str3;
                 }
                 Console.ResetColor();
-                Console.Write("MySql database user account: [virtualreality]");
+                Console.Write("MySql database user account: [VirtualReality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str4 = Console.ReadLine();
@@ -334,7 +334,7 @@ namespace Aurora.Simulation.Base
             if (mode != null && mode.Equals("2"))
             {
                 Console.ResetColor();
-                Console.Write("MySql database name for Aurora.Server: [virtualreality]");
+                Console.Write("MySql database name for Aurora.Server: [VirtualReality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str5 = Console.ReadLine();
@@ -353,7 +353,7 @@ namespace Aurora.Simulation.Base
                     dbSource = str6;
                 }
                 Console.ResetColor();
-                Console.Write("MySql database user account: [virtualreality]");
+                Console.Write("MySql database user account: [VirtualReality]");
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 string str7 = Console.ReadLine();
@@ -571,9 +571,9 @@ namespace Aurora.Simulation.Base
                             {
                                 str2 = str2.Replace("VirtualReality", worldName);
                             }
-                            if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
+                            if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev"))
                             {
-                                str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev", "Welcome to " + worldName);
+                                str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev", "Welcome to " + worldName);
                             }
                             if (str2.Contains("AllowAnonymousLogin = true"))
                             {
@@ -618,9 +618,9 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
+                            if (str2.Contains("Database=VirtualReality;User ID=VirtualReality;Password=***;"))
                             {
-                                str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                str2 = str2.Replace("Database=VirtualReality;User ID=VirtualReality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                             }
                             if (str2.Contains("Data Source=localhost"))
                             {
@@ -642,9 +642,9 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
+                            if (str2.Contains("Database=VirtualReality;User ID=VirtualReality;Password=***;"))
                             {
-                                str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                str2 = str2.Replace("Database=VirtualReality;User ID=VirtualReality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                             }
                             if (str2.Contains("Data Source=localhost"))
                             {
@@ -666,9 +666,9 @@ namespace Aurora.Simulation.Base
                         string str2;
                         while ((str2 = reader.ReadLine()) != null)
                         {
-                            if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
+                            if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev"))
                             {
-                                str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev'/=.", "Welcome to " + worldName);
+                                str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev'/=.", "Welcome to " + worldName);
                             }
                             if (str2.Contains("AllowAnonymousLogin = true"))
                             {
@@ -785,9 +785,9 @@ namespace Aurora.Simulation.Base
                 Console.WriteLine("\n\n*************Running Virtual Reality Configurator*************");
                 
                     string dbSource = "localhost";
-                    string dbPasswd = "virtualreality";
-                    string dbSchema = "virtualreality";
-                    string dbUser = "virtualreality";
+                    string dbPasswd = "VirtualReality";
+                    string dbSchema = "VirtualReality";
+                    string dbUser = "VirtualReality";
                     string ipAddress = Framework.Utilities.GetExternalIp();
                     string platform = "1";
                     string mode = "1";
@@ -834,7 +834,7 @@ namespace Aurora.Simulation.Base
                     Console.ResetColor();
                     if (dbregion != null && dbregion.Equals("1"))
                     {
-                        Console.Write("MySql database name for your region: [virtualreality]");
+                        Console.Write("MySql database name for your region: [VirtualReality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str2 = Console.ReadLine();
@@ -853,7 +853,7 @@ namespace Aurora.Simulation.Base
                             dbSource = str3;
                         }
                         Console.ResetColor();
-                        Console.Write("MySql database user account: [virtualreality]");
+                        Console.Write("MySql database user account: [VirtualReality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str4 = Console.ReadLine();
@@ -870,7 +870,7 @@ namespace Aurora.Simulation.Base
                     if (mode != null && mode.Equals("2"))
                     {
                         Console.ResetColor();
-                        Console.Write("MySql database name for Aurora.Server: [virtualreality]");
+                        Console.Write("MySql database name for Aurora.Server: [VirtualReality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str5 = Console.ReadLine();
@@ -889,7 +889,7 @@ namespace Aurora.Simulation.Base
                             dbSource = str6;
                         }
                         Console.ResetColor();
-                        Console.Write("MySql database user account: [virtualreality]");
+                        Console.Write("MySql database user account: [VirtualReality]");
                         Console.ForegroundColor = ConsoleColor.Green;
 
                         string str7 = Console.ReadLine();
@@ -1107,9 +1107,9 @@ namespace Aurora.Simulation.Base
                                     {
                                         str2 = str2.Replace("VirtualReality", worldName);
                                     }
-                                    if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
+                                    if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev"))
                                     {
-                                        str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev", "Welcome to " + worldName);
+                                        str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev", "Welcome to " + worldName);
                                     }
                                     if (str2.Contains("AllowAnonymousLogin = true"))
                                     {
@@ -1154,9 +1154,9 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
+                                    if (str2.Contains("Database=VirtualReality;User ID=VirtualReality;Password=***;"))
                                     {
-                                        str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                        str2 = str2.Replace("Database=VirtualReality;User ID=VirtualReality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                                     }
                                     if (str2.Contains("Data Source=localhost"))
                                     {
@@ -1178,9 +1178,9 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Database=virtualreality;User ID=virtualreality;Password=***;"))
+                                    if (str2.Contains("Database=VirtualReality;User ID=VirtualReality;Password=***;"))
                                     {
-                                        str2 = str2.Replace("Database=virtualreality;User ID=virtualreality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
+                                        str2 = str2.Replace("Database=VirtualReality;User ID=VirtalReality;Password=***;", "Database=" + dbSchema + ";User ID=" + dbUser + ";Password=" + dbPasswd + ";");
                                     }
                                     if (str2.Contains("Data Source=localhost"))
                                     {
@@ -1202,9 +1202,9 @@ namespace Aurora.Simulation.Base
                                 string str2;
                                 while ((str2 = reader.ReadLine()) != null)
                                 {
-                                    if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev"))
+                                    if (str2.Contains("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev"))
                                     {
-                                        str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.2 Dev", "Welcome to " + worldName);
+                                        str2 = str2.Replace("Welcome to Virtual Reality Simulator: 0.1.1.3 Dev", "Welcome to " + worldName);
                                     }
                                     if (str2.Contains("AllowAnonymousLogin = true"))
                                     {

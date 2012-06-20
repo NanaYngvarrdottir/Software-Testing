@@ -1,4 +1,4 @@
-﻿namespace Aurora.Management
+﻿﻿namespace Aurora.Management
 {
     partial class RemoteManagementSetup
     {

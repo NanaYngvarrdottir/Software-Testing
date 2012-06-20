@@ -103,7 +103,7 @@ namespace Aurora.DataManager.Tests
             var technology = DataManagerTechnology.SQLite;
             //var technology = DataManagerTechnology.MySql;
 
-            var mysqlconnectionstring = "Data Source=localhost;Database=auroratest;User ID=auroratest;Password=test;";
+            var mysqlconnectionstring = "Data Source=localhost;Database=virtualrealitytest;User ID=virtualrealitytest;Password=test;";
             var sqliteconnectionstring = string.Format("URI=file:{0},version=3", dbFileName);
             string connectionString = (technology==DataManagerTechnology.SQLite)?sqliteconnectionstring:mysqlconnectionstring;
 

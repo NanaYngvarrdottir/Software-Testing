@@ -37,12 +37,12 @@ namespace Aurora.Modules.Wind
 {
     public class WindModule : IWindModule, INonSharedRegionModule
     {
-        private const string m_dWindPluginName = "SimpleRandomWind";
+        private const string m_dWindPluginName = "ConfigurableWind";
         
         private readonly Dictionary<string, IWindModelPlugin> m_availableWindPlugins =
             new Dictionary<string, IWindModelPlugin>();
 
-        private string desiredWindPlugin = "";
+        private string desiredWindPlugin = "ConfigurableWind";
         private IWindModelPlugin m_activeWindPlugin;
         private bool m_enabled;
 

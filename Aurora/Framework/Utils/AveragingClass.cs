@@ -1,4 +1,4 @@
-﻿//#define ACURATE
+﻿﻿//#define ACURATE
 
 namespace Aurora.Framework
 {

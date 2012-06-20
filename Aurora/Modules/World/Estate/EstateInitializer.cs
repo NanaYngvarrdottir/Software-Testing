@@ -46,7 +46,7 @@ namespace Aurora.Modules.Estate
 {
     public class EstateInitializer : ISharedRegionStartupModule, IAuroraBackupModule
     {
-        private string LastEstateName = "";
+        private string LastEstateName = "Maintenance";
         private string LastEstateOwner = "Governor";
 
         public void Initialise(IScene scene, IConfigSource source, ISimulationBase openSimBase)

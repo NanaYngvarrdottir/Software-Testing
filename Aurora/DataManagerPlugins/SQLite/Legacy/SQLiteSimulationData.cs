@@ -785,7 +785,7 @@ namespace OpenSim.Data.SQLite
                 catch (SQLiteException SqlEx)
                 {
                     throw new Exception(
-                        "There was a SQL error or connection string configuration error when saving the region settings.  This could be a bug, it could also happen if ConnectionString is defined in the [DatabaseService] section of StandaloneCommon.ini in the config_include folder.  This could also happen if the config_include folder doesn't exist or if the Aurora.ini [Architecture] section isn't set.  If this is your first time running OpenSimulator, please restart the simulator and bug a developer to fix this!",
+                        "There was a SQL error or connection string configuration error when saving the region settings.  This could be a bug, it could also happen if ConnectionString is defined in the [DatabaseService] section of StandaloneCommon.ini in the config_include folder.  This could also happen if the config_include folder doesn't exist or if the Aurora.ini [Architecture] section isn't set.  If this is your first time running Virtua Reality, please restart the simulator and bug a developer to fix this!",
                         SqlEx);
                 }
                 ds.AcceptChanges();

@@ -40,6 +40,6 @@ namespace Aurora.Framework
         Owner = 8,
         Custom = 10,
         SayTo = 11,
-        Broadcast = 0xFF
+        Broadcast = 0xFF // Lets find out more about brodcast and get it enabled
     }
 }

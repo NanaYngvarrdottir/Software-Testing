@@ -79,7 +79,7 @@ namespace Aurora.Services.DataService
             }
             Dictionary<string, object> row = new Dictionary<string, object>(4);
             row["RegionID"] = region.RegionID;
-            row["RegionName"] = region.RegionName.MySqlEscape(50);
+            row["RegionName"] = region.RegionName;
             row["RegionInfo"] = OSDParser.SerializeJsonString(region.PackRegionInfoData(true));
             row["DisableD"] = region.Disabled ? 1 : 0;
             GD.Replace("simulator", row);
@@ -100,18 +100,17 @@ namespace Aurora.Services.DataService
                 filter.andFilters["Disabled"] = 0;
             }
                 
-            List<string> RetVal = GD.Query(new string[1] { "RegionInfo" }, "simulator", filter, null, null, null);
+            List<string> RetVal = GD.Query(new[] { "RegionInfo" }, "simulator", filter, null, null, null);
 
             if (RetVal.Count == 0)
             {
-                return new RegionInfo[0]{};
+                return new RegionInfo[]{};
             }
 
             List<RegionInfo> Infos = new List<RegionInfo>();
-            RegionInfo replyData;
             foreach (string t in RetVal)
             {
-                replyData = new RegionInfo();
+                RegionInfo replyData = new RegionInfo();
                 replyData.UnpackRegionInfoData((OSDMap)OSDParser.DeserializeJson(t));
                 Infos.Add(replyData);
             }
@@ -129,7 +128,7 @@ namespace Aurora.Services.DataService
         {
             QueryFilter filter = new QueryFilter();
             filter.andFilters["RegionID"] = regionID;
-            List<string> RetVal = GD.Query(new string[1] { "RegionInfo" }, "simulator", filter, null, null, null);
+            List<string> RetVal = GD.Query(new[] { "RegionInfo" }, "simulator", filter, null, null, null);
 
             if (RetVal.Count == 0)
             {
@@ -144,8 +143,8 @@ namespace Aurora.Services.DataService
         public RegionInfo GetRegionInfo (string regionName)
         {
             QueryFilter filter = new QueryFilter();
-            filter.andFilters["RegionName"] = regionName.MySqlEscape(50);
-            List<string> RetVal = GD.Query(new string[1] { "RegionInfo" }, "simulator", filter, null, null, null);
+            filter.andFilters["RegionName"] = regionName;
+            List<string> RetVal = GD.Query(new[] { "RegionInfo" }, "simulator", filter, null, null, null);
 
             if (RetVal.Count == 0)
             {
@@ -160,7 +159,6 @@ namespace Aurora.Services.DataService
         public Dictionary<float, RegionLightShareData> LoadRegionWindlightSettings(UUID regionUUID)
         {
             Dictionary<float, RegionLightShareData> RetVal = new Dictionary<float, RegionLightShareData>();
-            RegionLightShareData RWLD = new RegionLightShareData();
             List<RegionLightShareData> RWLDs = GenericUtils.GetGenerics<RegionLightShareData>(regionUUID, "RegionWindLightData", GD);
             foreach (RegionLightShareData lsd in RWLDs)
             {

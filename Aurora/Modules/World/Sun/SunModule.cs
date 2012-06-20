@@ -69,15 +69,15 @@ namespace Aurora.Modules.Sun
         // Calculated every update
         private double TotalDistanceTravelled; // Distance since beginning of time (in radians)
         private Vector3 Velocity = Vector3.Zero;
-        private double d_DayTimeSunHourScale = 0.5; // Day/Night hours are equal
-        private double d_day_length = 4; // A VW day is 4 RW hours long
+        private double d_DayTimeSunHourScale = 12; // Day/Night hours are equal
+        private double d_day_length = 24; // A VW day is 4 RW hours long
 
-        private double d_day_night = 0.5;
+        private double d_day_night = 12;
                        // axis offset: Default Hoizon shift to try and closely match the sun model in LL Viewer
 
         private int d_frame_mod = 25; // Every 2 seconds (actually less)
         private string d_mode = "SL";
-        private int d_year_length = 60; // There are 60 VW days in a VW year
+        private int d_year_length = 365; // There are 60 VW days in a VW year
         private double m_DayLengthHours;
         private double m_DayTimeSunHourScale;
         private double m_HorizonShift;
@@ -458,7 +458,7 @@ namespace Aurora.Modules.Sun
             }
             else
             {
-                if (m_DayTimeSunHourScale != 0.5f)
+                if (m_DayTimeSunHourScale != 12f)
                 {
                     ulong CurDaySeconds = CurrentTime%SecondsPerSunCycle;
                     double CurDayPercentage = (double) CurDaySeconds/SecondsPerSunCycle;
@@ -469,14 +469,14 @@ namespace Aurora.Modules.Sun
                     PosTime = CurrentTime/SecondsPerSunCycle;
                     PosTime *= SecondsPerSunCycle;
 
-                    if (CurDayPercentage < 0.5)
+                    if (CurDayPercentage < 12)
                     {
-                        PosTime += (ulong) ((CurDayPercentage/.5)*DayLightSeconds);
+                        PosTime += (ulong) ((CurDayPercentage/12)*DayLightSeconds);
                     }
                     else
                     {
                         PosTime += DayLightSeconds;
-                        PosTime += (ulong) (((CurDayPercentage - 0.5)/.5)*NightSeconds);
+                        PosTime += (ulong) (((CurDayPercentage - 12)/12)*NightSeconds);
                     }
                 }
             }

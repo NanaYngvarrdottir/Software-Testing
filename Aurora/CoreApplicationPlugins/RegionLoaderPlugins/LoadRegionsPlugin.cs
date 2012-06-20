@@ -79,7 +79,7 @@ namespace OpenSim.CoreApplicationPlugins
 
             List<IRegionLoader> regionLoaders = AuroraModuleLoader.PickupModules<IRegionLoader>();
             ISceneManager manager = m_openSim.ApplicationRegistry.RequestModuleInterface<ISceneManager>();
-            MainConsole.Instance.DefaultPrompt = "Region (root)";//Set this up
+            MainConsole.Instance.DefaultPrompt = "Virtual Reality Region (root)";//Set this up
         reload:
             List<RegionInfo[]> regions = new List<RegionInfo[]>();
             foreach (IRegionLoader loader in regionLoaders)
@@ -97,7 +97,7 @@ namespace OpenSim.CoreApplicationPlugins
                 string reason;
                 if (!CheckRegionsForSanity(regionsToLoad, out reason))
                 {
-                    MainConsole.Instance.Error("[LoadRegions]: Halting startup due to conflicts in region configurations");
+                    MainConsole.Instance.Error("[LoadRegions]: Virtual Reality Halting startup due to conflicts in region configurations");
                     if (!loader.FailedToStartRegions(reason))
                     {
                         bool foundSomeRegions = false;

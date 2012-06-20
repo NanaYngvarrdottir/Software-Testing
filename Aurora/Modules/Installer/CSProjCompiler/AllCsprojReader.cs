@@ -1,4 +1,4 @@
-﻿/*
+﻿﻿/*
  * No license given,
  * taken from http://csharper.fairblog.ro/2010/05/compiling-c-projects-at-runtime-parsing-the-csproj-file 
  */

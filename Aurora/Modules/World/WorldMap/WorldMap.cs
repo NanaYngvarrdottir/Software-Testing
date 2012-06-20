@@ -44,7 +44,7 @@ namespace Aurora.Modules.WorldMap
 {
     public class AuroraWorldMapModule : INonSharedRegionModule, IWorldMapModule
 	{
-        private const string DEFAULT_WORLD_MAP_EXPORT_PATH = "exportmap.jpg";
+        private const string DEFAULT_WORLD_MAP_EXPORT_PATH = "/ExportMap/ExportMap.jpg";
         //private static readonly UUID STOP_UUID = UUID.Random();
 
         //private IConfig m_config;
@@ -57,7 +57,7 @@ namespace Aurora.Modules.WorldMap
         private bool itemRequesterIsRunning;
         private static AuroraThreadPool threadpool;
         private static AuroraThreadPool blockthreadpool;
-        private int MapViewLength = 8;
+        private int MapViewLength = 10;
         
 		#region INonSharedRegionModule Members
 

@@ -1,4 +1,4 @@
-﻿using OpenMetaverse;
+﻿﻿using OpenMetaverse;
 
 namespace OpenSim.Services.Interfaces
 {

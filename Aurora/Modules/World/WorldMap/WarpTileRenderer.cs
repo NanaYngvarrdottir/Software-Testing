@@ -55,7 +55,7 @@ namespace Aurora.Modules.WorldMap
         private IRendering m_primMesher;
         private IScene m_scene;
         private bool m_texturePrims;
-        private bool m_useAntiAliasing = false; // TODO: Make this a config option
+        private bool m_useAntiAliasing = true; // TODO: Make this a config option
 
         #region IMapTileTerrainRenderer Members
 
@@ -92,7 +92,7 @@ namespace Aurora.Modules.WorldMap
                 MainConsole.Instance.Warn("[MAPTILE]: Failed to load StartupConfig");
             }
 
-            m_texturePrims = m_config.Configs["MapModule"].GetBoolean("WarpTexturePrims", false);
+            m_texturePrims = m_config.Configs["MapModule"].GetBoolean("WarpTexturePrims", true);
             m_colors.Clear();
 
             int scaledRemovalFactor = m_scene.RegionInfo.RegionSizeX/(Constants.RegionSize/2);
@@ -374,7 +374,7 @@ namespace Aurora.Modules.WorldMap
                             if (sculpt != null)
                             {
                                 renderMesh = m_primMesher.GenerateFacetedSculptMesh(omvPrim, (Bitmap) sculpt,
-                                                                                    DetailLevel.Medium);
+                                                                                    DetailLevel.High);
                                 sculpt.Dispose();
                             }
                         }
@@ -382,7 +382,7 @@ namespace Aurora.Modules.WorldMap
                 }
                 else // Prim
                 {
-                    renderMesh = m_primMesher.GenerateFacetedMesh(omvPrim, DetailLevel.Medium);
+                    renderMesh = m_primMesher.GenerateFacetedMesh(omvPrim, DetailLevel.High);
                 }
 
                 if (renderMesh == null)

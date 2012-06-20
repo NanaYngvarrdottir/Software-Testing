@@ -248,7 +248,7 @@ namespace Aurora.Modules.SampleCurrencyModule
 
             quoteResponse.Add("success", false);
             quoteResponse.Add("errorMessage", "Invalid parameters passed to the quote box");
-            quoteResponse.Add("errorURI", "http://www.opensimulator.org/wiki");
+            quoteResponse.Add("errorURI", "http://www.virtualrealitygrid.org/advice.phpi");
             returnval.Value = quoteResponse;
             return returnval;
         }

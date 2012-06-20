@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Aurora.Simulation.Base
 {
     public class BinMigratorService
     {
-        private const int _currentBinVersion = 7;
+        private const int _currentBinVersion = 8;
         public void MigrateBin()
         {
             int currentVersion = GetBinVersion();
@@ -77,8 +77,8 @@ namespace Aurora.Simulation.Base
         public void RunMigration2()
         {
             ///Asset format changed, broke existing cached assets
-            if (!Directory.Exists("assetcache//")) return;
-            foreach (string path in Directory.GetDirectories("assetcache//"))
+            if (!Directory.Exists("/AssetCache//")) return;
+            foreach (string path in Directory.GetDirectories("/AssetCache//"))
             {
                 Directory.Delete(path, true);
             }
@@ -124,8 +124,8 @@ namespace Aurora.Simulation.Base
         public void RunMigration6()
         {
             ///Asset format changed to protobuf, broke existing cached assets
-            if (!Directory.Exists("assetcache//")) return;
-            foreach (string path in Directory.GetDirectories("assetcache//"))
+            if (!Directory.Exists("/AssetCache//")) return;
+            foreach (string path in Directory.GetDirectories("/AssetCache////"))
             {
                 Directory.Delete(path, true);
             }
@@ -134,10 +134,22 @@ namespace Aurora.Simulation.Base
         public void RunMigration7()
         {
             ///Asset type was wrong, need to nuke
-            if (!Directory.Exists("assetcache//")) return;
-            foreach (string path in Directory.GetDirectories("assetcache//"))
+            if (!Directory.Exists("/AssetCache//")) return;
+            foreach (string path in Directory.GetDirectories("/AssetCache///"))
             {
                 Directory.Delete(path, true);
+            }
+        }
+
+        public void RunMigration8()
+        {
+            if (!File.Exists("AuroraServer.ini")) return;
+            try
+            {
+                File.Move("AuroraServer.ini", "Aurora.Server.ini");
+            }
+            catch
+            {
             }
         }
     }
