@@ -151,7 +151,7 @@ namespace OpenSim.Services.InventoryService
             string sure = MainConsole.Instance.Prompt("Are you sure you want to delete the Welcome Package Inventory?", "yes");
             if (!sure.Equals("yes", StringComparison.CurrentCultureIgnoreCase))
                 return;
-            ClearDefaultInventory();
+            ClearWelcomePackage();
         }
 
         public void ClearWelcomePackage()
