@@ -18,3 +18,7 @@
 /home/virtualreality/Software/Aurora/bin/Aurora.Addon.ScriptEngine.YieldProlog.dll
 /home/virtualreality/Software/Aurora/addon-modules/YieldProlog/Modules/obj/x86/Debug/Aurora.Addon.ScriptEngine.YieldProlog.dll
 /home/virtualreality/Software/Aurora/addon-modules/YieldProlog/Modules/obj/x86/Debug/Aurora.Addon.ScriptEngine.YieldProlog.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.ScriptEngine.YieldProlog.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.ScriptEngine.YieldProlog.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/YieldProlog/Modules/obj/x86/Debug/Aurora.Addon.ScriptEngine.YieldProlog.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/YieldProlog/Modules/obj/x86/Debug/Aurora.Addon.ScriptEngine.YieldProlog.dll.mdb

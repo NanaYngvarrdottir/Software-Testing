@@ -389,6 +389,9 @@
 	  <Compile Include="Migration\Migrators\Scheduler\SchedulerMigrator_2.cs">
 		<SubType>Code</SubType>
 	  </Compile>
+	  <Compile Include="Migration\Migrators\Scheduler\SchedulerMigrator_3.cs">
+		<SubType>Code</SubType>
+	  </Compile>
 	  <Compile Include="Migration\Migrators\Stats\StatsMigrator_1.cs">
 		<SubType>Code</SubType>
 	  </Compile>

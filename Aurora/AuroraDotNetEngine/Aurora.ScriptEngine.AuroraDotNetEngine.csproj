@@ -309,6 +309,12 @@
 	  <Compile Include="CompilerTools\LSL2CSCodeTransformer.cs">
 		<SubType>Code</SubType>
 	  </Compile>
+	  <Compile Include="CompilerTools\lsl.lexer.cs">
+		<SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="CompilerTools\lsl.parser.cs">
+		<SubType>Code</SubType>
+	  </Compile>
 	  <Compile Include="CompilerTools\Converters\CSConverter.cs">
 		<SubType>Code</SubType>
 	  </Compile>

@@ -18,3 +18,7 @@
 /home/virtualreality/Software/Aurora/bin/Aurora.Addon.VivoxVoice.dll
 /home/virtualreality/Software/Aurora/addon-modules/VivoxVoice/Modules/obj/x86/Debug/Aurora.Addon.VivoxVoice.dll
 /home/virtualreality/Software/Aurora/addon-modules/VivoxVoice/Modules/obj/x86/Debug/Aurora.Addon.VivoxVoice.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.VivoxVoice.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.VivoxVoice.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/VivoxVoice/Modules/obj/x86/Debug/Aurora.Addon.VivoxVoice.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/VivoxVoice/Modules/obj/x86/Debug/Aurora.Addon.VivoxVoice.dll.mdb

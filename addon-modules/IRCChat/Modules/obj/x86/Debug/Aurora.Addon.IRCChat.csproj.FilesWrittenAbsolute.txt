@@ -23,3 +23,8 @@
 /home/virtualreality/Software/Aurora/bin/Aurora.Addon.IRCChat.dll
 /home/virtualreality/Software/Aurora/addon-modules/IRCChat/Modules/obj/x86/Debug/Aurora.Addon.IRCChat.dll
 /home/virtualreality/Software/Aurora/addon-modules/IRCChat/Modules/obj/x86/Debug/Aurora.Addon.IRCChat.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/MetaBuilders.Irc.dll
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.IRCChat.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.IRCChat.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/IRCChat/Modules/obj/x86/Debug/Aurora.Addon.IRCChat.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/IRCChat/Modules/obj/x86/Debug/Aurora.Addon.IRCChat.dll.mdb

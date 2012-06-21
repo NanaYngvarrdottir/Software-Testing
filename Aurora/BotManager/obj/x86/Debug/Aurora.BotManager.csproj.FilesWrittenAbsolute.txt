@@ -2,3 +2,7 @@
 /home/virtualreality/Software/Aurora/bin/Aurora.BotManager.dll
 /home/virtualreality/Software/Aurora/Aurora/BotManager/obj/x86/Debug/Aurora.BotManager.dll
 /home/virtualreality/Software/Aurora/Aurora/BotManager/obj/x86/Debug/Aurora.BotManager.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.BotManager.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.BotManager.dll
+/home/virtualreality/Software/SoftwareTesting/Aurora/BotManager/obj/x86/Debug/Aurora.BotManager.dll
+/home/virtualreality/Software/SoftwareTesting/Aurora/BotManager/obj/x86/Debug/Aurora.BotManager.dll.mdb

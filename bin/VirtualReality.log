@@ -1,0 +1,1739 @@
+﻿2012-06-20 22:25:39,405 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:25:39,418 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:25:39,419 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:25:39,419 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:25:39,419 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:25:40,309 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9000
+2012-06-20 22:25:55,421 ERROR - Aurora.Framework.BaseConsole [MySQLDatabase]: Virtual Reality cannot connect to the MySQL instance you have provided. Please make sure it is online, and then press enter to try again.
+2012-06-20 22:30:11,032 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:11,045 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:11,046 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:11,046 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:11,046 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:12,142 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:13,509 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:14,032 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] Admin connection established
+2012-06-20 22:30:14,032 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:14,052 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:14,205 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:14,205 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:14,206 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:14,207 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:14,210 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:14,211 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:14,211 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:14,267 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:14,308 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:14,652 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:14,696 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:15,526 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:15,527 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:15,539 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:16,560 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:16,593 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:16,593 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:16,593 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:16,594 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:16,594 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:16,594 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:17,208 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:17,208 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:17,208 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:17,250 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:17,252 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:17,253 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:17,253 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:17,253 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:17,253 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:17,253 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:17,253 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:17,253 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:17,254 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:17,274 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:17,275 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:17,307 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:17,309 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:18,042 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:18,042 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:18,042 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:19,043 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:19,094 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:19,095 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:19,095 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:19,095 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:19,095 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:19,095 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:19,704 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:19,704 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:19,705 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:19,739 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:19,740 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:19,740 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:19,740 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:19,741 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:19,742 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:19,742 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:19,742 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:19,742 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:19,775 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:19,777 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:19,808 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:19,810 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:20,554 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:20,555 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:20,555 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:21,557 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:21,596 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:21,596 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:21,597 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:21,597 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:21,597 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:21,598 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:22,204 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:22,204 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:22,205 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:22,251 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:22,253 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:22,254 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:22,254 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:22,254 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:22,254 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:22,254 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:22,254 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:22,254 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:22,255 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:22,255 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:22,276 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:22,277 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:22,310 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:22,312 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:22,558 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:22,558 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:22,559 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:23,560 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:23,605 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:23,613 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:23,613 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:23,613 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:23,613 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:23,614 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:24,197 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:24,198 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:24,198 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:24,231 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:24,232 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:24,233 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:24,233 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:24,234 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:24,234 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:24,255 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:24,256 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:24,287 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:24,289 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:24,684 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:24,684 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:24,685 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:25,707 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:25,753 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:25,753 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:25,753 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:25,753 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:25,753 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:25,753 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:26,335 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:26,336 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:26,336 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:26,377 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:26,379 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:26,380 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:26,380 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:26,380 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:26,381 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:26,401 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:26,402 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:26,443 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:26,445 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:26,714 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:26,715 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:26,716 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:27,719 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:27,758 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:27,758 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:27,759 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:27,759 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:27,759 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:27,759 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:28,369 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:28,369 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:28,370 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:28,402 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:28,404 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:28,405 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:28,405 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:28,405 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:28,405 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:28,405 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:28,405 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:28,405 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:28,405 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:28,405 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:28,426 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:28,427 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:28,459 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:28,461 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:28,726 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:28,726 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:28,727 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:29,728 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:29,774 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:29,774 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:29,774 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:29,775 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:29,775 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:29,775 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:30,337 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:30,338 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:30,338 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:30,372 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:30,374 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:30,375 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:30,376 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:30,376 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:30,376 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:30,397 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:30,398 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:30,429 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:30,431 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:30,695 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:30,696 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:30,696 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:31,698 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:31,757 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:31,757 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:31,757 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:31,757 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:31,757 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:31,758 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:32,358 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:32,358 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:32,359 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:32,391 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:32,405 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:32,406 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:32,407 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:32,408 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:32,408 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:32,408 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:32,429 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:32,430 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:32,463 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:32,465 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:32,724 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:32,725 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:32,725 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:33,726 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:33,767 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:33,768 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:33,768 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:33,768 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:33,768 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:33,768 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:34,370 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:34,370 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:34,371 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:34,404 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:34,406 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:34,407 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:34,407 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:34,407 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:34,407 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:34,407 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:34,407 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:34,429 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:34,430 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:34,461 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:34,463 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:34,711 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:34,712 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:34,712 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:35,715 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:35,766 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:35,767 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:35,767 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:35,767 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:35,767 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:35,767 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:36,331 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:36,331 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:36,332 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:36,365 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:36,366 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:36,367 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:36,367 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:36,367 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:36,368 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:36,398 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:36,399 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:36,431 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:36,433 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:36,737 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:36,738 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:36,738 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:37,739 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:37,783 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:37,783 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:37,783 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:37,783 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:37,784 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:37,784 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:38,391 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:38,392 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:38,393 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:38,437 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:38,441 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:38,442 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:38,442 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:38,443 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:38,443 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:38,468 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:38,469 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:38,501 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:38,503 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:38,776 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:38,777 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:38,778 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:39,780 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:39,838 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:39,839 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:39,839 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:39,839 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:39,839 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:39,839 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:40,419 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:40,420 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:40,420 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:40,467 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:40,469 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:40,470 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:40,470 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:40,471 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:40,471 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:40,492 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:40,493 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:40,524 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:40,527 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:40,782 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:40,782 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:40,783 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:41,784 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:41,823 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:41,823 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:41,824 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:41,824 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:41,824 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:41,824 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:42,455 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:42,455 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:42,456 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:42,489 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:42,490 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:42,491 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:42,491 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:42,491 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:42,491 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:42,491 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:42,491 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:42,491 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:42,491 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:42,512 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:42,513 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:42,545 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:42,547 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:42,796 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:42,796 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:42,797 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:43,799 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:43,856 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:43,856 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:43,857 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:43,857 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:43,857 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:43,857 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:44,436 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:44,436 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:44,437 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:44,470 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:44,471 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:44,472 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:44,473 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:44,473 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:44,473 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:44,473 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:44,473 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:44,494 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:44,495 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:44,537 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:44,539 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:44,784 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:44,785 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:44,785 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:45,787 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:45,831 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:45,831 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:45,831 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:45,831 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:45,831 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:45,832 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:46,349 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:46,349 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:46,350 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:46,383 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:46,385 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:46,385 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:46,385 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:46,385 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:46,386 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:46,387 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:46,388 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:46,388 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:46,389 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:46,389 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:46,437 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:46,440 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:46,492 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:46,498 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:30:48,168 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:30:48,168 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:30:48,168 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Sandbox
+2012-06-20 22:30:49,169 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:30:49,212 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:30:49,212 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:49,212 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:30:49,212 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:30:49,212 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:30:49,212 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:30:49,830 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:30:49,830 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:30:49,831 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:30:49,881 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:30:49,882 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:49,882 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:30:49,882 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:49,882 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:30:49,882 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:49,882 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:30:49,883 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:30:49,884 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:30:49,884 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:30:49,884 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:30:49,906 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:30:49,907 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Sandbox" at @ 200,200
+2012-06-20 22:30:49,950 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:30:49,956 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:31:37,957 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:31:37,970 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:31:37,970 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:31:37,970 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:31:37,970 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:31:41,972 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:31:43,149 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:31:43,669 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] Admin connection established
+2012-06-20 22:31:43,669 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:31:43,690 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:31:43,825 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:31:43,826 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:31:43,830 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:31:43,830 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:31:43,831 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:31:43,874 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:31:43,879 INFO  - Aurora.Framework.BaseConsole =====================================
+
+2012-06-20 22:31:43,880 INFO  - Aurora.Framework.BaseConsole Virtual Reality is now going to ask you a couple of questions about your region.
+
+2012-06-20 22:31:43,880 INFO  - Aurora.Framework.BaseConsole You can press 'enter' without typing anything to use the Virtual Reality defaults
+
+2012-06-20 22:31:43,880 INFO  - Aurora.Framework.BaseConsole Virtual Reality defaults are displayed between [ ] brackets.
+
+2012-06-20 22:31:43,880 INFO  - Aurora.Framework.BaseConsole =====================================
+
+2012-06-20 22:34:04,043 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:04,199 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:04,204 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:05,279 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:05,280 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:05,290 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:06,306 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:06,352 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:06,352 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:06,352 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:06,352 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:06,353 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:06,353 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:06,928 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:06,928 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:06,928 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:06,973 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:06,975 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:06,976 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:06,976 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:06,976 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:06,976 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:06,976 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:06,976 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:06,977 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:06,998 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:06,998 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:07,052 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:07,055 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:07,456 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:07,456 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:07,457 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:08,459 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:08,513 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:08,514 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:08,514 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:08,514 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:08,514 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:08,514 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:09,074 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:09,075 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:09,075 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:09,108 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:09,109 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:09,109 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:09,110 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:09,111 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:09,111 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:09,111 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:09,132 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:09,133 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:09,173 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:09,175 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:09,908 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:09,908 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:09,908 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:10,910 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:10,956 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:10,956 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:10,956 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:10,956 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:10,956 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:10,957 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:11,583 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:11,584 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:11,584 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:11,617 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:11,618 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:11,618 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:11,618 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:11,618 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:11,618 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:11,619 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:11,620 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:11,620 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:11,620 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:11,657 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:11,658 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:11,689 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:11,691 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:12,088 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:12,089 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:12,089 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:13,090 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:13,134 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:13,134 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:13,134 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:13,134 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:13,135 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:13,135 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:13,692 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:13,692 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:13,693 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:13,735 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:13,736 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:13,736 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:13,736 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:13,737 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:13,738 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:13,738 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:13,738 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:13,738 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:13,759 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:13,760 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:13,791 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:13,792 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:14,312 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:14,313 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:14,313 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:15,314 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:15,354 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:15,355 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:15,355 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:15,355 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:15,355 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:15,368 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:15,850 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:15,850 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:15,851 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:15,896 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:15,898 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:15,899 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:15,899 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:15,899 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:15,899 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:15,899 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:15,899 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:15,899 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:15,900 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:15,921 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:15,922 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:15,953 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:15,955 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:16,360 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:16,361 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:16,361 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:17,362 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:17,416 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:17,416 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:17,416 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:17,417 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:17,417 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:17,417 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:17,985 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:17,986 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:17,986 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:18,039 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:18,041 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:18,041 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:18,041 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:18,041 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:18,042 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:18,043 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:18,043 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:18,043 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:18,066 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:18,067 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:18,103 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:18,105 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:18,532 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:18,532 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:18,532 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:19,533 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:19,583 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:19,583 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:19,583 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:19,583 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:19,583 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:19,584 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:20,164 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:20,164 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:20,165 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:20,197 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:20,212 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:20,213 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:20,213 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:20,214 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:20,214 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:20,234 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:20,235 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:20,267 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:20,268 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:20,712 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:20,713 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:20,713 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:21,715 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:21,757 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:21,757 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:21,757 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:21,758 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:21,758 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:21,758 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:34:22,318 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:34:22,319 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:34:22,320 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:34:22,365 WARN  - Aurora.Framework.BaseConsole [SCENEOBJECTSERIALIZER]: Tried to add an additional SOP processor for Components
+2012-06-20 22:34:22,366 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:22,366 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:34:22,366 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:22,366 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:34:22,367 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:34:22,368 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:34:22,369 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:34:22,369 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:34:22,369 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:34:22,390 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:34:22,391 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:34:22,440 ERROR - Aurora.Framework.BaseConsole [APPLICATION]: 
+APPLICATION EXCEPTION DETECTED
+
+Exception: System.DllNotFoundException: ode
+  at (wrapper managed-to-native) OdeAPI.d:InitODE ()
+  at Aurora.Physics.AuroraOpenDynamicsEngine.AuroraODEPlugin.GetScene (System.String sceneIdentifier) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsPluginManager.GetPhysicsScene (System.String physEngineName, System.String meshEngineName, IConfigSource config, Aurora.Framework.RegionInfo region, IRegistryCore registry) [0x00000] in <filename unknown>:0 
+  at Aurora.Modules.Startup.PhysicsInitializer.Initialise (IScene scene, IConfigSource source, ISimulationBase openSimBase) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartModules (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (IScene scene) [0x00000] in <filename unknown>:0 
+  at OpenSim.Region.Framework.Scenes.SceneManager.StartNewRegion (Aurora.Framework.RegionInfo regionInfo) [0x00000] in <filename unknown>:0 
+  at OpenSim.CoreApplicationPlugins.LoadRegionsPlugin.PostStart () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.StartModules () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.SimulationBase.Startup () [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.Startup (Nini.Config.ArgvConfigSource originalConfigSource, IConfigSource configSource, ISimulationBase simBase, System.String[] cmdParameters) [0x00000] in <filename unknown>:0 
+
+Application is terminating: False
+
+2012-06-20 22:34:22,442 ERROR - Aurora.Framework.BaseConsole [CRASH LOGGER CRASHED]: System.EntryPointNotFoundException: GetCurrentThreadId
+  at (wrapper managed-to-native) Aurora.Simulation.Base.MiniDump:GetCurrentThreadId ()
+  at Aurora.Simulation.Base.MiniDump.Write (System.Runtime.InteropServices.SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo) [0x00000] in <filename unknown>:0 
+  at Aurora.Simulation.Base.BaseApplication.handleException (System.String msg, System.Exception ex) [0x00000] in <filename unknown>:0 
+2012-06-20 22:34:22,877 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 22:34:22,878 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 22:34:22,881 INFO  - Aurora.Framework.BaseConsole [Scene]: Closing down the single simulator: Software Testing
+2012-06-20 22:34:23,882 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete. 
+2012-06-20 22:34:23,923 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:34:23,923 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:23,925 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:34:23,925 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:34:23,925 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:34:23,925 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:37:33,787 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:37:33,800 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:37:33,800 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:37:33,801 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:37:33,801 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:37:34,937 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:37:36,109 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:37:36,624 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] Admin connection established
+2012-06-20 22:37:36,624 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:37:36,644 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:37:36,778 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:37:36,778 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:37:36,778 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:37:36,778 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:37:36,779 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:37:36,780 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:37:36,782 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:37:36,784 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:37:36,784 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:37:36,827 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:37:36,838 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:37:38,683 INFO  - Aurora.Framework.BaseConsole [TERRAIN]: No default terrain. Generating a new terrain.
+2012-06-20 22:37:38,756 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Average Strength   : 3
+2012-06-20 22:37:38,756 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Average Direction  : 90
+2012-06-20 22:37:38,757 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Varience Strength  : 1
+2012-06-20 22:37:38,757 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Varience Direction : 10
+2012-06-20 22:37:38,757 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Rate Change        : 1
+2012-06-20 22:37:38,782 INFO  - Aurora.Framework.BaseConsole [XMLRPC MODULE]: Starting up XMLRPC Server on port 20800 for llRemoteData commands.
+2012-06-20 22:37:38,783 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:20800
+2012-06-20 22:37:38,928 WARN  - Aurora.Framework.BaseConsole Your region Software Testing is not part of an estate.
+2012-06-20 22:37:53,254 WARN  - Aurora.Framework.BaseConsole Found user. Governor Virtual has 1 estates currently. These estates are the following:
+2012-06-20 22:37:53,254 WARN  - Aurora.Framework.BaseConsole Maitnence
+2012-06-20 22:37:55,543 WARN  - Aurora.Framework.BaseConsole Successfully joined the estate!
+2012-06-20 22:37:55,547 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Loading objects for Software Testing
+2012-06-20 22:37:55,548 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Loaded 0 object(s) in Software Testing
+2012-06-20 22:37:55,562 INFO  - Aurora.Framework.BaseConsole [ParcelManagement]: No land found for region Software Testing, setting owner to 56865bd7-6fed-4b7b-988f-049fd0c878b1
+2012-06-20 22:37:55,833 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Starting scripts in Software Testing
+2012-06-20 22:37:55,924 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Startup Complete in region Software Testing
+2012-06-20 22:37:55,929 INFO  - Aurora.Framework.BaseConsole [SceneManager]: All regions are started. This took 0m 22.281s
+2012-06-20 22:37:56,007 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Default avatars not loaded
+2012-06-20 22:44:15,719 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 22:44:15,732 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:44:15,732 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 22:44:15,732 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 22:44:15,732 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.565d811) (Unix/Mono)
+
+2012-06-20 22:44:16,689 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 22:44:17,904 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 22:44:18,303 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] Admin connection established
+2012-06-20 22:44:18,304 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 22:44:18,322 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 22:44:18,492 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:44:18,492 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 22:44:18,492 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:44:18,493 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 22:44:18,494 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 22:44:18,497 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 22:44:18,498 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 22:44:18,498 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 22:44:18,542 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 22:44:18,553 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 22:44:20,116 INFO  - Aurora.Framework.BaseConsole [TERRAIN]: No default terrain. Generating a new terrain.
+2012-06-20 22:44:20,214 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Average Strength   : 3
+2012-06-20 22:44:20,215 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Average Direction  : 90
+2012-06-20 22:44:20,215 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Varience Strength  : 1
+2012-06-20 22:44:20,215 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Varience Direction : 10
+2012-06-20 22:44:20,216 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Rate Change        : 1
+2012-06-20 22:44:20,228 INFO  - Aurora.Framework.BaseConsole [XMLRPC MODULE]: Starting up XMLRPC Server on port 20800 for llRemoteData commands.
+2012-06-20 22:44:20,229 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:20800
+2012-06-20 22:44:20,370 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Loading objects for Software Testing
+2012-06-20 22:44:20,370 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Loaded 0 object(s) in Software Testing
+2012-06-20 22:44:20,430 INFO  - Aurora.Framework.BaseConsole [ParcelManagement]: No land found for region Software Testing, setting owner to 56865bd7-6fed-4b7b-988f-049fd0c878b1
+2012-06-20 22:44:20,607 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Starting scripts in Software Testing
+2012-06-20 22:44:20,667 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Startup Complete in region Software Testing
+2012-06-20 22:44:20,679 INFO  - Aurora.Framework.BaseConsole [SceneManager]: All regions are started. This took 0m 5.131s
+2012-06-20 22:44:20,759 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Default avatars not loaded

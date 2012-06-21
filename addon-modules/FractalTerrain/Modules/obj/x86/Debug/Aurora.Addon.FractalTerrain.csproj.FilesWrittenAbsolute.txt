@@ -23,3 +23,8 @@
 /home/virtualreality/Software/Aurora/bin/Aurora.Addon.FractalTerrain.dll
 /home/virtualreality/Software/Aurora/addon-modules/FractalTerrain/Modules/obj/x86/Debug/Aurora.Addon.FractalTerrain.dll
 /home/virtualreality/Software/Aurora/addon-modules/FractalTerrain/Modules/obj/x86/Debug/Aurora.Addon.FractalTerrain.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/LandscapeGenCore.dll
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.FractalTerrain.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.FractalTerrain.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/FractalTerrain/Modules/obj/x86/Debug/Aurora.Addon.FractalTerrain.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/FractalTerrain/Modules/obj/x86/Debug/Aurora.Addon.FractalTerrain.dll.mdb

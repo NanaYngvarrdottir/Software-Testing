@@ -2,3 +2,7 @@
 /home/virtualreality/Software/Aurora/bin/SmartThreadPool.dll
 /home/virtualreality/Software/Aurora/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll
 /home/virtualreality/Software/Aurora/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/SmartThreadPool.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/SmartThreadPool.dll
+/home/virtualreality/Software/SoftwareTesting/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll
+/home/virtualreality/Software/SoftwareTesting/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll.mdb

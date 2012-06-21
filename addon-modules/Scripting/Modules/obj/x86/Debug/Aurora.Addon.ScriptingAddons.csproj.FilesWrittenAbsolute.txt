@@ -18,3 +18,7 @@
 /home/virtualreality/Software/Aurora/bin/Aurora.Addon.ScriptingAddons.dll
 /home/virtualreality/Software/Aurora/addon-modules/Scripting/Modules/obj/x86/Debug/Aurora.Addon.ScriptingAddons.dll
 /home/virtualreality/Software/Aurora/addon-modules/Scripting/Modules/obj/x86/Debug/Aurora.Addon.ScriptingAddons.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.ScriptingAddons.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Aurora.Addon.ScriptingAddons.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/Scripting/Modules/obj/x86/Debug/Aurora.Addon.ScriptingAddons.dll
+/home/virtualreality/Software/SoftwareTesting/addon-modules/Scripting/Modules/obj/x86/Debug/Aurora.Addon.ScriptingAddons.dll.mdb
