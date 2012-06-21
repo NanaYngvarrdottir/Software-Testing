@@ -1737,3 +1737,54 @@ Application is terminating: False
 2012-06-20 22:44:20,667 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Startup Complete in region Software Testing
 2012-06-20 22:44:20,679 INFO  - Aurora.Framework.BaseConsole [SceneManager]: All regions are started. This took 0m 5.131s
 2012-06-20 22:44:20,759 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Default avatars not loaded
+2012-06-20 23:08:10,939 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-20 23:08:10,952 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 23:08:10,953 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-20 23:08:10,953 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-20 23:08:10,953 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software: 0.1.1.3 Dev (2012-06-20.14c9001) (Unix/Mono)
+
+2012-06-20 23:08:12,109 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:9001
+2012-06-20 23:08:13,372 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] using vivox server www.osp.vivox.com
+2012-06-20 23:08:13,876 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] Admin connection established
+2012-06-20 23:08:13,877 INFO  - Aurora.OptionalModules.VivoxVoiceModule [VivoxVoice] plugin enabled
+2012-06-20 23:08:13,894 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Remote Admin Plugin Enabled
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-20 23:08:14,029 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-20 23:08:14,030 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-20 23:08:14,033 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-20 23:08:14,034 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Error - Address already in use
+2012-06-20 23:08:14,034 ERROR - Aurora.Framework.BaseConsole [BASE HTTP SERVER]: Tip: Do you have permission to listen on port 8007?
+2012-06-20 23:08:14,076 INFO  - Aurora.Framework.BaseConsole [LoadRegions]: Checking for regions from File Based Plugin
+2012-06-20 23:08:14,087 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Starting region "Software Testing" at @ 20000,20000
+2012-06-20 23:08:15,726 INFO  - Aurora.Framework.BaseConsole [TERRAIN]: No default terrain. Generating a new terrain.
+2012-06-20 23:08:15,795 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Average Strength   : 3
+2012-06-20 23:08:15,796 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Average Direction  : 90
+2012-06-20 23:08:15,796 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Varience Strength  : 1
+2012-06-20 23:08:15,796 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Varience Direction : 10
+2012-06-20 23:08:15,797 INFO  - Aurora.Framework.BaseConsole [ConfigurableWind] Rate Change        : 1
+2012-06-20 23:08:15,809 INFO  - Aurora.Framework.BaseConsole [XMLRPC MODULE]: Starting up XMLRPC Server on port 20800 for llRemoteData commands.
+2012-06-20 23:08:15,809 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:20800
+2012-06-20 23:08:15,925 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Loading objects for Software Testing
+2012-06-20 23:08:15,926 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Loaded 0 object(s) in Software Testing
+2012-06-20 23:08:16,031 INFO  - Aurora.Framework.BaseConsole [ParcelManagement]: No land found for region Software Testing, setting owner to 56865bd7-6fed-4b7b-988f-049fd0c878b1
+2012-06-20 23:08:16,236 INFO  - Aurora.Framework.BaseConsole [BackupModule]: Starting scripts in Software Testing
+2012-06-20 23:08:16,291 INFO  - Aurora.Framework.BaseConsole [SceneManager]: Startup Complete in region Software Testing
+2012-06-20 23:08:16,318 INFO  - Aurora.Framework.BaseConsole [SceneManager]: All regions are started. This took 0m 5.533s
+2012-06-20 23:08:16,373 INFO  - Aurora.Framework.BaseConsole [RADMIN]: Default avatars not loaded
