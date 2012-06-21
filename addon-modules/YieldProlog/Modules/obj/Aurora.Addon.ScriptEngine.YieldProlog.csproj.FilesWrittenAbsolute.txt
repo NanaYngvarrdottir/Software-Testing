@@ -1,4 +1,0 @@
-/Software/Aurora-Sim/bin/Aurora.Addon.ScriptEngine.YieldProlog.dll.mdb
-/Software/Aurora-Sim/bin/Aurora.Addon.ScriptEngine.YieldProlog.dll
-/Software/Aurora-Sim/addon-modules/YieldProlog/Modules/obj/x86/Debug/Aurora.Addon.ScriptEngine.YieldProlog.dll
-/Software/Aurora-Sim/addon-modules/YieldProlog/Modules/obj/x86/Debug/Aurora.Addon.ScriptEngine.YieldProlog.dll.mdb
