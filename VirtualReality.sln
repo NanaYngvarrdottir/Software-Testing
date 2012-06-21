@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora", "Aurora/Application/Aurora.csproj", "{75913F80-0000-0000-0000-000000000000}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Reality", "Aurora/Application/Aurora.csproj", "{75913F80-0000-0000-0000-000000000000}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.BotManager", "Aurora/BotManager/Aurora.BotManager.csproj", "{53117734-0000-0000-0000-000000000000}"
 EndProject

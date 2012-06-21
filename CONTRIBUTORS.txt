@@ -1,4 +1,18 @@
+--------------- Virtual Reality contributors (Thank you for your effort! :)) --------------------------
+
+Add your name in here if you have committed to Virtual Reality
+
+SonicBoom Drillon
+Andsim Hammerer
+Andrew Hellershanks
+Serenity Asp
+Mosthatedbitch Renard
+
+
+
 --------------- Aurora contributors (Thanks for all the patches :)) --------------------------
+
+Add your name in here if you have committed to Aurora-Sim
 
 Revolution Smythe
 Mahakala Dharmapala

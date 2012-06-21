@@ -1,5 +1,5 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR}
-mkdir -p AuroraDocs/doxygen
-rm -fr AuroraDocs/doxygen/*
+mkdir -p VirtualRealityDocuments/doxygen
+rm -fr VirtualRealityDocuments/doxygen/*
 doxygen doxygen.conf

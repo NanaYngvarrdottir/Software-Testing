@@ -21,8 +21,8 @@ IF ERRORLEVEL 1 GOTO FAIL
 
 IF NOT "%makearch%"=="yes" GOTO SkipArch
 echo Build success, creating zip package
-del /q aurora-autobuild.zip
-7z -tzip a aurora-autobuild.zip bin
+del /q VirtualReality-AutoBuild.zip
+7z -tzip a VirtualReality-AutoBuild.zip bin
 :SkipArch
 
 :SUCCESS

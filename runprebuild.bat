@@ -1,7 +1,7 @@
 @ECHO OFF
 
 echo ====================================
-echo ==== AURORA ========================
+echo ==== VIRTUAL REALITY ========================
 echo ====================================
 echo.
 
@@ -23,7 +23,7 @@ set configuration=r
 rem ## Default "run compile batch" choice (y(es),n(o))
 set compile_at_end=y
 
-echo I will now ask you three questions regarding your build.
+echo Virtual Reality will now ask you three questions regarding your build.
 echo However, if you wish to build for:
 echo        Visual Studio %vstudio%
 echo        .NET Framework %framework%

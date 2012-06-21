@@ -22,7 +22,7 @@ AllowAlternatePorts = False
 ;NonphysicalPrimMax = 256
 ;PhysicalPrimMax = 10
 ;ClampPrimSize = False
-;MaxPrims = 15000
+;MaxPrims = 80000
 ;; if you would like to allow prims to be physical and move by physics with the physical checkbox in the client set this to true.
 ;AllowPhysicalPrims = true
 ;; *
@@ -45,8 +45,7 @@ AllowAlternatePorts = False
 ;;
 ;; If you want to enable On-Demand running for this sim (only runs parts of the sim when it is needed),
 ;; Choose from the options below.
-;; Soft - Only loads terrain and parcels during startup
 ;; Medium - Loads terrain and parcels during startup
 ;; Both of the above methods do not run the heartbeat (but do runs scripts!)
 ;; Normal - A normal region
-;StartupType = Normal
+;StartupType = Medium

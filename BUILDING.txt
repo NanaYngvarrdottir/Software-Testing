@@ -1,13 +1,13 @@
-=== Building Aurora ===
+=== Building Virtual Reality ===
 
-=== Building on Windows ===
+=== Building Virtual Reality on Windows ===
 
 Steps:
  * runprebuild.bat
 
 === If you have Visual Studio .NET ===
 
- * Load Aurora.sln into Visual Studio .NET and build the solution.
+ * Load VirtualReality.sln into Visual Studio .NET and build the solution.
 
 === If you do not have Visual Studio .NET ===
 
