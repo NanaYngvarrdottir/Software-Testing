@@ -11386,3 +11386,37 @@ System.UnauthorizedAccessException: Access to the path "/BHAssets/jh83" is denie
 2012-06-20 23:51:02,701 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
 2012-06-20 23:51:03,471 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Terminating
 2012-06-20 23:51:03,472 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete.  Exiting...
+2012-06-21 00:00:15,818 FATAL - Aurora.Framework.BaseConsole [Console]: Console log level is INFO
+2012-06-21 00:00:15,832 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-21 00:00:15,833 WARN  - Aurora.Framework.BaseConsole ====================== STARTING VIRTUAL REALITY (x64) ======================
+2012-06-21 00:00:15,833 WARN  - Aurora.Framework.BaseConsole ====================================================================
+2012-06-21 00:00:15,833 WARN  - Aurora.Framework.BaseConsole [Virtual Reality Startup]: Version: Virtual Reality Software:0.1.1.3 Dev:0.5.1 Rev:7db3998 (Unix/Mono)
+
+2012-06-21 00:00:17,338 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8003
+2012-06-21 00:00:18,456 ERROR - Aurora.Framework.BaseConsole [BlackholeAssets]: Blackhole assets enabled
+2012-06-21 00:00:19,759 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8005
+2012-06-21 00:00:19,770 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService ====================== STARDUST CURRENCY 2012 ======================
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService Stardust TOS/License Agreement - READ ME <<<<<<<<<<<<<<<<<<<<<<<<<<<
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService * Do NOT use this module in a production environment. 
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService * This module is for educational purposes only, and should NOT be
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService   used in a production environment!
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that Skidz Tweak, Aurora-Sim, or
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService   other contributing developers are in no way responsible for any
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService   damages that may occur as a result of using this module.
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService * By using this module you agree that you understand the risks of
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService   running this module and are fully willing to accept those risks
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService   and any consequences that may occur.
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService * By downing and using this module you are agreeing to everything
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService   listed above. If you do not agree, do not use it.
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService [StarDustStartup]: Version: 0.1
+
+2012-06-21 00:00:19,771 WARN  - StarDust.Currency.DustCurrencyService ====================================================================
+2012-06-21 00:00:19,773 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8002
+2012-06-21 00:00:19,774 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8007
+2012-06-21 00:00:19,888 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8004
+2012-06-21 00:00:19,889 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8006
+2012-06-21 00:00:19,928 INFO  - Aurora.Framework.BaseConsole [VIRTUAL REALITY STARTUP]: Startup completed in 4.520461
