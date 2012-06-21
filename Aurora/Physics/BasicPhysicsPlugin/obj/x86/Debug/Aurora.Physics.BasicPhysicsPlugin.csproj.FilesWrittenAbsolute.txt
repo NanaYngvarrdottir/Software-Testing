@@ -1,0 +1,8 @@
+/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.BasicPhysicsPlugin.dll.mdb
+/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.BasicPhysicsPlugin.dll
+/home/virtualreality/Software/Aurora/Aurora/Physics/BasicPhysicsPlugin/obj/x86/Debug/Aurora.Physics.BasicPhysicsPlugin.dll
+/home/virtualreality/Software/Aurora/Aurora/Physics/BasicPhysicsPlugin/obj/x86/Debug/Aurora.Physics.BasicPhysicsPlugin.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Physics/Aurora.Physics.BasicPhysicsPlugin.dll.mdb
+/home/virtualreality/Software/SoftwareTesting/bin/Physics/Aurora.Physics.BasicPhysicsPlugin.dll
+/home/virtualreality/Software/SoftwareTesting/Aurora/Physics/BasicPhysicsPlugin/obj/x86/Debug/Aurora.Physics.BasicPhysicsPlugin.dll
+/home/virtualreality/Software/SoftwareTesting/Aurora/Physics/BasicPhysicsPlugin/obj/x86/Debug/Aurora.Physics.BasicPhysicsPlugin.dll.mdb
