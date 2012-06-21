@@ -1,0 +1,17 @@
+[Architecture]
+    ;; Don't touch this, look down below
+    Include-Includes = Configuration/Includes.ini
+	
+    ;;
+    ;; Note: you may ONLY select one of these!
+    ;; Then Open that selection and edit according to your Requirements
+    ;;
+    ;;If you would like to use Aurora in standalone, select this file.
+    Include-Standalone = Configuration/Standalone/StandaloneCommon.ini
+
+    ;;If you would like to use Aurora in grid mode, select this file.
+    ;Include-Grid = Configuration/Grid/AuroraGridCommon.ini
+
+    ;;If you plan on connecting to a Robust based grid, select this file
+    ;; Note: This defaults to OSGrid
+    ;Include-RobustGrid = Configuration/RobustGrid/RobustGrid.ini

@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora-Sim/bin/Aurora.Simulation.Base.dll.mdb
+/home/virtualreality/Software/Aurora-Sim/bin/Aurora.Simulation.Base.dll
+/home/virtualreality/Software/Aurora-Sim/Aurora/Simulation/Base/obj/x86/Debug/Aurora.Simulation.Base.dll
+/home/virtualreality/Software/Aurora-Sim/Aurora/Simulation/Base/obj/x86/Debug/Aurora.Simulation.Base.dll.mdb
