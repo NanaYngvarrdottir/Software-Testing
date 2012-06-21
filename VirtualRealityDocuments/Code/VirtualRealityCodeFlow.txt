@@ -1,8 +1,10 @@
-Understanding the Code Flow of Aurora
+Understanding the Code Flow of Virtual Reality
 
-Due to the largely asyncronous nature of Aurora, the code flow of Aurora is quite complex and has many paths. 
+Due to Virtual Reality's large asyncronous nature, the code flow is quite complex and has many paths. 
+
 However, all start out from the same initial point, as at the base, they all load the same plugins and interfaces.
-This allows Aurora to reuse the code between Standalone and Grid, Aurora.exe and Aurora.Server.exe rather than have different paths for each.
+
+This allows Virtual Reality to reuse the code between Standalone and Grid, Aurora.exe and Aurora.Server.exe rather than have different paths for each.
 The only difference between Aurora.Server.exe and Aurora.exe is what modules that each load (you can make Aurora.Server start regions if you try).
 
 1): During Startup, the Application starts off with loading the configuration options from the commands passed into it by the application that started it.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org/, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -48,7 +48,7 @@ namespace Aurora.Framework
 
         private RegionSettings m_regionSettings;
 
-        private int m_objectCapacity = 0;
+        private int m_objectCapacity = 80000;
         private string m_regionType = String.Empty;
         protected uint m_httpPort;
         protected string m_serverURI;
@@ -62,21 +62,21 @@ namespace Aurora.Framework
         public UUID ScopeID = UUID.Zero;
         private UUID m_GridSecureSessionID = UUID.Zero;
         public int NumberStartup = 0;
-        public StartupType Startup = StartupType.Normal;
-        public bool InfiniteRegion = false;
+        public StartupType Startup = StartupType.Medium;
+        public bool InfiniteRegion = true;
         public bool NewRegion = false;
 
         /// <summary>
         /// The X length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeX = 256;
+        public int RegionSizeX = 512;
 
         /// <summary>
         /// The Y length (in meters) that the region is
         /// The default is 256m
         /// </summary>
-        public int RegionSizeY = 256;
+        public int RegionSizeY = 512;
 
         /// <summary>
         /// The Z height (in meters) that the region is (not supported currently)
@@ -122,8 +122,8 @@ namespace Aurora.Framework
 
         public RegionInfo()
         {
-            TrustBinariesFromForeignSims = false;
-            AllowScriptCrossing = false;
+            TrustBinariesFromForeignSims = true;
+            AllowScriptCrossing = true;
         }
 
         public bool AllowPhysicalPrims
@@ -221,13 +221,13 @@ namespace Aurora.Framework
 
             config.Set("RegionUUID", RegionID.ToString());
 
-            string location = String.Format("{0},{1}", m_regionLocX / 256, m_regionLocY / 256);
+            string location = String.Format("{0},{1}", m_regionLocX / 512, m_regionLocY / 512);
             config.Set("Location", location);
 
             config.Set("InternalAddress", m_internalEndPoint.Address.ToString());
             config.Set("InternalPort", m_internalEndPoint.Port);
 
-            if (m_objectCapacity != 0)
+            if (m_objectCapacity != 80000)
                 config.Set("MaxPrims", m_objectCapacity);
 
             if (ScopeID != UUID.Zero)

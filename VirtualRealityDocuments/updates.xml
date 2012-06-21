@@ -12,6 +12,6 @@
 	<MinSupReleaseDate>April 16, 2011</MinSupReleaseDate>
 	<NewReleaseVersion>0.3</NewReleaseVersion>
 	<NewReleaseDate>May 21, 2011</NewReleaseDate>
-	<ReleaseNotes>http://aurora-sim.org/index.php?page=news</ReleaseNotes>
-	<DownloadLink>https://github.com/downloads/aurora-sim/Aurora-Sim/Aurora0.3Release.zip</DownloadLink>
+	<ReleaseNotes>http://virtualrealitygrid.org/page/RealaseNotes</ReleaseNotes>
+	<DownloadLink>https://github.com/downloads/VirtualReality/VirtualReality/VirtualReality:0.1.0.0Release.zip</DownloadLink>
 </Updater>
