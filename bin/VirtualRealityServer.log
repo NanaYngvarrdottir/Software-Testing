@@ -11382,3 +11382,7 @@ System.UnauthorizedAccessException: Access to the path "/BHAssets/jh83" is denie
 2012-06-20 23:43:56,909 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8004
 2012-06-20 23:43:56,910 INFO  - Aurora.Framework.BaseConsole [HttpServer.HttpListener]: HTTP listening on 0.0.0.0:8006
 2012-06-20 23:43:56,963 INFO  - Aurora.Framework.BaseConsole [VIRTUAL REALITY STARTUP]: Startup completed in 4.318508
+2012-06-20 23:51:02,623 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running shutdown_commands.txt
+2012-06-20 23:51:02,701 INFO  - Aurora.Framework.BaseConsole [COMMANDFILE]: Running 'backup'
+2012-06-20 23:51:03,471 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Terminating
+2012-06-20 23:51:03,472 INFO  - Aurora.Framework.BaseConsole [SHUTDOWN]: Shutdown processing on main thread complete.  Exiting...
