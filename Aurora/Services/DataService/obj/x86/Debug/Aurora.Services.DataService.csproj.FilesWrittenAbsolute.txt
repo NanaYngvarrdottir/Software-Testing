@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora/bin/Aurora.Services.DataService.dll.mdb
-/home/virtualreality/Software/Aurora/bin/Aurora.Services.DataService.dll
-/home/virtualreality/Software/Aurora/Aurora/Services/DataService/obj/x86/Debug/Aurora.Services.DataService.dll
-/home/virtualreality/Software/Aurora/Aurora/Services/DataService/obj/x86/Debug/Aurora.Services.DataService.dll.mdb

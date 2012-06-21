@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.ModifiedBulletSim.dll.mdb
-/home/virtualreality/Software/Aurora/bin/Physics/Aurora.Physics.ModifiedBulletSim.dll
-/home/virtualreality/Software/Aurora/Aurora/Physics/ModifiedBulletSim/obj/x86/Debug/Aurora.Physics.ModifiedBulletSim.dll
-/home/virtualreality/Software/Aurora/Aurora/Physics/ModifiedBulletSim/obj/x86/Debug/Aurora.Physics.ModifiedBulletSim.dll.mdb

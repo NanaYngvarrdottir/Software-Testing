@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora/bin/Aurora.ScriptEngine.AuroraDotNetEngine.dll.mdb
-/home/virtualreality/Software/Aurora/bin/Aurora.ScriptEngine.AuroraDotNetEngine.dll
-/home/virtualreality/Software/Aurora/Aurora/AuroraDotNetEngine/obj/x86/Debug/Aurora.ScriptEngine.AuroraDotNetEngine.dll
-/home/virtualreality/Software/Aurora/Aurora/AuroraDotNetEngine/obj/x86/Debug/Aurora.ScriptEngine.AuroraDotNetEngine.dll.mdb

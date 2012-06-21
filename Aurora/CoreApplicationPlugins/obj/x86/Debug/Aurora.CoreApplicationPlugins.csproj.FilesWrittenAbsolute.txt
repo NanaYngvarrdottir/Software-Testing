@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora/bin/Aurora.CoreApplicationPlugins.dll.mdb
-/home/virtualreality/Software/Aurora/bin/Aurora.CoreApplicationPlugins.dll
-/home/virtualreality/Software/Aurora/Aurora/CoreApplicationPlugins/obj/x86/Debug/Aurora.CoreApplicationPlugins.dll
-/home/virtualreality/Software/Aurora/Aurora/CoreApplicationPlugins/obj/x86/Debug/Aurora.CoreApplicationPlugins.dll.mdb

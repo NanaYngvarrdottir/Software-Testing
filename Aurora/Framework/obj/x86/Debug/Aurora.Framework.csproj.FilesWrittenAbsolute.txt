@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora/bin/Aurora.Framework.dll.mdb
-/home/virtualreality/Software/Aurora/bin/Aurora.Framework.dll
-/home/virtualreality/Software/Aurora/Aurora/Framework/obj/x86/Debug/Aurora.Framework.dll
-/home/virtualreality/Software/Aurora/Aurora/Framework/obj/x86/Debug/Aurora.Framework.dll.mdb

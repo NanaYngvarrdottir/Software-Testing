@@ -1,6 +1,0 @@
-[Physics]
-    ;;
-    ;; Choose one of the physics engines below
-
-	;; Makes AuroraOpenDynamicsEngine avatars feel like they are in Second Life
-    Include-SLAuroraOpenDynamicsEngine = Configuration/Physics/SecondLifeFeelingAuroraOpenDynamicsEngine.ini
