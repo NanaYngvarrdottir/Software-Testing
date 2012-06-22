@@ -639,7 +639,7 @@
     </Project>
 	  
     <!-- Aurora app -->
-    <Project frameworkVersion="v3_5" name="Aurora" path="Aurora/Application" type="Exe">
+    <Project frameworkVersion="v3_5" name="Virtual Reality" path="Aurora/Application" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
           <OutputPath>../../bin/</OutputPath>
@@ -664,6 +664,7 @@
         <Options>
           <OutputPath>../../bin/</OutputPath>
         </Options>
+
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
