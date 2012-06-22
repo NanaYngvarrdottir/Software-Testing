@@ -1,0 +1,44 @@
+[Collections]
+	Enabled = True
+	;; Local for grid server, Remove for regions
+	CollectionsConnector = Local
+	
+	DoClassifieds = True
+	DoTier = True
+	
+	TriesBeforeRemovingClassified = 2
+	NotifyOnClassifiedFailure = True
+	NotifyOnClassifiedRemoval = True
+	NotifyOnClassifiedSuccess = True
+	
+	;; IM or Email
+	NotifyType = IM
+	;; HTML or Text
+	EmailFormat = Text
+	EmailFromAddress = 
+	
+	;; Used with Notices Classified
+	;; {0} Name of classified
+	;; {1} G$16 
+	;; {2} username
+	EmailNotifyTemplateFileClassifiedFailure = 
+	EmailNotifyTemplateFileClassifiedRemoval = 
+	EmailNotifyTemplateFileClassifiedSuccess = 
+	
+	;; {0} will be replaced with type of notice. Failure, Removal, Success
+	EmailSubjectClassified = Aurora-sim Classified Notice: {0}
+	
+	;; Used with IM
+	;; {0} Name of classified
+	;; {1} G$16 
+	IMNotifyTemplateClassifiedFailure = We failed to charge you {1} for your classified named {0}, we will try again in 24 hours.
+	IMNotifyTemplateClassifiedRemoval = Your classified named {0} has been removed. We were unable to charge the monthly amount of {1}.
+	IMNotifyTemplateClassifiedSucess = You have been charged {1} for the classified named {0}.
+
+	
+[SMTP]
+	SMTPHost = 
+	SMTPUseCreditials = true
+	SMTPUser = 
+	SMTPPass = 
+	
