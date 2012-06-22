@@ -110,7 +110,7 @@ if %configuration%==release set cfg=/p:Configuration=Release
 if %configuration%==debug set cfg=/p:Configuration=Debug
 set filename=Compile.VS%vstudio%.net%framework%.%bits%.%configuration%.bat
 
-echo %fpath% Aurora.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN%net4%"
+echo %fpath% VirtualReality.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN%net4%"
 
 echo.
 set /p compile_at_end="Done, %filename% created. Compile now? (y,n) [%compile_at_end%]"

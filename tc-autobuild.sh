@@ -18,7 +18,7 @@ while [ "$1" != "" ]; do
 done
 
 if [ "$makebuild" = "yes" ]; then
-    xbuild Aurora.sln
+    xbuild VirtualReality.sln
     res=$?
 
     if [ "$res" != "0" ]; then
