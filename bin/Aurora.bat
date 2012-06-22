@@ -28,19 +28,19 @@ echo.
 
 :action
 set /p choice="What would you like to do? (VirtualWorld, VirtualServer, VirtualRealityConfig, Quit) [%choice%]: "
-if %choice%==aurora (
+if %choice%==VirtualWorld (
 	set app="Aurora.exe"
 	goto launchcycle
 )
-if %choice%==server (
+if %choice%==VirtualServer (
 	set app="Aurora.Server.exe"
 	goto launchcycle
 )
-if %choice%==config (
+if %choice%==VirtualRealityConfig (
 	set app="Aurora.Configurator.exe"
 	goto launchcycle
 )
-if %choice%==quit goto eof
+if %choice%==Quit goto eof
 if %choice%==q goto eof
 if %choice%==exit goto eof
 
