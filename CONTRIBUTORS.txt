@@ -1,4 +1,18 @@
+--------------- Virtual Reality contributors (Thank you for your effort! :)) --------------------------
+
+Add your name in here if you have committed to Virtual Reality
+
+SonicBoom Drillon
+Andsim Hammerer
+Andrew Hellershanks
+Serenity Asp
+Mosthatedbitch Renard
+
+
+
 --------------- Aurora contributors (Thanks for all the patches :)) --------------------------
+
+Add your name in here if you have committed to Aurora-Sim
 
 Revolution Smythe
 Mahakala Dharmapala
@@ -26,8 +40,8 @@ These folks represent the current core team for OpenSim, and are the
 people that make the day to day of OpenSim happen.
 
 * MW (Tribal Media AB)
-* Adam Frisby 	(DeepThink Pty Ltd)
-* MingChen 	(DeepThink Pty Ltd)
+* Adam Frisby   (DeepThink Pty Ltd)
+* MingChen      (DeepThink Pty Ltd)
 * lbsa71 (Tribal Media AB)
 * Sean Dague / sdague (IBM)
 * Tedd
@@ -54,7 +68,7 @@ currently not active.  Their great contributions helped get us to
 where we are today.
 
 * Gareth
-* Andy-	
+* Andy- 
 * MorphW
 * CW
 * Babblefrog
@@ -194,3 +208,4 @@ In addition, we would like to thank:
 * The Mono Project
 * The NANT Developers
 * Microsoft (.NET, MSSQL-Adapters)
+ 
