@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org, http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -224,8 +224,10 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine.Runtime
         public static readonly LSL_Types.LSLInteger ATTACH_LULEG = 26;
         public static readonly LSL_Types.LSLInteger ATTACH_LLLEG = 27;
         public static readonly LSL_Types.LSLInteger ATTACH_BELLY = 28;
-        public static readonly LSL_Types.LSLInteger ATTACH_RPEC = 29;
-        public static readonly LSL_Types.LSLInteger ATTACH_LPEC = 30;
+        public static readonly LSL_Types.LSLInteger ATTACH_LPEC = 29;
+        public static readonly LSL_Types.LSLInteger ATTACH_RPEC = 30;
+        public static readonly LSL_Types.LSLInteger ATTACH_LEFT_PEC = 29;
+        public static readonly LSL_Types.LSLInteger ATTACH_RIGHT_PEC = 30;
         public static readonly LSL_Types.LSLInteger ATTACH_HUD_CENTER_2 = 31;
         public static readonly LSL_Types.LSLInteger ATTACH_HUD_TOP_RIGHT = 32;
         public static readonly LSL_Types.LSLInteger ATTACH_HUD_TOP_CENTER = 33;
