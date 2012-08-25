@@ -123,4 +123,3 @@ namespace Aurora.Framework
             return versionString;
         }
     }
-}

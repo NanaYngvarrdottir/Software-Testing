@@ -1,11 +1,11 @@
 @ECHO OFF
 
 echo ====================================
-echo ==== AURORA ========================
+echo ==== Virtual Reality ========================
 echo ====================================
 echo.
 
-rem ## Default Course of Action (aurora,server,config,quit)
+rem ## Default Course of Action (VirtualWorld,VirtualServer,VirtualRealityConfig,Quit)
 set choice=aurora
 
 rem ## Auto-restart on exit/crash (y,n)
@@ -14,28 +14,33 @@ set auto_restart=y
 rem ## Pause on crash/exit (y,n)
 set auto_pause=y
 
-echo Welcome to the Aurora launcher.
+echo Welcome to the Virtual Reality launcher.
 if %auto_restart%==y echo I am configured to automatically restart on exit.
 if %auto_pause%==y echo I am configured to automatically pause on exit.
 echo You can edit this batch file to change your default choices.
 echo.
 echo You have the following choices:
-echo	- aurora: Launches Aurora
-echo	- server: Launches Aurora Grid services
-echo	- quit: Quits
+echo	- VirtualWorld: Launches Virtual Reality Virtual World
+echo	- VirtualServer: Launches Virtual Reality Virtual World Server
+echo	- VirtualRealityConfig: Launches the Virtual Reality Configurator to configure Virtual Reality
+echo	- Quit: Quits
 echo.
 
 :action
-set /p choice="What would you like to do? (aurora, server, config, quit) [%choice%]: "
-if %choice%==aurora (
+set /p choice="What would you like to do? (VirtualWorld, VirtualServer, VirtualRealityConfig, Quit) [%choice%]: "
+if %choice%==VirtualWorld (
 	set app="Aurora.exe"
 	goto launchcycle
 )
-if %choice%==server (
+if %choice%==VirtualServer (
 	set app="Aurora.Server.exe"
 	goto launchcycle
 )
-if %choice%==quit goto eof
+if %choice%==VirtualRealityConfig (
+	set app="Aurora.Configurator.exe"
+	goto launchcycle
+)
+if %choice%==Quit goto eof
 if %choice%==q goto eof
 if %choice%==exit goto eof
 

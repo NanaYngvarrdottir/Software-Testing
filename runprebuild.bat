@@ -1,7 +1,11 @@
 @ECHO OFF
 
 echo ====================================
+<<<<<<< HEAD
 echo ==== VIRTUAL REALITY========================
+=======
+echo ==== VIRTUAL REALITY ========================
+>>>>>>> VirtualReality/SoftwareTesting
 echo ====================================
 echo.
 
@@ -23,7 +27,7 @@ set configuration=d
 rem ## Default "run compile batch" choice (y(es),n(o))
 set compile_at_end=y
 
-echo I will now ask you three questions regarding your build.
+echo Virtual Reality will now ask you three questions regarding your build.
 echo However, if you wish to build for:
 echo        Visual Studio %vstudio%
 echo        .NET Framework %framework%
@@ -111,7 +115,11 @@ if %configuration%==release set cfg=/p:Configuration=Release
 if %configuration%==debug set cfg=/p:Configuration=Debug
 set filename=Compile.VS%vstudio%.net%framework%.%bits%.%configuration%.bat
 
+<<<<<<< HEAD
 echo %fpath% Aurora.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN;%conditionals%"
+=======
+echo %fpath% VirtualReality.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN%net4%"
+>>>>>>> VirtualReality/SoftwareTesting
 
 echo.
 set /p compile_at_end="Done, %filename% created. Compile now? (y,n) [%compile_at_end%]"

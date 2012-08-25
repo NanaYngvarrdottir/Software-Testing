@@ -1,0 +1,4 @@
+/home/virtualreality/Software/Aurora-Sim/bin/OpenSim.Services.dll.mdb
+/home/virtualreality/Software/Aurora-Sim/bin/OpenSim.Services.dll
+/home/virtualreality/Software/Aurora-Sim/OpenSim/Services/obj/x86/Debug/OpenSim.Services.dll
+/home/virtualreality/Software/Aurora-Sim/OpenSim/Services/obj/x86/Debug/OpenSim.Services.dll.mdb

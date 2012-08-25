@@ -1,0 +1,12 @@
+These .iar is a collection of many assets, textures, sounds, and more that are to be used in the Welcome Package.
+This collection is only for use in Virtual Reality  (not for users connected to a grid with regions).
+
+To use this collection, drop the .iar files in 
+bin/WelcomePackage/
+and then restart Virtual Reality and it will load.
+
+NOTE:
+
+If you have another .iar in this folder, it is HIGHLY recommended that you remove it, and then run this console command before putting the new .iar in
+"Clear Welcome Package"
+This avoids issues with duplicate Welcome Package Assets.
