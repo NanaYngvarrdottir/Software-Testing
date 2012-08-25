@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+ * Copyright (c) Contributors, http://virtualrealitygrid.org, http://aurora-sim.org/, http://opensimulator.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Aurora-Sim Project nor the
+ *     * Neither the name of the Virtual Reality Project nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -47,17 +47,17 @@ namespace Aurora.Framework
 
         #endregion
 
-        public const string VERSION_NUMBER = "0.5.1";
+        public const string VERSION_NUMBER = "0.1.1.19";
         public const Flavour VERSION_FLAVOUR = Flavour.Dev;
-        public const string VERSION_NAME = "Aurora";
+        public const string VERSION_NAME = "Virtual Reality";
 
         public const int VERSIONINFO_VERSION_LENGTH = 27;
 
         ///<value>
-        ///  This is the external interface version.  It is separate from the OpenSimulator project version.
+        ///  This is the external interface version.  It is separate from the Virtual Reality project version.
         /// 
         ///  This version number should be 
-        ///  increased by 1 every time a code change makes the previous OpenSimulator revision incompatible
+        ///  increased by 1 every time a code change makes the previous Virtual Reality revision incompatible
         ///  with the new revision.  This will usually be due to interregion or grid facing interface changes.
         /// 
         ///  Changes which are compatible with an older revision (e.g. older revisions experience degraded functionality
@@ -82,9 +82,9 @@ namespace Aurora.Framework
             // Add commit hash and date information if available
             // The commit hash and date are stored in a file bin/.version
             // This file can automatically created by a post
-            // commit script in the opensim git master repository or
+            // commit script in the Virtual Reality git master repository or
             // by issuing the follwoing command from the top level
-            // directory of the opensim repository
+            // directory of the Virtual Reality repository
             // git log -n 1 --pretty="format:%h-%ci" >bin/.version
             // For the full git commit hash use %H instead of %h
             //
@@ -104,7 +104,7 @@ namespace Aurora.Framework
                         string lastLine = lines[lines.Length - 1];
                         string[] splitLastLine = lastLine.Split(new string[2] { " ", "\t" },
                                                                 StringSplitOptions.RemoveEmptyEntries);
-                        versionString = "Aurora-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
+                        versionString = "Virtual Reality-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
                                         " " + splitLastLine[5] /*Time zone info*/;
                         FileStream s = File.Open(gitCommitFileName, FileMode.Create);
                         byte[] data = Encoding.UTF8.GetBytes(versionString);
