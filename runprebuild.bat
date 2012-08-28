@@ -1,11 +1,7 @@
 @ECHO OFF
 
 echo ====================================
-<<<<<<< HEAD
-echo ==== VIRTUAL REALITY========================
-=======
 echo ==== VIRTUAL REALITY ========================
->>>>>>> VirtualReality/SoftwareTesting
 echo ====================================
 echo.
 
@@ -115,11 +111,7 @@ if %configuration%==release set cfg=/p:Configuration=Release
 if %configuration%==debug set cfg=/p:Configuration=Debug
 set filename=Compile.VS%vstudio%.net%framework%.%bits%.%configuration%.bat
 
-<<<<<<< HEAD
-echo %fpath% Aurora.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN;%conditionals%"
-=======
-echo %fpath% VirtualReality.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN%net4%"
->>>>>>> VirtualReality/SoftwareTesting
+echo %fpath% VirtualReality.sln %args% %cfg% > %filename% /p:DefineConstants="ISWIN;%conditionals%"
 
 echo.
 set /p compile_at_end="Done, %filename% created. Compile now? (y,n) [%compile_at_end%]"

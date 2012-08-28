@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Copyright (c) Contributors, http://virtualrealitygrid.org/ 
-=======
-Copyright (c) Contributors, http://virtualrealitygrid.org/
->>>>>>> VirtualReality/SoftwareTesting
 See CONTRIBUTORS.TXT for a full list of copyright holders.
 
 Redistribution and use in source and binary forms, with or without
