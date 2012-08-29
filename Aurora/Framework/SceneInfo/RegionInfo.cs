@@ -38,7 +38,6 @@ namespace Aurora.Framework
     public enum StartupType
     {
         Medium = 2
-        
     }
 
     public class RegionInfo : AllScopeIDImpl
