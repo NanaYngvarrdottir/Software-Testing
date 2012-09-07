@@ -1,1 +1,0 @@
-mono --debug Aurora.Server.exe

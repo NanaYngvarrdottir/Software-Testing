@@ -1,5 +1,0 @@
-/home/virtualreality/Software/Aurora-Sim/Aurora/DataManagerPlugins/MySQL/obj/x86/Debug/Aurora.DataManager.MySQL.Legacy.Resources.RegionStore.migrations
-/home/virtualreality/Software/Aurora-Sim/bin/Aurora.DataManager.MySQL.dll.mdb
-/home/virtualreality/Software/Aurora-Sim/bin/Aurora.DataManager.MySQL.dll
-/home/virtualreality/Software/Aurora-Sim/Aurora/DataManagerPlugins/MySQL/obj/x86/Debug/Aurora.DataManager.MySQL.dll
-/home/virtualreality/Software/Aurora-Sim/Aurora/DataManagerPlugins/MySQL/obj/x86/Debug/Aurora.DataManager.MySQL.dll.mdb

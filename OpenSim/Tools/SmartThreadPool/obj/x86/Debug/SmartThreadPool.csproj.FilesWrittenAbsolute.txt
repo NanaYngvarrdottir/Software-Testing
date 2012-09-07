@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora-Sim/bin/SmartThreadPool.dll.mdb
-/home/virtualreality/Software/Aurora-Sim/bin/SmartThreadPool.dll
-/home/virtualreality/Software/Aurora-Sim/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll
-/home/virtualreality/Software/Aurora-Sim/OpenSim/Tools/SmartThreadPool/obj/x86/Debug/SmartThreadPool.dll.mdb

@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora-Sim/bin/Physics/Aurora.Physics.BasicPhysicsPlugin.dll.mdb
-/home/virtualreality/Software/Aurora-Sim/bin/Physics/Aurora.Physics.BasicPhysicsPlugin.dll
-/home/virtualreality/Software/Aurora-Sim/Aurora/Physics/BasicPhysicsPlugin/obj/x86/Debug/Aurora.Physics.BasicPhysicsPlugin.dll
-/home/virtualreality/Software/Aurora-Sim/Aurora/Physics/BasicPhysicsPlugin/obj/x86/Debug/Aurora.Physics.BasicPhysicsPlugin.dll.mdb

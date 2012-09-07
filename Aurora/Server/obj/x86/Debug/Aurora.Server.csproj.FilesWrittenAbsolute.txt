@@ -1,4 +1,0 @@
-/home/virtualreality/Software/Aurora-Sim/bin/Aurora.Server.exe.mdb
-/home/virtualreality/Software/Aurora-Sim/bin/Aurora.Server.exe
-/home/virtualreality/Software/Aurora-Sim/Aurora/Server/obj/x86/Debug/Aurora.Server.exe
-/home/virtualreality/Software/Aurora-Sim/Aurora/Server/obj/x86/Debug/Aurora.Server.exe.mdb
