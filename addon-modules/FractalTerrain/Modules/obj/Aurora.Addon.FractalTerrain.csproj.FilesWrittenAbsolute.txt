@@ -1,0 +1,5 @@
+/Software/Aurora-Sim/bin/LandscapeGenCore.dll
+/Software/Aurora-Sim/bin/Aurora.Addon.FractalTerrain.dll.mdb
+/Software/Aurora-Sim/bin/Aurora.Addon.FractalTerrain.dll
+/Software/Aurora-Sim/addon-modules/FractalTerrain/Modules/obj/x86/Debug/Aurora.Addon.FractalTerrain.dll
+/Software/Aurora-Sim/addon-modules/FractalTerrain/Modules/obj/x86/Debug/Aurora.Addon.FractalTerrain.dll.mdb
