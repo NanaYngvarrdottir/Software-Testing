@@ -1,0 +1,98 @@
+[AuroraStartup]
+
+    ;; ##
+    ;; ## Region Settings
+    ;; ##
+
+    ;; Minimum Z value that prims can travel to before they are returned
+    ;; Default: -1000
+    MaxLowValue = -1000
+
+    ;; Should map tiles be created in their own thread which can speed up startup?
+    ;; Default: false
+    UseAsyncMapTileCreation = false
+
+    ;; What should all new objects be named?
+    ;; Default: "Primitive"
+    DefaultObjectName = "Object"
+
+    ;; How many objects should be allowed in all regions? (Will be overridden by settings per region)
+    ObjectCapacity = 80000
+	
+	;; Adding this password allows people to remotely manage regions and the console, must not be blank
+	RemoteAccessPassword = ""
+
+[Update]
+
+    ;; Should we check for updates?
+    ;; Default: true
+    Enabled = false
+
+	;; Which module to use ?
+	;; GitHubUpdater (default), AuroraDataStartupPlugin
+	Module = GitHubUpdater
+
+    ;; Should we notify you when there is an update?
+    ;; Default: true
+    NotifyOnNewRelease = true
+
+    ;; Version that blocks updates until the update has past this.
+    LatestRelease = 0.5.1
+
+    ;; URL to ask whether there is an update. Comment to use the default Aurora URL. Not currently used GitHubUpdater
+    ;URLToCheckForUpdates =
+
+[ErrorReporting]
+
+    ;; Should error reports automatically be forwarded on to the Aurora developing team?
+    ;; Default: true
+    SendErrorReports = true
+
+    ;; What URL should the report be sent to? (Defaults to Aurora automatically, there should be no reason to set this).
+    ; ErrorReportingURL =
+
+[Animations]
+
+    ;; 'Splat' is another animation state. It occurs when you fall very fast and hit the ground or another prim, and your avatar will fall face first into it, then get up and brush him/her self off.
+    enableSplatAnimation = true
+    
+    ;; The time in frames before the fly animation replaces the slow fly animation
+    SlowFlyDelay = 10
+
+[Attachments]
+    ;; Allows multiple attachments to be added to an avatar in Viewer 2
+    ;; Default is true
+    EnableMultipleAttachments = true
+
+    ;; The maximum number of attachments an avatar can wear at one time
+    ;; Default is 38
+    MaxNumberOfAttachments = 38
+
+[TerrainModule]
+    ;; This option enables the sending of only the terrain the client can currently see 
+    ;; (that is within their draw distance) instead of sending the full region's terrain
+    ;; Default is true
+    SendTerrainByViewDistance = true
+    
+    ;; Enable the generation of 3D water (THIS WILL CAUSE YOUR CLIENT TO CRASH UNLESS IT SUPPORTS IT)
+    ;; Default is false
+    Use3DWater = false
+    
+    ;; If you wish to have no terrain, enable this option
+    ;; Default is false
+    NoTerrain = false
+
+[SceneLoader]
+    ;; The 'standard' 1 thread per Scene world
+    SceneLoader = true
+	;; The new experimental Async-Sim work which uses async physics
+	AsyncSceneLoader = false
+
+[ApplicationPlugins]
+    LoadRegionsPlugin = LoadRegionsPlugin
+    RegionModulesControllerPlugin = RegionModulesControllerPlugin
+    RemoteAdminPlugin = RemoteAdminPlugin
+    SceneManager = SceneManager
+    ;; Aurora.Server uses these as well, so separate them out
+    StatsHandler = StatsHandler
+    ServicesLoader = ServicesLoader
